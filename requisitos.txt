@@ -1,4 +1,4 @@
-⚙️ DSW – Desarrollo web en entorno servidor
+DSW – Desarrollo web en entorno servidor
 Reto: “Backend Robusto: Arquitectura y Datos”
 Descripción: Debes construir el backend, asegurando que los datos sean íntegros y la lógica de negocio escalable.
 Tareas clave:
@@ -9,3 +9,31 @@ Subretos:
 Crear tests unitarios para validar la lógica crítica del negocio (PHPUnit).
 
 
+IPW – Itinerario para la empleabilidad II
+
+Reto: “Detecta, valida y soluciona: crea una app con sentido de mercado”
+Descripción: El mercado es tu cliente. Antes de programar, debes detectar una necesidad real, validarla y proponer una solución digital viable. 
+Tu objetivo es diseñar y desarrollar una aplicación o página web que responda a un problema concreto de un público objetivo definido, 
+simulando el proceso real que seguiría un equipo de desarrollo en una empresa.
+
+Tareas clave
+1️. Análisis del problema y estudio de mercado
+Identificar un problema real (educación, empleo, comercio local, ocio, salud, organización personal, etc.).
+Definir el cliente objetivo (buyer persona):
+Edad, contexto, necesidades, frustraciones.
+Realizar un mini estudio de mercado:
+Soluciones existentes (apps o webs similares).
+Qué hacen bien, qué hacen mal y qué oportunidad detectas.
+2️. Propuesta de solución digital
+Describir la solución propuesta:
+¿Qué problema soluciona?
+¿Por qué es útil para el cliente?
+Definir las funcionalidades clave (MVP).
+Justificar el tipo de producto:
+App web, web corporativa, plataforma, gestor, etc.
+3. Presentación y validación
+YA NO - Realizar un pitch de 2–3 minutos explicando:
+El problema detectado.
+El cliente objetivo.
+La solución desarrollada.
+El valor diferencial frente a la competencia.
