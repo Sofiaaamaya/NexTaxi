@@ -13,19 +13,7 @@ return new class extends Migration
     {
         Schema::create('ofertas_pendientes', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('id_solicitud')
-                ->constrained('solicitudes_taxi', 'id_solicitud')
-                ->cascadeOnDelete();
-            $table->foreignId('id_conductor')
-                ->constrained('conductores', 'id_conductor')
-                ->cascadeOnDelete();
-            $table->enum('estado', ['enviada', 'vista', 'rechazada'])
-                ->default('enviada');
-            $table->dateTime('vence_at');
-
             $table->timestamps();
-
         });
     }
 

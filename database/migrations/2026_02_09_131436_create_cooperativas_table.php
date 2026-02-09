@@ -12,14 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cooperativas', function (Blueprint $table) {
-            $table->id('id_cooperativa');
-
-            $table->string('nombre', 150);
-            $table->string('direccion')->nullable();
-            $table->string('telefono', 20)->nullable();
-        
+            $table->id();
             $table->timestamps();
-
         });
     }
 

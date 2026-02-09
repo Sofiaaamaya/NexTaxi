@@ -12,15 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ubicaciones_viaje', function (Blueprint $table) {
-            $table->id('id_ubicacion');
-
-            $table->foreignId('id_viaje')
-                ->constrained('viajes', 'id_viaje')
-                ->cascadeOnDelete();
-            $table->decimal('latitud', 10, 8);
-            $table->decimal('longitud', 11, 8);
-            $table->dateTime('fecha_registro');
-
+            $table->id();
+            $table->timestamps();
         });
     }
 

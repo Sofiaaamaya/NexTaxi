@@ -12,20 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->id('id_usuario');
-
-            
-            $table->string('nombre', 100);
-            $table->string('email', 150)->unique();
-            $table->string('contraseña');
-            $table->string('telefono', 20)->nullable();
-            $table->enum('rol', ['cliente', 'conductor', 'supervisor', 'administrador']);
-            $table->string('idioma', 5)->default('es');
-            $table->boolean('activo')->default(true);
-
-
+            $table->id();
             $table->timestamps();
-
         });
     }
 
