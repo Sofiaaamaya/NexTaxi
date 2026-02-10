@@ -29,4 +29,9 @@ class Usuario extends Model
     protected $casts = [
         'activo' => 'boolean',
     ];
+
+    public function conductor()
+    {
+        return $this->hasOne(Conductor::class , 'id_usuario');
+    }
 }
