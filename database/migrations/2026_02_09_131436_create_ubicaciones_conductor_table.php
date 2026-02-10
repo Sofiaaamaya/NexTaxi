@@ -12,9 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ubicaciones_conductor', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_ubicacion');
+            $table->foreignId('id_conductor')
+                ->constrained('conductores', 'id_conductor')
+                ->cascadeOnDelete();
+            $table->decimal('latitud', 10, 8);
+            $table->decimal('longitud', 11, 8);
+            $table->dateTime('fecha_registro');
         });
+
     }
 
     /**

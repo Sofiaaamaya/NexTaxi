@@ -12,9 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('conductores', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_conductor');
+            $table->foreignId('id_usuario')
+                ->constrained('usuarios', 'id_usuario')
+                ->cascadeOnDelete();
+            $table->string('numero_licencia', 50)->unique();
+            $table->foreignId('id_vehiculo')
+                ->constrained('vehiculos', 'id_vehiculo')
+                ->restrictOnDelete();
+            $table->enum('estado', ['disponible', 'ocupado', 'fuera_servicio'])
+                ->default('fuera_servicio');
             $table->timestamps();
         });
+
     }
 
     /**

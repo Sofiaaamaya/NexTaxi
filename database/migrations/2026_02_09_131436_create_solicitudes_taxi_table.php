@@ -12,9 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('solicitudes_taxi', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_solicitud');
+            $table->foreignId('id_cliente')
+                ->constrained('usuarios', 'id_usuario')
+                ->cascadeOnDelete();
+            $table->decimal('recogida_lat', 10, 8);
+            $table->decimal('recogida_lng', 11, 8);
+            $table->string('recogida_direccion');
+            $table->decimal('destino_lat', 10, 8)->nullable();
+            $table->decimal('destino_lng', 11, 8)->nullable();
+            $table->string('destino_direccion')->nullable();
+            $table->enum('estado', ['pendiente', 'asignada', 'cancelada', 'expirada'])
+                ->default('pendiente');
+            $table->dateTime('fecha_solicitud');
             $table->timestamps();
         });
+
     }
 
     /**
