@@ -37,3 +37,6 @@ El problema detectado.
 El cliente objetivo.
 La solución desarrollada.
 El valor diferencial frente a la competencia.
+
+DPL
+desplegar xD -no tiene por qué ser docker-
