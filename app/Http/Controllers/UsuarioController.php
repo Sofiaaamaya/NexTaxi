@@ -21,88 +21,125 @@ class UsuarioController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('usuarios.create');
+          $data = ['exito' =>''];
+
+        if ($request->isMethod('post')) {
+
+            $validated = $request->validate([
+                'nombre' => 'required|string|max:100',
+                'email' => ['required', 'string', 'email', 'max:150'],
+                'contraseña' => 'nullable|string|min:8',
+                'telefono' => 'nullable|string|max:20',
+                'rol' => 'required|in:cliente,conductor,supervisor,administrador',
+                'idioma' => 'required|string|max:5',
+                'activo' => 'boolean',
+            ]);
+
+            $usuario = new Usuario();
+
+            
+            $usuario->nombre = $request->input('nombre');
+            $usuario->email = $request->input('email');
+            $usuario->contraseña = $request->input('contraseña');
+            $usuario->telefono = $request->input('telefono');
+            $usuario->rol = $request->input('rol');
+            $usuario->idioma = $request->input('idioma');
+            $usuario->activo = $request->input('activo');
+
+            $usuario->save();   
+            
+            $data['exito'] = 'Operación realiza correctamente';
+
+        }
+
+        $usuario = new Usuario();
+
+
+        return view('usuarios.create',['datos' => $data,'usuario' => $usuario, 'disabled' => '','oper' => 'create']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'nombre' => 'required|string|max:100',
-            'email' => 'required|string|email|max:150|unique:usuarios',
-            'contraseña' => 'required|string|min:8',
-            'telefono' => 'nullable|string|max:20',
-            'rol' => 'required|in:cliente,conductor,supervisor,administrador',
-            'idioma' => 'required|string|max:5',
-            'activo' => 'boolean',
-        ]);
+    
 
-        Usuario::create([
-            'nombre' => $request->nombre,
-            'email' => $request->email,
-            'contraseña' => Hash::make($request->contraseña),
-            'telefono' => $request->telefono,
-            'rol' => $request->rol,
-            'idioma' => $request->idioma,
-            'activo' => $request->has('activo'),
-        ]);
 
-        return redirect()->route('usuarios.index')->with('success', 'Usuario creado exitosamente.');
-    }
 
     /**
      * Display the specified resource.
      */
-    public function show(Usuario $usuario)
+    public function show(Request $request, string $id)
     {
-        return view('usuarios.show', compact('usuario'));
+        $datos = ['exito' => ''];
+        $usuario = Usuario::find($request->input('id'));
+
+        return view('usuarios.create',['datos' => $datos,'usuario' => $usuario, 'disabled' => 'disabled','oper' => 'show']);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuario $usuario)
+    public function edit(Request $request, string $id)
     {
-        return view('usuarios.edit', compact('usuario'));
-    }
+         if ($request->isMethod('post')) {   
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Usuario $usuario)
-    {
-        $request->validate([
-            'nombre' => 'required|string|max:100',
-            'email' => ['required', 'string', 'email', 'max:150', Rule::unique('usuarios')->ignore($usuario->id_usuario, 'id_usuario')],
-            'contraseña' => 'nullable|string|min:8',
-            'telefono' => 'nullable|string|max:20',
-            'rol' => 'required|in:cliente,conductor,supervisor,administrador',
-            'idioma' => 'required|string|max:5',
-            'activo' => 'boolean',
-        ]);
+            $validated = $request->validate([
+                'nombre' => 'required|string|max:100',
+                'email' => ['required', 'string', 'email', 'max:150', Rule::unique('usuarios')->ignore($id, 'id_usuario')],
+                'contraseña' => 'nullable|string|min:8',
+                'telefono' => 'nullable|string|max:20',
+                'rol' => 'required|in:cliente,conductor,supervisor,administrador',
+                'idioma' => 'required|string|max:5',
+                'activo' => 'boolean',
+            ]);
 
-        $data = $request->except(['contraseña', 'activo']);
-        $data['activo'] = $request->has('activo');
+          
 
-        if ($request->filled('contraseña')) {
-            $data['contraseña'] = Hash::make($request->contraseña);
+            $usuario = Usuario::find($request->input('id'));
+
+            
+            $usuario->nombre = $request->input('nombre');
+            $usuario->email = $request->input('email');
+            $usuario->contraseña = $request->input('contraseña');
+            $usuario->telefono = $request->input('telefono');
+            $usuario->rol = $request->input('rol');
+            $usuario->idioma = $request->input('idioma');
+            $usuario->activo = $request->input('activo');
+
+            $usuario->save();   
+            
+            $datos['exito'] = 'Operación realiza correctamente';
+            
+            $disabled = 'disabled';
+        }
+        else
+        {
+            $datos = ['exito' => ''];
+            $usuario = Usuario::find($request->input('id'));
+            $disabled = '';
         }
 
-        $usuario->update($data);
-
-        return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado exitosamente.');
+        return view('usuarios.create',['datos' => $datos,'usuario' => $usuario, 'disabled' => $disabled,'oper' => 'edit']);
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuario $usuario)
+    public function destroy( Request $request, string $id)
     {
-        $usuario->delete();
-        return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado exitosamente.');
+        if ($request->isMethod('post')) {   
+
+            $usuario = Usuario::find($request->input('id'));
+            $usuario->delete();
+            return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado exitosamente.');
+        }
+        else
+        {
+            $datos = ['exito' => ''];
+            $usuario = Usuario::find($request->input('id'));
+            $disabled = 'disabled';
+
+            return view('usuarios.create',['datos' => $datos,'usuario' => $usuario, 'disabled' => $disabled,'oper' => 'destroy']);
+        }
     }
 }
