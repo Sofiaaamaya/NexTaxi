@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import '../../styles/global.css';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { AuthProvider } from '../../context/AuthContext';
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
@@ -15,11 +16,13 @@ export default async function LocaleLayout({ children, params }) {
   }
   return (
     <html lang={locale}>
-      <body className="bg-[var(--color-background)] text-[var(--color-text-primary)]">
+      <body className="bg-background text-primary text-justify">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          <main className="max-w-6xl lg:w-4/5 mx-auto px-4 py-10">{children}</main>
-          <Footer />
+          <AuthProvider>
+            <Header />
+            <main className="max-w-6xl lg:w-4/5 mx-auto px-4 py-10">{children}</main>
+            <Footer />
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

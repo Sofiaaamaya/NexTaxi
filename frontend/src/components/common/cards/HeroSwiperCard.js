@@ -1,7 +1,7 @@
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules'; // ← Navigation eliminado
+import { Pagination, Autoplay } from 'swiper/modules';
 import TitleComponent from '../TitleComponent';
 import Poppins from '../../ui/Poppins';
 import Link from 'next/link';
@@ -10,7 +10,7 @@ export default function HeroSwiperCard({ slides = [] }) {
   return (
     <div className="relative w-full h-[450px] md:h-[550px] rounded-2xl overflow-hidden shadow-lg">
       <Swiper
-        modules={[Pagination, Autoplay]} // ← Navigation eliminado
+        modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
         autoplay={{ delay: 4500 }}
         loop
@@ -64,7 +64,7 @@ export default function HeroSwiperCard({ slides = [] }) {
 
                     {slide.button2 && (
                       <Link href={slide.button2.href || '#'}>
-                        <button className="px-6 py-3 rounded-lg bg-white text-[var(--color-text-primary)] border border-white/40 hover:bg-white/90 transition">
+                        <button className="px-6 py-3 rounded-lg bg-white text-text-primary border border-white/40 hover:bg-white/90 transition">
                           <Poppins
                             text={slide.button2.label}
                             tag="span"

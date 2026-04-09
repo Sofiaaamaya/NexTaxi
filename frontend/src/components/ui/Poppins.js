@@ -20,14 +20,14 @@ const sizeConfig = {
 const getSizeClass = (size) => sizeConfig[size] || '';
 
 const colorMap = {
-  primary: 'text-[var(--color-primary)]',
-  primaryLight: 'text-[var(--color-primary-light)]',
-  textPrimary: 'text-[var(--color-text-primary)]',
-  textSecondary: 'text-[var(--color-text-secondary)]',
-  success: 'text-[var(--color-success)]',
-  warning: 'text-[var(--color-warning)]',
-  danger: 'text-[var(--color-danger)]',
-  border: 'text-[var(--color-border)]',
+  primary: 'primary',
+  primaryLight: 'primary-light',
+  textPrimary: 'text-primary',
+  textSecondary: 'text-secondary',
+  success: 'success',
+  warning: 'warning',
+  danger: 'danger',
+  border: 'border',
   white: 'text-white',
   inherit: 'text-inherit',
 };

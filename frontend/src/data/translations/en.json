@@ -2,5 +2,114 @@
   "home": {
     "title": "Welcome to NexTaxi",
     "description": "Your taxi app in Lanzarote"
+  },
+  "whyChooseUs": {
+    "eyebrow": "Why the island moves with us",
+    "title": "We don’t just offer taxis; we offer real peace of mind and efficiency",
+    "subtitle": "Our platform is designed to respond to Lanzarote’s mobility needs with speed, accuracy, and a fully local approach.",
+
+    "items": {
+      "fastDeployment": {
+        "title": "Fast Deployment",
+        "description": "Average assignment times under 4 minutes thanks to our proximity-based algorithm."
+      },
+      "efficiency": {
+        "title": "Maximum Efficiency",
+        "description": "Smart assignment reduces idle time and optimizes every taxi journey."
+      },
+      "localExperts": {
+        "title": "Local Experts",
+        "description": "Drivers who know every area, access point, roundabout, and key location on the island."
+      },
+      "security": {
+        "title": "24/7 Security",
+        "description": "Continuous monitoring, trip traceability, and support available at all times."
+      }
+    }
+  },
+  "whyChooseNexTaxi": {
+    "title": "Why Choose NexTaxi?",
+    "subtitle": "We provide the safest and most efficient transport experience across Lanzarote.",
+
+    "items": {
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Always there when you need us, day or night."
+      },
+      "localExperts": {
+        "title": "Local Experts",
+        "description": "Experienced, licensed drivers who know every corner of Lanzarote."
+      },
+      "coverage": {
+        "title": "Island-Wide Coverage",
+        "description": "From Arrecife Airport to Playa Blanca and beyond."
+      }
+    }
+  },
+
+  "contactBanner": {
+    "title": "Ready to get in touch with us?",
+    "description": "Our team is available to help you with bookings, questions, or additional information.",
+    "contactButton": "Contact us"
+  },
+
+  "titleComponent": {
+    "defaultEyebrow": "Featured section",
+    "defaultTitle": "Sample title",
+    "defaultSubtitle": "This is a sample text for the TitleComponent."
+  },
+
+  "common": {
+    "learnMore": "Learn more",
+    "contact": "Contact",
+    "cta": "Get started now",
+    "loading": "Loading...",
+    "error": "An error has occurred"
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "subtitle": "Access your account to continue",
+      "email": "Email address",
+      "password": "Password",
+      "button": "Log in As User",
+      "noAccount": "Don't have an account?",
+      "goRegister": "Sign up",
+      "forgot": "Forgot your password?",
+      "orContinue": "or continue with"
+    },
+    "register": {
+      "title": "Create account",
+      "subtitle": "Sign up to start using NexTaxi",
+      "name": "Full name",
+      "email": "Email address",
+      "password": "Password",
+      "button": "Create account",
+      "haveAccount": "Already have an account?",
+      "goLogin": "Log in"
+    }
+  },
+  "chooseProfile": {
+    "title": "Welcome!",
+    "subtitle": "Select your profile to continue.",
+    "userButtonTitle": "I am a User",
+    "userButtonSubtitle": "I need fast transportation",
+    "driverButtonTitle": "I am a Driver",
+    "driverButtonSubtitle": "Manage my services",
+    "newHere": "New to NexTaxi?",
+    "registerLink": "Register as a new partner",
+    "legal": "By continuing, you confirm that you have read and accept our Terms & Conditions and Privacy Policy."
+  },
+  "workerLogin": {
+    "title": "Worker Access",
+    "subtitle": "Enter your credentials to access the internal system.",
+    "email": "Corporate email",
+    "password": "Password",
+    "forgot": "Forgot your password?",
+    "roleTitle": "User profile",
+    "driver": "Driver",
+    "supervisor": "Supervisor",
+    "button": "Log in as Worker",
+    "legal": "© 2026 NexTaxi Canarias. Internal Management System. Unauthorized access is strictly prohibited."
   }
 }

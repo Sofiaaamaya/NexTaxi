@@ -3,11 +3,11 @@ import Poppins from '../ui/Poppins';
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-surface)] border-t border-[var(--color-border)] py-16 mt-20">
+    <footer className="bg-surface border-t border-border py-16 md:px-6  mt-20">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div className="col-span-1 md:col-span-1">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-[var(--color-primary)] rounded-lg flex items-center justify-center text-white font-semibold">
+        <div className="col-span-1 md:col-span-1 text-center md:text-left">
+          <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-semibold">
               NT
             </div>
             <Poppins text="NexTaxi" tag="span" size="18|22" weight="semibold" color="textPrimary" />
@@ -18,7 +18,7 @@ export default function Footer() {
             tag="p"
             size="14|16"
             color="textSecondary"
-            className="max-w-xs"
+            className="max-w-xs mx-auto md:mx-0"
           />
         </div>
 
@@ -39,7 +39,7 @@ export default function Footer() {
                   text="About Us"
                   size="14|16"
                   color="textSecondary"
-                  className="hover:text-[var(--color-primary)] transition text-center"
+                  className="hover:text-primary transition text-center"
                 />
               </Link>
             </li>
@@ -49,7 +49,7 @@ export default function Footer() {
                   text="Careers"
                   size="14|16"
                   color="textSecondary"
-                  className="hover:text-[var(--color-primary)] transition text-center"
+                  className="hover:text-primary transition text-center"
                 />
               </Link>
             </li>
@@ -59,7 +59,7 @@ export default function Footer() {
                   text="Contact"
                   size="14|16"
                   color="textSecondary"
-                  className="hover:text-[var(--color-primary)] transition text-center"
+                  className="hover:text-primary transition text-center"
                 />
               </Link>
             </li>
@@ -83,7 +83,7 @@ export default function Footer() {
                   text="Airport Transfer"
                   size="14|16"
                   color="textSecondary"
-                  className="hover:text-[var(--color-primary)] transition text-center"
+                  className="hover:text-primary transition text-center"
                 />
               </Link>
             </li>

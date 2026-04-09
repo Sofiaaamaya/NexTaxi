@@ -7,25 +7,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #1e3a8a;
-  --primary-light: #3b82f6;
-  --background-color: #f9fafb;
-  --surface: #ffffff;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --success: #059669;
-  --warning: #d97706;
-  --danger: #dc2626;
-  --border: #e5e7eb;
-}
-
-:root {
   --color-primary: #1e3a8a;
-  --color-primary-light: #3b82f6;
+  --color-primary-light: #2b52c3;
 
-  --color-background: #f9fafb;
+  --color-background: #fefefa;
   --color-surface: #ffffff;
 
   --color-text-primary: #111827;
@@ -37,7 +22,48 @@
 
   --color-border: #e5e7eb;
 }
+@theme inline {
+  --color-primary-light: var(--primary-light);
+  --color-primary-light-hover: var(--primary-light-hover);
+  --color-primary-light-active: var(--primary-light-active);
 
+  --color-primary-normal: var(--primary-normal);
+  --color-primary-normal-hover: var(--primary-normal-hover);
+  --color-primary-normal-active: var(--primary-normal-active);
+
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-dark-hover: var(--primary-dark-hover);
+  --color-primary-dark-active: var(--primary-dark-active);
+
+  --color-primary-darker: var(--primary-darker);
+
+  --color-error-light: var(--error-light);
+  --color-error-normal: var(--error-normal);
+  --color-error-dark: var(--error-dark);
+
+  --color-success-light: var(--success-light);
+  --color-success-normal: var(--success-normal);
+  --color-success-dark: var(--success-dark);
+
+  --color-warning-light: var(--warning-light);
+  --color-warning-normal: var(--warning-normal);
+  --color-warning-dark: var(--warning-dark);
+
+  --color-neutrals-light: var(--neutrals-light);
+  --color-neutrals-normal: var(--neutrals-normal);
+  --color-neutrals-dark: var(--neutrals-dark);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-primary-light: var(--primary-light);
+  --color-primary-normal: var(--primary-normal);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-neutrals-light: var(--neutrals-light);
+  --color-neutrals-normal: var(--neutrals-normal);
+  --color-neutrals-dark: var(--neutrals-dark);
+}
 * {
   margin: 0;
   padding: 0;
@@ -120,4 +146,24 @@ p {
 
 .swiper-pagination-bullet-active {
   background: #ffffff;
+}
+
+/* Color del bullet activo */
+.swiper-pagination-bullet-active {
+  background: #ffffff; /* color del bullet activo */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.15s ease-out;
 }

@@ -2,5 +2,115 @@
   "home": {
     "title": "Bienvenido a NexTaxi",
     "description": "Tu app de taxis en Lanzarote"
+  },
+  "whyChooseUs": {
+    "eyebrow": "Por qué la isla se mueve con nosotros",
+    "title": "No solo ofrecemos taxis; ofrecemos tranquilidad y eficiencia real",
+    "subtitle": "Nuestra plataforma está diseñada para responder a la movilidad de Lanzarote con rapidez, precisión y un enfoque totalmente local.",
+
+    "items": {
+      "fastDeployment": {
+        "title": "Despliegue Rápido",
+        "description": "Tiempos medios de asignación inferiores a 4 minutos gracias a nuestro algoritmo de proximidad."
+      },
+      "efficiency": {
+        "title": "Eficiencia Máxima",
+        "description": "La asignación inteligente reduce tiempos muertos y optimiza cada desplazamiento del taxi."
+      },
+      "localExperts": {
+        "title": "Expertos Locales",
+        "description": "Conductores que conocen cada zona, acceso, rotonda y punto clave de la isla."
+      },
+      "security": {
+        "title": "Seguridad 24/7",
+        "description": "Supervisión continua, trazabilidad del viaje y soporte disponible en todo momento."
+      }
+    }
+  },
+  "whyChooseNexTaxi": {
+    "title": "¿Por qué elegir NexTaxi?",
+    "subtitle": "Ofrecemos la experiencia de transporte más segura y eficiente en toda Lanzarote.",
+
+    "items": {
+      "availability": {
+        "title": "Disponibilidad 24/7",
+        "description": "Siempre estamos cuando nos necesitas, de día o de noche."
+      },
+      "localExperts": {
+        "title": "Expertos Locales",
+        "description": "Conductores con experiencia y licencia que conocen cada rincón de Lanzarote."
+      },
+      "coverage": {
+        "title": "Cobertura en toda la isla",
+        "description": "Desde el aeropuerto de Arrecife hasta Playa Blanca y más allá."
+      }
+    }
+  },
+  "contactBanner": {
+    "title": "¿Listo para ponerte en contacto con nosotros?",
+    "description": "Nuestro equipo está disponible para ayudarte con reservas, consultas o información adicional.",
+    "contactButton": "Contáctanos"
+  },
+
+  "titleComponent": {
+    "defaultEyebrow": "Sección destacada",
+    "defaultTitle": "Título de ejemplo",
+    "defaultSubtitle": "Este es un texto de ejemplo para el componente TitleComponent."
+  },
+
+  "common": {
+    "learnMore": "Saber más",
+    "contact": "Contacto",
+    "cta": "Empezar ahora",
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error"
+  },
+
+  "auth": {
+    "login": {
+      "title": "Iniciar sesión",
+      "subtitle": "Accede a tu cuenta para continuar",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "button": "Entrar Como Usuario",
+      "noAccount": "¿No tienes cuenta?",
+      "goRegister": "Regístrate",
+      "forgot": "¿Olvidaste tu contraseña?",
+      "orContinue": "o continuar con"
+    },
+
+    "register": {
+      "title": "Crear cuenta",
+      "subtitle": "Regístrate para comenzar a usar NexTaxi",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "button": "Crear cuenta",
+      "haveAccount": "¿Ya tienes cuenta?",
+      "goLogin": "Inicia sesión"
+    }
+  },
+  "chooseProfile": {
+    "title": "¡Bienvenido!",
+    "subtitle": "Selecciona tu perfil para continuar.",
+    "userButtonTitle": "Soy Usuario",
+    "userButtonSubtitle": "Necesito un transporte rápido",
+    "driverButtonTitle": "Soy Trabajador",
+    "driverButtonSubtitle": "Acceso para conductores y supervisores",
+    "newHere": "¿Nuevo en NexTaxi?",
+    "registerLink": "Regístrate como nuevo socio",
+    "legal": "Al continuar, confirmas que has leído y aceptas nuestros Términos y Condiciones y nuestra Política de Privacidad."
+  },
+  "workerLogin": {
+    "title": "Acceso para Trabajadores",
+    "subtitle": "Introduce tus credenciales para acceder al sistema interno.",
+    "email": "Email corporativo",
+    "password": "Contraseña",
+    "forgot": "¿Olvidaste tu contraseña?",
+    "roleTitle": "Perfil de usuario",
+    "driver": "Conductor",
+    "supervisor": "Supervisor",
+    "button": "Entrar como Trabajador",
+    "legal": "© 2026 NexTaxi Canarias. Sistema de Gestión Interna. El acceso no autorizado está estrictamente prohibido."
   }
 }
