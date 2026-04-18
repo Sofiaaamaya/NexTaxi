@@ -1,4 +1,4 @@
-import HeroSwiperCard from '../../common/cards/HeroSwiperCard';
+import HeroSwiperCard from '@/components/common/cards/HeroSwiperCard';
 
 export default function HomeSwiper() {
   return (

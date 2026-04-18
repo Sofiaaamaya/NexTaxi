@@ -1,8 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import NexTaxiCard from '../../common/cards/Cards';
-import TitleComponent from '../../common/TitleComponent';
+import NexTaxiCard from '@/components/common/cards/Cards';
+import TitleComponent from '@/components/common/TitleComponent';
 
 export default function WhyChooseNexTaxi() {
   const t = useTranslations('whyChooseNexTaxi');

@@ -1,7 +1,7 @@
 'use client';
 
-import Poppins from '../../ui/Poppins';
-import Icon from '../../icons/Icon';
+import Poppins from '@/components/ui/Poppins';
+import Icon from '@/components/icons/Icon';
 
 export default function NexTaxiCard({ icon, title, description }) {
   return (

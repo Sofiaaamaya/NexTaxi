@@ -1,7 +1,7 @@
-import HomeSwiper from '../../../components/views/home/HomeSwiper';
-import WhyChooseNexTaxi from '../../../components/views/home/HomeCards';
-import WhyChooseUsSection from '../../../components/views/home/WhyChooseUsSection';
-import ContactBanner from '../../../components/common/cards/ContactBanner';
+import HomeSwiper from '@/components/views/home/HomeSwiper';
+import WhyChooseNexTaxi from '@/components/views/home/HomeCards';
+import WhyChooseUsSection from '@/components/views/home/WhyChooseUsSection';
+import ContactBanner from '@/components/common/cards/ContactBanner';
 import { getTranslations } from 'next-intl/server';
 
 export default async function HomePage() {

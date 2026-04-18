@@ -1,8 +1,8 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import TitleComponent from '../../common/TitleComponent';
-import Poppins from '../../ui/Poppins';
-import Icon from '../../icons/Icon';
+import TitleComponent from '@/components/common/TitleComponent';
+import Poppins from '@/components/ui/Poppins';
+import Icon from '@/components/icons/Icon';
 
 export default function WhyChooseUsSection() {
   const t = useTranslations('whyChooseUs');

@@ -2,8 +2,8 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
-import TitleComponent from '../TitleComponent';
-import Poppins from '../../ui/Poppins';
+import TitleComponent from '@/components/common/TitleComponent';
+import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
 
 export default function HeroSwiperCard({ slides = [] }) {

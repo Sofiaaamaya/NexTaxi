@@ -1,10 +1,10 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import TitleComponent from '../../../components/common/TitleComponent';
-import Poppins from '../../../components/ui/Poppins';
 import Link from 'next/link';
-import Icon from '../../../components/icons/Icon';
+import TitleComponent from '@/components/common/TitleComponent';
+import Poppins from '@/components/ui/Poppins';
+import Icon from '@/components/icons/Icon';
 
 export default function ChooseProfilePage() {
   const t = useTranslations('chooseProfile');
@@ -25,7 +25,7 @@ export default function ChooseProfilePage() {
 
           <div className="mt-10 flex flex-col gap-6">
             {/* Botón: Soy Usuario */}
-            <Link href="/login?role=user">
+            <Link href="/choose-profile/user">
               <button
                 className="
                   w-full flex items-center justify-between
@@ -60,39 +60,39 @@ export default function ChooseProfilePage() {
             </Link>
 
             {/* Botón: Soy Trabajador */}
-            <Link href="/login?role=driver">
+            <Link href="/choose-profile/driver">
               <button
                 className="
                   w-full flex items-center justify-between
                   px-6 py-5 rounded-xl border border-border bg-white
                   hover:bg-slate-100 transition
-                "
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center">
-                    <Icon name="User" size={26} className="text-primary" />
-                  </div>
+    "
+  >
+    <div className="flex items-center gap-4">
+      <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center">
+        <Icon name="User" size={26} className="text-primary" />
+      </div>
 
-                  <div className="flex flex-col text-left">
-                    <Poppins
-                      text={t('driverButtonTitle')}
-                      tag="span"
-                      size="18|22"
-                      weight="medium"
-                      color="textPrimary"
-                    />
-                    <Poppins
-                      text={t('driverButtonSubtitle')}
-                      tag="span"
-                      size="13|16"
-                      color="textSecondary"
-                    />
-                  </div>
-                </div>
+      <div className="flex flex-col text-left">
+        <Poppins
+          text={t('driverButtonTitle')}
+          tag="span"
+          size="18|22"
+          weight="medium"
+          color="textPrimary"
+        />
+        <Poppins
+          text={t('driverButtonSubtitle')}
+          tag="span"
+          size="13|16"
+          color="textSecondary"
+        />
+      </div>
+    </div>
 
-                <Icon name="ArrowRight" size={22} className="text-primary" />
-              </button>
-            </Link>
+    <Icon name="ArrowRight" size={22} className="text-primary" />
+  </button>
+</Link>
 
             {/* Legal */}
             <p className="text-xs text-textSecondary text-center mt-6">{t('legal')}</p>

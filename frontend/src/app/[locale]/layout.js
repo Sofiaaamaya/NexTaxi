@@ -1,9 +1,9 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
-import '../../styles/global.css';
-import Header from '../../components/common/Header';
-import Footer from '../../components/common/Footer';
-import { AuthProvider } from '../../context/AuthContext';
+import '@/styles/global.css';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
+import { AuthProvider } from '@/context/AuthContext';
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;

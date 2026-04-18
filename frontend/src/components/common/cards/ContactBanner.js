@@ -1,6 +1,6 @@
-import Poppins from '../../ui/Poppins';
+import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
-import Icon from '../../icons/Icon';
+import Icon from '@/components/icons/Icon';
 
 export default function ContactBanner({
   title,

@@ -1,6 +1,6 @@
 'use client';
 
-import { LUCIDE_ICONS } from '../../lib/constants/icons';
+import { LUCIDE_ICONS } from '@/lib/constants/icons';
 
 export default function Icon({
   name,

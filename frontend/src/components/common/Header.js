@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import Poppins from '../ui/Poppins';
-import { useAuth } from '../../context/AuthContext';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import Icon from '../icons/Icon';
+import Poppins from '@/components/ui/Poppins';
+import { useAuth } from '@/context/AuthContext';
+import Icon from '@/components/icons/Icon';
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -109,7 +109,7 @@ export default function Header() {
                 />
               </Link>
 
-              <Link href={`/${currentLocale}/register`}>
+              <Link href={`/${currentLocale}/choose-profile`}>
                 <button className="px-5 py-2 rounded-lg bg-primary text-white hover:bg-primary-light transition">
                   <Poppins text="Register" tag="span" size="16|20" weight="medium" color="white" />
                 </button>

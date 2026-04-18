@@ -1,8 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import TitleComponent from '../../common/TitleComponent';
-import Poppins from '../../ui/Poppins';
+import TitleComponent from '@/components/common/TitleComponent';
+import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
 
 export default function RegisterPage() {
