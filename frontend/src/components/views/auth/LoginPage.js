@@ -16,16 +16,42 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    login({
-      name: 'Sofía',
-      email: email,
-    });
+    try {
+      const res = await fetch('http://localhost:8000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
 
-    router.push('/');
+      if (!res.ok) {
+        throw new Error('Credenciales incorrectas');
+      }
+
+      const data = await res.json();
+
+      // Guardar token + usuario en el AuthContext
+      login({
+        token: data.token,
+        user: data.user,
+      });
+
+      // Redirección según rol
+      if (data.user.rol === 'conductor') {
+        router.push('/choose-profile/driver');
+      } else if (data.user.rol === 'cliente') {
+        router.push('/choose-profile/user');
+      } else {
+        router.push('/');
+      }
+
+    } catch (error) {
+      console.error(error);
+    }
   };
+
 
   return (
     <section className="py-20 max-w-2xl mx-auto rounded-2xl bg-surface border border-border shadow-xl">

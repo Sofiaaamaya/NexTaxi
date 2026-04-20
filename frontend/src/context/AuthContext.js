@@ -1,17 +1,59 @@
 'use client';
-import { createContext, useContext, useState } from 'react';
+
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [authState, setAuthState] = useState({
+    isAuthenticated: false,
+    token: null,
+    user: null,
+  });
 
-  const login = (userData) => setUser(userData);
-  const logout = () => setUser(null);
+  // Cargar sesión desde localStorage al iniciar
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
 
-  return <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>;
+    if (token && user) {
+      setAuthState({
+        isAuthenticated: true,
+        token,
+        user: JSON.parse(user),
+      });
+    }
+  }, []);
+
+  // LOGIN
+  const login = ({ token, user }) => {
+    setAuthState({
+      isAuthenticated: true,
+      token,
+      user,
+    });
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+  };
+
+  // LOGOUT
+  const logout = () => {
+    setAuthState({
+      isAuthenticated: false,
+      token: null,
+      user: null,
+    });
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  };
+
+  return (
+    <AuthContext.Provider value={{ ...authState, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
+export const useAuth = () => useContext(AuthContext);

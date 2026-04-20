@@ -68,13 +68,59 @@ export default function DriverRegisterPage() {
     return false;
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (step < 3 && canGoNext()) {
       setStep(step + 1);
-    } else if (step === 3 && canGoNext()) {
-      console.log('Enviar registro de conductor:', form);
+      return;
+    }
+
+    if (step === 3 && canGoNext()) {
+      const payload = {
+        nombre: form.nombre,
+        email: form.email,
+        password: form.password,
+        telefono: form.telefono,
+
+        dni: form.dni,
+        numero_licencia: form.numeroLicencia,
+        licencia_expira: form.licenciaExpira,
+
+        matricula: form.matricula,
+        marca: form.marca,
+        modelo: form.modelo,
+        plazas: form.plazas,
+        color: form.color,
+        tipo: form.tipo,
+        anio: form.anho,
+      };
+
+      try {
+        const res = await fetch('http://localhost:8000/api/auth/register-driver', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          console.error('Error en registro:', data);
+          return;
+        }
+
+        console.log('Registro exitoso:', data);
+
+        login({ token: data.token, user: data.user });
+
+        // Redirigir al perfil del conductor
+        window.location.href = '/choose-profile/driver';
+
+      } catch (error) {
+        console.error('Error conectando al backend:', error);
+      }
     }
   };
+
 
   const handleBack = () => {
     if (step > 1) setStep(step - 1);

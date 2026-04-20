@@ -120,7 +120,7 @@ export default function Header() {
           {/* SI HAY USUARIO → NOMBRE + LOGOUT */}
           {user && (
             <div className="flex items-center gap-3">
-              <Poppins text={user.name} tag="span" size="16|20" color="textPrimary" />
+              <Poppins text={user.nombre} tag="span" size="16|20" color="textPrimary" />
               <button
                 onClick={logout}
                 className="px-3 py-1 rounded-md border border-border hover:bg-background transition"
