@@ -5,64 +5,59 @@
   },
   "whyChooseUs": {
     "eyebrow": "Why the island moves with us",
-    "title": "We don’t just offer taxis; we offer real peace of mind and efficiency",
-    "subtitle": "Our platform is designed to respond to Lanzarote’s mobility needs with speed, accuracy, and a fully local approach.",
-
+    "title": "We don’t just offer taxis; we offer peace of mind and real efficiency",
+    "subtitle": "Our platform is designed to meet Lanzarote’s mobility needs with speed, precision, and a fully local approach.",
     "items": {
       "fastDeployment": {
-        "title": "Fast Deployment",
+        "title": "Fast Dispatch",
         "description": "Average assignment times under 4 minutes thanks to our proximity-based algorithm."
       },
       "efficiency": {
         "title": "Maximum Efficiency",
-        "description": "Smart assignment reduces idle time and optimizes every taxi journey."
+        "description": "Smart allocation reduces idle time and optimizes every trip."
       },
       "localExperts": {
         "title": "Local Experts",
         "description": "Drivers who know every area, access point, roundabout, and key location on the island."
       },
       "security": {
-        "title": "24/7 Security",
-        "description": "Continuous monitoring, trip traceability, and support available at all times."
+        "title": "24/7 Safety",
+        "description": "Continuous monitoring, trip tracking, and support available at all times."
       }
     }
   },
   "whyChooseNexTaxi": {
-    "title": "Why Choose NexTaxi?",
-    "subtitle": "We provide the safest and most efficient transport experience across Lanzarote.",
-
+    "title": "Why choose NexTaxi?",
+    "subtitle": "We offer the safest and most efficient transport experience across Lanzarote.",
     "items": {
       "availability": {
         "title": "24/7 Availability",
-        "description": "Always there when you need us, day or night."
+        "description": "We’re always there when you need us, day or night."
       },
       "localExperts": {
         "title": "Local Experts",
         "description": "Experienced, licensed drivers who know every corner of Lanzarote."
       },
       "coverage": {
-        "title": "Island-Wide Coverage",
+        "title": "Island-wide Coverage",
         "description": "From Arrecife Airport to Playa Blanca and beyond."
       }
     }
   },
-
   "contactBanner": {
     "title": "Ready to get in touch with us?",
-    "description": "Our team is available to help you with bookings, questions, or additional information.",
+    "description": "Our team is available to help you with bookings, inquiries, or additional information.",
     "contactButton": "Contact us"
   },
-
   "titleComponent": {
     "defaultEyebrow": "Featured section",
     "defaultTitle": "Sample title",
     "defaultSubtitle": "This is a sample text for the TitleComponent."
   },
-
   "common": {
     "learnMore": "Learn more",
     "contact": "Contact",
-    "cta": "Get started now",
+    "cta": "Get started",
     "loading": "Loading...",
     "error": "An error has occurred"
   },
@@ -73,7 +68,7 @@
       "email": "Email address",
       "password": "Password",
       "button": "Log in",
-      "noAccount": "Don't have an account?",
+      "noAccount": "Don’t have an account?",
       "goRegister": "Sign up",
       "forgot": "Forgot your password?",
       "orContinue": "or continue with"
@@ -85,20 +80,38 @@
       "email": "Email address",
       "password": "Password",
       "button": "Create account",
+      "phone": "Phone",
+      "dni": "ID / NIE",
       "haveAccount": "Already have an account?",
-      "goLogin": "Log in"
+      "goLogin": "Log in",
+      "driverRegister": "Driver Registration",
+      "stepsDriver": "Step ${step} of 3",
+      "accountData": "Account details",
+      "licenceData": "License details",
+      "licenceNumber": "License number",
+      "expirationDate": "Expiration date",
+      "vehicleData": "Vehicle details",
+      "plate": "License plate",
+      "marca": "Brand",
+      "plazas": "Seats",
+      "year": "Year",
+      "type": "Type",
+      "color": "Color",
+      "termsPolicy": "I accept the Terms of Service and Privacy Policy.",
+      "endForm": "Complete registration",
+      "nextStep": "Next step"
     }
   },
   "chooseProfile": {
     "title": "Welcome!",
-    "subtitle": "Select your profile to continue.",
-    "userButtonTitle": "I am a User",
-    "userButtonSubtitle": "I need fast transportation",
-    "driverButtonTitle": "I am a Driver",
-    "driverButtonSubtitle": "Manage my services",
+    "subtitle": "Select a profile to continue.",
+    "userButtonTitle": "I’m a User",
+    "userButtonSubtitle": "I need transportation",
+    "driverButtonTitle": "I’m a Worker",
+    "driverButtonSubtitle": "Access for drivers and supervisors",
     "newHere": "New to NexTaxi?",
-    "registerLink": "Register as a new partner",
-    "legal": "By continuing, you confirm that you have read and accept our Terms & Conditions and Privacy Policy."
+    "registerLink": "Sign up as a new partner",
+    "legal": "By continuing, you confirm that you have read and accept our Terms and Conditions and our Privacy Policy."
   },
   "workerLogin": {
     "title": "Worker Access",
@@ -106,10 +119,19 @@
     "email": "Corporate email",
     "password": "Password",
     "forgot": "Forgot your password?",
-    "roleTitle": "User profile",
+    "roleTitle": "User role",
     "driver": "Driver",
     "supervisor": "Supervisor",
     "button": "Log in as Worker",
-    "legal": "© 2026 NexTaxi Canarias. Internal Management System. Unauthorized access is strictly prohibited."
+    "legal": "© 2026 NexTaxi Canary Islands. Internal Management System. Unauthorized access is strictly prohibited."
+  },
+  "driverRegister": {
+    "title": "Join the NexTaxi fleet",
+    "subtite": "Turn your vehicle into a professional service in Lanzarote.",
+    "weekPayments": "Timely payments directly to your bank account.",
+    "schedule": "Flexible schedules",
+    "suport": "24/7 support",
+    "workTeam": "Coordination team always available to help you.",
+    "driveWhereYouWant": "Drive whenever you want, adapt NexTaxi to your life."
   }
 }

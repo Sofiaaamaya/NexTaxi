@@ -42,13 +42,7 @@ export default function DriverRegisterPage() {
 
   const canGoNext = () => {
     if (step === 1) {
-      return (
-        form.nombre &&
-        form.email &&
-        form.password &&
-        form.telefono &&
-        form.dni
-      );
+      return form.nombre && form.email && form.password && form.telefono && form.dni;
     }
     if (step === 2) {
       return form.numeroLicencia && form.licenciaExpira;
@@ -83,29 +77,18 @@ export default function DriverRegisterPage() {
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
         {/* IZQUIERDA — BENEFICIOS */}
         <div className="space-y-8">
-          <TitleComponent
-            align="left"
-            title="Únete a la flota NexTaxi"
-            subtitle="Convierte tu vehículo en un servicio profesional en Lanzarote."
-          />
+          <TitleComponent align="left" title={t('titleTeam')} subtitle={t('subtitle')} />
 
           <div className="space-y-4">
-
             <div className="flex gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                 <Icon name="Wallet" size={20} className="text-primary" />
               </div>
               <div>
-                <Poppins text="Pagos semanales" tag="h3" size="16|20" weight="medium" />
-                <Poppins
-                  text="Cobros puntuales directamente en tu cuenta bancaria."
-                  tag="p"
-                  size="14|18"
-                  color="textSecondary"
-                />
+                <Poppins text={t('weekPayments')} tag="h3" size="16|20" weight="medium" />
+                <Poppins text={t('weekPayments')} tag="p" size="14|18" color="textSecondary" />
               </div>
             </div>
 
@@ -114,13 +97,8 @@ export default function DriverRegisterPage() {
                 <Icon name="Clock" size={20} className="text-primary" />
               </div>
               <div>
-                <Poppins text="Horarios flexibles" tag="h3" size="16|20" weight="medium" />
-                <Poppins
-                  text="Conduce cuando quieras, adapta NexTaxi a tu vida."
-                  tag="p"
-                  size="14|18"
-                  color="textSecondary"
-                />
+                <Poppins text={t('schedule')} tag="h3" size="16|20" weight="medium" />
+                <Poppins text={t('driveWhereYouWant')} tag="p" size="14|18" color="textSecondary" />
               </div>
             </div>
 
@@ -129,24 +107,17 @@ export default function DriverRegisterPage() {
                 <Icon name="Headphones" size={20} className="text-primary" />
               </div>
               <div>
-                <Poppins text="Soporte 24/7" tag="h3" size="16|20" weight="medium" />
-                <Poppins
-                  text="Equipo de coordinación siempre disponible para ayudarte."
-                  tag="p"
-                  size="14|18"
-                  color="textSecondary"
-                />
+                <Poppins text={t('support')} tag="h3" size="16|20" weight="medium" />
+                <Poppins text={t('workTeam')} tag="p" size="14|18" color="textSecondary" />
               </div>
             </div>
-
           </div>
         </div>
 
         <div className="w-full mx-auto rounded-2xl bg-surface border border-border shadow-xl px-8 py-10">
-
           <div className="flex items-center justify-between mb-6">
-            <Poppins text="Registro de Conductor" tag="h2" size="20|26" weight="semibold" />
-            <Poppins text={`Paso ${step} de 3`} size="14|18" color="textSecondary" />
+            <Poppins text={t('driverRegister')} tag="h2" size="20|26" weight="semibold" />
+            <Poppins text={t('weekPayments')} size="14|18" color="textSecondary" />
           </div>
 
           <div className="flex items-center gap-3 mb-8">
@@ -165,16 +136,14 @@ export default function DriverRegisterPage() {
           </div>
 
           <div className="space-y-6">
-
             {/* PASO 1 */}
             {step === 1 && (
               <>
-                <Poppins text="Datos de la cuenta" tag="h3" size="16|20" weight="medium" />
+                <Poppins text={t('accountData')} tag="h3" size="16|20" weight="medium" />
 
                 <div className="flex flex-col gap-4">
-
                   <div>
-                    <Poppins text="Nombre completo" tag="label" size="14|18" weight="medium" />
+                    <Poppins text={t('name')} tag="label" size="14|18" weight="medium" />
                     <input
                       className="input mt-1"
                       placeholder="Ej. Juan Pérez"
@@ -195,7 +164,7 @@ export default function DriverRegisterPage() {
                   </div>
 
                   <div>
-                    <Poppins text="Contraseña" tag="label" size="14|18" weight="medium" />
+                    <Poppins text={t('password')} tag="label" size="14|18" weight="medium" />
                     <input
                       type="password"
                       className="input mt-1"
@@ -206,7 +175,7 @@ export default function DriverRegisterPage() {
                   </div>
 
                   <div>
-                    <Poppins text="Teléfono" tag="label" size="14|18" weight="medium" />
+                    <Poppins text={t('phone')} tag="label" size="14|18" weight="medium" />
                     <input
                       className="input mt-1"
                       placeholder="+34 600 000 000"
@@ -216,7 +185,7 @@ export default function DriverRegisterPage() {
                   </div>
 
                   <div>
-                    <Poppins text="DNI / NIE" tag="label" size="14|18" weight="medium" />
+                    <Poppins text={t('dni')} tag="label" size="14|18" weight="medium" />
                     <input
                       className="input mt-1"
                       placeholder="12345678A"
@@ -224,7 +193,6 @@ export default function DriverRegisterPage() {
                       onChange={(e) => handleChange('dni', e.target.value)}
                     />
                   </div>
-
                 </div>
               </>
             )}
@@ -232,12 +200,11 @@ export default function DriverRegisterPage() {
             {/* PASO 2 */}
             {step === 2 && (
               <>
-                <Poppins text="Datos de la licencia" tag="h3" size="16|20" weight="medium" />
+                <Poppins text={t('licenceData')} tag="h3" size="16|20" weight="medium" />
 
                 <div className="flex flex-col gap-4">
-
                   <div>
-                    <Poppins text="Número de licencia" tag="label" size="14|18" weight="medium" />
+                    <Poppins text={t('licenceNumber')} tag="label" size="14|18" weight="medium" />
                     <input
                       className="input mt-1"
                       placeholder="LZ-1234-5678"
@@ -247,7 +214,7 @@ export default function DriverRegisterPage() {
                   </div>
 
                   <div>
-                    <Poppins text="Fecha de expiración" tag="label" size="14|18" weight="medium" />
+                    <Poppins text={t('expirationDate')} tag="label" size="14|18" weight="medium" />
                     <input
                       type="date"
                       className="input mt-1"
@@ -255,19 +222,17 @@ export default function DriverRegisterPage() {
                       onChange={(e) => handleChange('licenciaExpira', e.target.value)}
                     />
                   </div>
-
                 </div>
               </>
             )}
 
             {step === 3 && (
               <>
-                <Poppins text="Datos del vehículo" tag="h3" size="16|20" weight="medium" />
+                <Poppins text={t('vehicleData')} tag="h3" size="16|20" weight="medium" />
 
                 <div className="flex flex-col gap-4">
-
                   <div>
-                    <Poppins text="Matrícula" tag="label" size="14|18" weight="medium" />
+                    <Poppins text={t('plate')} tag="label" size="14|18" weight="medium" />
                     <input
                       className="input mt-1"
                       placeholder="1234-ABC"
@@ -278,7 +243,7 @@ export default function DriverRegisterPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Poppins text="Marca" tag="label" size="14|18" weight="medium" />
+                      <Poppins text={t('marca')} tag="label" size="14|18" weight="medium" />
                       <input
                         className="input mt-1"
                         placeholder="Toyota"
@@ -287,7 +252,7 @@ export default function DriverRegisterPage() {
                       />
                     </div>
                     <div>
-                      <Poppins text="Modelo" tag="label" size="14|18" weight="medium" />
+                      <Poppins text={t('model')} tag="label" size="14|18" weight="medium" />
                       <input
                         className="input mt-1"
                         placeholder="Corolla"
@@ -299,7 +264,7 @@ export default function DriverRegisterPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                      <Poppins text="Plazas" tag="label" size="14|18" weight="medium" />
+                      <Poppins text={t('plazas')} tag="label" size="14|18" weight="medium" />
                       <input
                         type="number"
                         min={1}
@@ -311,7 +276,7 @@ export default function DriverRegisterPage() {
                     </div>
 
                     <div>
-                      <Poppins text="Año" tag="label" size="14|18" weight="medium" />
+                      <Poppins text={t('year')} tag="label" size="14|18" weight="medium" />
                       <input
                         type="number"
                         className="input mt-1"
@@ -322,7 +287,7 @@ export default function DriverRegisterPage() {
                     </div>
 
                     <div>
-                      <Poppins text="Tipo" tag="label" size="14|18" weight="medium" />
+                      <Poppins text={t('type')} tag="label" size="14|18" weight="medium" />
                       <select
                         className="input mt-1"
                         value={form.tipo}
@@ -338,7 +303,7 @@ export default function DriverRegisterPage() {
                   </div>
 
                   <div>
-                    <Poppins text="Color" tag="label" size="14|18" weight="medium" />
+                    <Poppins text={t('color')} tag="label" size="14|18" weight="medium" />
                     <div className="flex flex-wrap gap-2 mt-2">
                       {VEHICLE_COLORS.map((c) => (
                         <button
@@ -364,28 +329,31 @@ export default function DriverRegisterPage() {
                       checked={form.aceptaTerminos}
                       onChange={(e) => handleChange('aceptaTerminos', e.target.checked)}
                     />
-                    <label htmlFor="aceptaTerminos" className="text-sm text-textSecondary">
-                      Acepto los Términos de servicio y la Política de privacidad.
-                    </label>
+                    <Poppins
+                      text={t('termsPolicy')}
+                      tag="p"
+                      size="14|18"
+                      className="text-sm text-textSecondary"
+                      htmlFor="aceptaTerminos"
+                    />
                   </div>
-
                 </div>
               </>
             )}
-
           </div>
 
           <div className="mt-8 flex items-center justify-between gap-4">
-
             <button
               type="button"
               onClick={handleBack}
               disabled={step === 1}
               className={`
                 px-4 py-2 rounded-lg border text-sm
-                ${step === 1
-                  ? 'border-border text-textSecondary/60 cursor-not-allowed'
-                  : 'border-border hover:bg-background'}
+                ${
+                  step === 1
+                    ? 'border-border text-textSecondary/60 cursor-not-allowed'
+                    : 'border-border hover:bg-background'
+                }
               `}
             >
               Atrás
@@ -397,16 +365,16 @@ export default function DriverRegisterPage() {
               disabled={!canGoNext()}
               className={`
                 px-6 py-2 rounded-lg text-sm font-medium
-                ${canGoNext()
-                  ? 'bg-primary text-white hover:bg-primary-light'
-                  : 'bg-border text-textSecondary cursor-not-allowed'}
+                ${
+                  canGoNext()
+                    ? 'bg-primary text-white hover:bg-primary-light'
+                    : 'bg-border text-textSecondary cursor-not-allowed'
+                }
               `}
             >
               {step === 3 ? 'Finalizar registro' : 'Siguiente paso'}
             </button>
-
           </div>
-
         </div>
       </div>
     </section>

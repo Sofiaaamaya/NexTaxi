@@ -67,32 +67,32 @@ export default function ChooseProfilePage() {
                   px-6 py-5 rounded-xl border border-border bg-white
                   hover:bg-slate-100 transition
     "
-  >
-    <div className="flex items-center gap-4">
-      <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center">
-        <Icon name="User" size={26} className="text-primary" />
-      </div>
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center">
+                    <Icon name="User" size={26} className="text-primary" />
+                  </div>
 
-      <div className="flex flex-col text-left">
-        <Poppins
-          text={t('driverButtonTitle')}
-          tag="span"
-          size="18|22"
-          weight="medium"
-          color="textPrimary"
-        />
-        <Poppins
-          text={t('driverButtonSubtitle')}
-          tag="span"
-          size="13|16"
-          color="textSecondary"
-        />
-      </div>
-    </div>
+                  <div className="flex flex-col text-left">
+                    <Poppins
+                      text={t('driverButtonTitle')}
+                      tag="span"
+                      size="18|22"
+                      weight="medium"
+                      color="textPrimary"
+                    />
+                    <Poppins
+                      text={t('driverButtonSubtitle')}
+                      tag="span"
+                      size="13|16"
+                      color="textSecondary"
+                    />
+                  </div>
+                </div>
 
-    <Icon name="ArrowRight" size={22} className="text-primary" />
-  </button>
-</Link>
+                <Icon name="ArrowRight" size={22} className="text-primary" />
+              </button>
+            </Link>
 
             {/* Legal */}
             <p className="text-xs text-textSecondary text-center mt-6">{t('legal')}</p>
