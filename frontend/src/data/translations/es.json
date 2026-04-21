@@ -136,7 +136,7 @@
       }
     }
   },
-"DriverRegister": {
+  "DriverRegister": {
     "benefits": {
       "title": "Únete a la flota NexTaxi",
       "subtitle": "Convierte tu vehículo en un servicio profesional en Lanzarote.",
@@ -193,7 +193,7 @@
       }
     }
   },
-    "Header": {
+  "Header": {
     "nav": {
       "home": "Inicio",
       "reserva": "Pedir viaje",
@@ -210,7 +210,7 @@
       "logout": "Salir"
     }
   },
-    "AboutSwiper": {
+  "AboutSwiper": {
     "slides": {
       "0": {
         "alt": "Vista del Gran Hotel desde la playa",
@@ -220,7 +220,7 @@
       }
     }
   },
-  "whyChooseAboutUs" :{
+  "whyChooseAboutUs": {
     "title": "Por qué elegir NexTaxi",
     "subtitle": "Combinamos tecnología de vanguardia con la experiencia de los mejores conductores locales para ofrecerte un servicio de transporte sin comparación en toda la isla.",
     "items": {
@@ -243,4 +243,3 @@
     }
   }
 }
-

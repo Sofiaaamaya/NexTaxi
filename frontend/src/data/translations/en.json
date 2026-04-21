@@ -112,7 +112,7 @@
     "button": "Log in as Worker",
     "legal": "© 2026 NexTaxi Canarias. Internal Management System. Unauthorized access is strictly prohibited."
   },
-   "HomeSwiper": {
+  "HomeSwiper": {
     "slides": {
       "0": {
         "alt": "Volcanic landscape of Lanzarote at sunset",
@@ -134,7 +134,7 @@
         "button1": "Book Now"
       }
     }
-  }, 
+  },
   "DriverRegister": {
     "benefits": {
       "title": "Join the NexTaxi Fleet",
@@ -192,7 +192,7 @@
       }
     }
   },
- "Header": {
+  "Header": {
     "nav": {
       "home": "Home",
       "reserva": "Book trip",
@@ -209,7 +209,7 @@
       "logout": "Logout"
     }
   },
-    "AboutSwiper": {
+  "AboutSwiper": {
     "slides": {
       "0": {
         "alt": "Gran Hotel View from the Beach",

@@ -9,8 +9,8 @@
 :root {
   --color-primary: #1e3a8a;
   --color-primary-light: #2b52c3;
-  --color-primary-dark: #172554; 
-  
+  --color-primary-dark: #172554;
+
   --color-background: #fefefa;
   --color-surface: #ffffff;
 
@@ -20,12 +20,11 @@
   --color-border: #e5e7eb;
 }
 
-
 @theme inline {
   --color-primary: #1e3a8a;
   --color-primary-light: #2b52c3;
-  --color-primary-dark: #172554; 
-  
+  --color-primary-dark: #172554;
+
   --color-background: #fefefa;
   --color-surface: #ffffff;
 
@@ -120,7 +119,7 @@ p {
 }
 
 .swiper-pagination-bullet-active {
-  background: #ffffff; 
+  background: #ffffff;
 }
 
 @keyframes fadeIn {

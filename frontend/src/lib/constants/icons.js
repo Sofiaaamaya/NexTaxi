@@ -8,7 +8,7 @@ import {
   Clock,
   ArrowRight,
   User,
-  Rocket ,
+  Rocket,
 } from 'lucide-react';
 
 export const LUCIDE_ICONS = {
@@ -21,5 +21,5 @@ export const LUCIDE_ICONS = {
   Clock,
   ArrowRight,
   User,
-  Rocket ,
+  Rocket,
 };

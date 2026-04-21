@@ -17,7 +17,7 @@ export default function AboutSwiper() {
       titleColor: 'white',
       subtitle: t('slides.0.subtitle'),
       subtitleColor: 'white',
-    }
+    },
   ];
 
   return <HeroSwiperCard slides={slides} />;

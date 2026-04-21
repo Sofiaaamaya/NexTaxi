@@ -12,7 +12,6 @@ export default function TitleComponent({
   layout = 'default',
   children,
 }) {
-  
   const alignment = {
     left: 'text-center lg:text-left',
     center: 'text-center',

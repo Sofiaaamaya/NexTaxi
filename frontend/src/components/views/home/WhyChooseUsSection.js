@@ -4,10 +4,7 @@ import TitleComponent from '@/components/common/TitleComponent';
 import Poppins from '@/components/ui/Poppins';
 import Icon from '@/components/icons/Icon';
 
-export default function WhyChooseUsSection({ 
-  variant = 'default',
-  mainIcon = 'Rocket',
-}) {
+export default function WhyChooseUsSection({ variant = 'default', mainIcon = 'Rocket' }) {
   const t = useTranslations('whyChooseUs');
 
   const items = [
@@ -26,7 +23,9 @@ export default function WhyChooseUsSection({
               <div className="mb-4 flex justify-center lg:justify-start">
                 <Icon name={mainIcon} size={48} className="text-primary" />
               </div>
-            ) : t('eyebrow')
+            ) : (
+              t('eyebrow')
+            )
           }
           title={t('title')}
           subtitle={t('subtitle')}
@@ -35,18 +34,22 @@ export default function WhyChooseUsSection({
         >
           <div className="mt-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
             {items.map((item) => (
-              <div 
-                key={item.key} 
+              <div
+                key={item.key}
                 className={`
                   flex flex-col transition-all duration-300
                   items-center text-center lg:items-start lg:text-left
-                  ${variant === 'colored-cards' 
-                    ? `${item.bgColor} p-8 rounded-3xl border border-black/5` 
-                    : ''}
+                  ${
+                    variant === 'colored-cards'
+                      ? `${item.bgColor} p-8 rounded-3xl border border-black/5`
+                      : ''
+                  }
                 `}
               >
                 {variant === 'default' && (
-                  <div className={`w-16 h-16 flex items-center justify-center rounded-2xl mb-4 ${item.bgColor} ${item.iconColor}`}>
+                  <div
+                    className={`w-16 h-16 flex items-center justify-center rounded-2xl mb-4 ${item.bgColor} ${item.iconColor}`}
+                  >
                     <Icon name={item.icon} size={32} />
                   </div>
                 )}

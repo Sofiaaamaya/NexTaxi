@@ -7,7 +7,7 @@ import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/icons/Icon';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
- 
+
 export default function Header() {
   const { user, logout } = useAuth();
   const t = useTranslations('Header');
@@ -31,14 +31,14 @@ export default function Header() {
   };
 
   return (
-    <nav className={`
+    <nav
+      className={`
       sticky top-0 z-50 w-full py-4 transition-all duration-300
-      ${isScrolled 
-        ? 'bg-surface/70 backdrop-blur-lg shadow-sm' 
-        : 'bg-surface shadow-none'}
+      ${isScrolled ? 'bg-surface/70 backdrop-blur-lg shadow-sm' : 'bg-surface shadow-none'}
       border-b border-border
-    `}>
-            <div className="max-w-6xl mx-auto flex items-center justify-between px-4">
+    `}
+    >
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4">
         {/* IZQUIERDA: LOGO */}
         <div className="flex items-center gap-2 md:flex px-4 py-2 bg-white/30 backdrop-blur-md rounded-lg">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-semibold">
@@ -47,21 +47,20 @@ export default function Header() {
           <Poppins text="NexTaxi" tag="span" size="18|22" weight="semibold" color="textPrimary" />
         </div>
 
-     {/* CENTRO: LINKS */}
-<div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/30 backdrop-blur-md rounded-lg">
-  {['home', 'reserva', 'contacto','about-us'].map((item) => (
-    <Link key={item} href={`/${currentLocale}/${item === 'home' ? '' : item}`}>
-      <Poppins
-        text={t(`nav.${item}`)}
-        tag="span"
-        size="14|18"
-        color="textSecondary"
-        className="px-3 py-1 rounded-md hover:text-primary hover:bg-primary/5 transition-all duration-200"
-      />
-    </Link>
-  ))}
-</div>
-
+        {/* CENTRO: LINKS */}
+        <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/30 backdrop-blur-md rounded-lg">
+          {['home', 'reserva', 'contacto', 'about-us'].map((item) => (
+            <Link key={item} href={`/${currentLocale}/${item === 'home' ? '' : item}`}>
+              <Poppins
+                text={t(`nav.${item}`)}
+                tag="span"
+                size="14|18"
+                color="textSecondary"
+                className="px-3 py-1 rounded-md hover:text-primary hover:bg-primary/5 transition-all duration-200"
+              />
+            </Link>
+          ))}
+        </div>
 
         {/* DERECHA: IDIOMA + AUTH */}
         <div className="flex items-center gap-4 relative">
@@ -103,7 +102,13 @@ export default function Header() {
 
               <Link href={`/${currentLocale}/register/usuario`}>
                 <button className="px-5 py-2 rounded-lg bg-primary text-white hover:bg-primary-light transition">
-                  <Poppins text={t('auth.register')} tag="span" size="16|20" weight="medium" color="white" />
+                  <Poppins
+                    text={t('auth.register')}
+                    tag="span"
+                    size="16|20"
+                    weight="medium"
+                    color="white"
+                  />
                 </button>
               </Link>
             </>
