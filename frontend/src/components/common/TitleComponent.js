@@ -5,28 +5,25 @@ export default function TitleComponent({
   title,
   subtitle,
   align = 'center',
-
   eyebrowColor = 'primary',
   titleColor = 'textPrimary',
   subtitleColor = 'textSecondary',
-
   eyebrowAsBadge = false,
-
   layout = 'default',
   children,
 }) {
+  
   const alignment = {
-    left: 'text-left',
+    left: 'text-center lg:text-left',
     center: 'text-center',
-    right: 'text-right',
+    right: 'text-center lg:text-right',
   };
 
-  const subtitleAlignment = align === 'center' ? 'mx-auto' : 'mx-0';
+  const subtitleAlignment = align === 'left' ? 'mx-auto lg:mx-0' : 'mx-auto';
 
   if (layout === 'grid') {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* COLUMNA IZQUIERDA: TÍTULOS */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div className={`${alignment[align]}`}>
           {eyebrow && (
             <Poppins
@@ -51,12 +48,11 @@ export default function TitleComponent({
               tag="p"
               size="16|20"
               color={subtitleColor}
-              className={`mt-2 text-justify max-w-xl ${subtitleAlignment}`}
+              className={`mt-2 max-w-xl ${subtitleAlignment}`}
             />
           )}
         </div>
 
-        {/* COLUMNA DERECHA: CONTENIDO */}
         <div className="w-full">{children}</div>
       </div>
     );

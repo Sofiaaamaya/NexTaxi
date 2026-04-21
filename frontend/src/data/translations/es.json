@@ -112,5 +112,135 @@
     "supervisor": "Supervisor",
     "button": "Entrar como Trabajador",
     "legal": "© 2026 NexTaxi Canarias. Sistema de Gestión Interna. El acceso no autorizado está estrictamente prohibido."
+  },
+  "HomeSwiper": {
+    "slides": {
+      "0": {
+        "alt": "Paisaje volcánico de Lanzarote al atardecer",
+        "eyebrow": "Servicio de Taxi #1 en Lanzarote",
+        "title": "Vive la Isla con NexTaxi",
+        "subtitle": "Traslados fiables, cómodos y profesionales desde el aeropuerto hasta cada playa escondida.",
+        "button1": "Pedir un Taxi",
+        "button2": "Reservar Traslado"
+      },
+      "1": {
+        "alt": "Vistas al océano con acantilados en Lanzarote",
+        "title": "Explora Lanzarote con Facilidad",
+        "subtitle": "Tu socio de transporte de confianza para cada aventura."
+      },
+      "2": {
+        "alt": "Taxi de traslado al aeropuerto en Lanzarote",
+        "eyebrow": "Rápido y Fiable",
+        "title": "Traslados al Aeropuerto 24/7",
+        "button1": "Reservar Ahora"
+      }
+    }
+  },
+"DriverRegister": {
+    "benefits": {
+      "title": "Únete a la flota NexTaxi",
+      "subtitle": "Convierte tu vehículo en un servicio profesional en Lanzarote.",
+      "items": {
+        "payments": {
+          "title": "Pagos semanales",
+          "desc": "Cobros puntuales directamente en tu cuenta bancaria."
+        },
+        "schedule": {
+          "title": "Horarios flexibles",
+          "desc": "Conduce cuando quieras, adapta NexTaxi a tu vida."
+        },
+        "support": {
+          "title": "Soporte 24/7",
+          "desc": "Equipo de coordinación siempre disponible para ayudarte."
+        }
+      }
+    },
+    "form": {
+      "title": "Registro de Conductor",
+      "stepCounter": "Paso {current} de {total}",
+      "steps": {
+        "1": { "title": "Datos de la cuenta" },
+        "2": { "title": "Datos de la licencia" },
+        "3": { "title": "Datos del vehículo" }
+      },
+      "fields": {
+        "nombre": { "label": "Nombre completo", "placeholder": "Ej. Juan Pérez" },
+        "email": { "label": "Email", "placeholder": "conductor@nextaxi.com" },
+        "password": { "label": "Contraseña", "placeholder": "••••••••" },
+        "telefono": { "label": "Teléfono", "placeholder": "+34 600 000 000" },
+        "dni": { "label": "DNI / NIE", "placeholder": "12345678A" },
+        "numeroLicencia": { "label": "Número de licencia", "placeholder": "LZ-1234-5678" },
+        "licenciaExpira": { "label": "Fecha de expiración" },
+        "matricula": { "label": "Matrícula", "placeholder": "1234-ABC" },
+        "marca": { "label": "Marca", "placeholder": "Toyota" },
+        "modelo": { "label": "Modelo", "placeholder": "Corolla" },
+        "plazas": { "label": "Plazas" },
+        "anho": { "label": "Año" },
+        "tipo": { "label": "Tipo" },
+        "color": { "label": "Color" }
+      },
+      "vehicleTypes": {
+        "normal": "Normal",
+        "adapted": "Adaptado",
+        "premium": "Premium"
+      },
+      "vehicleColors": ["Negro", "Blanco", "Gris", "Azul"],
+      "terms": "Acepto los Términos de servicio y la Política de privacidad.",
+      "buttons": {
+        "back": "Volver",
+        "next": "Siguiente",
+        "submit": "Finalizar Registro"
+      }
+    }
+  },
+    "Header": {
+    "nav": {
+      "home": "Inicio",
+      "reserva": "Pedir viaje",
+      "contacto": "Contacto",
+      "about-us": "Nosotros"
+    },
+    "languages": {
+      "es": "Español",
+      "en": "Inglés"
+    },
+    "auth": {
+      "login": "Entrar",
+      "register": "Registrarse",
+      "logout": "Salir"
+    }
+  },
+    "AboutSwiper": {
+    "slides": {
+      "0": {
+        "alt": "Vista del Gran Hotel desde la playa",
+        "eyebrow": "Servicio de Taxi #1 en Lanzarote",
+        "title": "Vive la Isla con NexTaxi",
+        "subtitle": "Traslados fiables, cómodos y profesionales desde el aeropuerto hasta cada playa escondida."
+      }
+    }
+  },
+  "whyChooseAboutUs" :{
+    "title": "Por qué elegir NexTaxi",
+    "subtitle": "Combinamos tecnología de vanguardia con la experiencia de los mejores conductores locales para ofrecerte un servicio de transporte sin comparación en toda la isla.",
+    "items": {
+      "speed": {
+        "title": "Rapidez Insuperable",
+        "description": "Llegamos a tu ubicación en tiempo récord gracias a nuestro sistema inteligente de asignación de rutas."
+      },
+      "urbanIntegrity": {
+        "title": "Integridad Urbana",
+        "description": "Comprometidos con la movilidad sostenible y el respeto al entorno único de los paisajes de Lanzarote."
+      },
+      "satisfaction": {
+        "title": "Satisfacción 100%",
+        "description": "Tu comodidad es nuestra prioridad. Vehículos modernos y limpios con atención personalizada en cada viaje."
+      },
+      "coverage": {
+        "title": "Cobertura Total",
+        "description": "Desde el Aeropuerto de Arrecife hasta el rincón más remoto de Playa Blanca o Famara."
+      }
+    }
   }
 }
+

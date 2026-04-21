@@ -3,7 +3,7 @@
 import Poppins from '@/components/ui/Poppins';
 import Icon from '@/components/icons/Icon';
 
-export default function NexTaxiCard({ icon, title, description }) {
+export default function Cards({ icon, title, description, iconClassName }) {
   return (
     <div
       className="
@@ -17,19 +17,17 @@ export default function NexTaxiCard({ icon, title, description }) {
       transition-all 
       duration-300
       max-w-80
-      
     "
     >
       {/* Icono */}
       {icon && (
         <div
-          className="
+          className={`
           w-16 h-16 
           flex items-center justify-center 
           rounded-2xl 
-          bg-gray-100 
-          text-primary-normal
-        "
+          ${iconClassName || 'bg-gray-100 text-primary-normal'} 
+        `}
         >
           <Icon name={icon} size={32} strokeWidth={1.5} />
         </div>

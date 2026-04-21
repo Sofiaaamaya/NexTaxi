@@ -14,13 +14,19 @@ export default async function LocaleLayout({ children, params }) {
   } catch {
     notFound();
   }
+
   return (
     <html lang={locale}>
-      <body className="bg-background text-primary text-justify">
+      <body className="bg-background text-textPrimary antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
             <Header />
-            <main className="max-w-6xl lg:w-4/5 mx-auto px-4 py-10">{children}</main>
+<main className="w-full flex justify-center"> 
+  <div className="w-full max-w-6xl px-4 md:px-8 py-10">
+    {children}
+  </div>
+</main>
+
             <Footer />
           </AuthProvider>
         </NextIntlClientProvider>

@@ -111,5 +111,134 @@
     "supervisor": "Supervisor",
     "button": "Log in as Worker",
     "legal": "© 2026 NexTaxi Canarias. Internal Management System. Unauthorized access is strictly prohibited."
+  },
+   "HomeSwiper": {
+    "slides": {
+      "0": {
+        "alt": "Volcanic landscape of Lanzarote at sunset",
+        "eyebrow": "#1 Taxi Service in Lanzarote",
+        "title": "Experience the Island with NexTaxi",
+        "subtitle": "Reliable, comfortable, and professional transfers from the airport to every hidden beach.",
+        "button1": "Request a Taxi",
+        "button2": "Book Transfer"
+      },
+      "1": {
+        "alt": "Ocean view with cliffs in Lanzarote",
+        "title": "Explore Lanzarote with Ease",
+        "subtitle": "Your trusted transport partner for every adventure."
+      },
+      "2": {
+        "alt": "Airport transfer taxi in Lanzarote",
+        "eyebrow": "Fast & Reliable",
+        "title": "Airport Transfers 24/7",
+        "button1": "Book Now"
+      }
+    }
+  }, 
+  "DriverRegister": {
+    "benefits": {
+      "title": "Join the NexTaxi Fleet",
+      "subtitle": "Turn your vehicle into a professional service in Lanzarote.",
+      "items": {
+        "payments": {
+          "title": "Weekly payments",
+          "desc": "Timely payments directly to your bank account."
+        },
+        "schedule": {
+          "title": "Flexible hours",
+          "desc": "Drive when you want, adapt NexTaxi to your lifestyle."
+        },
+        "support": {
+          "title": "24/7 Support",
+          "desc": "Coordination team always available to help you."
+        }
+      }
+    },
+    "form": {
+      "title": "Driver Registration",
+      "stepCounter": "Step {current} of {total}",
+      "steps": {
+        "1": { "title": "Account details" },
+        "2": { "title": "License details" },
+        "3": { "title": "Vehicle details" }
+      },
+      "fields": {
+        "nombre": { "label": "Full Name", "placeholder": "e.g. John Doe" },
+        "email": { "label": "Email", "placeholder": "driver@nextaxi.com" },
+        "password": { "label": "Password", "placeholder": "••••••••" },
+        "telefono": { "label": "Phone", "placeholder": "+34 600 000 000" },
+        "dni": { "label": "ID / Passport", "placeholder": "12345678A" },
+        "numeroLicencia": { "label": "License Number", "placeholder": "LZ-1234-5678" },
+        "licenciaExpira": { "label": "Expiration Date" },
+        "matricula": { "label": "License Plate", "placeholder": "1234-ABC" },
+        "marca": { "label": "Make", "placeholder": "Toyota" },
+        "modelo": { "label": "Model", "placeholder": "Corolla" },
+        "plazas": { "label": "Seats" },
+        "anho": { "label": "Year" },
+        "tipo": { "label": "Type" },
+        "color": { "label": "Color" }
+      },
+      "vehicleTypes": {
+        "normal": "Normal",
+        "adapted": "Adapted",
+        "premium": "Premium"
+      },
+      "vehicleColors": ["Black", "White", "Grey", "Blue"],
+      "terms": "I accept the Terms of Service and Privacy Policy.",
+      "buttons": {
+        "back": "Back",
+        "next": "Next",
+        "submit": "Complete Registration"
+      }
+    }
+  },
+ "Header": {
+    "nav": {
+      "home": "Home",
+      "reserva": "Book trip",
+      "contacto": "Contact",
+      "about-us": "About us"
+    },
+    "languages": {
+      "es": "Spanish",
+      "en": "English"
+    },
+    "auth": {
+      "login": "Login",
+      "register": "Register",
+      "logout": "Logout"
+    }
+  },
+    "AboutSwiper": {
+    "slides": {
+      "0": {
+        "alt": "Gran Hotel View from the Beach",
+        "eyebrow": "#1 Taxi Service in Lanzarote",
+        "title": "Experience the Island with NexTaxi",
+        "subtitle": "Reliable, comfortable, and professional transfers from the airport to every hidden beach."
+      }
+    }
+  },
+  "whyChooseAboutUs": {
+    "title": "Why Choose NexTaxi",
+    "subtitle": "We combine cutting-edge technology with the expertise of the best local drivers to offer you an unparalleled transport service across the island.",
+    "items": {
+      "speed": {
+        "title": "Unmatched Speed",
+        "description": "We reach your location in record time thanks to our intelligent route assignment system."
+      },
+      "urbanIntegrity": {
+        "title": "Urban Integrity",
+        "description": "Committed to sustainable mobility and respect for the unique environment of Lanzarote's landscapes."
+      },
+      "satisfaction": {
+        "title": "100% Satisfaction",
+        "description": "Your comfort is our priority. Modern, clean vehicles with personalized attention on every trip."
+      },
+      "coverage": {
+        "title": "Total Coverage",
+        "description": "From Arrecife Airport to the most remote corners of Playa Blanca or Famara."
+      }
+    }
   }
 }

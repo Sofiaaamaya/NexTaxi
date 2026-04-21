@@ -19,19 +19,13 @@ export default function HeroSwiperCard({ slides = [] }) {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
-              {/* Background image */}
               <img
                 src={slide.image}
                 alt={slide.alt || `Slide ${index + 1}`}
                 className="w-full h-full object-cover"
               />
-
-              {/* Overlay */}
               <div className="absolute inset-0 bg-black/20"></div>
-
-              {/* Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
-                {/* TitleComponent */}
                 <div className="max-w-3xl">
                   <TitleComponent
                     eyebrow={slide.eyebrow}
@@ -45,7 +39,6 @@ export default function HeroSwiperCard({ slides = [] }) {
                   />
                 </div>
 
-                {/* Buttons */}
                 {(slide.button1 || slide.button2) && (
                   <div className="flex gap-4 mt-4 flex-wrap justify-center">
                     {slide.button1 && (

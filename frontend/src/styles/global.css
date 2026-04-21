@@ -9,61 +9,32 @@
 :root {
   --color-primary: #1e3a8a;
   --color-primary-light: #2b52c3;
-
+  --color-primary-dark: #172554; 
+  
   --color-background: #fefefa;
   --color-surface: #ffffff;
 
   --color-text-primary: #111827;
   --color-text-secondary: #6b7280;
 
-  --color-success: #059669;
-  --color-warning: #d97706;
-  --color-danger: #dc2626;
+  --color-border: #e5e7eb;
+}
+
+
+@theme inline {
+  --color-primary: #1e3a8a;
+  --color-primary-light: #2b52c3;
+  --color-primary-dark: #172554; 
+  
+  --color-background: #fefefa;
+  --color-surface: #ffffff;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
 
   --color-border: #e5e7eb;
 }
-@theme inline {
-  --color-primary-light: var(--primary-light);
-  --color-primary-light-hover: var(--primary-light-hover);
-  --color-primary-light-active: var(--primary-light-active);
 
-  --color-primary-normal: var(--primary-normal);
-  --color-primary-normal-hover: var(--primary-normal-hover);
-  --color-primary-normal-active: var(--primary-normal-active);
-
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-dark-hover: var(--primary-dark-hover);
-  --color-primary-dark-active: var(--primary-dark-active);
-
-  --color-primary-darker: var(--primary-darker);
-
-  --color-error-light: var(--error-light);
-  --color-error-normal: var(--error-normal);
-  --color-error-dark: var(--error-dark);
-
-  --color-success-light: var(--success-light);
-  --color-success-normal: var(--success-normal);
-  --color-success-dark: var(--success-dark);
-
-  --color-warning-light: var(--warning-light);
-  --color-warning-normal: var(--warning-normal);
-  --color-warning-dark: var(--warning-dark);
-
-  --color-neutrals-light: var(--neutrals-light);
-  --color-neutrals-normal: var(--neutrals-normal);
-  --color-neutrals-dark: var(--neutrals-dark);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-
-  --color-primary-light: var(--primary-light);
-  --color-primary-normal: var(--primary-normal);
-  --color-primary-dark: var(--primary-dark);
-
-  --color-neutrals-light: var(--neutrals-light);
-  --color-neutrals-normal: var(--neutrals-normal);
-  --color-neutrals-dark: var(--neutrals-dark);
-}
 * {
   margin: 0;
   padding: 0;
@@ -148,9 +119,8 @@ p {
   background: #ffffff;
 }
 
-/* Color del bullet activo */
 .swiper-pagination-bullet-active {
-  background: #ffffff; /* color del bullet activo */
+  background: #ffffff; 
 }
 
 @keyframes fadeIn {

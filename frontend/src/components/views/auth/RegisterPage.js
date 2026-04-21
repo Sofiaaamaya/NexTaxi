@@ -21,7 +21,7 @@ export default function RegisterPage() {
           <input type="password" placeholder={t('password')} className="input" />
 
           <button className="button-primary w-full">
-            <Poppins text={t('button')} tag="span" weight="medium" />
+            <Poppins text={t('button')} tag="span" weight="medium" color="white" />
           </button>
         </form>
 
