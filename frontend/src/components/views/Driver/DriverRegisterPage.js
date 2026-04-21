@@ -42,13 +42,7 @@ export default function DriverRegisterPage() {
 
   const canGoNext = () => {
     if (step === 1) {
-      return (
-        form.nombre &&
-        form.email &&
-        form.password &&
-        form.telefono &&
-        form.dni
-      );
+      return form.nombre && form.email && form.password && form.telefono && form.dni;
     }
     if (step === 2) {
       return form.numeroLicencia && form.licenciaExpira;
@@ -83,7 +77,6 @@ export default function DriverRegisterPage() {
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
         {/* IZQUIERDA — BENEFICIOS */}
         <div className="space-y-8">
           <TitleComponent
@@ -93,7 +86,6 @@ export default function DriverRegisterPage() {
           />
 
           <div className="space-y-4">
-
             <div className="flex gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                 <Icon name="Wallet" size={20} className="text-primary" />
@@ -138,12 +130,10 @@ export default function DriverRegisterPage() {
                 />
               </div>
             </div>
-
           </div>
         </div>
 
         <div className="w-full mx-auto rounded-2xl bg-surface border border-border shadow-xl px-8 py-10">
-
           <div className="flex items-center justify-between mb-6">
             <Poppins text="Registro de Conductor" tag="h2" size="20|26" weight="semibold" />
             <Poppins text={`Paso ${step} de 3`} size="14|18" color="textSecondary" />
@@ -165,14 +155,12 @@ export default function DriverRegisterPage() {
           </div>
 
           <div className="space-y-6">
-
             {/* PASO 1 */}
             {step === 1 && (
               <>
                 <Poppins text="Datos de la cuenta" tag="h3" size="16|20" weight="medium" />
 
                 <div className="flex flex-col gap-4">
-
                   <div>
                     <Poppins text="Nombre completo" tag="label" size="14|18" weight="medium" />
                     <input
@@ -224,7 +212,6 @@ export default function DriverRegisterPage() {
                       onChange={(e) => handleChange('dni', e.target.value)}
                     />
                   </div>
-
                 </div>
               </>
             )}
@@ -235,7 +222,6 @@ export default function DriverRegisterPage() {
                 <Poppins text="Datos de la licencia" tag="h3" size="16|20" weight="medium" />
 
                 <div className="flex flex-col gap-4">
-
                   <div>
                     <Poppins text="Número de licencia" tag="label" size="14|18" weight="medium" />
                     <input
@@ -255,7 +241,6 @@ export default function DriverRegisterPage() {
                       onChange={(e) => handleChange('licenciaExpira', e.target.value)}
                     />
                   </div>
-
                 </div>
               </>
             )}
@@ -265,7 +250,6 @@ export default function DriverRegisterPage() {
                 <Poppins text="Datos del vehículo" tag="h3" size="16|20" weight="medium" />
 
                 <div className="flex flex-col gap-4">
-
                   <div>
                     <Poppins text="Matrícula" tag="label" size="14|18" weight="medium" />
                     <input
@@ -368,24 +352,23 @@ export default function DriverRegisterPage() {
                       Acepto los Términos de servicio y la Política de privacidad.
                     </label>
                   </div>
-
                 </div>
               </>
             )}
-
           </div>
 
           <div className="mt-8 flex items-center justify-between gap-4">
-
             <button
               type="button"
               onClick={handleBack}
               disabled={step === 1}
               className={`
                 px-4 py-2 rounded-lg border text-sm
-                ${step === 1
-                  ? 'border-border text-textSecondary/60 cursor-not-allowed'
-                  : 'border-border hover:bg-background'}
+                ${
+                  step === 1
+                    ? 'border-border text-textSecondary/60 cursor-not-allowed'
+                    : 'border-border hover:bg-background'
+                }
               `}
             >
               Atrás
@@ -397,16 +380,16 @@ export default function DriverRegisterPage() {
               disabled={!canGoNext()}
               className={`
                 px-6 py-2 rounded-lg text-sm font-medium
-                ${canGoNext()
-                  ? 'bg-primary text-white hover:bg-primary-light'
-                  : 'bg-border text-textSecondary cursor-not-allowed'}
+                ${
+                  canGoNext()
+                    ? 'bg-primary text-white hover:bg-primary-light'
+                    : 'bg-border text-textSecondary cursor-not-allowed'
+                }
               `}
             >
               {step === 3 ? 'Finalizar registro' : 'Siguiente paso'}
             </button>
-
           </div>
-
         </div>
       </div>
     </section>
