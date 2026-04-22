@@ -1,12 +1,12 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import TitleComponent from '../../common/TitleComponent';
-import Poppins from '../../ui/Poppins';
+import TitleComponent from '@/components/common/TitleComponent';
+import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
-import { useAuth } from '../../../context/AuthContext';
-import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const t = useTranslations('auth.login');
@@ -15,16 +15,32 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    login({
-      name: 'Sofía',
-      email: email,
+    const res = await login({
+      email,
+      password,
     });
 
-    router.push('/');
+    setLoading(false);
+
+    if (res.success) {
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (user?.rol === "administrador") {
+        router.push('/admin/dashboard');
+      } else if (user?.rol === "conductor") {
+        router.push('/conductor/dashboard');
+      } else {
+        router.push('/cliente/dashboard'); 
+      }
+    } else {
+      alert(res.error || "Error al iniciar sesión");
+    }
   };
 
   return (
@@ -33,7 +49,6 @@ export default function LoginPage() {
         <TitleComponent align="left" title={t('title')} subtitle={t('subtitle')} />
 
         <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-6">
-          {/* Email */}
           <div className="flex flex-col gap-2">
             <Poppins
               text={t('email')}
@@ -43,6 +58,7 @@ export default function LoginPage() {
               weight="medium"
             />
             <input
+              required
               type="email"
               placeholder="ejemplo@correo.com"
               className="input"
@@ -51,7 +67,6 @@ export default function LoginPage() {
             />
           </div>
 
-          {/* Password */}
           <div className="flex flex-col gap-2">
             <div className="flex justify-between items-center">
               <Poppins
@@ -72,6 +87,7 @@ export default function LoginPage() {
             </div>
 
             <input
+              required
               type="password"
               placeholder="••••••••"
               className="input"
@@ -80,35 +96,35 @@ export default function LoginPage() {
             />
           </div>
 
-          {/* Botón principal */}
           <button
             type="submit"
-            className="w-full px-6 py-4 rounded-xl bg-primary text-white hover:bg-primary-light transition flex items-center justify-center gap-2"
+            disabled={loading} 
+            className={`w-full px-6 py-4 rounded-xl text-white transition flex items-center justify-center gap-2 ${
+              loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-primary hover:bg-primary-light'
+            }`}
           >
-            <Poppins text={t('button')} tag="span" color="textWhite" weight="medium" />
-            <span className="text-lg">→</span>
+            <Poppins 
+              text={loading ? "Cargando..." : t('button')} 
+              tag="span" 
+              color="textWhite" 
+              weight="medium" 
+            />
+            {!loading && <span className="text-lg">→</span>}
           </button>
         </form>
 
-        {/* Divider */}
         <div className="my-8 flex items-center gap-4">
           <div className="flex-1 h-px bg-border"></div>
           <Poppins text={t('orContinue')} tag="span" size="14|18" color="textSecondary" />
           <div className="flex-1 h-px bg-border"></div>
         </div>
 
-        {/* Social buttons */}
         <div className="flex flex-col gap-4">
-          <button className="w-full py-3 rounded-xl border border-border hover:bg-background transition">
+          <button type="button" className="w-full py-3 rounded-xl border border-border hover:bg-background transition">
             <Poppins text="GOOGLE" tag="span" size="16|20" weight="medium" />
-          </button>
-
-          <button className="w-full py-3 rounded-xl border border-border hover:bg-background transition">
-            <Poppins text="IOS" tag="span" size="16|20" weight="medium" />
           </button>
         </div>
 
-        {/* Register */}
         <div className="mt-8 text-center">
           <Poppins text={t('noAccount')} tag="span" color="textSecondary" />
           <Link href="/register" className="ml-2 text-primary hover:text-primary-light">
