@@ -49,7 +49,7 @@ export default function Header() {
 
         {/* CENTRO: LINKS */}
         <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/30 backdrop-blur-md rounded-lg">
-          {['home', 'reserva', 'contacto', 'about-us'].map((item) => (
+          {['home', 'reserva', 'contact', 'about-us'].map((item) => (
             <Link key={item} href={`/${currentLocale}/${item === 'home' ? '' : item}`}>
               <Poppins
                 text={t(`nav.${item}`)}

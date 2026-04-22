@@ -19,7 +19,7 @@ export default function WhyChooseNexTaxi({ variant = 'colored-cards', mainIcon =
     <section className="py-20 px-4 md:px-0">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="bg-primary p-8 border border-white/10 flex flex-col justify-center">
+          <div className="bg-gray-500 p-8 border border-white/10 flex flex-col justify-center">
             {variant === 'colored-cards' && (
               <div className="mb-4 flex justify-center lg:justify-start">
                 <div className="p-3 text-white inline-block shadow-sm">
