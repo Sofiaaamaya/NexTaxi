@@ -87,7 +87,8 @@
       "password": "Contraseña",
       "button": "Crear cuenta",
       "haveAccount": "¿Ya tienes cuenta?",
-      "goLogin": "Inicia sesión"
+      "goLogin": "Inicia sesión",
+      "confirmPassword": "Confirmar contraseña"
     }
   },
   "chooseProfile": {

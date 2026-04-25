@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Icon from '@/components/icons/Icon'; 
 
 export default function RegisterPage() {
   const t = useTranslations('auth.register');
@@ -18,9 +19,14 @@ export default function RegisterPage() {
     email: '',
     password: '',
     password_confirmation: '',
+    rol: 'cliente',
   });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,12 +34,10 @@ export default function RegisterPage() {
     setError(null);
 
     const res = await register(form);
-
     setLoading(false);
 
     if (res.success) {
       const user = JSON.parse(localStorage.getItem("user"));
-
       if (user?.rol === "administrador") {
         router.push('/admin/dashboard');
       } else if (user?.rol === "conductor") {
@@ -42,7 +46,6 @@ export default function RegisterPage() {
         router.push('/cliente/dashboard');
       }
     } else {
-
       setError(res.error || "Error al registrarse");
     }
   };
@@ -71,23 +74,41 @@ export default function RegisterPage() {
             onChange={(e) => setForm({...form, email: e.target.value})}
           />
 
-          <input required
-            type="password"
-            placeholder={t('password')}
-            className="input"
-            value={form.password}
-            onChange={(e) => setForm({...form, password: e.target.value})}
-          />
+          <div className="relative w-full">
+            <input required
+              type={showPassword ? "text" : "password"}
+              placeholder={t('password')}
+              className="input w-full pr-10"
+              value={form.password}
+              onChange={(e) => setForm({...form, password: e.target.value})}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-primary transition-colors"
+              aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+            >
+              <Icon name={showPassword ? "EyeOff" : "Eye"} size={20} />
+            </button>
+          </div>
 
-          <input required
-            type="password"
-            placeholder="Confirm password"
-            className="input"
-            value={form.password_confirmation}
-            onChange={(e) =>
-              setForm({...form, password_confirmation: e.target.value})
-            }
-          />
+          <div className="relative w-full">
+            <input required
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder={t('confirmPassword')}
+              className="input w-full pr-10"
+              value={form.password_confirmation}
+              onChange={(e) => setForm({...form, password_confirmation: e.target.value})}
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-primary transition-colors"
+              aria-label={showConfirmPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+            >
+              <Icon name={showConfirmPassword ? "EyeOff" : "Eye"} size={20} />
+            </button>
+          </div>
 
           <button 
             type="submit" 

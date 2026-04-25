@@ -24,7 +24,6 @@ export default async function LocaleLayout({ children, params }) {
             <main className="w-full flex justify-center">
               <div className="w-full max-w-6xl px-4 md:px-8 py-10">{children}</div>
             </main>
-
             <Footer />
           </AuthProvider>
         </NextIntlClientProvider>

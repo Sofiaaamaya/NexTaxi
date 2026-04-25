@@ -9,6 +9,8 @@ import {
   ArrowRight,
   User,
   Rocket,
+  EyeOff,
+  Eye,
 } from 'lucide-react';
 
 export const LUCIDE_ICONS = {
@@ -22,4 +24,6 @@ export const LUCIDE_ICONS = {
   ArrowRight,
   User,
   Rocket,
+  EyeOff,
+  Eye,
 };

@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/api";
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000") + "/api";
 
 export async function apiFetch(endpoint, options = {}) {
   const token = localStorage.getItem("token");
@@ -7,6 +7,7 @@ export async function apiFetch(endpoint, options = {}) {
     ...options,
     headers: {
       "Content-Type": "application/json",
+      "Accept": "application/json",
       ...(token && { Authorization: "Bearer " + token }),
       ...options.headers,
     },
