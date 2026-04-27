@@ -1,46 +1,45 @@
-import { apiFetch } from "./api";
+// src/lib/auth.js — CORREGIDO
+import { apiFetch } from './api';
 
-// LOGIN
 export async function login(email, password) {
-  const data = await apiFetch("/auth/login", {
-    method: "POST",
+  const data = await apiFetch('/auth/login', {
+    method: 'POST',
     body: JSON.stringify({ email, password }),
   });
 
   if (data.token) {
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('user', JSON.stringify(data.user));
   }
 
   return data;
 }
 
-// REGISTER
 export async function register(nombre, email, password, password_confirmation) {
-  return apiFetch("/auth/register", {
-    method: "POST",
-    body: JSON.stringify({
-      nombre,
-      email,
-      password,
-      password_confirmation,
-    }),
+  const data = await apiFetch('/auth/register', {
+    method: 'POST',
+    body: JSON.stringify({ nombre, email, password, password_confirmation }),
   });
+
+  // ✅ ESTO FALTABA — guardar el token tras el registro igual que en login
+  if (data.token) {
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('user', JSON.stringify(data.user));
+  }
+
+  return data;
 }
 
-// LOGOUT
 export function logout() {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
 }
 
-// USER
 export function getUser() {
-  const user = localStorage.getItem("user");
+  const user = localStorage.getItem('user');
   return user ? JSON.parse(user) : null;
 }
 
-// AUTH CHECK
 export function isAuthenticated() {
-  return !!localStorage.getItem("token");
+  return !!localStorage.getItem('token');
 }

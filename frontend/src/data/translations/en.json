@@ -197,8 +197,8 @@
     "nav": {
       "home": "Home",
       "reserva": "Book trip",
-      "contact": "Contact",
-      "about-us": "About us"
+      "contacto": "Contact",
+      "nosotros": "About us"
     },
     "languages": {
       "es": "Spanish",
@@ -240,6 +240,326 @@
         "title": "Total Coverage",
         "description": "From Arrecife Airport to the most remote corners of Playa Blanca or Famara."
       }
+    }
+  },
+  "sidebar": {
+    "menu": "Menu",
+    "navigation": "Navigation",
+    "subtitle": "Manage your platform",
+    "dashboard": "Dashboard",
+    "drivers": "Drivers",
+    "users": "Users"
+  },
+  "drivers": {
+    "eyebrow": "Driver Management",
+    "title": "Drivers",
+    "subtitle": "Manage, edit and supervise system drivers",
+    "dashboard": {
+      "title": "Drivers",
+      "add": "Add driver",
+      "photo": "Photo",
+      "name": "Name",
+      "email": "Email",
+      "status": "Status",
+      "actions": "Actions",
+      "prev": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {total}",
+      "newName": "New driver",
+      "newEmail": "email@example.com",
+      "newStatus": "Active"
+    }
+  },
+  "team": {
+    "title": "The Architects of Movement",
+    "subtitle": "Get to know the specialized team that redefines urban mobility."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "subtitle": "To become the invisible connective tissue of global metropolitan movement, where every trip is a seamless transition powered by predictive intelligence and sustainable logistics.",
+    "metric1": {
+      "value": "99.8%",
+      "label": "Uptime Reliability"
+    },
+    "metric2": {
+      "value": "12ms",
+      "label": "Destination Latency"
+    }
+  },
+
+  "privacy": {
+    "title": "NexTaxi Privacy Policy",
+    "intro": "At NexTaxi, we take your privacy seriously. This policy explains how we collect, use, and protect your data when you use our app and transportation services.",
+    "lastUpdated": "Last updated: April 26, 2026",
+    "sections": [
+      {
+        "id": "intro",
+        "title": "1. Introduction",
+        "paragraphs": [
+          "This Privacy Policy applies to the NexTaxi mobile application, website, and related services (collectively, the \"Services\"). By using NexTaxi, you agree to the practices described in this policy.",
+          "If you do not agree with this Privacy Policy, we recommend that you stop using our Services."
+        ]
+      },
+      {
+        "id": "dataWeCollect",
+        "title": "2. Data We Collect",
+        "paragraphs": [
+          "We collect information to provide you with a safe, reliable, and personalized transportation service. The types of data we may collect include:",
+          "- Account data: first name, last name, email address, phone number, preferred language.",
+          "- Trip data: pickup and drop-off locations, routes, trip dates and times, trip history.",
+          "- Payment data: payment method, partial card information (handled by external payment providers), amounts and receipts.",
+          "- Device data: device model, operating system, device identifiers, IP address, app version.",
+          "- Usage data: interactions with the app, clicks, visited screens, configuration preferences."
+        ]
+      },
+      {
+        "id": "location",
+        "title": "3. Location Data",
+        "paragraphs": [
+          "NexTaxi uses location data to match you with nearby drivers, calculate routes, and display estimated arrival times.",
+          "We may collect your precise location while the app is in use and, in some cases, in the background, as long as you have allowed it in your device settings.",
+          "You can disable location access from your device settings, but this may affect the functionality of the Services."
+        ]
+      },
+      {
+        "id": "howWeUse",
+        "title": "4. How We Use Your Data",
+        "paragraphs": [
+          "We use your data to:",
+          "- Provide and maintain the Services, including managing bookings and trips.",
+          "- Process payments and send invoices and receipts.",
+          "- Enhance user and driver safety, detect fraud, and prevent misuse.",
+          "- Provide customer support and respond to inquiries.",
+          "- Analyze service performance and improve the user experience.",
+          "- Send you trip-related notifications, important service updates, and, where permitted, promotional communications."
+        ]
+      },
+      {
+        "id": "legalBasis",
+        "title": "5. Legal Basis for Processing",
+        "paragraphs": [
+          "We process your personal data on the following legal bases:",
+          "- Performance of a contract: when it is necessary to provide you with the transportation service.",
+          "- Legitimate interest: to improve safety, prevent fraud, and optimize our Services.",
+          "- Consent: for certain features, such as marketing communications or background location usage.",
+          "- Legal obligations: when we are required by law to retain or share certain information."
+        ]
+      },
+      {
+        "id": "sharing",
+        "title": "6. How We Share Your Information",
+        "paragraphs": [
+          "We do not sell your personal data. We may share your information only with:",
+          "- Drivers: data necessary to complete the trip (name, pickup location, approximate destination).",
+          "- Payment providers: to securely process transactions.",
+          "- Infrastructure and analytics providers: who help us operate, maintain, and improve the platform.",
+          "- Competent authorities: when required by law or to protect the rights, safety, or integrity of users, drivers, or NexTaxi."
+        ]
+      },
+      {
+        "id": "security",
+        "title": "7. Data Security",
+        "paragraphs": [
+          "We implement reasonable technical and organizational measures to protect your personal data against unauthorized access, loss, misuse, or disclosure.",
+          "However, no system is completely secure. While we strive to protect your information, we cannot guarantee absolute security."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "8. Data Retention",
+        "paragraphs": [
+          "We retain your personal data for as long as necessary to fulfill the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law.",
+          "When we no longer need your data, we will delete or anonymize it in a secure manner."
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "9. Your Rights",
+        "paragraphs": [
+          "Depending on your jurisdiction, you may have the right to:",
+          "- Access the personal data we hold about you.",
+          "- Request correction of inaccurate or incomplete data.",
+          "- Request deletion of your personal data in certain circumstances.",
+          "- Object to certain processing or request restriction of processing.",
+          "- Withdraw your consent where processing is based on consent.",
+          "You can exercise these rights by contacting us through the channels indicated in this policy."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "10. Cookies and Similar Technologies",
+        "paragraphs": [
+          "NexTaxi may use cookies and similar technologies to remember your preferences, understand how you use the app, and improve performance.",
+          "You can manage your cookie preferences from your browser or device settings, although some features may be affected."
+        ]
+      },
+      {
+        "id": "children",
+        "title": "11. Children",
+        "paragraphs": [
+          "Our Services are not directed to individuals under the age of 18. We do not knowingly collect personal data from children.",
+          "If we become aware that we have collected data from a child without appropriate consent, we will take steps to delete such information."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "12. Changes to This Policy",
+        "paragraphs": [
+          "We may update this Privacy Policy from time to time to reflect changes in law, our Services, or our data practices.",
+          "We will post the updated version in the app and on the website, indicating the date of the latest update."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "13. Contact Us",
+        "paragraphs": [
+          "If you have questions, concerns, or wish to exercise your data protection rights, you can contact NexTaxi at:",
+          "Email: privacy@nextaxi.app",
+          "Please include \"Privacy Inquiry\" in the subject line so we can respond more quickly."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "NexTaxi Terms of Service",
+    "intro": "These Terms of Service govern your access to and use of the NexTaxi application and related services. By using the platform, you agree to these terms.",
+    "lastUpdated": "Last updated: April 26, 2026",
+    "sections": [
+      {
+        "id": "acceptance",
+        "title": "1. Acceptance of Terms",
+        "paragraphs": [
+          "By registering or using NexTaxi, you confirm that you have read, understood, and agreed to these Terms of Service.",
+          "If you do not agree with any part of these terms, you must stop using the platform."
+        ]
+      },
+      {
+        "id": "serviceDescription",
+        "title": "2. Service Description",
+        "paragraphs": [
+          "NexTaxi is a platform that connects passengers with independent drivers to facilitate urban transportation services.",
+          "NexTaxi is not a transportation company; trips are performed by independent drivers using the platform."
+        ]
+      },
+      {
+        "id": "userAccount",
+        "title": "3. User Account",
+        "paragraphs": [
+          "To use NexTaxi, you must create an account with accurate and up-to-date information.",
+          "You are responsible for maintaining the confidentiality of your login credentials.",
+          "You must be at least 18 years old to use the platform."
+        ]
+      },
+      {
+        "id": "conduct",
+        "title": "4. User Conduct",
+        "paragraphs": [
+          "You agree to use the platform responsibly and respectfully.",
+          "You may not:",
+          "• Use the app for illegal activities.",
+          "• Harass, threaten, or endanger drivers or passengers.",
+          "• Manipulate fares, routes, or payment systems.",
+          "• Create multiple accounts without authorization."
+        ]
+      },
+      {
+        "id": "driverConduct",
+        "title": "5. Driver Conduct",
+        "paragraphs": [
+          "Drivers must comply with local transportation laws, maintain their vehicles in safe condition, and treat passengers respectfully.",
+          "NexTaxi may suspend or deactivate drivers who violate these requirements."
+        ]
+      },
+      {
+        "id": "payments",
+        "title": "6. Payments and Fees",
+        "paragraphs": [
+          "Fares are calculated based on distance, time, and demand.",
+          "Payments are processed securely through external providers.",
+          "NexTaxi may apply additional charges for late cancellations or vehicle damage."
+        ]
+      },
+      {
+        "id": "cancellations",
+        "title": "7. Cancellations",
+        "paragraphs": [
+          "You may cancel a trip before the driver arrives at the pickup location.",
+          "Late or repeated cancellations may incur additional fees.",
+          "Drivers may also cancel a trip if the passenger does not show up."
+        ]
+      },
+      {
+        "id": "liability",
+        "title": "8. Limitation of Liability",
+        "paragraphs": [
+          "NexTaxi does not guarantee continuous availability of the service.",
+          "We are not responsible for delays, cancellations, accidents, or damages caused by independent drivers.",
+          "NexTaxi’s liability is limited to the maximum extent permitted by law."
+        ]
+      },
+      {
+        "id": "suspension",
+        "title": "9. Account Suspension or Termination",
+        "paragraphs": [
+          "NexTaxi may suspend or terminate your account if you violate these terms or if suspicious activity is detected.",
+          "You may request account deletion at any time."
+        ]
+      },
+      {
+        "id": "updates",
+        "title": "10. Updates to the Terms",
+        "paragraphs": [
+          "NexTaxi may update these Terms of Service to reflect legal or service changes.",
+          "The updated version will be published in the app and on the website."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "11. Contact Us",
+        "paragraphs": [
+          "If you have questions about these terms, you can contact us at:",
+          "Email: support@nextaxi.app"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "description": "Connecting Lanzarote with reliable transport services. Safe, fast, and always available.",
+    "company": {
+      "title": "COMPANY",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "legal": {
+      "title": "LEGAL",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© 2026 NexTaxi Lanzarote. All rights reserved."
+  },
+  "contact": {
+    "title": "Let’s keep the city moving.",
+    "subtitle": "Precision dispatch and premium service. Whether you're a passenger or a partner, we're here to assist.",
+    "info": [
+      { "title": "Support Phone", "value": "+1 (800) 555-1234" },
+      { "title": "Email Us", "value": "support@nextaxi.com" },
+      { "title": "Headquarters", "value": "122 Market Boulevard, San Francisco, CA 94103" }
+    ],
+    "driver": {
+      "title": "Interested in driving?",
+      "text": "Join the fleet in the future. Send us your details and we’ll notify you with requirements and earning potential."
+    },
+    "form": {
+      "title": "Send a Message",
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    },
+    "map": {
+      "title": "NexTaxi Hub",
+      "address": "122 Market Boulevard, San Francisco, CA 94103"
     }
   }
 }

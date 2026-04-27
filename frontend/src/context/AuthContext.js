@@ -1,100 +1,65 @@
+// src/context/AuthContext.js — CORREGIDO (usa token, no cookies)
 'use client';
 
 import { createContext, useContext, useState, useEffect } from 'react';
+import { login as loginFn, register as registerFn, logout as logoutFn, getUser } from '@/lib/auth';
 
 const AuthContext = createContext();
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  // Cargar usuario al iniciar
   useEffect(() => {
-    checkUser();
+    // Cargar usuario desde localStorage al montar
+    const stored = getUser();
+    if (stored) setUser(stored);
   }, []);
 
-  // Obtener cookie CSRF
-  const csrf = () =>
-    fetch(`${API_URL}/sanctum/csrf-cookie`, {
-      method: "GET",
-      credentials: "include",
-    });
-
-  // Verificar usuario logueado
-  const checkUser = async () => {
-    try {
-      const res = await fetch(`${API_URL}/api/auth/me`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          "Accept": "application/json",
-        },
-      });
-
-      if (res.ok) {
-        const data = await res.json();
-        setUser(data);
-      }
-    } catch (e) {}
-  };
-
-  // LOGIN
   const login = async ({ email, password }) => {
-    await csrf();
-
-    const res = await fetch(`${API_URL}/api/auth/login`, {
-      method: "POST",
-      credentials: "include",
-      headers: { 
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (res.ok) {
-      await checkUser();
-      return { success: true };
+    try {
+      const data = await loginFn(email, password);
+      if (data.token) {
+        setUser(data.user);
+        return { success: true };
+      }
+      return { success: false, error: data.message || 'Error al iniciar sesión' };
+    } catch (e) {
+      return { success: false, error: 'Error de conexión' };
     }
-
-    const data = await res.json();
-    return { success: false, error: data.message || data.error };
   };
 
-  // REGISTER
   const register = async (form) => {
-    await csrf();
+    try {
+      const data = await registerFn(
+        form.nombre,
+        form.email,
+        form.password,
+        form.password_confirmation
+      );
 
-    const res = await fetch(`${API_URL}/api/auth/register`, {
-      method: "POST",
-      credentials: "include",
-      headers: { 
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
+      // Si data.error existe, es porque apiFetch detectó un 422, 401, 500, etc.
+      if (data?.error) {
+        return {
+          success: false,
+          errors: data.data.errors, // Aquí están los campos en rojo { email: [...], nombre: [...] }
+          message: data.data.message,
+        };
+      }
 
-    const data = await res.json();
+      // Si todo salió bien y tenemos token
+      if (data?.token) {
+        setUser(data.user);
+        return { success: true };
+      }
 
-    if (res.ok) {
-      await checkUser();
-      return { success: true };
+      return { success: false, message: 'Respuesta inesperada del servidor' };
+    } catch (e) {
+      return { success: false, message: 'Error crítico en el cliente' };
     }
-
-    return { success: false, error: data.message || data.error || "Error en el registro" };
   };
 
-  // LOGOUT
-  const logout = async () => {
-    await fetch(`${API_URL}/api/auth/logout`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Accept": "application/json",
-      },
-    });
-
+  const logout = () => {
+    logoutFn();
     setUser(null);
   };
 

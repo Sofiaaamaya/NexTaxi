@@ -198,8 +198,8 @@
     "nav": {
       "home": "Inicio",
       "reserva": "Pedir viaje",
-      "contact": "Contacto",
-      "about-us": "Nosotros"
+      "contacto": "Contacto",
+      "nosotros": "Nosotros"
     },
     "languages": {
       "es": "Español",
@@ -241,6 +241,325 @@
         "title": "Cobertura Total",
         "description": "Desde el Aeropuerto de Arrecife hasta el rincón más remoto de Playa Blanca o Famara."
       }
+    }
+  },
+  "sidebar": {
+    "menu": "Menú",
+    "navigation": "Navegación",
+    "subtitle": "Gestiona tu plataforma",
+    "dashboard": "Dashboard",
+    "drivers": "Conductores",
+    "users": "Usuarios"
+  },
+  "drivers": {
+    "eyebrow": "Gestión de conductores",
+    "title": "Conductores",
+    "subtitle": "Administra, edita y supervisa a los conductores del sistema",
+    "dashboard": {
+      "title": "Conductores",
+      "add": "Añadir conductor",
+      "photo": "Foto",
+      "name": "Nombre",
+      "email": "Email",
+      "status": "Estado",
+      "actions": "Acciones",
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "page": "Página {page} de {total}",
+      "newName": "Nuevo conductor",
+      "newEmail": "correo@ejemplo.com",
+      "newStatus": "Activo"
+    }
+  },
+  "team": {
+    "title": "Los Arquitectos del Movimiento",
+    "subtitle": "Conoce al equipo especializado que redefine la movilidad urbana."
+  },
+  "vision": {
+    "title": "Nuestra Visión",
+    "subtitle": "Convertirnos en el tejido conectivo invisible del movimiento metropolitano global, donde cada trayecto sea una transición fluida impulsada por inteligencia predictiva y logística sostenible.",
+    "metric1": {
+      "value": "99.8%",
+      "label": "Fiabilidad de Uptime"
+    },
+    "metric2": {
+      "value": "12ms",
+      "label": "Latencia de Destino"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidad de NexTaxi",
+    "intro": "En NexTaxi nos tomamos muy en serio tu privacidad. Esta política explica cómo recopilamos, usamos y protegemos tus datos cuando utilizas nuestra aplicación y servicios de transporte.",
+    "lastUpdated": "Última actualización: 26 de abril de 2026",
+    "sections": [
+      {
+        "id": "intro",
+        "title": "1. Introducción",
+        "paragraphs": [
+          "Esta Política de Privacidad se aplica a la aplicación móvil, la web y los servicios asociados de NexTaxi (en conjunto, los \"Servicios\"). Al usar NexTaxi, aceptas las prácticas descritas en esta política.",
+          "Si no estás de acuerdo con esta Política de Privacidad, te recomendamos que no utilices nuestros Servicios."
+        ]
+      },
+      {
+        "id": "dataWeCollect",
+        "title": "2. Datos que recopilamos",
+        "paragraphs": [
+          "Recopilamos información para poder ofrecerte un servicio de transporte seguro, fiable y personalizado. Los tipos de datos que podemos recopilar incluyen:",
+          "- Datos de cuenta: nombre, apellidos, correo electrónico, número de teléfono, idioma preferido.",
+          "- Datos de viaje: ubicaciones de recogida y destino, rutas, hora y fecha de los trayectos, historial de viajes.",
+          "- Datos de pago: método de pago, información parcial de tarjeta (gestionada por proveedores de pago externos), importes y recibos.",
+          "- Datos del dispositivo: modelo, sistema operativo, identificadores del dispositivo, dirección IP, versión de la app.",
+          "- Datos de uso: interacciones con la app, clics, pantallas visitadas, preferencias de configuración."
+        ]
+      },
+      {
+        "id": "location",
+        "title": "3. Datos de ubicación",
+        "paragraphs": [
+          "NexTaxi utiliza datos de ubicación para poder asignarte conductores cercanos, calcular rutas y mostrar tiempos estimados de llegada.",
+          "Podemos recopilar tu ubicación precisa mientras la app está en uso y, en algunos casos, en segundo plano, siempre que lo hayas permitido en los ajustes de tu dispositivo.",
+          "Puedes desactivar el acceso a la ubicación desde los ajustes del dispositivo, pero esto puede afectar al funcionamiento de los Servicios."
+        ]
+      },
+      {
+        "id": "howWeUse",
+        "title": "4. Cómo usamos tus datos",
+        "paragraphs": [
+          "Utilizamos tus datos para:",
+          "- Proporcionar y mantener los Servicios, incluyendo la gestión de reservas y viajes.",
+          "- Procesar pagos y enviar facturas y recibos.",
+          "- Mejorar la seguridad de usuarios y conductores, detectar fraude y uso indebido.",
+          "- Ofrecer soporte al cliente y responder a consultas.",
+          "- Analizar el rendimiento del servicio y mejorar la experiencia de usuario.",
+          "- Enviarte notificaciones relacionadas con tus viajes, actualizaciones importantes del servicio y, cuando lo permitas, comunicaciones promocionales."
+        ]
+      },
+      {
+        "id": "legalBasis",
+        "title": "5. Base legal para el tratamiento",
+        "paragraphs": [
+          "Tratamos tus datos personales sobre las siguientes bases legales:",
+          "- Ejecución de un contrato: cuando es necesario para prestarte el servicio de transporte.",
+          "- Interés legítimo: para mejorar la seguridad, prevenir fraude y optimizar nuestros Servicios.",
+          "- Consentimiento: para determinadas funcionalidades, como comunicaciones comerciales o el uso de datos de ubicación en segundo plano.",
+          "- Cumplimiento de obligaciones legales: cuando la ley nos obliga a conservar o compartir cierta información."
+        ]
+      },
+      {
+        "id": "sharing",
+        "title": "6. Cómo compartimos tu información",
+        "paragraphs": [
+          "No vendemos tus datos personales. Podemos compartir tu información únicamente con:",
+          "- Conductores: datos necesarios para completar el viaje (nombre, ubicación de recogida, destino aproximado).",
+          "- Proveedores de pago: para procesar transacciones de forma segura.",
+          "- Proveedores de infraestructura y analítica: que nos ayudan a operar, mantener y mejorar la plataforma.",
+          "- Autoridades competentes: cuando la ley lo requiera o para proteger derechos, seguridad o integridad de usuarios, conductores o NexTaxi."
+        ]
+      },
+      {
+        "id": "security",
+        "title": "7. Seguridad de los datos",
+        "paragraphs": [
+          "Aplicamos medidas técnicas y organizativas razonables para proteger tus datos personales frente a accesos no autorizados, pérdida, uso indebido o divulgación.",
+          "Aun así, ningún sistema es completamente seguro. No podemos garantizar una seguridad absoluta, pero trabajamos continuamente para mejorar nuestras prácticas de protección de datos."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "8. Conservación de los datos",
+        "paragraphs": [
+          "Conservamos tus datos personales durante el tiempo necesario para cumplir con los fines descritos en esta Política de Privacidad, salvo que la ley exija o permita un periodo de conservación más largo.",
+          "Cuando ya no necesitemos tus datos, los eliminaremos o los anonimizaremos de forma segura."
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "9. Tus derechos",
+        "paragraphs": [
+          "Dependiendo de tu jurisdicción, puedes tener derecho a:",
+          "- Acceder a los datos personales que tenemos sobre ti.",
+          "- Solicitar la rectificación de datos inexactos o incompletos.",
+          "- Solicitar la eliminación de tus datos personales, en determinadas circunstancias.",
+          "- Oponerte a ciertos tratamientos o solicitar la limitación del tratamiento.",
+          "- Retirar tu consentimiento cuando el tratamiento se base en él.",
+          "Puedes ejercer estos derechos contactando con nosotros a través de los canales indicados en esta política."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "10. Cookies y tecnologías similares",
+        "paragraphs": [
+          "NexTaxi puede utilizar cookies y tecnologías similares para recordar tus preferencias, entender cómo utilizas la app y mejorar el rendimiento.",
+          "Puedes gestionar tus preferencias de cookies desde los ajustes de tu navegador o dispositivo, aunque algunas funciones pueden verse afectadas."
+        ]
+      },
+      {
+        "id": "children",
+        "title": "11. Menores de edad",
+        "paragraphs": [
+          "Nuestros Servicios no están dirigidos a menores de 18 años. No recopilamos conscientemente datos personales de menores.",
+          "Si descubrimos que hemos recopilado datos de un menor sin el consentimiento adecuado, tomaremos medidas para eliminar dicha información."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "12. Cambios en esta política",
+        "paragraphs": [
+          "Podemos actualizar esta Política de Privacidad de vez en cuando para reflejar cambios en la ley, en nuestros Servicios o en nuestras prácticas de tratamiento de datos.",
+          "Publicaremos la versión actualizada en la app y en la web, indicando la fecha de la última actualización."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "13. Contacto",
+        "paragraphs": [
+          "Si tienes preguntas, dudas o quieres ejercer tus derechos de protección de datos, puedes contactar con NexTaxi en:",
+          "Correo electrónico: privacidad@nextaxi.app",
+          "Indica en el asunto \"Consulta de privacidad\" para poder atenderte más rápido."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Términos y Condiciones de NexTaxi",
+    "intro": "Estos Términos y Condiciones regulan el acceso y uso de la aplicación NexTaxi y sus servicios asociados. Al utilizar la plataforma, aceptas cumplir con estos términos.",
+    "lastUpdated": "Última actualización: 26 de abril de 2026",
+    "sections": [
+      {
+        "id": "acceptance",
+        "title": "1. Aceptación de los Términos",
+        "paragraphs": [
+          "Al registrarte o utilizar NexTaxi, confirmas que has leído, entendido y aceptado estos Términos y Condiciones.",
+          "Si no estás de acuerdo con alguno de los términos, debes dejar de utilizar la plataforma."
+        ]
+      },
+      {
+        "id": "serviceDescription",
+        "title": "2. Descripción del Servicio",
+        "paragraphs": [
+          "NexTaxi es una plataforma que conecta pasajeros con conductores independientes para facilitar servicios de transporte urbano.",
+          "NexTaxi no es una empresa de transporte; los viajes son realizados por conductores autónomos que utilizan la plataforma."
+        ]
+      },
+      {
+        "id": "userAccount",
+        "title": "3. Cuenta de Usuario",
+        "paragraphs": [
+          "Para utilizar NexTaxi debes crear una cuenta proporcionando información veraz y actualizada.",
+          "Eres responsable de mantener la confidencialidad de tus credenciales de acceso.",
+          "Debes tener al menos 18 años para utilizar la plataforma."
+        ]
+      },
+      {
+        "id": "conduct",
+        "title": "4. Conducta del Usuario",
+        "paragraphs": [
+          "Te comprometes a utilizar la plataforma de forma responsable y respetuosa.",
+          "Está prohibido:",
+          "• Usar la app para actividades ilegales.",
+          "• Agredir, acosar o poner en riesgo a conductores o pasajeros.",
+          "• Manipular tarifas, rutas o sistemas de pago.",
+          "• Crear múltiples cuentas sin autorización."
+        ]
+      },
+      {
+        "id": "driverConduct",
+        "title": "5. Conducta de los Conductores",
+        "paragraphs": [
+          "Los conductores deben cumplir con las leyes locales de transporte, mantener su vehículo en condiciones seguras y ofrecer un trato respetuoso.",
+          "NexTaxi puede suspender o desactivar cuentas de conductores que incumplan estos requisitos."
+        ]
+      },
+      {
+        "id": "payments",
+        "title": "6. Pagos y Tarifas",
+        "paragraphs": [
+          "Las tarifas se calculan en función de la distancia, el tiempo y la demanda.",
+          "Los pagos se procesan a través de proveedores externos de forma segura.",
+          "NexTaxi puede aplicar cargos adicionales por cancelaciones tardías o daños al vehículo."
+        ]
+      },
+      {
+        "id": "cancellations",
+        "title": "7. Cancelaciones",
+        "paragraphs": [
+          "Puedes cancelar un viaje antes de que el conductor llegue al punto de recogida.",
+          "Se pueden aplicar cargos por cancelaciones tardías o repetidas.",
+          "Los conductores también pueden cancelar un viaje si el pasajero no se presenta."
+        ]
+      },
+      {
+        "id": "liability",
+        "title": "8. Limitación de Responsabilidad",
+        "paragraphs": [
+          "NexTaxi no garantiza la disponibilidad continua del servicio.",
+          "No somos responsables de retrasos, cancelaciones, accidentes o daños causados por conductores independientes.",
+          "La responsabilidad de NexTaxi se limita al máximo permitido por la ley."
+        ]
+      },
+      {
+        "id": "suspension",
+        "title": "9. Suspensión o Terminación de la Cuenta",
+        "paragraphs": [
+          "NexTaxi puede suspender o cerrar tu cuenta si incumples estos términos o si se detecta actividad sospechosa.",
+          "Puedes solicitar la eliminación de tu cuenta en cualquier momento."
+        ]
+      },
+      {
+        "id": "updates",
+        "title": "10. Modificaciones de los Términos",
+        "paragraphs": [
+          "NexTaxi puede actualizar estos Términos y Condiciones para reflejar cambios en la ley o en el servicio.",
+          "La versión actualizada se publicará en la app y en la web."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "11. Contacto",
+        "paragraphs": [
+          "Si tienes preguntas sobre estos términos, puedes contactarnos en:",
+          "Correo: soporte@nextaxi.app"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "description": "Conectando Lanzarote con servicios de transporte fiables. Seguro, rápido y siempre disponible.",
+    "company": {
+      "title": "EMPRESA",
+      "about": "Sobre Nosotros",
+      "contact": "Contacto"
+    },
+    "legal": {
+      "title": "LEGAL",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    },
+    "copyright": "© 2026 NexTaxi Lanzarote. Todos los derechos reservados."
+  },
+  "contact": {
+    "title": "Mantengamos la ciudad en movimiento.",
+    "subtitle": "Servicio premium y asistencia precisa. Ya seas pasajero o socio, estamos aquí para ayudarte.",
+    "info": [
+      { "title": "Teléfono de Soporte", "value": "+34 600 000 000" },
+      { "title": "Correo Electrónico", "value": "soporte@nextaxi.com" },
+      { "title": "Oficina Central", "value": "Avenida Central 123, Arrecife, Lanzarote" }
+    ],
+    "driver": {
+      "title": "¿Interesado en conducir?",
+      "text": "Únete a la flota en el futuro. Envíanos tus datos y te notificaremos con información sobre requisitos y potencial de ingresos."
+    },
+    "form": {
+      "title": "Enviar un Mensaje",
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje"
+    },
+    "map": {
+      "title": "NexTaxi Hub",
+      "address": "Avenida Central 123, Arrecife, Lanzarote"
     }
   }
 }

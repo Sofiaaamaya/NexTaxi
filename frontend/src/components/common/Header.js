@@ -44,12 +44,22 @@ export default function Header() {
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-semibold">
             NT
           </div>
-          <Poppins text="NexTaxi" tag="span" size="18|22" weight="semibold" color="textPrimary" />
+
+          <Link href="/" className="inline-block">
+            <Poppins
+              text="NexTaxi"
+              tag="span"
+              size="18|22"
+              weight="semibold"
+              color="textPrimary"
+              className="cursor-pointer hover:text-primary transition"
+            />
+          </Link>
         </div>
 
         {/* CENTRO: LINKS */}
         <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/30 backdrop-blur-md rounded-lg">
-          {['home', 'reserva', 'contact', 'about-us'].map((item) => (
+          {['home', 'reserva', 'contacto', 'nosotros'].map((item) => (
             <Link key={item} href={`/${currentLocale}/${item === 'home' ? '' : item}`}>
               <Poppins
                 text={t(`nav.${item}`)}

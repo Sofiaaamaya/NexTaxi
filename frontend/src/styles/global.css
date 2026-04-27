@@ -136,3 +136,39 @@ p {
 .animate-fadeIn {
   animation: fadeIn 0.15s ease-out;
 }
+.input {
+  @apply w-full border border-gray-300 rounded-xl px-4 py-3 text-base outline-none transition-all bg-white placeholder-transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.input:focus {
+  @apply border-primary shadow-sm;
+}
+
+.floating-label {
+  @apply absolute left-4 top-3 text-gray-500 text-sm transition-all pointer-events-none bg-white px-1;
+  font-family: 'Poppins', sans-serif;
+}
+
+.peer:focus ~ .floating-label,
+.peer:not(:placeholder-shown) ~ .floating-label {
+  @apply -top-2 left-3 text-xs text-primary;
+}
+
+.btn-primary {
+  @apply bg-primary text-white font-medium rounded-xl transition-all hover:bg-primary-light active:scale-[0.98];
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}

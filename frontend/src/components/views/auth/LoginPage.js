@@ -7,6 +7,40 @@ import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { GoogleLogin } from '@react-oauth/google';
+import Icon from '@/components/icons/Icon';
+
+const InputWrapper = ({ icon, children, label, isFocused, hasValue }) => {
+  const isFloating = isFocused || hasValue;
+
+  return (
+    <div className="relative w-full">
+      {/* Icono */}
+      <div
+        className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 transition-colors duration-200 
+        ${isFocused ? 'text-primary' : 'text-gray-400'}`}
+      >
+        <Icon name={icon} size={20} />
+      </div>
+
+      {children}
+
+      {/* Etiqueta corregida */}
+      <label
+        className={`
+        absolute left-12 top-1/2 -translate-y-1/2 pointer-events-none transition-all duration-200 z-20
+        ${
+          isFloating
+            ? '-translate-y-[2.6rem] left-3 text-xs text-primary bg-white px-2 font-medium opacity-100'
+            : 'text-gray-400 opacity-100'
+        }
+      `}
+      >
+        {label}
+      </label>
+    </div>
+  );
+};
 
 export default function LoginPage() {
   const t = useTranslations('auth.login');
@@ -16,119 +50,157 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [focusedField, setFocusedField] = useState(null);
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    setLoading(true);
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: credentialResponse.credential }),
+      });
+      const data = await res.json();
+
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        const rol = data.user.rol;
+        if (rol === 'administrador') router.push('/admin/dashboard');
+        else if (rol === 'conductor') router.push('/conductor/dashboard');
+        else router.push('/cliente/dashboard');
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    const res = await login({
-      email,
-      password,
-    });
-
+    const res = await login({ email, password });
     setLoading(false);
-
     if (res.success) {
-      const user = JSON.parse(localStorage.getItem("user"));
-
-      if (user?.rol === "administrador") {
-        router.push('/admin/dashboard');
-      } else if (user?.rol === "conductor") {
-        router.push('/conductor/dashboard');
-      } else {
-        router.push('/cliente/dashboard'); 
-      }
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user?.rol === 'administrador') router.push('/admin/dashboard');
+      else if (user?.rol === 'conductor') router.push('/conductor/dashboard');
+      else router.push('/cliente/dashboard');
     } else {
-      alert(res.error || "Error al iniciar sesión");
+      alert(res.error || 'Error al iniciar sesión');
     }
   };
 
+  const inputClass =
+    'w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary focus:bg-white transition-all';
+
   return (
-    <section className="py-20 max-w-2xl mx-auto rounded-2xl bg-surface border border-border shadow-xl">
-      <div className="max-w-md mx-auto px-6">
+    <section className="min-h-[80vh] flex items-center justify-center bg-gray-50/50 py-12 px-4">
+      <div className="w-full max-w-md bg-white shadow-2xl shadow-gray-200/50 rounded-3xl border border-gray-100 p-8 md:p-10">
         <TitleComponent align="left" title={t('title')} subtitle={t('subtitle')} />
 
-        <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
-            <Poppins
-              text={t('email')}
-              tag="label"
-              size="14|18"
-              color="textPrimary"
-              weight="medium"
-            />
+        <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
+          {/* EMAIL */}
+          <InputWrapper
+            icon="Mail"
+            label={t('email')}
+            isFocused={focusedField === 'email'}
+            hasValue={email}
+          >
             <input
               required
               type="email"
-              placeholder="ejemplo@correo.com"
-              className="input"
               value={email}
+              onFocus={() => setFocusedField('email')}
+              onBlur={() => setFocusedField(null)}
               onChange={(e) => setEmail(e.target.value)}
+              className={inputClass}
             />
-          </div>
+          </InputWrapper>
 
+          {/* PASSWORD */}
           <div className="flex flex-col gap-2">
-            <div className="flex justify-between items-center">
-              <Poppins
-                text={t('password')}
-                tag="label"
-                size="14|18"
-                color="textPrimary"
-                weight="medium"
+            <InputWrapper
+              icon="Lock"
+              label={t('password')}
+              isFocused={focusedField === 'password'}
+              hasValue={password}
+            >
+              <input
+                required
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onFocus={() => setFocusedField('password')}
+                onBlur={() => setFocusedField(null)}
+                onChange={(e) => setPassword(e.target.value)}
+                className={`${inputClass} pr-12`}
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary z-20 transition-colors"
+              >
+                <Icon name={showPassword ? 'EyeOff' : 'Eye'} size={20} />
+              </button>
+            </InputWrapper>
+
+            <div className="flex justify-end px-1">
               <Link href="/forgot-password">
                 <Poppins
                   text={t('forgot')}
                   tag="span"
-                  size="12|16"
-                  className="text-primary hover:text-primary-light cursor-pointer"
+                  className="text-xs text-primary hover:underline font-medium cursor-pointer"
                 />
               </Link>
             </div>
-
-            <input
-              required
-              type="password"
-              placeholder="••••••••"
-              className="input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
           </div>
 
           <button
             type="submit"
-            disabled={loading} 
-            className={`w-full px-6 py-4 rounded-xl text-white transition flex items-center justify-center gap-2 ${
-              loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-primary hover:bg-primary-light'
-            }`}
+            disabled={loading}
+            className="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold shadow-lg shadow-primary/25 transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70 "
           >
-            <Poppins 
-              text={loading ? "Cargando..." : t('button')} 
-              tag="span" 
-              color="textWhite" 
-              weight="medium" 
-            />
-            {!loading && <span className="text-lg">→</span>}
+            {loading ? (
+              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            ) : (
+              <>
+                <Poppins text={t('button')} tag="span" weight="medium" color="white" />
+                <Icon name="ArrowRight" size={18} className="" />
+              </>
+            )}
           </button>
         </form>
 
         <div className="my-8 flex items-center gap-4">
-          <div className="flex-1 h-px bg-border"></div>
-          <Poppins text={t('orContinue')} tag="span" size="14|18" color="textSecondary" />
-          <div className="flex-1 h-px bg-border"></div>
+          <div className="flex-1 h-px bg-gray-100"></div>
+          <Poppins
+            text={t('orContinue')}
+            tag="span"
+            className="text-xs text-gray-400 uppercase tracking-wider"
+          />
+          <div className="flex-1 h-px bg-gray-100"></div>
         </div>
 
-        <div className="flex flex-col gap-4">
-          <button type="button" className="w-full py-3 rounded-xl border border-border hover:bg-background transition">
-            <Poppins text="GOOGLE" tag="span" size="16|20" weight="medium" />
-          </button>
+        {/* BOTÓN DE GOOGLE */}
+        <div className="flex justify-center">
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={() => console.log('Login Failed')}
+            useOneTap={false}
+            theme="outline"
+            size="large"
+            shape="pill"
+            width="340px"
+            locale="es"
+          />
         </div>
 
-        <div className="mt-8 text-center">
-          <Poppins text={t('noAccount')} tag="span" color="textSecondary" />
-          <Link href="/register" className="ml-2 text-primary hover:text-primary-light">
-            <Poppins text={t('goRegister')} tag="span" weight="medium" />
+        <div className="mt-10 text-center text-sm">
+          <Poppins text={t('noAccount')} tag="span" className="text-gray-500" />
+          <Link href="/register/usuario" className="ml-2 text-primary hover:underline font-bold">
+            {t('goRegister')}
           </Link>
         </div>
       </div>
