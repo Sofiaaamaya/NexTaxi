@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Poppins from '@/components/ui/Poppins';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/icons/Icon';
@@ -12,6 +12,7 @@ export default function Header() {
   const { user, logout } = useAuth();
   const t = useTranslations('Header');
   const pathname = usePathname();
+  const router = useRouter();
   const [openLang, setOpenLang] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -27,7 +28,8 @@ export default function Header() {
   const restPath = '/' + segments.slice(1).join('/');
 
   const changeLocale = (locale) => {
-    window.location.href = `/${locale}${restPath === '/' ? '' : restPath}`;
+    router.push(`/${locale}${restPath === '/' ? '' : restPath}`);
+    setOpenLang(false);
   };
 
   return (

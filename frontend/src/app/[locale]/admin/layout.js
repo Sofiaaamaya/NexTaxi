@@ -19,7 +19,7 @@ export default function AdminLayout({ children }) {
       )}
 
       <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
-      
+
       <div
         className={clsx(
           'transition-all duration-300 flex flex-col min-h-screen',
@@ -27,10 +27,8 @@ export default function AdminLayout({ children }) {
         )}
       >
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        
-        <main className="flex-1 p-4 md:p-6 mt-16">
-          {children}
-        </main>
+
+        <main className="flex-1 p-4 md:p-6 mt-16">{children}</main>
       </div>
     </div>
   );

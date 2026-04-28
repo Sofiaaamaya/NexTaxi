@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Conductor extends Model
 {
+    protected $table = 'conductores';
     protected $primaryKey = 'id_conductor';
 
     protected $fillable = [

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SolicitudTaxi extends Model
 {
+    protected $table = 'solicitudes_taxi';
     protected $primaryKey = 'id_solicitud';
 
     protected $fillable = [

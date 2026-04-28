@@ -23,7 +23,7 @@ export default function WhyChooseNexTaxi({ variant = 'colored-cards', mainIcon =
             {variant === 'colored-cards' && (
               <div className="mb-4 flex justify-center lg:justify-start">
                 <div className="p-3 text-white inline-block shadow-sm">
-                  <Icon name="Rocket" size={40} />
+                  <Icon name={mainIcon} size={40} />
                 </div>
               </div>
             )}

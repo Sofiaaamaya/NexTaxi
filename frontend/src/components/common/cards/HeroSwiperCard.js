@@ -5,6 +5,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import TitleComponent from '@/components/common/TitleComponent';
 import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HeroSwiperCard({ slides = [] }) {
   return (
@@ -19,10 +20,12 @@ export default function HeroSwiperCard({ slides = [] }) {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
-              <img
+              <Image
                 src={slide.image}
                 alt={slide.alt || `Slide ${index + 1}`}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority={index === 0}
               />
               <div className="absolute inset-0 bg-black/20"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center px-6">

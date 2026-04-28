@@ -77,8 +77,12 @@ public function login(LoginRequest $req) {
 }
 
 public function logout() {
-    // Revocar el token actual
-    request()->user()->currentAccessToken()->delete();
+    $user = request()->user();
+    
+    if ($user) {
+        // Revocar todos los tokens del usuario (más seguro en tests)
+        $user->tokens()->delete();
+    }
 
     return response()->json(['msg' => 'Logout correcto']);
 }

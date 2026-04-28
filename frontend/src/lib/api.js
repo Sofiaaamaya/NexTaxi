@@ -23,7 +23,7 @@ export async function apiFetch(endpoint, options = {}) {
     }
 
     return data;
-  } catch (error) {
+  } catch {
     return { error: true, status: 500, data: { message: 'Error de conexión' } };
   }
 }

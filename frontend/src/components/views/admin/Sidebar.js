@@ -20,9 +20,7 @@ export default function Sidebar({ open, setOpen }) {
     >
       {/* Header */}
       <div className="flex items-center justify-between p-4 mb-4">
-        {open && (
-          <Poppins text="NexTaxi" size="18|22" weight="semibold" color="textPrimary" />
-        )}
+        {open && <Poppins text="NexTaxi" size="18|22" weight="semibold" color="textPrimary" />}
         <button
           onClick={() => setOpen(!open)}
           className="p-2 rounded-md hover:bg-gray-100 transition"
@@ -46,12 +44,7 @@ export default function Sidebar({ open, setOpen }) {
 
       {/* Footer */}
       <div className="p-2 border-t border-gray-100">
-        <SidebarItem
-          icon="LogOut"
-          label={t('logout')}
-          path={`/${locale}/logout`}
-          open={open}
-        />
+        <SidebarItem icon="LogOut" label={t('logout')} path={`/${locale}/logout`} open={open} />
       </div>
     </aside>
   );

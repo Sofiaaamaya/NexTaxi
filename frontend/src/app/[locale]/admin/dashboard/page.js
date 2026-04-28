@@ -10,9 +10,27 @@ export default function DashboardPage() {
 
   const stats = [
     { key: 'totalDrivers', value: '24', icon: 'Car', color: 'text-blue-600', bg: 'bg-blue-50' },
-    { key: 'activeDrivers', value: '18', icon: 'CheckCircle', color: 'text-green-600', bg: 'bg-green-50' },
-    { key: 'totalUsers', value: '1,240', icon: 'Users', color: 'text-purple-600', bg: 'bg-purple-50' },
-    { key: 'totalTrips', value: '45', icon: 'MapPin', color: 'text-orange-600', bg: 'bg-orange-50' },
+    {
+      key: 'activeDrivers',
+      value: '18',
+      icon: 'CheckCircle',
+      color: 'text-green-600',
+      bg: 'bg-green-50',
+    },
+    {
+      key: 'totalUsers',
+      value: '1,240',
+      icon: 'Users',
+      color: 'text-purple-600',
+      bg: 'bg-purple-50',
+    },
+    {
+      key: 'totalTrips',
+      value: '45',
+      icon: 'MapPin',
+      color: 'text-orange-600',
+      bg: 'bg-orange-50',
+    },
   ];
 
   return (
@@ -25,13 +43,23 @@ export default function DashboardPage() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat) => (
-          <div key={stat.key} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
-            <div className={`w-12 h-12 ${stat.bg} ${stat.color} rounded-lg flex items-center justify-center`}>
+          <div
+            key={stat.key}
+            className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4"
+          >
+            <div
+              className={`w-12 h-12 ${stat.bg} ${stat.color} rounded-lg flex items-center justify-center`}
+            >
               <Icon name={stat.icon} size={24} />
             </div>
             <div>
               <Poppins text={stat.value} size="20|24" weight="bold" color="textPrimary" />
-              <Poppins text={t(`stats.${stat.key}`)} size="14|14" weight="medium" color="textSecondary" />
+              <Poppins
+                text={t(`stats.${stat.key}`)}
+                size="14|14"
+                weight="medium"
+                color="textSecondary"
+              />
             </div>
           </div>
         ))}

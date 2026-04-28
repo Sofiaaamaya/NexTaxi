@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import Poppins from '@/components/ui/Poppins';
 import Icon from '@/components/icons/Icon';
 import { apiFetch } from '@/lib/api';
@@ -153,11 +154,12 @@ export default function DriversCrud({ data = [], refreshData }) {
             {paginated.map((d) => (
               <tr key={d.id} className="hover:bg-gray-50/50 transition">
                 <td className="p-4">
-                  <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
-                    <img
+                  <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden relative">
+                    <Image
                       src="/images/imagen_perfil.webp"
                       alt="perfil"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </td>

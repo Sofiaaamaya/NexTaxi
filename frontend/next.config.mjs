@@ -1,8 +1,10 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
-    config.resolve.alias['@'] = require('path').resolve(__dirname, 'src');
-    return config;
-  },
+  // Aquí puedes añadir otras configuraciones de Next.js si las necesitas
 };
 
-module.exports = nextConfig;
+export default withNextIntl(nextConfig);

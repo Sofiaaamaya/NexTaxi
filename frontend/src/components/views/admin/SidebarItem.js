@@ -15,24 +15,18 @@ export default function SidebarItem({ icon, label, path, open }) {
       href={path}
       className={clsx(
         'flex items-center gap-3 px-3 py-2 my-1 rounded-lg transition-all duration-200',
-        isActive
-          ? 'bg-primary text-white shadow-sm'
-          : 'text-gray-600 hover:bg-gray-100'
+        isActive ? 'bg-primary text-white shadow-sm' : 'text-gray-600 hover:bg-gray-100'
       )}
     >
-      <Icon 
-        name={icon} 
-        size={24} 
-        className={clsx(isActive ? 'text-white' : 'text-primary')} 
-      />
+      <Icon name={icon} size={24} className={clsx(isActive ? 'text-white' : 'text-primary')} />
 
       {open && (
-        <Poppins 
-          text={label} 
-          size="16|16" 
-          color="inherit" 
-          weight="medium" 
-          className="whitespace-nowrap" 
+        <Poppins
+          text={label}
+          size="16|16"
+          color="inherit"
+          weight="medium"
+          className="whitespace-nowrap"
         />
       )}
     </Link>

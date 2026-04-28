@@ -14,10 +14,12 @@ export default function Header({ sidebarOpen, setSidebarOpen }) {
   const pathname = usePathname();
 
   return (
-    <header className={clsx(
-      "fixed top-0 right-0 z-40 bg-white border-b border-gray-200 px-4 py-2 flex justify-between items-center transition-all duration-300",
-      sidebarOpen ? "left-0 lg:left-64" : "left-0 lg:left-20"
-    )}>
+    <header
+      className={clsx(
+        'fixed top-0 right-0 z-40 bg-white border-b border-gray-200 px-4 py-2 flex justify-between items-center transition-all duration-300',
+        sidebarOpen ? 'left-0 lg:left-64' : 'left-0 lg:left-20'
+      )}
+    >
       <div className="flex items-center gap-4">
         {/* Mobile Menu Toggle */}
         <button
@@ -32,20 +34,25 @@ export default function Header({ sidebarOpen, setSidebarOpen }) {
           {ADMIN_NAV_ITEMS.map((item) => {
             const fullPath = `/${locale}${item.path}`;
             const isActive = pathname === fullPath || pathname.startsWith(`${fullPath}/`);
-            
+
             return (
               <Link
                 key={item.key}
                 href={fullPath}
                 className={clsx(
-                  "px-4 py-2 rounded-md transition-all duration-200 flex items-center gap-2",
-                  isActive 
-                    ? "bg-primary/10 text-primary font-semibold" 
-                    : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                  'px-4 py-2 rounded-md transition-all duration-200 flex items-center gap-2',
+                  isActive
+                    ? 'bg-primary/10 text-primary font-semibold'
+                    : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'
                 )}
               >
                 <Icon name={item.icon} size={18} />
-                <Poppins text={t(item.key)} size="14|14" color="inherit" weight={isActive ? 'semibold' : 'medium'} />
+                <Poppins
+                  text={t(item.key)}
+                  size="14|14"
+                  color="inherit"
+                  weight={isActive ? 'semibold' : 'medium'}
+                />
               </Link>
             );
           })}
@@ -61,10 +68,10 @@ export default function Header({ sidebarOpen, setSidebarOpen }) {
           <Icon name="Bell" size={20} />
           <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
         </button>
-        
+
         <div className="h-8 w-[1px] bg-gray-200 mx-2 hidden sm:block"></div>
-        
-        <Link 
+
+        <Link
           href={`/${locale}/admin/perfil`}
           className="flex items-center gap-2 p-1 pr-2 rounded-full hover:bg-gray-100 transition"
         >

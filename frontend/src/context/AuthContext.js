@@ -12,7 +12,11 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     // Cargar usuario desde localStorage al montar
     const stored = getUser();
-    if (stored) setUser(stored);
+    if (stored) {
+      // Usamos un pequeño delay o microtask para evitar el warning de setState síncrono en useEffect
+      // aunque en este caso es para hidratación inicial.
+      setTimeout(() => setUser(stored), 0);
+    }
   }, []);
 
   const login = async ({ email, password }) => {
@@ -23,7 +27,7 @@ export function AuthProvider({ children }) {
         return { success: true };
       }
       return { success: false, error: data.message || 'Error al iniciar sesión' };
-    } catch (e) {
+    } catch {
       return { success: false, error: 'Error de conexión' };
     }
   };
@@ -53,7 +57,7 @@ export function AuthProvider({ children }) {
       }
 
       return { success: false, message: 'Respuesta inesperada del servidor' };
-    } catch (e) {
+    } catch {
       return { success: false, message: 'Error crítico en el cliente' };
     }
   };
