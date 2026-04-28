@@ -248,7 +248,18 @@
     "subtitle": "Manage your platform",
     "dashboard": "Dashboard",
     "drivers": "Drivers",
-    "users": "Users"
+    "users": "Users",
+    "logout": "Log Out"
+  },
+  "adminDashboard": {
+    "title": "Control Panel",
+    "welcome": "Welcome to NexTaxi Admin",
+    "stats": {
+      "totalDrivers": "Drivers",
+      "activeDrivers": "On Duty",
+      "totalUsers": "Clients",
+      "totalTrips": "Trips today"
+    }
   },
   "drivers": {
     "eyebrow": "Driver Management",

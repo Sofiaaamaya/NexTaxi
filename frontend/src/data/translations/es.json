@@ -249,7 +249,18 @@
     "subtitle": "Gestiona tu plataforma",
     "dashboard": "Dashboard",
     "drivers": "Conductores",
-    "users": "Usuarios"
+    "users": "Usuarios",
+    "logout": "Cerrar sesión"
+  },
+  "adminDashboard": {
+    "title": "Panel de Control",
+    "welcome": "Bienvenido al administrador de NexTaxi",
+    "stats": {
+      "totalDrivers": "Conductores",
+      "activeDrivers": "En servicio",
+      "totalUsers": "Clientes",
+      "totalTrips": "Viajes hoy"
+    }
   },
   "drivers": {
     "eyebrow": "Gestión de conductores",
