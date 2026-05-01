@@ -26,6 +26,10 @@ import {
   Tag,
   MessageSquare,
   Send,
+  CheckCircle,
+  AlertCircle,
+  Loader,
+  UserPlus,
 } from 'lucide-react';
 
 export const LUCIDE_ICONS = {
@@ -56,4 +60,8 @@ export const LUCIDE_ICONS = {
   Tag,
   MessageSquare,
   Send,
+  CheckCircle,
+  AlertCircle,
+  Loader,
+  UserPlus,
 };

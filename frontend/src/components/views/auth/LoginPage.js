@@ -67,7 +67,8 @@ export default function LoginPage() {
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         const rol = data.user.rol;
-        if (rol === 'administrador') router.push('/admin/dashboard');
+        if (rol === 'admin') router.push('/admin/dashboard');
+        else if (rol === 'gerente') router.push('/gerente/dashboard');
         else if (rol === 'conductor') router.push('/conductor/dashboard');
         else router.push('/cliente/dashboard');
       }
@@ -85,7 +86,8 @@ export default function LoginPage() {
     setLoading(false);
     if (res.success) {
       const user = JSON.parse(localStorage.getItem('user'));
-      if (user?.rol === 'administrador') router.push('/admin/dashboard');
+      if (user?.rol === 'admin') router.push('/admin/dashboard');
+      else if (user?.rol === 'gerente') router.push('/gerente/dashboard');
       else if (user?.rol === 'conductor') router.push('/conductor/dashboard');
       else router.push('/cliente/dashboard');
     } else {

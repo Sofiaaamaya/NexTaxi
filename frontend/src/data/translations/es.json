@@ -250,7 +250,33 @@
     "dashboard": "Dashboard",
     "drivers": "Conductores",
     "users": "Usuarios",
+    "invitations": "Invitaciones",
     "logout": "Cerrar sesión"
+  },
+  "adminInvitations": {
+    "title": "Enviar Invitación",
+    "subtitle": "Invita a nuevos miembros a unirse a la plataforma",
+    "emailLabel": "Correo electrónico",
+    "roleLabel": "Rol",
+    "sendButton": "Enviar invitación",
+    "success": "Invitación enviada con éxito",
+    "error": "Error al enviar la invitación",
+    "roles": {
+      "admin": "Administrador",
+      "gerente": "Gerente",
+      "conductor": "Conductor"
+    }
+  },
+  "acceptInvitation": {
+    "title": "Completa tu registro",
+    "subtitle": "Estás a un paso de unirte a NexTaxi como {rol}",
+    "nameLabel": "Nombre completo",
+    "passwordLabel": "Contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "button": "Completar registro",
+    "invalid": "La invitación es inválida o ha expirado.",
+    "success": "¡Cuenta creada con éxito! Redirigiendo...",
+    "error": "Error al completar el registro"
   },
   "adminDashboard": {
     "title": "Panel de Control",

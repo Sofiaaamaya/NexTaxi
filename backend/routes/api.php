@@ -11,3 +11,6 @@ require __DIR__.'/api/viajes.php';
 require __DIR__.'/api/documentos.php';
 require __DIR__.'/api/admin.php';
 
+Route::post('/invitaciones/validar', [App\Http\Controllers\Api\Admin\AdminController::class, 'validarInvitacion']);
+Route::post('/invitaciones/completar', [App\Http\Controllers\Api\Admin\AdminController::class, 'completarRegistro']);
+

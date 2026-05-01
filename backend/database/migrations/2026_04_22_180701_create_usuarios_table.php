@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->string('email', 150)->unique();
             $table->string('password');
             $table->string('telefono', 20)->nullable();
-            $table->enum('rol', ['cliente','conductor','supervisor','administrador'])->default('cliente');
+            $table->enum('rol', ['cliente','conductor','gerente','admin'])->default('cliente');
             $table->timestamps();
         });
     }

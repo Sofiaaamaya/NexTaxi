@@ -249,7 +249,33 @@
     "dashboard": "Dashboard",
     "drivers": "Drivers",
     "users": "Users",
+    "invitations":"Invitations",
     "logout": "Log Out"
+  },
+  "adminInvitations": {
+    "title": "Send Invitation",
+    "subtitle": "Invite new members to join the platform",
+    "emailLabel": "Email address",
+    "roleLabel": "Role",
+    "sendButton": "Send invitation",
+    "success": "Invitation sent successfully",
+    "error": "Error sending invitation",
+    "roles": {
+      "admin": "Administrator",
+      "gerente": "Manager",
+      "conductor": "Driver"
+    }
+  },
+  "acceptInvitation": {
+    "title": "Complete your registration",
+    "subtitle": "You are one step away from joining NexTaxi as {rol}",
+    "nameLabel": "Full name",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm password",
+    "button": "Complete registration",
+    "invalid": "The invitation is invalid or has expired.",
+    "success": "Account created successfully! Redirecting...",
+    "error": "Error completing registration"
   },
   "adminDashboard": {
     "title": "Control Panel",

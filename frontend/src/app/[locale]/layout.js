@@ -17,8 +17,8 @@ export default async function LocaleLayout({ children, params }) {
   }
 
   return (
-    <html lang={locale}>
-      <body className="bg-background text-textPrimary antialiased">
+    <html lang={locale} suppressHydrationWarning>
+      <body className="bg-background text-textPrimary antialiased" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
             <Header />

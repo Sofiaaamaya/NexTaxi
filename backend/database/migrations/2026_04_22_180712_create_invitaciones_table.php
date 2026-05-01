@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->string('email');
             $table->string('token')->unique();
 
-            $table->enum('rol', ['conductor','administrador']);
+            $table->enum('rol', ['conductor','gerente','admin']);
 
             $table->dateTime('expiracion');
             $table->boolean('usado')->default(false);

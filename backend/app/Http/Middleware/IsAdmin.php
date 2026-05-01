@@ -10,7 +10,7 @@ class IsAdmin
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() && in_array($request->user()->rol, ['administrador', 'supervisor'])) {
+        if ($request->user() && in_array($request->user()->rol, ['admin', 'gerente'])) {
             return $next($request);
         }
 
