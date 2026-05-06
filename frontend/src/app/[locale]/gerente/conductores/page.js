@@ -3,7 +3,7 @@
 import DriversPage from '@/components/views/admin/DriversPage';
 import { useTranslations } from 'next-intl';
 
-export default function DashboardPage() {
+export default function GerenteConductoresPage() {
   const t = useTranslations('drivers');
   return (
     <div className="flex">

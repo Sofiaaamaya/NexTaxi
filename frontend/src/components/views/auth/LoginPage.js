@@ -99,9 +99,9 @@ export default function LoginPage() {
     'w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary focus:bg-white transition-all';
 
   return (
-    <section className="min-h-[80vh] flex items-center justify-center bg-gray-50/50 py-12 px-4">
+    <section className="w-full flex justify-center transition-all duration-300 max-w-6xl px-4 md:px-8 py-10">
       <div className="w-full max-w-md bg-white shadow-2xl shadow-gray-200/50 rounded-3xl border border-gray-100 p-8 md:p-10">
-        <TitleComponent align="left" title={t('title')} subtitle={t('subtitle')} />
+        <TitleComponent align="center" title={t('title')} subtitle={t('subtitle')} />
 
         <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
           {/* EMAIL */}
@@ -194,7 +194,7 @@ export default function LoginPage() {
             theme="outline"
             size="large"
             shape="pill"
-            width="340px"
+            width="250px"
             locale="es"
           />
         </div>

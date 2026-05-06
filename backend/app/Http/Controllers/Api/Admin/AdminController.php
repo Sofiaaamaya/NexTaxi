@@ -17,6 +17,15 @@ class AdminController extends Controller
         return Usuario::all();
     }
 
+    public function stats() {
+        return response()->json([
+            'total_conductores' => Conductor::count(),
+            'conductores_activos' => Conductor::whereIn('estado', ['disponible', 'ocupado'])->count(),
+            'total_usuarios' => Usuario::where('rol', 'cliente')->count(),
+            'total_viajes' => \App\Models\Viaje::count(),
+        ]);
+    }
+
     public function conductores() {
         return Conductor::with('usuario')->get();
     }

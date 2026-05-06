@@ -13,4 +13,5 @@ require __DIR__.'/api/admin.php';
 
 Route::post('/invitaciones/validar', [App\Http\Controllers\Api\Admin\AdminController::class, 'validarInvitacion']);
 Route::post('/invitaciones/completar', [App\Http\Controllers\Api\Admin\AdminController::class, 'completarRegistro']);
+Route::post('/contacto', [App\Http\Controllers\Api\ContactoController::class, 'send']);
 

@@ -26,7 +26,7 @@ export default function SidebarItem({ icon, label, path, open }) {
           size="16|16"
           color="inherit"
           weight="medium"
-          className="whitespace-nowrap"
+          className="whitespace-nowrap hidden lg:block"
         />
       )}
     </Link>

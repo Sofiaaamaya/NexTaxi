@@ -1,11 +1,14 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+import Poppins from '@/components/ui/Poppins';
+
 export default function ClienteDashboard() {
+  const t = useTranslations('clienteDashboard');
   return (
-    <div>
-      <h1>Dashboard del Cliente</h1>
-      <p>
-        Bienvenido a tu panel de control, aquí podrás gestionar tus reservas y ver tu historial de
-        viajes.
-      </p>
+    <div className="p-8">
+      <Poppins text={t('title')} tag="h1" size="24|32" weight="bold" />
+      <Poppins text={t('welcome')} tag="p" size="16|20" color="textSecondary" className="mt-4" />
     </div>
   );
 }

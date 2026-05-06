@@ -1,10 +1,8 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import '@/styles/global.css';
-import Header from '@/components/common/Header';
-import Footer from '@/components/common/Footer';
 import { AuthProvider } from '@/context/AuthContext';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import LayoutWrapper from '@/components/common/LayoutWrapper';
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
@@ -21,15 +19,9 @@ export default async function LocaleLayout({ children, params }) {
       <body className="bg-background text-textPrimary antialiased" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
-            <Header />
-            <main className="w-full flex justify-center">
-              <div className="w-full max-w-6xl px-4 md:px-8 py-10">
-                <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
-                  {children}
-                </GoogleOAuthProvider>
-              </div>
-            </main>
-            <Footer />
+            <LayoutWrapper>
+              {children}
+            </LayoutWrapper>
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

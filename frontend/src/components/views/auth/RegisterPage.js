@@ -72,7 +72,11 @@ export default function RegisterPage() {
 
     if (res.success) {
       const user = JSON.parse(localStorage.getItem('user'));
-      const routes = { administrador: '/admin/dashboard', conductor: '/conductor/dashboard' };
+      const routes = { 
+        admin: '/admin/dashboard', 
+        gerente: '/gerente/dashboard', 
+        conductor: '/conductor/dashboard' 
+      };
       router.push(routes[user?.rol] || '/cliente/dashboard');
     } else {
       if (res.errors) {

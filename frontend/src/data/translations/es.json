@@ -63,7 +63,21 @@
     "contact": "Contacto",
     "cta": "Empezar ahora",
     "loading": "Cargando...",
-    "error": "Ha ocurrido un error"
+    "error": "Ha ocurrido un error",
+    "noVehicle": "Sin vehículo",
+    "areYouSure": "¿Estás seguro?",
+    "realTimeMap": "Mapa en tiempo real",
+    "loadingDrivers": "Cargando conductores...",
+    "weeklyActivity": "Actividad semanal",
+    "weeklyChartPlaceholder": "Gráfico semanal aquí",
+    "managementPanel": "Panel de Gestión",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "errorConnection": "No se pudo conectar con el servidor",
+    "errorCritical": "Error crítico al cargar los datos",
+    "retry": "Reintentar conexión",
+    "checkBackend": "Verifica que el servidor backend esté corriendo"
   },
 
   "auth": {
@@ -89,7 +103,8 @@
       "haveAccount": "¿Ya tienes cuenta?",
       "goLogin": "Inicia sesión",
       "confirmPassword": "Confirmar contraseña"
-    }
+    },
+    "passwordHint": "Mín. 8 carac., una mayúscula, un número y un símbolo."
   },
   "chooseProfile": {
     "title": "¡Bienvenido!",
@@ -276,11 +291,13 @@
     "button": "Completar registro",
     "invalid": "La invitación es inválida o ha expirado.",
     "success": "¡Cuenta creada con éxito! Redirigiendo...",
-    "error": "Error al completar el registro"
+    "error": "Error al completar el registro",
+    "passwordHint": "Mín. 8 carac., una mayúscula, un número y un símbolo."
   },
   "adminDashboard": {
     "title": "Panel de Control",
     "welcome": "Bienvenido al administrador de NexTaxi",
+    "driversOverview": "Vista General de Conductores",
     "stats": {
       "totalDrivers": "Conductores",
       "activeDrivers": "En servicio",
@@ -292,6 +309,7 @@
     "eyebrow": "Gestión de conductores",
     "title": "Conductores",
     "subtitle": "Administra, edita y supervisa a los conductores del sistema",
+    "managementSubtitle": "Gestión completa de conductores y vehículos",
     "dashboard": {
       "title": "Conductores",
       "add": "Añadir conductor",
@@ -305,8 +323,51 @@
       "page": "Página {page} de {total}",
       "newName": "Nuevo conductor",
       "newEmail": "correo@ejemplo.com",
-      "newStatus": "Activo"
+      "newStatus": "Activo",
+      "editDriver": "Editar Conductor",
+      "newDriver": "Nuevo Conductor",
+      "editSubtitle": "Actualiza los datos del conductor y su vehículo",
+      "newSubtitle": "Completa los campos para dar de alta un nuevo conductor",
+      "saveChanges": "Guardar Cambios",
+      "registerDriver": "Registrar Conductor",
+      "processing": "Procesando...",
+      "deleteConfirmText": "Estás a punto de eliminar a {name}. Esta acción no se puede deshacer.",
+      "deleteYes": "Sí, eliminar",
+      "deleteNo": "Cancelar",
+      "updatedSuccess": "Conductor actualizado con éxito",
+      "createdSuccess": "Conductor creado con éxito",
+      "deletedSuccess": "Conductor eliminado correctamente",
+      "errorOperation": "Error en la operación",
+      "errorConnection": "Error de conexión",
+      "errorDelete": "Error al eliminar el conductor"
+    },
+    "form": {
+      "personalInfo": "Información Personal",
+      "vehicleInfo": "Información del Vehículo",
+      "fullName": "Nombre Completo",
+      "professionalEmail": "Email Profesional",
+      "password": "Contraseña",
+      "dni": "DNI/NIE",
+      "license": "Nº Licencia",
+      "plate": "Matrícula",
+      "brand": "Marca",
+      "model": "Modelo",
+      "color": "Color",
+      "type": "Tipo",
+      "vehicleTypes": {
+        "normal": "Normal",
+        "adapted": "Adaptado",
+        "premium": "Premium"
+      }
+    },
+    "table": {
+      "dniLicense": "DNI / Licencia",
+      "vehicle": "Vehículo"
     }
+  },
+  "clienteDashboard": {
+    "title": "Panel del Cliente",
+    "welcome": "Bienvenido a tu panel de control, aquí podrás gestionar tus reservas y ver tu historial de viajes."
   },
   "team": {
     "title": "Los Arquitectos del Movimiento",
@@ -574,6 +635,28 @@
     },
     "copyright": "© 2026 NexTaxi Lanzarote. Todos los derechos reservados."
   },
+  "reserva": {
+    "title": "Pide tu Taxi Ahora",
+    "subtitle": "Servicio rápido y fiable en Lanzarote sin necesidad de registro",
+    "form": {
+      "pickup": "Punto de recogida",
+      "pickupPlaceholder": "Introduce la dirección de recogida",
+      "destination": "Destino (opcional)",
+      "destinationPlaceholder": "¿A dónde vas?",
+      "name": "Tu nombre",
+      "namePlaceholder": "Ej. Juan Pérez",
+      "phone": "Teléfono de contacto",
+      "phonePlaceholder": "+34 600 000 000",
+      "submit": "Solicitar Taxi Ahora",
+      "success": "¡Solicitud enviada! Un conductor se pondrá en contacto contigo pronto.",
+      "error": "Error al enviar la solicitud. Por favor, inténtalo de nuevo."
+    },
+    "call": {
+      "title": "¿Prefieres llamar?",
+      "text": "Atención telefónica 24/7 para reservas inmediatas.",
+      "button": "Llamar a NexTaxi"
+    }
+  },
   "contact": {
     "title": "Mantengamos la ciudad en movimiento.",
     "subtitle": "Servicio premium y asistencia precisa. Ya seas pasajero o socio, estamos aquí para ayudarte.",
@@ -592,7 +675,15 @@
       "email": "Correo Electrónico",
       "subject": "Asunto",
       "message": "Mensaje",
-      "send": "Enviar Mensaje"
+      "send": "Enviar Mensaje",
+      "sendAgain": "Enviar otro mensaje",
+      "successTitle": "¡Mensaje Enviado!",
+      "successMessage": "Gracias por contactar con NexTaxi. Hemos recibido tu mensaje correctamente y nuestro equipo de soporte lo revisará en las próximas 24 horas.",
+      "options": {
+        "support": "Soporte Técnico",
+        "driver": "Quiero ser conductor",
+        "other": "Otro asunto"
+      }
     },
     "map": {
       "title": "NexTaxi Hub",

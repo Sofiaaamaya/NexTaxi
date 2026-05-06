@@ -39,7 +39,7 @@ export default function Cards({ icon, title, description, iconClassName }) {
         text={title}
         size="18|22"
         weight="bold"
-        color="black"
+        color="textPrimary"
         className="leading-tight"
       />
 
@@ -48,7 +48,7 @@ export default function Cards({ icon, title, description, iconClassName }) {
         tag="p"
         text={description}
         size="14|16"
-        color="neutrals-dark"
+        color="textSecondary"
         className="leading-relaxed"
       />
     </div>

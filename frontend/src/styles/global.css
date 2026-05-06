@@ -7,17 +7,21 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #1e3a8a;
-  --color-primary-light: #2b52c3;
-  --color-primary-dark: #172554;
+  --color-primary: 30 58 138;
+  --color-primary-light: 43 82 195;
+  --color-primary-dark: 23 37 84;
 
-  --color-background: #fefefa;
-  --color-surface: #ffffff;
+  --color-background: 254 254 250;
+  --color-surface: 255 255 255;
 
-  --color-text-primary: #111827;
-  --color-text-secondary: #6b7280;
+  --color-text-primary: 17 24 39;
+  --color-text-secondary: 107 114 128;
 
-  --color-border: #e5e7eb;
+  --color-border: 229 231 235;
+
+  --color-success: 25 135 84;
+  --color-warning: 255 193 7;
+  --color-danger: 220 53 69;
 }
 
 @theme inline {
@@ -171,4 +175,11 @@ p {
 
 .animate-scroll {
   animation: scroll 20s linear infinite;
+}
+
+.text-outline-white {
+  text-shadow:
+    0 0 3px rgba(17, 24, 39, 2),
+    0 0 6px rgba(17, 24, 39, 2),
+    0 0 10px rgba(17, 24, 39, 2.5);
 }

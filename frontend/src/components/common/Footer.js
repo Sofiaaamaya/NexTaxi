@@ -3,9 +3,13 @@
 import Link from 'next/link';
 import Poppins from '../ui/Poppins';
 import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
   const t = useTranslations('footer');
+  const pathname = usePathname();
+
+  if (pathname.includes('/admin')) return null;
 
   return (
     <footer className="bg-surface border-t border-border py-16 md:px-6 mt-20">
@@ -46,7 +50,7 @@ export default function Footer() {
                   text={t('company.about')}
                   size="14|16"
                   color="textSecondary"
-                  className="hover:text-primary transition"
+                  className="hover:text-primary transition underline"
                 />
               </Link>
             </li>
@@ -56,7 +60,7 @@ export default function Footer() {
                   text={t('company.contact')}
                   size="14|16"
                   color="textSecondary"
-                  className="hover:text-primary transition"
+                  className="hover:text-primary transition underline"
                 />
               </Link>
             </li>
@@ -81,7 +85,7 @@ export default function Footer() {
                   text={t('legal.privacy')}
                   size="14|16"
                   color="textSecondary"
-                  className="hover:text-primary transition"
+                  className="hover:text-primary transition underline"
                 />
               </Link>
             </li>
@@ -91,7 +95,7 @@ export default function Footer() {
                   text={t('legal.terms')}
                   size="14|16"
                   color="textSecondary"
-                  className="hover:text-primary transition"
+                  className="hover:text-primary transition underline"
                 />
               </Link>
             </li>
@@ -100,7 +104,7 @@ export default function Footer() {
       </div>
 
       {/* COPYRIGHT */}
-      <div className="mt-12 border-t border-[var(--color-border)] pt-6 text-center">
+      <div className="mt-12 border-t border-primary/10 pt-6 text-center">
         <Poppins text={t('copyright')} size="14|16" color="textSecondary" />
       </div>
     </footer>

@@ -28,6 +28,13 @@ class ConductorController extends Controller
             'dni' => 'required|string|unique:conductores,dni',
             'numero_licencia' => 'required|string|unique:conductores,numero_licencia',
             'id_vehiculo' => 'nullable|exists:vehiculos,id_vehiculo',
+            // Datos del vehículo opcionales si se quiere crear uno nuevo
+            'matricula' => 'required_without:id_vehiculo|nullable|string|unique:vehiculos,matricula',
+            'marca' => 'required_with:matricula|nullable|string',
+            'modelo' => 'required_with:matricula|nullable|string',
+            'color' => 'nullable|string',
+            'tipo' => 'nullable|in:normal,adaptado,premium',
+            'anio' => 'nullable|integer',
         ]);
 
         return DB::transaction(function () use ($validated) {
@@ -38,11 +45,26 @@ class ConductorController extends Controller
                 'rol' => 'conductor'
             ]);
 
+            $id_vehiculo = $validated['id_vehiculo'] ?? null;
+
+            if (!$id_vehiculo && isset($validated['matricula'])) {
+                $vehiculo = \App\Models\Vehiculo::create([
+                    'matricula' => $validated['matricula'],
+                    'marca' => $validated['marca'],
+                    'modelo' => $validated['modelo'],
+                    'color' => $validated['color'] ?? 'Blanco',
+                    'tipo' => $validated['tipo'] ?? 'normal',
+                    'anio' => $validated['anio'] ?? date('Y'),
+                    'id_cooperativa' => \App\Models\Cooperativa::first()?->id_cooperativa
+                ]);
+                $id_vehiculo = $vehiculo->id_vehiculo;
+            }
+
             $conductor = Conductor::create([
                 'id_usuario' => $usuario->id_usuario,
                 'dni' => $validated['dni'],
                 'numero_licencia' => $validated['numero_licencia'],
-                'id_vehiculo' => $validated['id_vehiculo'] ?? null,
+                'id_vehiculo' => $id_vehiculo,
                 'estado' => 'fuera_servicio',
                 'estado_verificacion' => 'pendiente'
             ]);
@@ -54,6 +76,7 @@ class ConductorController extends Controller
     public function update(Request $request, $id) {
         $conductor = Conductor::findOrFail($id);
         $usuario = $conductor->usuario;
+        $vehiculo = $conductor->vehiculo;
 
         $validated = $request->validate([
             'nombre' => 'sometimes|required|string|max:100',
@@ -62,12 +85,24 @@ class ConductorController extends Controller
             'numero_licencia' => 'sometimes|required|string|unique:conductores,numero_licencia,' . $conductor->id_conductor . ',id_conductor',
             'estado' => 'sometimes|required|in:disponible,ocupado,fuera_servicio',
             'estado_verificacion' => 'sometimes|required|in:pendiente,aprobado,rechazado',
+            // Datos del vehículo
+            'matricula' => 'sometimes|required|string|unique:vehiculos,matricula,' . ($vehiculo?->id_vehiculo ?? 'NULL') . ',id_vehiculo',
+            'marca' => 'sometimes|required|string',
+            'modelo' => 'sometimes|required|string',
+            'color' => 'sometimes|nullable|string',
+            'tipo' => 'sometimes|nullable|in:normal,adaptado,premium',
+            'anio' => 'sometimes|nullable|integer',
         ]);
 
-        DB::transaction(function () use ($conductor, $usuario, $validated) {
+        DB::transaction(function () use ($conductor, $usuario, $vehiculo, $validated) {
             if (isset($validated['nombre'])) $usuario->nombre = $validated['nombre'];
             if (isset($validated['email'])) $usuario->email = $validated['email'];
             $usuario->save();
+
+            if ($vehiculo) {
+                $vehiculo->fill($validated);
+                $vehiculo->save();
+            }
 
             $conductor->fill($validated);
             $conductor->save();

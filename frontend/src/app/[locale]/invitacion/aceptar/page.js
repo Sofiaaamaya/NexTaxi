@@ -163,7 +163,7 @@ function AcceptInvitationContent() {
                 <Icon name={showPassword ? 'EyeOff' : 'Eye'} size={20} />
               </button>
             </div>
-            {!errors.password && <p className="text-[11px] text-gray-400 ml-1">Mín. 8 carac., una mayúscula, un número y un símbolo.</p>}
+            {!errors.password && <p className="text-[11px] text-gray-400 ml-1">{t('passwordHint')}</p>}
             {errors.password && <p className="text-red-500 text-xs mt-1 ml-1">{errors.password[0]}</p>}
           </div>
 

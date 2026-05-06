@@ -9,11 +9,11 @@ use App\Http\Requests\Solicitud\StoreSolicitudRequest;
 class SolicitudTaxiController extends Controller
 {
     public function store(StoreSolicitudRequest $req) {
-        return SolicitudTaxi::create([
-            ...$req->validated(),
-            'id_cliente' => auth()->id(),
-            'fecha_solicitud' => now()
-        ]);
+        $data = $req->validated();
+        $data['id_cliente'] = auth('sanctum')->id();
+        $data['fecha_solicitud'] = now();
+        
+        return SolicitudTaxi::create($data);
     }
 
     public function index() {

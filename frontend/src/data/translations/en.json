@@ -64,7 +64,21 @@
     "contact": "Contact",
     "cta": "Get started now",
     "loading": "Loading...",
-    "error": "An error has occurred"
+    "error": "An error has occurred",
+    "noVehicle": "No vehicle",
+    "areYouSure": "Are you sure?",
+    "realTimeMap": "Real-time map",
+    "loadingDrivers": "Loading drivers...",
+    "weeklyActivity": "Weekly activity",
+    "weeklyChartPlaceholder": "Weekly chart here",
+    "managementPanel": "Management Panel",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "errorConnection": "Could not connect to server",
+    "errorCritical": "Critical error loading data",
+    "retry": "Retry connection",
+    "checkBackend": "Check that the backend server is running"
   },
   "auth": {
     "login": {
@@ -88,7 +102,8 @@
       "haveAccount": "Already have an account?",
       "goLogin": "Log in",
       "confirmPassword": "Confirm password"
-    }
+    },
+    "passwordHint": "Min. 8 chars, one uppercase, one number and one symbol."
   },
   "chooseProfile": {
     "title": "Welcome!",
@@ -275,11 +290,13 @@
     "button": "Complete registration",
     "invalid": "The invitation is invalid or has expired.",
     "success": "Account created successfully! Redirecting...",
-    "error": "Error completing registration"
+    "error": "Error completing registration",
+    "passwordHint": "Min. 8 chars, one uppercase, one number and one symbol."
   },
   "adminDashboard": {
     "title": "Control Panel",
     "welcome": "Welcome to NexTaxi Admin",
+    "driversOverview": "Drivers Overview",
     "stats": {
       "totalDrivers": "Drivers",
       "activeDrivers": "On Duty",
@@ -291,6 +308,7 @@
     "eyebrow": "Driver Management",
     "title": "Drivers",
     "subtitle": "Manage, edit and supervise system drivers",
+    "managementSubtitle": "Complete management of drivers and vehicles",
     "dashboard": {
       "title": "Drivers",
       "add": "Add driver",
@@ -304,8 +322,46 @@
       "page": "Page {page} of {total}",
       "newName": "New driver",
       "newEmail": "email@example.com",
-      "newStatus": "Active"
+      "newStatus": "Active",
+      "editDriver": "Edit Driver",
+      "newDriver": "New Driver",
+      "editSubtitle": "Update driver and vehicle details",
+      "newSubtitle": "Complete the fields to register a new driver",
+      "saveChanges": "Save Changes",
+      "registerDriver": "Register Driver",
+      "processing": "Processing...",
+      "deleteConfirmText": "You are about to delete {name}. This action cannot be undone.",
+      "deleteYes": "Yes, delete",
+      "deleteNo": "Cancel",
+      "updatedSuccess": "Driver updated successfully",
+      "createdSuccess": "Driver created successfully",
+      "deletedSuccess": "Driver deleted successfully",
+      "errorOperation": "Error in operation",
+      "errorConnection": "Connection error",
+      "errorDelete": "Error deleting driver"
+    },
+    "form": {
+      "personalInfo": "Personal Information",
+      "vehicleInfo": "Vehicle Information",
+      "fullName": "Full Name",
+      "professionalEmail": "Professional Email",
+      "password": "Password",
+      "dni": "ID/Passport",
+      "license": "License No.",
+      "plate": "License Plate",
+      "brand": "Make",
+      "model": "Model",
+      "color": "Color",
+      "type": "Type"
+    },
+    "table": {
+      "dniLicense": "ID / License",
+      "vehicle": "Vehicle"
     }
+  },
+  "clienteDashboard": {
+    "title": "Client Dashboard",
+    "welcome": "Welcome to your control panel, here you can manage your bookings and view your trip history."
   },
   "team": {
     "title": "The Architects of Movement",
@@ -574,6 +630,28 @@
     },
     "copyright": "© 2026 NexTaxi Lanzarote. All rights reserved."
   },
+  "reserva": {
+    "title": "Request Your Taxi Now",
+    "subtitle": "Fast and reliable service in Lanzarote without registration",
+    "form": {
+      "pickup": "Pickup Location",
+      "pickupPlaceholder": "Enter pickup address",
+      "destination": "Destination (optional)",
+      "destinationPlaceholder": "Where are you going?",
+      "name": "Your Name",
+      "namePlaceholder": "e.g. John Doe",
+      "phone": "Contact Phone",
+      "phonePlaceholder": "+34 600 000 000",
+      "submit": "Request Taxi Now",
+      "success": "Request sent! A driver will contact you soon.",
+      "error": "Error sending request. Please try again."
+    },
+    "call": {
+      "title": "Prefer to call?",
+      "text": "24/7 phone support for immediate bookings.",
+      "button": "Call NexTaxi"
+    }
+  },
   "contact": {
     "title": "Let’s keep the city moving.",
     "subtitle": "Precision dispatch and premium service. Whether you're a passenger or a partner, we're here to assist.",
@@ -592,7 +670,15 @@
       "email": "Email Address",
       "subject": "Subject",
       "message": "Message",
-      "send": "Send Message"
+      "send": "Send Message",
+      "sendAgain": "Send another message",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for contacting NexTaxi. We have received your message correctly and our support team will review it within the next 24 hours.",
+      "options": {
+        "support": "Technical Support",
+        "driver": "I want to be a driver",
+        "other": "Other matter"
+      }
     },
     "map": {
       "title": "NexTaxi Hub",

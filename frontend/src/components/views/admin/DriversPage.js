@@ -10,8 +10,9 @@ import { apiFetch } from '@/lib/api';
 import Poppins from '@/components/ui/Poppins';
 import Icon from '@/components/icons/Icon';
 
-export default function DriversPage() {
+export default function DriversPage({ onDataChange }) {
   const t = useTranslations('drivers');
+  const tCommon = useTranslations('common');
   const [drivers, setDrivers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,7 +29,7 @@ export default function DriversPage() {
 
       // Si hay error de conexión o error 500/400
       if (data && data.error) {
-        setError(data.data?.message || 'No se pudo conectar con el servidor');
+        setError(data.data?.message || tCommon('errorConnection'));
         setDrivers([]);
         return;
       }
@@ -42,19 +43,11 @@ export default function DriversPage() {
         if (!Array.isArray(rawData)) rawData = [];
       }
 
-      const formatted = rawData.map((d) => ({
-        id: d?.id_conductor || d?.id,
-        name: d?.usuario?.nombre || d?.nombre || 'N/A',
-        email: d?.usuario?.email || d?.email || 'N/A',
-        status: d?.estado || 'fuera_servicio',
-        dni: d?.dni || '',
-        licencia: d?.numero_licencia || '',
-      }));
-
-      setDrivers(formatted);
+      setDrivers(rawData);
+      if (onDataChange) onDataChange();
     } catch (err) {
       console.error('Error fetching drivers:', err);
-      setError('Error crítico al cargar los datos');
+      setError(tCommon('errorCritical'));
     } finally {
       setLoading(false);
     }
@@ -74,7 +67,7 @@ export default function DriversPage() {
           {loading ? (
             <div className="flex flex-col items-center justify-center p-20 bg-white rounded-2xl border border-dashed border-gray-300">
               <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary mb-4"></div>
-              <Poppins text="Cargando conductores..." size="16|20" color="textSecondary" />
+              <Poppins text={tCommon('loadingDrivers')} size="16|20" color="textSecondary" />
             </div>
           ) : error ? (
             <div className="flex flex-col items-center justify-center p-20 bg-red-50 rounded-2xl border border-red-200">
@@ -84,10 +77,10 @@ export default function DriversPage() {
                 onClick={fetchDrivers}
                 className="px-6 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition"
               >
-                Reintentar conexión
+                {tCommon('retry')}
               </button>
               <p className="mt-4 text-xs text-red-400">
-                Verifica que el servidor backend esté corriendo en http://localhost:8000
+                {tCommon('checkBackend')}
               </p>
             </div>
           ) : (

@@ -4,16 +4,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--color-primary)',
-        'primary-light': 'var(--color-primary-light)',
-        background: 'var(--color-background)',
-        surface: 'var(--color-surface)',
-        'text-primary': 'var(--color-text-primary)',
-        'text-secondary': 'var(--color-text-secondary)',
-        success: 'var(--color-success)',
-        warning: 'var(--color-warning)',
-        danger: 'var(--color-danger)',
-        border: 'var(--color-border)',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        'primary-light': 'rgb(var(--color-primary-light) / <alpha-value>)',
+
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+
+        'text-primary': 'rgb(var(--color-text-primary) / <alpha-value>)',
+        'text-secondary': 'rgb(var(--color-text-secondary) / <alpha-value>)',
+
+        border: 'rgb(var(--color-border) / <alpha-value>)',
+
+        success: 'rgb(var(--color-success) / <alpha-value>)',
+        warning: 'rgb(var(--color-warning) / <alpha-value>)',
+        danger: 'rgb(var(--color-danger) / <alpha-value>)',
       },
     },
   },
