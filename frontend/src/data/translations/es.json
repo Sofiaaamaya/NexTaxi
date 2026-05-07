@@ -77,7 +77,8 @@
     "errorConnection": "No se pudo conectar con el servidor",
     "errorCritical": "Error crítico al cargar los datos",
     "retry": "Reintentar conexión",
-    "checkBackend": "Verifica que el servidor backend esté corriendo"
+    "checkBackend": "Verifica que el servidor backend esté corriendo",
+    "driverPanel": "Panel del Conductor"
   },
 
   "auth": {
@@ -266,7 +267,9 @@
     "drivers": "Conductores",
     "users": "Usuarios",
     "invitations": "Invitaciones",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "miPerfil": "Mi perfil",
+    "misViajes": "Mis viajes"
   },
   "adminInvitations": {
     "title": "Enviar Invitación",
@@ -689,5 +692,26 @@
       "title": "NexTaxi Hub",
       "address": "Avenida Central 123, Arrecife, Lanzarote"
     }
+  },
+   "rideForm": {
+    "title": "Detalles del viaje",
+    "currentLocation": "Ubicación actual",
+    "currentLocationPlaceholder": "Detectando ubicación...",
+    "manualLocation": "Ubicación manual",
+    "manualLocationPlaceholder": "Introduce una dirección",
+    "destination": "Destino (opcional)",
+    "destinationPlaceholder": "¿A dónde quieres ir?",
+    "vehicleType": "Tipo de vehículo",
+    "estimation": "Estimación",
+    "estimationPlaceholder": "Cálculo no disponible aún",
+    "requestTaxi": "Pedir Taxi",
+    "sentTitle": "Taxi solicitado",
+    "sentSubtitle": "Un conductor está en camino",
+
+    "vehicleOptions": [
+      { "value": "normal", "label": "Normal" },
+      { "value": "grande", "label": "Grande" },
+      { "value": "adaptado", "label": "Adaptado (PMR)" }
+    ]
   }
 }

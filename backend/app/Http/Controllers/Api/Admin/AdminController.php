@@ -76,7 +76,7 @@ class AdminController extends Controller
         $request->validate([
             'token'    => 'required',
             'nombre'   => 'required|string|max:100',
-            'password' => 'required|string|min:8|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+            'password' => 'required|string|min:8|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_]).{8,}$/',
             // Datos opcionales para conductores
             'dni'             => 'required_if:rol,conductor|string|max:20',
             'numero_licencia' => 'required_if:rol,conductor|string|max:50',

@@ -98,7 +98,7 @@ export default function DriverRegisterPage({ invitationToken = null, invitationD
       length: pass.length >= 8,
       upper: /[A-Z]/.test(pass),
       number: /[0-9]/.test(pass),
-      special: /[@$!%*?&]/.test(pass),
+      special: /[@$!%*?&_]/.test(pass),
     });
   }, [form.password]);
 
