@@ -26,4 +26,8 @@ class Viaje extends Model
     public function eventos() {
         return $this->hasMany(EventoViaje::class, 'id_viaje');
     }
+
+    public function ubicaciones() {
+        return $this->hasMany(UbicacionViaje::class, 'id_viaje');
+    }
 }

@@ -135,19 +135,39 @@ export default function Header() {
             </div>
           ) : (
             <div className="hidden md:flex items-center gap-2">
-              <div className="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-gray-50 border border-border">
-                <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                  <Icon name="User" size={18} />
+              <div className="relative group">
+                <div className="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-gray-50 border border-border cursor-pointer hover:bg-gray-100 transition-all">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                    <Icon name="User" size={18} />
+                  </div>
+                  <Poppins text={user.nombre || user.name} tag="span" size="14|16" weight="semibold" />
+                  <Icon name="ChevronDown" size={14} className="text-gray-400 group-hover:text-primary transition-colors" />
                 </div>
-                <Poppins text={user.nombre || user.name} tag="span" size="14|16" weight="semibold" />
-              </div>
 
-              <button
-                onClick={logout}
-                className="p-2.5 rounded-xl border border-border bg-white text-red-500 hover:bg-red-50 hover:border-red-100 transition-all duration-200 shadow-sm"
-              >
-                <Icon name="LogOut" size={20} />
-              </button>
+                {/* DROPDOWN USER */}
+                <div className="absolute right-0 mt-1 w-48 bg-white border border-border rounded-xl shadow-xl py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0">
+                  <Link href={`/${currentLocale}/${user.rol}/dashboard`}>
+                    <div className="px-4 py-2 hover:bg-gray-50 flex items-center gap-2 transition-colors">
+                      <Icon name="LayoutDashboard" size={16} className="text-gray-400" />
+                      <Poppins text="Dashboard" size="14" />
+                    </div>
+                  </Link>
+                  <Link href={`/${currentLocale}/${user.rol === 'cliente' ? 'usuario' : user.rol}/mis-viajes`}>
+                    <div className="px-4 py-2 hover:bg-gray-50 flex items-center gap-2 transition-colors">
+                      <Icon name="History" size={16} className="text-gray-400" />
+                      <Poppins text={t('nav.misViajes') || 'Mis Viajes'} size="14" />
+                    </div>
+                  </Link>
+                  <div className="border-t border-gray-100 my-1"></div>
+                  <button
+                    onClick={logout}
+                    className="w-full text-left px-4 py-2 hover:bg-red-50 text-red-500 flex items-center gap-2 transition-colors"
+                  >
+                    <Icon name="LogOut" size={16} />
+                    <Poppins text={t('auth.logout')} size="14" />
+                  </button>
+                </div>
+              </div>
             </div>
           )}
 
@@ -203,14 +223,28 @@ export default function Header() {
                     <Poppins text={user.nombre || user.name} size="16|20" weight="semibold" />
                   </div>
 
+                  <Link href={`/${currentLocale}/${user.rol}/dashboard`} onClick={() => setOpenMenu(false)}>
+                    <div className="w-full py-3 px-4 mt-2 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
+                      <Icon name="LayoutDashboard" size={20} className="text-gray-400" />
+                      <Poppins text="Dashboard" size="16" />
+                    </div>
+                  </Link>
+
+                  <Link href={`/${currentLocale}/${user.rol === 'cliente' ? 'usuario' : user.rol}/mis-viajes`} onClick={() => setOpenMenu(false)}>
+                    <div className="w-full py-3 px-4 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
+                      <Icon name="History" size={20} className="text-gray-400" />
+                      <Poppins text={t('nav.misViajes') || 'Mis Viajes'} size="16" />
+                    </div>
+                  </Link>
+
                   <button
                     onClick={() => {
                       logout();
                       setOpenMenu(false);
                     }}
-                    className="w-full py-2 mt-2 text-center rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+                    className="w-full py-3 mt-4 text-center rounded-xl bg-red-500 text-white hover:bg-red-600 transition shadow-lg shadow-red-500/20"
                   >
-                    <Poppins text={t('auth.logout')} size="16|20" />
+                    <Poppins text={t('auth.logout')} size="16" weight="bold" color="white" />
                   </button>
                 </>
               )}

@@ -215,7 +215,8 @@
       "home": "Inicio",
       "reserva": "Pedir viaje",
       "contacto": "Contacto",
-      "nosotros": "Nosotros"
+      "nosotros": "Nosotros",
+      "misViajes": "Mis Viajes"
     },
     "languages": {
       "es": "Español",
@@ -641,6 +642,7 @@
   "reserva": {
     "title": "Pide tu Taxi Ahora",
     "subtitle": "Servicio rápido y fiable en Lanzarote sin necesidad de registro",
+    "formTitle": "¿A dónde vamos?",
     "form": {
       "pickup": "Punto de recogida",
       "pickupPlaceholder": "Introduce la dirección de recogida",
@@ -713,5 +715,48 @@
       { "value": "grande", "label": "Grande" },
       { "value": "adaptado", "label": "Adaptado (PMR)" }
     ]
+  },
+  "tripHistory": {
+    "title": "Mis Viajes",
+    "subtitle": "Historial detallado de tus trayectos con NexTaxi",
+    "noTrips": "No hay viajes registrados",
+    "table": {
+      "date": "Fecha",
+      "route": "Origen / Destino",
+      "status": "Estado",
+      "price": "Precio",
+      "map": "Mapa"
+    },
+    "modal": {
+      "title": "Detalle del Viaje",
+      "distance": "Distancia",
+      "duration": "Duración",
+      "driver": "Conductor",
+      "finalPrice": "Precio Final"
+    },
+    "status": {
+      "finished": "Finalizado",
+      "ongoing": "En curso"
+    }
+  },
+  "tracking": {
+    "loading": "Cargando viaje...",
+    "notFound": "No se encontró el viaje.",
+    "onWay": "Yendo a recogida",
+    "inTrip": "En viaje",
+    "customer": "Cliente",
+    "pickupButton": "Recoger Cliente",
+    "finishButton": "Finalizar Viaje",
+    "prompts": {
+      "destination": "Introduce la dirección de destino:",
+      "price": "Introduce el precio final (€):"
+    }
+  },
+  "userTracking": {
+    "loading": "Cargando seguimiento...",
+    "noActive": "No hay viaje activo.",
+    "enRoute": "En camino a tu destino",
+    "toPickup": "El taxi va a por ti",
+    "estPrice": "Precio Estimado"
   }
 }
