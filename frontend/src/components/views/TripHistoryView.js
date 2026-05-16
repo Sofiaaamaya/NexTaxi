@@ -15,7 +15,7 @@ export default function TripHistoryView({ rol }) {
 
   useEffect(() => {
     const fetchTrips = async () => {
-      const res = await apiFetch('/viajes');
+      const res = await apiFetch('/viajes/');
       if (!res.error) {
         setTrips(res);
       }
@@ -69,6 +69,12 @@ export default function TripHistoryView({ rol }) {
                           <div className="w-2 h-2 rounded-full bg-red-500" />
                           <Poppins text={trip.solicitud.destino_direccion || 'No especificado'} size="13" className="truncate text-gray-500" />
                         </div>
+                        <Poppins 
+                          text={rol === 'conductor' ? (trip.solicitud.nombre_cliente || 'Cliente') : (trip.conductor?.usuario?.nombre || 'Conductor')} 
+                          size="11" 
+                          color="textSecondary" 
+                          className="mt-1"
+                        />
                       </div>
                     </td>
                     <td className="px-6 py-4">
@@ -139,15 +145,15 @@ export default function TripHistoryView({ rol }) {
             <div className="p-6 bg-gray-50 grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
                 <Poppins text={t('modal.distance')} size="12" weight="medium" color="textSecondary" className="uppercase" />
-                <Poppins text="-- km" weight="bold" />
+                <Poppins text={selectedTrip.distancia ? `${(selectedTrip.distancia / 1000).toFixed(1)} km` : '-- km'} weight="bold" />
               </div>
               <div>
                 <Poppins text={t('modal.duration')} size="12" weight="medium" color="textSecondary" className="uppercase" />
                 <Poppins text={selectedTrip.fin_viaje ? t('status.finished') : t('status.ongoing')} weight="bold" />
               </div>
               <div>
-                <Poppins text={t('modal.driver')} size="12" weight="medium" color="textSecondary" className="uppercase" />
-                <Poppins text={selectedTrip.conductor.usuario.nombre} weight="bold" />
+                <Poppins text={rol === 'conductor' ? t('table.client') || 'Cliente' : t('modal.driver')} size="12" weight="medium" color="textSecondary" className="uppercase" />
+                <Poppins text={rol === 'conductor' ? selectedTrip.solicitud.nombre_cliente : selectedTrip.conductor.usuario.nombre} weight="bold" />
               </div>
               <div>
                 <Poppins text={t('modal.finalPrice')} size="12" weight="medium" color="textSecondary" className="uppercase" />

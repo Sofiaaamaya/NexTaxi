@@ -12,7 +12,13 @@ class Viaje extends Model
     protected $fillable = [
         'id_solicitud','id_conductor','estado',
         'inicio_viaje','fin_viaje',
-        'precio_estimado','precio_final'
+        'precio_estimado','precio_final',
+        'distancia','duracion','polyline','pasos','coordenadas'
+    ];
+
+    protected $casts = [
+        'pasos' => 'array',
+        'coordenadas' => 'array',
     ];
 
     public function solicitud() {

@@ -75,8 +75,8 @@ function AcceptInvitationContent() {
     } else {
       setSuccess(true);
       // Guardar sesión
-      localStorage.setItem('token', res.token);
-      localStorage.setItem('user', JSON.stringify(res.user));
+      sessionStorage.setItem('token', res.token);
+      sessionStorage.setItem('user', JSON.stringify(res.user));
 
       // Redirigir según rol después de 2 segundos
       setTimeout(() => {
@@ -84,7 +84,7 @@ function AcceptInvitationContent() {
         if (rol === 'admin') router.push('/admin/dashboard');
         else if (rol === 'gerente') router.push('/gerente/dashboard');
         else if (rol === 'conductor') router.push('/conductor/dashboard');
-        else router.push('/cliente/dashboard');
+        else router.push('/usuario/dashboard');
       }, 2000);
     }
   };

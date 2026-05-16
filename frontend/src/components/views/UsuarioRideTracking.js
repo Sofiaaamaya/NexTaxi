@@ -11,6 +11,7 @@ export default function UsuarioRideTracking({ rideId }) {
   const t = useTranslations('userTracking');
   const [ride, setRide] = useState(null);
   const [route, setRoute] = useState([]);
+  const [polyline, setPolyline] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,14 +20,12 @@ export default function UsuarioRideTracking({ rideId }) {
       if (!res.error) {
         setRide(res);
         setRoute(res.ubicaciones.map(u => ({ lat: parseFloat(u.latitud), lng: parseFloat(u.longitud) })));
+        if (res.polyline) setPolyline(res.polyline);
       }
       setLoading(false);
     };
-
     fetchRide();
-    const interval = setInterval(fetchRide, 5000); // Polling cada 5s para ver al conductor
-
-    return () => clearInterval(interval);
+    // Si quieres polling, puedes agregar aquí setInterval
   }, [rideId]);
 
   if (loading) return <div>{t('loading')}</div>;
@@ -50,13 +49,13 @@ export default function UsuarioRideTracking({ rideId }) {
 
       <div className="flex-1 relative">
         <MapComponent 
-          center={lastPos || { lat: parseFloat(ride.solicitud.recogida_lat), lng: parseFloat(ride.solicitud.recogida_lng) }}
+          origin={route[0] || { lat: parseFloat(ride.solicitud.recogida_lat), lng: parseFloat(ride.solicitud.recogida_lng) }}
+          destination={route[route.length-1] || { lat: parseFloat(ride.solicitud.destino_lat), lng: parseFloat(ride.solicitud.destino_lng) }}
+          polyline={polyline}
           markers={[
-            { position: { lat: parseFloat(ride.solicitud.recogida_lat), lng: parseFloat(ride.solicitud.recogida_lng) }, label: '🏠' },
-            lastPos && { position: lastPos, label: '🚕', icon: 'https://maps.google.com/mapfiles/kml/pal2/icon56.png' }
+            { ...route[0], label: 'A' },
+            route.length > 1 && { ...route[route.length-1], label: 'B' }
           ].filter(Boolean)}
-          route={route}
-          zoom={15}
         />
       </div>
 

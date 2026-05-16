@@ -6,10 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\Viaje;
 use App\Models\SolicitudTaxi;
 use App\Http\Requests\Viaje\UpdateViajeRequest;
+use Illuminate\Http\Request;
 
 class ViajeController extends Controller
 {
     public function index() {
+        $user = auth()->user();
+        $query = Viaje::with(['conductor.usuario', 'solicitud', 'ubicaciones'])
+            ->orderBy('created_at', 'desc');
+
+        if ($user->rol === 'conductor') {
+            $query->where('id_conductor', $user->conductor->id_conductor);
+        } elseif ($user->rol === 'cliente') {
+            $query->whereHas('solicitud', function($q) use ($user) {
+                $q->where('id_cliente', $user->id_usuario);
+            });
+        }
+
+        return $query->get();
     }
 
     public function activa() {

@@ -12,24 +12,29 @@ export default function TeamSection() {
 
   const team = [
     {
-      name: 'Julian Vance',
-      role: 'Founder & CEO',
-      image: '/images/imagen_perfil.webp',
-    },
-    {
       name: 'Sarah Chen',
       role: 'Chief Technology Officer',
-      image: '/images/imagen_perfil.webp',
-    },
-    {
-      name: 'Marcus Thorne',
-      role: 'Director of Logistics',
-      image: '/images/imagen_perfil.webp',
+      image: '/images/empresaria_3.webp',
     },
     {
       name: 'Elena Rodriguez',
       role: 'Head of Product Design',
-      image: '/images/imagen_perfil.webp',
+      image: '/images/empresaria_4.webp',
+    },
+    {
+      name: 'Marcus Thorne',
+      role: 'Director of Logistics',
+      image: '/images/empresario_2.webp',
+    },
+    {
+      name: 'Lucas Sánchez',
+      role: 'Head of Product Design',
+      image: '/images/empresario_5.webp',
+    },
+    {
+      name: 'Julian Vance',
+      role: 'Founder & CEO',
+      image: '/images/empresario_1.webp',
     },
   ];
 

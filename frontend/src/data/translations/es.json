@@ -91,10 +91,29 @@
       "noAccount": "¿No tienes cuenta?",
       "goRegister": "Regístrate",
       "forgot": "¿Olvidaste tu contraseña?",
-      "orContinue": "o continuar con"
-    },
-
-    "register": {
+        "orContinue": "o continuar con"
+      },
+      "forgotPassword": {
+        "title": "Recuperar Contraseña",
+        "subtitle": "Introduce tu email y te enviaremos un enlace de recuperación.",
+        "email": "Correo electrónico",
+        "placeholder": "correo@ejemplo.com",
+        "button": "Enviar enlace de recuperación",
+        "backToLogin": "Volver al login",
+        "success": "Si el email existe, se ha enviado un enlace de recuperación.",
+        "error": "Error al enviar el email de recuperación."
+      },
+      "resetPassword": {
+        "title": "Nueva Contraseña",
+        "subtitle": "Elige una contraseña segura para tu cuenta.",
+        "password": "Nueva Contraseña",
+        "confirm": "Confirmar Nueva Contraseña",
+        "button": "Actualizar Contraseña",
+        "backToLogin": "Volver al login",
+        "success": "¡Contraseña actualizada con éxito!",
+        "error": "Error al actualizar la contraseña. El enlace puede haber expirado."
+      },
+      "register": {
       "title": "Crear cuenta",
       "subtitle": "Regístrate para comenzar a usar NexTaxi",
       "name": "Nombre completo",
@@ -103,7 +122,8 @@
       "button": "Crear cuenta",
       "haveAccount": "¿Ya tienes cuenta?",
       "goLogin": "Inicia sesión",
-      "confirmPassword": "Confirmar contraseña"
+      "confirmPassword": "Confirmar contraseña",
+      "orContinue": "o continuar con"
     },
     "passwordHint": "Mín. 8 carac., una mayúscula, un número y un símbolo."
   },
@@ -138,7 +158,7 @@
         "title": "Vive la Isla con NexTaxi",
         "subtitle": "Traslados fiables, cómodos y profesionales desde el aeropuerto hasta cada playa escondida.",
         "button1": "Pedir un Taxi",
-        "button2": "Reservar Traslado"
+        "button2": "Trabaja con nosotros"
       },
       "1": {
         "alt": "Vistas al océano con acantilados en Lanzarote",
@@ -217,6 +237,10 @@
       "contacto": "Contacto",
       "nosotros": "Nosotros",
       "misViajes": "Mis Viajes"
+    },
+    "aria": {
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú"
     },
     "languages": {
       "es": "Español",
@@ -654,12 +678,24 @@
       "phonePlaceholder": "+34 600 000 000",
       "submit": "Solicitar Taxi Ahora",
       "success": "¡Solicitud enviada! Un conductor se pondrá en contacto contigo pronto.",
-      "error": "Error al enviar la solicitud. Por favor, inténtalo de nuevo."
+      "error": "Error al enviar la solicitud. Por favor, inténtalo de nuevo.",
+      "getRoute": "Obtener ruta",
+      "loading": "Calculando ruta...",
+      "reset": "Hacer otra solicitud"
     },
     "call": {
       "title": "¿Prefieres llamar?",
       "text": "Atención telefónica 24/7 para reservas inmediatas.",
-      "button": "Llamar a NexTaxi"
+      "button": "Llamar a NexTaxi",
+      "phone": "+34 600 000 000"
+    },
+    "benefits": {
+      "title": "¿Por qué usar NexTaxi?",
+      "items": {
+        "immediate": "Asignación inmediata",
+        "verified": "Conductores verificados",
+        "available": "Disponible 24/7"
+      }
     }
   },
   "contact": {
@@ -699,8 +735,6 @@
     "title": "Detalles del viaje",
     "currentLocation": "Ubicación actual",
     "currentLocationPlaceholder": "Detectando ubicación...",
-    "manualLocation": "Ubicación manual",
-    "manualLocationPlaceholder": "Introduce una dirección",
     "destination": "Destino (opcional)",
     "destinationPlaceholder": "¿A dónde quieres ir?",
     "vehicleType": "Tipo de vehículo",
@@ -758,5 +792,27 @@
     "enRoute": "En camino a tu destino",
     "toPickup": "El taxi va a por ti",
     "estPrice": "Precio Estimado"
+  },
+  "rideRequest": {
+    "origin": "Origen",
+    "destination": "Destino",
+    "getRoute": "Obtener ruta",
+    "loading": "Cargando ruta..."
+  },
+  "dashboard": {
+    "welcome": "Bienvenido a NexTaxi",
+    "active": "Tienes un viaje en curso.",
+    "noActive": "Pide un taxi ahora o consulta tus viajes anteriores.",
+    "loading": "Cargando dashboard...",
+    "origin": "Origen",
+    "destination": "Destino",
+    "pickupPlaceholder": "Dirección de recogida",
+    "destinationPlaceholder": "Dirección de destino",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "phone": "Teléfono",
+    "phonePlaceholder": "Tu teléfono",
+    "getRoute": "Obtener ruta",
+    "loadingRoute": "Cargando ruta..."
   }
 }

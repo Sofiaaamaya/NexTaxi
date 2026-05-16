@@ -136,7 +136,7 @@ class GeneralApiTest extends TestCase
     public function test_can_list_viajes()
     {
         $response = $this->actingAs($this->admin, 'sanctum')
-            ->getJson('/api/viajes');
+            ->getJson('/api/viajes/');
 
         $response->assertStatus(200);
     }

@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -11,7 +10,7 @@ export default function LayoutWrapper({ children }) {
   const isAdmin = pathname?.includes('/admin');
 
   return (
-    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
+    <>
       <Header />
       <main className={clsx("w-full flex justify-center", isAdmin && "block")}>
         <div className={clsx(
@@ -22,6 +21,6 @@ export default function LayoutWrapper({ children }) {
         </div>
       </main>
       <Footer />
-    </GoogleOAuthProvider>
+    </>
   );
 }

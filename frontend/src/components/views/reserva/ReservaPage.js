@@ -72,9 +72,9 @@ export default function ReservaPage() {
               <Poppins text={t('form.success')} size="20" weight="semibold" color="textPrimary" />
               <button 
                 onClick={() => setSuccess(false)}
-                className="mt-8 text-primary font-medium hover:underline"
+                className="mt-8 font-medium bg-primary hover:bg-primary-light text-white px-4 py-2 rounded-lg transition-colors"
               >
-                Hacer otra solicitud
+                {t('form.reset')}
               </button>
             </div>
           ) : (
@@ -171,24 +171,24 @@ export default function ReservaPage() {
             <Poppins text={t('call.text')} size="16" className="mt-2 text-slate-300" />
             
             <a 
-              href="tel:+34600000000"
+              href={`tel:${t('call.phone')}`}
               className="mt-8 w-full bg-white text-black py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-slate-100 transition-colors"
             >
               <Icon name="PhoneCall" size={20} />
               <Poppins text={t('call.button')} tag="span" weight="bold" />
             </a>
             <div className="mt-4 text-center">
-              <Poppins text="+34 600 000 000" size="20" weight="bold" color="primary" />
+              <Poppins text={t('call.phone')} size="20" weight="bold" color="white" />
             </div>
           </div>
 
           <div className="bg-primary/5 border border-primary/10 p-8 rounded-3xl">
-            <Poppins text="¿Por qué usar NexTaxi?" size="18" weight="bold" color="textPrimary" />
+            <Poppins text={t('benefits.title')} size="18" weight="bold" color="textPrimary" />
             <ul className="mt-4 space-y-4">
               {[
-                { icon: 'Zap', text: 'Asignación inmediata' },
-                { icon: 'Shield', text: 'Conductores verificados' },
-                { icon: 'Clock', text: 'Disponible 24/7' },
+                { icon: 'Zap', text: t('benefits.items.immediate') },
+                { icon: 'Shield', text: t('benefits.items.verified') },
+                { icon: 'Clock', text: t('benefits.items.available') },
               ].map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center text-primary shadow-sm">

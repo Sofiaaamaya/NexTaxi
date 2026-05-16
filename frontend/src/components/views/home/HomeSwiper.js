@@ -16,8 +16,8 @@ export default function HomeSwiper() {
       titleColor: 'white',
       subtitle: t('slides.0.subtitle'),
       subtitleColor: 'white',
-      button1: { label: t('slides.0.button1'), href: '/request' },
-      button2: { label: t('slides.0.button2'), href: '/transfer' },
+      button1: { label: t('slides.0.button1'), href: '/reserva' },
+      button2: { label: t('slides.0.button2'), href: '/contacto' },
     },
     {
       image: '/images/hervideros_lanzarote.webp',
@@ -35,7 +35,7 @@ export default function HomeSwiper() {
       eyebrowColor: 'white',
       title: t('slides.2.title'),
       titleColor: 'white',
-      button1: { label: t('slides.2.button1'), href: '/airport' },
+      button1: { label: t('slides.2.button1'), href: '/reserva' },
     },
   ];
 

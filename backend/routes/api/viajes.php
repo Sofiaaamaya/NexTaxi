@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Viaje\ViajeController;
 
-Route::prefix('viajes')->middleware('auth:sanctum')->group(function () {
+Route::prefix('viajes')->middleware(['api', 'auth:sanctum'])->group(function () {
 
     Route::middleware('isConductor')->group(function () {
         Route::post('/{id}/aceptar', [ViajeController::class, 'aceptar']);

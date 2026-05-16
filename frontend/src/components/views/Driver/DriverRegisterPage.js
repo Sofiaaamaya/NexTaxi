@@ -164,8 +164,8 @@ export default function DriverRegisterPage({ invitationToken = null, invitationD
         }
       } else {
         setSuccessMessage('¡Registro completado con éxito!');
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('user', JSON.stringify(res.user));
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('user', JSON.stringify(res.user));
         setTimeout(() => router.push('/conductor/dashboard'), 1500);
       }
     }

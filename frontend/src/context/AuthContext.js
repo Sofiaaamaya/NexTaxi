@@ -2,31 +2,48 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect } from 'react';
-import { login as loginFn, register as registerFn, logout as logoutFn, getUser } from '@/lib/auth';
+import { login as loginFn, register as registerFn, logout as logoutFn, getUser, googleLogin as googleLoginFn } from '@/lib/auth';
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+  // Inicialización inmediata para evitar parpadeos y errores de "Forbidden"
+  const [user, setUser] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const stored = getUser();
+      const token = sessionStorage.getItem('token');
+      // Si no hay token, no hay usuario (evita estados inconsistentes)
+      return token ? stored : null;
+    }
+    return null;
+  });
 
   useEffect(() => {
-    // Cargar usuario desde localStorage al montar
-    const stored = getUser();
-    if (stored) {
-      // Usamos un pequeño delay o microtask para evitar el warning de setState síncrono en useEffect
-      // aunque en este caso es para hidratación inicial.
-      setTimeout(() => setUser(stored), 0);
-    }
+    // Escuchar cambios en otras pestañas o recargas
+    const handleStorageChange = () => {
+      const storedUser = getUser();
+      const token = sessionStorage.getItem('token');
+      setUser(token ? storedUser : null);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Logout automático opcional al cerrar si se desea ser estricto con sessionStorage
+    // sessionStorage ya se borra al cerrar la pestaña, pero podemos forzar el estado
+    return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
   const login = async ({ email, password }) => {
     try {
-      const data = await loginFn(email, password);
+      const data = await loginFn({ email, password });
       if (data.token) {
         setUser(data.user);
         return { success: true };
       }
-      return { success: false, error: data.message || 'Error al iniciar sesión' };
+      return { 
+        success: false, 
+        error: data.data?.error || data.data?.message || 'Error al iniciar sesión' 
+      };
     } catch {
       return { success: false, error: 'Error de conexión' };
     }
@@ -34,19 +51,14 @@ export function AuthProvider({ children }) {
 
   const register = async (form) => {
     try {
-      const data = await registerFn(
-        form.nombre,
-        form.email,
-        form.password,
-        form.password_confirmation
-      );
+      const data = await registerFn(form);
 
       // Si data.error existe, es porque apiFetch detectó un 422, 401, 500, etc.
       if (data?.error) {
         return {
           success: false,
-          errors: data.data.errors, // Aquí están los campos en rojo { email: [...], nombre: [...] }
-          message: data.data.message,
+          errors: data.data?.errors, // Aquí están los campos en rojo { email: [...], nombre: [...] }
+          error: data.data?.error || data.data?.message || 'Error en el servidor',
         };
       }
 
@@ -56,9 +68,25 @@ export function AuthProvider({ children }) {
         return { success: true };
       }
 
-      return { success: false, message: 'Respuesta inesperada del servidor' };
+      return { success: false, error: 'Respuesta inesperada del servidor' };
     } catch {
-      return { success: false, message: 'Error crítico en el cliente' };
+      return { success: false, error: 'Error crítico en el cliente' };
+    }
+  };
+
+  const googleLogin = async (token) => {
+    try {
+      const data = await googleLoginFn(token);
+      if (data.token) {
+        setUser(data.user);
+        return { success: true };
+      }
+      return { 
+        success: false, 
+        error: data.data?.error || data.data?.message || 'Error al iniciar sesión con Google' 
+      };
+    } catch {
+      return { success: false, error: 'Error de conexión' };
     }
   };
 
@@ -68,7 +96,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, googleLogin, logout }}>
       {children}
     </AuthContext.Provider>
   );

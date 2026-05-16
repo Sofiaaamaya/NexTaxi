@@ -14,7 +14,7 @@ export default function VisionSection() {
           <div>
             <TitleComponent title={t('title')} subtitle={t('subtitle')} align="left" />
 
-            <div className="mt-8 grid grid-cols-2 gap-8 max-w-md">
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-md mx-auto place-items-center">
               <div>
                 <p
                   className="text-3xl font-semibold text-primary"
@@ -44,7 +44,7 @@ export default function VisionSection() {
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-lg rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/imagen_perfil.webp"
+                src="/images/img_about.webp"
                 alt="Vision Image"
                 width={700}
                 height={500}

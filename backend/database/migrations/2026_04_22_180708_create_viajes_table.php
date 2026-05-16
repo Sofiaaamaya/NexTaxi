@@ -28,6 +28,13 @@ return new class extends Migration {
             $table->decimal('precio_estimado', 8, 2)->nullable();
             $table->decimal('precio_final', 8, 2)->nullable();
 
+            // Campos para la ruta
+            $table->integer('distancia')->nullable();
+            $table->integer('duracion')->nullable();
+            $table->text('polyline')->nullable();
+            $table->json('pasos')->nullable();
+            $table->json('coordenadas')->nullable();
+
             $table->timestamps();
         });
     }

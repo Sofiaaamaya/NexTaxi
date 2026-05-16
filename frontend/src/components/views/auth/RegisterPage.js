@@ -6,44 +6,57 @@ import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Icon from '@/components/icons/Icon';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 
-const InputWrapper = ({ icon, children, label, isFocused, hasValue }) => {
+const InputWrapper = ({ icon, children, label, isFocused, hasValue, fieldError }) => {
   const isFloating = isFocused || hasValue;
 
   return (
     <div className="relative w-full">
-      {/* Icono */}
-      <div
-        className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 transition-colors duration-200 
-        ${isFocused ? 'text-primary' : 'text-gray-400'}`}
-      >
-        <Icon name={icon} size={20} />
+      <div className="relative">
+        {/* Icono */}
+        <div
+          className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 transition-colors duration-200 
+          ${isFocused ? 'text-primary' : fieldError ? 'text-red-500' : 'text-gray-400'}`}
+        >
+          <Icon name={icon} size={20} />
+        </div>
+
+        {children}
+
+        <label
+          className={`
+          absolute left-12 top-1/2 -translate-y-1/2 pointer-events-none transition-all duration-200 z-20
+          ${
+            isFloating
+              ? '-translate-y-[2.6rem] left-3 text-xs bg-white px-2 font-medium opacity-100 ' + 
+                (fieldError ? 'text-red-500' : 'text-primary')
+              : 'text-gray-400 opacity-100'
+          }
+        `}
+        >
+          {label}
+        </label>
       </div>
-
-      {children}
-
-      <label
-        className={`
-        absolute left-12 top-1/2 -translate-y-1/2 pointer-events-none transition-all duration-200 z-20
-        ${
-          isFloating
-            ? '-translate-y-[2.6rem] left-3 text-xs text-primary bg-white px-2 font-medium opacity-100'
-            : 'text-gray-400 opacity-100'
-        }
-      `}
-      >
-        {label}
-      </label>
+      
+      {/* Mensaje de error */}
+      {fieldError && (
+        <p className="mt-1 ml-2 text-xs text-red-500 font-medium animate-in fade-in slide-in-from-top-1">
+          {fieldError}
+        </p>
+      )}
     </div>
   );
 };
 
 export default function RegisterPage() {
   const t = useTranslations('auth.register');
-  const { register } = useAuth();
+  const { register, googleLogin } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
+  const currentLocale = pathname.split('/')[1] || 'es';
 
   const [form, setForm] = useState({
     nombre: '',
@@ -61,6 +74,20 @@ export default function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [focusedField, setFocusedField] = useState(null);
 
+  const handleGoogleSuccess = async (credentialResponse) => {
+    setLoading(true);
+    const res = await googleLogin(credentialResponse.credential);
+    setLoading(false);
+
+    if (res.success) {
+      const user = JSON.parse(sessionStorage.getItem('user'));
+      const rolePath = user?.rol === 'usuario' || user?.rol === 'cliente' ? 'usuario' : user?.rol;
+      router.push(`/${currentLocale}/${rolePath}/dashboard`);
+    } else {
+      setGeneralError(res.error || 'Error al registrarse con Google');
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -71,19 +98,13 @@ export default function RegisterPage() {
     setLoading(false);
 
     if (res.success) {
-      const user = JSON.parse(localStorage.getItem('user'));
-      const routes = { 
-        admin: '/admin/dashboard', 
-        gerente: '/gerente/dashboard', 
-        conductor: '/conductor/dashboard' 
-      };
-      router.push(routes[user?.rol] || '/cliente/dashboard');
+      const user = JSON.parse(sessionStorage.getItem('user'));
+      const rolePath = user?.rol === 'usuario' || user?.rol === 'cliente' ? 'usuario' : user?.rol;
+      router.push(`/${currentLocale}/${rolePath}/dashboard`);
     } else {
       if (res.errors) {
-        // PROCESADO CORRECTO: Guarda el mensaje, no el array completo
         const formattedErrors = {};
         Object.keys(res.errors).forEach((key) => {
-          // Si es un array, toma el primer mensaje; si es string, tómalo directo
           formattedErrors[key] = Array.isArray(res.errors[key])
             ? res.errors[key][0]
             : res.errors[key];
@@ -104,7 +125,8 @@ export default function RegisterPage() {
     }
   `;
   return (
-    <section className="flex items-center justify-center bg-gray-50/50 px-4 py-12">
+    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
+      <section className="flex items-center justify-center bg-gray-50/50 px-4 py-12">
       <div className="w-full max-w-md bg-white shadow-2xl shadow-gray-200/40 rounded-3xl border border-gray-100 p-8 md:p-10">
         <TitleComponent align="center" title={t('title')} subtitle={t('subtitle')} />
 
@@ -121,7 +143,6 @@ export default function RegisterPage() {
             isFocused={focusedField === 'nombre'}
             hasValue={form.nombre}
             fieldError={fieldErrors.nombre}
-            aquí
           >
             <input
               type="text"
@@ -224,13 +245,37 @@ export default function RegisterPage() {
           </button>
         </form>
 
+        <div className="my-6 flex items-center gap-3">
+          <div className="flex-1 h-px bg-gray-100"></div>
+          <Poppins
+            text={t('orContinue') || 'O continuar con'}
+            tag="span"
+            className="text-xs text-gray-400 uppercase tracking-wider"
+          />
+          <div className="flex-1 h-px bg-gray-100"></div>
+        </div>
+
+        <div className="flex justify-center">
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={() => console.log('Login Failed')}
+            useOneTap={false}
+            theme="outline"
+            size="large"
+            shape="pill"
+            width="250px"
+            locale="es"
+          />
+        </div>
+
         <div className="mt-8 text-center text-sm">
           <Poppins text={t('haveAccount')} tag="span" className="text-gray-500" />
-          <Link href="/login" className="ml-2 text-primary hover:underline font-bold">
+          <Link href={`/${currentLocale}/login`} className="ml-2 text-primary hover:underline font-bold">
             {t('goLogin')}
           </Link>
         </div>
       </div>
     </section>
+    </GoogleOAuthProvider>
   );
 }

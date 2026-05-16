@@ -1,7 +1,7 @@
 const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000') + '/api';
 
 export async function apiFetch(endpoint, options = {}) {
-  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+  const token = typeof window !== 'undefined' ? sessionStorage.getItem('token') : null;
 
   try {
     const res = await fetch(API_URL + endpoint, {

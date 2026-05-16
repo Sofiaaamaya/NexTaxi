@@ -1,45 +1,59 @@
 // src/lib/auth.js — CORREGIDO
 import { apiFetch } from './api';
 
-export async function login(email, password) {
+export async function login({ email, password }) {
   const data = await apiFetch('/auth/login', {
     method: 'POST',
     body: JSON.stringify({ email, password }),
   });
 
   if (data.token) {
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('user', JSON.stringify(data.user));
+    sessionStorage.setItem('token', data.token);
+    sessionStorage.setItem('user', JSON.stringify(data.user));
   }
 
   return data;
 }
 
-export async function register(nombre, email, password, password_confirmation) {
+export async function register(formData) {
   const data = await apiFetch('/auth/register', {
     method: 'POST',
-    body: JSON.stringify({ nombre, email, password, password_confirmation }),
+    body: JSON.stringify(formData),
   });
 
   // ✅ ESTO FALTABA — guardar el token tras el registro igual que en login
   if (data.token) {
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('user', JSON.stringify(data.user));
+    sessionStorage.setItem('token', data.token);
+    sessionStorage.setItem('user', JSON.stringify(data.user));
+  }
+
+  return data;
+}
+
+export async function googleLogin(token) {
+  const data = await apiFetch('/auth/google', {
+    method: 'POST',
+    body: JSON.stringify({ token }),
+  });
+
+  if (data.token) {
+    sessionStorage.setItem('token', data.token);
+    sessionStorage.setItem('user', JSON.stringify(data.user));
   }
 
   return data;
 }
 
 export function logout() {
-  localStorage.removeItem('token');
-  localStorage.removeItem('user');
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('user');
 }
 
 export function getUser() {
-  const user = localStorage.getItem('user');
+  const user = sessionStorage.getItem('user');
   return user ? JSON.parse(user) : null;
 }
 
 export function isAuthenticated() {
-  return !!localStorage.getItem('token');
+  return !!sessionStorage.getItem('token');
 }

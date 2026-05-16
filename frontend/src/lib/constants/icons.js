@@ -44,6 +44,8 @@ import {
   PhoneCall,
   Zap,
   Shield,
+  Flag,
+  History,
 } from 'lucide-react';
 
 export const LUCIDE_ICONS = {
@@ -92,4 +94,6 @@ export const LUCIDE_ICONS = {
   PhoneCall,
   Zap,
   Shield,
+  Flag,
+  History,
 };

@@ -93,6 +93,26 @@
       "forgot": "Forgot your password?",
       "orContinue": "or continue with"
     },
+    "forgotPassword": {
+      "title": "Recover Password",
+      "subtitle": "Enter your email and we'll send you a recovery link.",
+      "email": "Email address",
+      "placeholder": "email@example.com",
+      "button": "Send recovery link",
+      "backToLogin": "Back to login",
+      "success": "If the email exists, a recovery link has been sent.",
+      "error": "An error occurred while sending the email."
+    },
+    "resetPassword": {
+      "title": "New Password",
+      "subtitle": "Choose a secure password for your account.",
+      "password": "New Password",
+      "confirm": "Confirm New Password",
+      "button": "Update Password",
+      "backToLogin": "Back to login",
+      "success": "Password updated successfully!",
+      "error": "Error updating password. The link may have expired."
+    },
     "register": {
       "title": "Create account",
       "subtitle": "Sign up to start using NexTaxi",
@@ -102,7 +122,8 @@
       "button": "Create account",
       "haveAccount": "Already have an account?",
       "goLogin": "Log in",
-      "confirmPassword": "Confirm password"
+      "confirmPassword": "Confirm password",
+      "orContinue": "or continue with"
     },
     "passwordHint": "Min. 8 chars, one uppercase, one number and one symbol."
   },
@@ -137,7 +158,7 @@
         "title": "Experience the Island with NexTaxi",
         "subtitle": "Reliable, comfortable, and professional transfers from the airport to every hidden beach.",
         "button1": "Request a Taxi",
-        "button2": "Book Transfer"
+        "button2": "Work with us"
       },
       "1": {
         "alt": "Ocean view with cliffs in Lanzarote",
@@ -216,6 +237,10 @@
       "contacto": "Contact",
       "nosotros": "About us",
       "misViajes": "My Trips"
+    },
+    "aria": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
     },
     "languages": {
       "es": "Spanish",
@@ -356,7 +381,12 @@
       "brand": "Make",
       "model": "Model",
       "color": "Color",
-      "type": "Type"
+      "type": "Type",
+      "vehicleTypes": {
+        "normal": "Normal",
+        "adapted": "Adapted",
+        "premium": "Premium"
+      }
     },
     "table": {
       "dniLicense": "ID / License",
@@ -649,12 +679,24 @@
       "phonePlaceholder": "+34 600 000 000",
       "submit": "Request Taxi Now",
       "success": "Request sent! A driver will contact you soon.",
-      "error": "Error sending request. Please try again."
+      "error": "Error sending request. Please try again.",
+      "getRoute": "Get Route",
+      "loading": "Calculating route...",
+      "reset": "Request another"
     },
     "call": {
       "title": "Prefer to call?",
       "text": "24/7 phone support for immediate bookings.",
-      "button": "Call NexTaxi"
+      "button": "Call NexTaxi",
+      "phone": "+34 600 000 000"
+    },
+    "benefits": {
+      "title": "Why use NexTaxi?",
+      "items": {
+        "immediate": "Immediate assignment",
+        "verified": "Verified drivers",
+        "available": "Available 24/7"
+      }
     }
   },
   "contact": {
@@ -694,8 +736,7 @@
     "title": "Ride details",
     "currentLocation": "Current location",
     "currentLocationPlaceholder": "Detecting location...",
-    "manualLocation": "Manual location",
-    "manualLocationPlaceholder": "Enter an address",
+    
     "destination": "Destination (optional)",
     "destinationPlaceholder": "Where do you want to go?",
     "vehicleType": "Vehicle type",
@@ -753,5 +794,27 @@
     "enRoute": "On the way to your destination",
     "toPickup": "The taxi is coming for you",
     "estPrice": "Estimated Price"
-  }
-}
+  },
+  "rideRequest": {
+    "origin": "Origin",
+    "destination": "Destination",
+    "getRoute": "Get route",
+    "loading": "Loading route..."
+    },
+    "dashboard": {
+    "welcome": "Welcome to NexTaxi",
+    "active": "You have an ongoing ride.",
+    "noActive": "Request a taxi now or check your previous rides.",
+    "loading": "Loading dashboard...",
+    "origin": "Origin",
+    "destination": "Destination",
+    "pickupPlaceholder": "Pickup address",
+    "destinationPlaceholder": "Destination address",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone",
+    "getRoute": "Get route",
+    "loadingRoute": "Loading route..."
+    }
+    }

@@ -17,14 +17,22 @@ export default function Header() {
   const [openLang, setOpenLang] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (pathname.includes('/admin') || pathname.includes('/gerente')) return null;
+  if (
+    pathname.includes('/admin') ||
+    pathname.includes('/gerente') ||
+    pathname.includes('/conductor')
+  ) {
+    return null;
+  }
 
   const segments = pathname.split('/').filter(Boolean);
   const currentLocale = segments[0] || 'es';
@@ -45,7 +53,6 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4">
 
-        {/* LOGO */}
         <div className="flex items-center gap-2 px-3 py-1.5 bg-white/30 backdrop-blur-md rounded-lg">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-semibold">
             NT
@@ -86,10 +93,8 @@ export default function Header() {
           })}
         </div>
 
-        {/* ACTIONS */}
         <div className="flex items-center gap-3 relative">
 
-          {/* LANG SELECTOR */}
           <div className="relative hidden sm:block">
             <button
               onClick={() => setOpenLang(!openLang)}
@@ -114,26 +119,7 @@ export default function Header() {
             )}
           </div>
 
-          {/* BOTONES LOGIN / REGISTER (DESKTOP) */}
-          {!user ? (
-            <div className="hidden md:flex items-center gap-2">
-              <Link href={`/${currentLocale}/login`}>
-                <Poppins
-                  text={t('auth.login')}
-                  tag="span"
-                  size="14|18"
-                  color="textPrimary"
-                  className="px-4 py-2 rounded-lg bg-white border border-border hover:bg-slate-100 transition"
-                />
-              </Link>
-
-              <Link href={`/${currentLocale}/register/usuario`}>
-                <button className="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary-light transition">
-                  <Poppins text={t('auth.register')} tag="span" size="14|18" weight="medium" color='white' />
-                </button>
-              </Link>
-            </div>
-          ) : (
+          {mounted && user ? (
             <div className="hidden md:flex items-center gap-2">
               <div className="relative group">
                 <div className="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-gray-50 border border-border cursor-pointer hover:bg-gray-100 transition-all">
@@ -152,7 +138,7 @@ export default function Header() {
                       <Poppins text="Dashboard" size="14" />
                     </div>
                   </Link>
-                  <Link href={`/${currentLocale}/${user.rol === 'cliente' ? 'usuario' : user.rol}/mis-viajes`}>
+                  <Link href={`/${currentLocale}/${user.rol}/mis-viajes`}>
                     <div className="px-4 py-2 hover:bg-gray-50 flex items-center gap-2 transition-colors">
                       <Icon name="History" size={16} className="text-gray-400" />
                       <Poppins text={t('nav.misViajes') || 'Mis Viajes'} size="14" />
@@ -169,12 +155,32 @@ export default function Header() {
                 </div>
               </div>
             </div>
+          ) : (
+            <div className="hidden md:flex items-center gap-2">
+              <Link href={`/${currentLocale}/login`}>
+                <Poppins
+                  text={t('auth.login')}
+                  tag="span"
+                  size="14|18"
+                  color="textPrimary"
+                  className="px-4 py-2 rounded-lg bg-white border border-border hover:bg-slate-100 transition"
+                />
+              </Link>
+
+              <Link href={`/${currentLocale}/register/usuario`}>
+                <button className="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary-light transition">
+                  <Poppins text={t('auth.register')} tag="span" size="14|18" weight="medium" color='white' />
+                </button>
+              </Link>
+            </div>
           )}
 
-          {/* HAMBURGER MENU (MOBILE) */}
+          {/* HAMBURGER MENU  RESPONSICVE*/}
           <button
             className="md:hidden p-2 rounded-lg bg-white border border-border"
             onClick={() => setOpenMenu(!openMenu)}
+            aria-label={openMenu ? t('aria.closeMenu') : t('aria.openMenu')}
+            aria-expanded={openMenu}
           >
             <Icon name={openMenu ? 'X' : 'Menu'} size={22} />
           </button>
@@ -200,21 +206,7 @@ export default function Header() {
             })}
 
             <div className="border-t border-border pt-3 mt-2">
-              {!user ? (
-                <>
-                  <Link href={`/${currentLocale}/login`} onClick={() => setOpenMenu(false)}>
-                    <div className="w-full py-2 text-center rounded-lg bg-white border border-border hover:bg-slate-100 transition mb-1">
-                      <Poppins text={t('auth.login')} size="16|20" color='textPrimary' />
-                    </div>
-                  </Link>
-
-                  <Link href={`/${currentLocale}/register/usuario`} onClick={() => setOpenMenu(false)}>
-                    <div className="w-full py-2 text-center rounded-lg bg-primary text-white hover:bg-primary-light transition">
-                      <Poppins text={t('auth.register')} size="16|20" weight="medium" color='white'/>
-                    </div>
-                  </Link>
-                </>
-              ) : (
+              {mounted && user ? (
                 <>
                   <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-gray-50 border border-border">
                     <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
@@ -229,14 +221,15 @@ export default function Header() {
                       <Poppins text="Dashboard" size="16" />
                     </div>
                   </Link>
-
-                  <Link href={`/${currentLocale}/${user.rol === 'cliente' ? 'usuario' : user.rol}/mis-viajes`} onClick={() => setOpenMenu(false)}>
-                    <div className="w-full py-3 px-4 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
-                      <Icon name="History" size={20} className="text-gray-400" />
-                      <Poppins text={t('nav.misViajes') || 'Mis Viajes'} size="16" />
-                    </div>
-                  </Link>
-
+                    <Link
+                      href={`/${currentLocale}/${user.rol}/mis-viajes`}
+                      onClick={() => setOpenMenu(false)}
+                    >
+                      <div className="w-full py-3 px-4 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
+                        <Icon name="History" size={20} className="text-gray-400" />
+                        <Poppins text={t('nav.misViajes') || 'Mis Viajes'} size="16" />
+                      </div>
+                    </Link>
                   <button
                     onClick={() => {
                       logout();
@@ -246,6 +239,20 @@ export default function Header() {
                   >
                     <Poppins text={t('auth.logout')} size="16" weight="bold" color="white" />
                   </button>
+                </>
+              ) : (
+                <>
+                  <Link href={`/${currentLocale}/login`} onClick={() => setOpenMenu(false)}>
+                    <div className="w-full py-2 text-center rounded-lg bg-white border border-border hover:bg-slate-100 transition mb-1">
+                      <Poppins text={t('auth.login')} size="16|20" color='textPrimary' />
+                    </div>
+                  </Link>
+
+                  <Link href={`/${currentLocale}/register/usuario`} onClick={() => setOpenMenu(false)}>
+                    <div className="w-full py-2 text-center rounded-lg bg-primary text-white hover:bg-primary-light transition">
+                      <Poppins text={t('auth.register')} size="16|20" weight="medium" color='white'/>
+                    </div>
+                  </Link>
                 </>
               )}
             </div>

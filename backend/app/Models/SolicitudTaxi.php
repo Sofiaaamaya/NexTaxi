@@ -16,6 +16,12 @@ class SolicitudTaxi extends Model
         'estado','id_viaje','fecha_solicitud'
     ];
 
+    protected $appends = ['id'];
+
+    public function getIdAttribute() {
+        return $this->id_solicitud;
+    }
+
     public function cliente() {
         return $this->belongsTo(Usuario::class, 'id_cliente');
     }

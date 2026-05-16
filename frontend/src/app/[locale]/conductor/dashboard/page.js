@@ -1,6 +1,6 @@
 'use client';
 
-import RideFormConductor from "@/components/views/conductor/RideFormConductor";
+import RideForm from "@/components/views/conductor/RideForm";
 import Poppins from "@/components/ui/Poppins";
 
 export default function ConductorDashboard() {
@@ -11,7 +11,7 @@ export default function ConductorDashboard() {
         <Poppins text="Gestiona tus servicios activos y solicita nuevos servicios manuales." color="textSecondary" />
       </div>
       
-      <RideFormConductor />
+      <RideForm role="conductor" />
     </div>
   );
 }

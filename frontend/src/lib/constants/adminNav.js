@@ -26,3 +26,21 @@ export const CONDUCTOR_NAV_ITEMS = [
     path: '/conductor/mis-viajes'
   }
 ];
+
+export const USUARIO_NAV_ITEMS = [
+  {
+    key: 'dashboard',
+    icon: 'LayoutDashboard',
+    path: '/usuario/dashboard'
+  },
+  {
+    key: 'miPerfil',
+    icon: 'User',
+    path: '/usuario/mi-perfil'
+  },
+  {
+    key: 'misViajes',
+    icon: 'Car',
+    path: '/usuario/mis-viajes'
+  }
+];
