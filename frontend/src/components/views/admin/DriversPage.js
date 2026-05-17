@@ -79,9 +79,7 @@ export default function DriversPage({ onDataChange }) {
               >
                 {tCommon('retry')}
               </button>
-              <p className="mt-4 text-xs text-red-400">
-                {tCommon('checkBackend')}
-              </p>
+              <p className="mt-4 text-xs text-red-400">{tCommon('checkBackend')}</p>
             </div>
           ) : (
             <DriversCrud data={drivers} refreshData={fetchDrivers} />

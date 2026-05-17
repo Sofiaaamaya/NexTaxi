@@ -27,7 +27,7 @@ export default function UsuarioLayout({ children }) {
           <main
             className={clsx(
               'flex-1 transition-all duration-300 relative overflow-hidden',
-             
+
               sidebarOpen ? 'lg:ml-64 ml-0' : 'lg:ml-20 ml-0'
             )}
           >

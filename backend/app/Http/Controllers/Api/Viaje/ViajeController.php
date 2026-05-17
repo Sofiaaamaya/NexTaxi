@@ -12,7 +12,7 @@ class ViajeController extends Controller
 {
     public function index() {
         $user = auth()->user();
-        $query = Viaje::with(['conductor.usuario', 'solicitud', 'ubicaciones'])
+        $query = Viaje::with(['conductor.usuario', 'conductor.vehiculo', 'solicitud', 'ubicaciones'])
             ->orderBy('created_at', 'desc');
 
         if ($user->rol === 'conductor') {
@@ -28,7 +28,7 @@ class ViajeController extends Controller
 
     public function activa() {
         $user = auth()->user();
-        $query = Viaje::with(['conductor.usuario', 'solicitud', 'ubicaciones'])
+        $query = Viaje::with(['conductor.usuario', 'conductor.vehiculo', 'solicitud', 'ubicaciones'])
             ->whereIn('estado', ['asignado', 'en_camino', 'recogido']);
 
         if ($user->rol === 'conductor') {
@@ -39,11 +39,17 @@ class ViajeController extends Controller
             });
         }
 
-        return $query->first() ?: response()->json(['message' => 'No hay viajes activos'], 404);
+        $viaje = $query->first();
+        
+        if (!$viaje) {
+            return response()->json(['message' => 'No hay viajes activos', 'active' => false], 200);
+        }
+
+        return $viaje;
     }
 
     public function show($id) {
-        return Viaje::with(['conductor.usuario', 'solicitud', 'ubicaciones'])->findOrFail($id);
+        return Viaje::with(['conductor.usuario', 'conductor.vehiculo', 'solicitud', 'ubicaciones'])->findOrFail($id);
     }
 
     public function aceptar($id) {
@@ -79,20 +85,25 @@ class ViajeController extends Controller
     public function completar(Request $request, $id) {
         $viaje = Viaje::with('solicitud')->findOrFail($id);
         
+        $request->validate([
+            'precio_final' => 'required|numeric|min:0',
+            'destino_direccion' => 'required|string',
+            'destino_lat' => 'nullable|numeric',
+            'destino_lng' => 'nullable|numeric',
+        ]);
+
         $viaje->update([
             'estado' => 'completado',
             'fin_viaje' => now(),
             'precio_final' => $request->precio_final
         ]);
 
-        // Si el destino no estaba definido, se actualiza ahora
-        if ($request->has('destino_direccion')) {
-            $viaje->solicitud->update([
-                'destino_direccion' => $request->destino_direccion,
-                'destino_lat' => $request->destino_lat,
-                'destino_lng' => $request->destino_lng,
-            ]);
-        }
+        // Actualizar el destino final (obligatorio al terminar)
+        $viaje->solicitud->update([
+            'destino_direccion' => $request->destino_direccion,
+            'destino_lat' => $request->destino_lat ?? $viaje->solicitud->destino_lat,
+            'destino_lng' => $request->destino_lng ?? $viaje->solicitud->destino_lng,
+        ]);
 
         return $viaje;
     }

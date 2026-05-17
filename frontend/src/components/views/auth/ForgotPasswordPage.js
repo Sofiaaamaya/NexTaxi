@@ -103,7 +103,7 @@ export default function ForgotPasswordPage() {
               <Icon name="CheckCircle" size={48} />
             </div>
             <Poppins text={t('success')} weight="medium" color="textPrimary" />
-            <Link 
+            <Link
               href={`/${currentLocale}/login`}
               className="block w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold transition-all"
             >
@@ -151,7 +151,7 @@ export default function ForgotPasswordPage() {
               )}
             </button>
 
-            <Link 
+            <Link
               href={`/${currentLocale}/login`}
               className="text-center text-primary font-bold hover:underline"
             >

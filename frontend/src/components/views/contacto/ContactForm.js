@@ -58,9 +58,10 @@ export default function ContactForm({ t }) {
     if (response.error) {
       console.error('Error al enviar el mensaje:', response.data);
       // Si es un error 500 o no hay mensaje, mostramos un genérico
-      const msg = response.status === 500 
-        ? 'Lo sentimos, el servicio no está disponible en este momento.' 
-        : (response.data?.message || 'Hubo un problema al enviar el mensaje.');
+      const msg =
+        response.status === 500
+          ? 'Lo sentimos, el servicio no está disponible en este momento.'
+          : response.data?.message || 'Hubo un problema al enviar el mensaje.';
       setErrorMessage(msg);
     } else {
       console.log('Mensaje enviado:', response);
@@ -150,7 +151,7 @@ export default function ContactForm({ t }) {
             onFocus={() => setFocusedField('subject')}
             onBlur={() => setFocusedField(null)}
             onChange={(e) => setForm({ ...form, subject: e.target.value })}
-            className={clsx(inputClass, "appearance-none cursor-pointer")}
+            className={clsx(inputClass, 'appearance-none cursor-pointer')}
             disabled={isSubmitting}
           >
             <option value="" disabled hidden></option>

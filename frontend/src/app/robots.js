@@ -6,5 +6,5 @@ export default function robots() {
       disallow: ['/admin/', '/gerente/'],
     },
     sitemap: 'https://nextaxi.es/sitemap.xml',
-  }
+  };
 }

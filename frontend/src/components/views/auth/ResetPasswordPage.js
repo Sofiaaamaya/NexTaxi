@@ -125,7 +125,7 @@ export default function ResetPasswordPage() {
               <Icon name="CheckCircle" size={48} />
             </div>
             <Poppins text={t('success')} weight="medium" color="textPrimary" />
-            <Link 
+            <Link
               href={`/${currentLocale}/login`}
               className="block w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold transition-all"
             >
@@ -183,7 +183,7 @@ export default function ResetPasswordPage() {
 
             <button
               type="submit"
-              disabled={loading || !!error && !password}
+              disabled={loading || (!!error && !password)}
               className="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold shadow-lg shadow-primary/25 transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70"
             >
               {loading ? (

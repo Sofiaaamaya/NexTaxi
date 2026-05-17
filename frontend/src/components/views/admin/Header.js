@@ -25,17 +25,20 @@ export default function Header({ sidebarOpen, setSidebarOpen }) {
         </button>
 
         {/* LOGO */}
-        <Link href={`/${locale}/${user?.rol === 'gerente' ? 'gerente' : 'admin'}/dashboard`} className="flex items-center gap-3">
+        <Link
+          href={`/${locale}/${user?.rol === 'gerente' ? 'gerente' : 'admin'}/dashboard`}
+          className="flex items-center gap-3"
+        >
           <div className="w-9 h-9 bg-[#1e3a8a] rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
             <Poppins text="NT" size="14|14" weight="bold" color="white" />
           </div>
           <div className="flex flex-col -gap-1">
             <Poppins text="NexTaxi" size="18|20" weight="bold" color="textPrimary" />
-            <Poppins 
-              text={user?.rol === 'gerente' ? 'Gerencia' : 'Administración'} 
-              size="10|10" 
-              weight="bold" 
-              className="text-primary uppercase tracking-[0.2em] hidden lg:block" 
+            <Poppins
+              text={user?.rol === 'gerente' ? 'Gerencia' : 'Administración'}
+              size="10|10"
+              weight="bold"
+              className="text-primary uppercase tracking-[0.2em] hidden lg:block"
             />
           </div>
         </Link>
@@ -53,16 +56,15 @@ export default function Header({ sidebarOpen, setSidebarOpen }) {
         {/* Profile Info (Right Side) */}
         <div className="flex items-center gap-3">
           <div className="hidden sm:block text-right">
-            <Poppins text={user?.nombre || (user?.rol === 'gerente' ? 'Gerente' : 'Administrador')} size="14|14" weight="semibold" />
+            <Poppins
+              text={user?.nombre || (user?.rol === 'gerente' ? 'Gerente' : 'Administrador')}
+              size="14|14"
+              weight="semibold"
+            />
             <Poppins text={t('managementPanel')} size="12|12" color="gray-400" />
           </div>
           <div className="w-10 h-10 rounded-xl bg-gray-100 overflow-hidden relative border-2 border-white shadow-sm">
-            <Image
-              src="/images/imagen_perfil.webp"
-              alt="perfil"
-              fill
-              className="object-cover"
-            />
+            <Image src="/images/imagen_perfil.webp" alt="perfil" fill className="object-cover" />
           </div>
         </div>
       </div>

@@ -91,29 +91,29 @@
       "noAccount": "¿No tienes cuenta?",
       "goRegister": "Regístrate",
       "forgot": "¿Olvidaste tu contraseña?",
-        "orContinue": "o continuar con"
-      },
-      "forgotPassword": {
-        "title": "Recuperar Contraseña",
-        "subtitle": "Introduce tu email y te enviaremos un enlace de recuperación.",
-        "email": "Correo electrónico",
-        "placeholder": "correo@ejemplo.com",
-        "button": "Enviar enlace de recuperación",
-        "backToLogin": "Volver al login",
-        "success": "Si el email existe, se ha enviado un enlace de recuperación.",
-        "error": "Error al enviar el email de recuperación."
-      },
-      "resetPassword": {
-        "title": "Nueva Contraseña",
-        "subtitle": "Elige una contraseña segura para tu cuenta.",
-        "password": "Nueva Contraseña",
-        "confirm": "Confirmar Nueva Contraseña",
-        "button": "Actualizar Contraseña",
-        "backToLogin": "Volver al login",
-        "success": "¡Contraseña actualizada con éxito!",
-        "error": "Error al actualizar la contraseña. El enlace puede haber expirado."
-      },
-      "register": {
+      "orContinue": "o continuar con"
+    },
+    "forgotPassword": {
+      "title": "Recuperar Contraseña",
+      "subtitle": "Introduce tu email y te enviaremos un enlace de recuperación.",
+      "email": "Correo electrónico",
+      "placeholder": "correo@ejemplo.com",
+      "button": "Enviar enlace de recuperación",
+      "backToLogin": "Volver al login",
+      "success": "Si el email existe, se ha enviado un enlace de recuperación.",
+      "error": "Error al enviar el email de recuperación."
+    },
+    "resetPassword": {
+      "title": "Nueva Contraseña",
+      "subtitle": "Elige una contraseña segura para tu cuenta.",
+      "password": "Nueva Contraseña",
+      "confirm": "Confirmar Nueva Contraseña",
+      "button": "Actualizar Contraseña",
+      "backToLogin": "Volver al login",
+      "success": "¡Contraseña actualizada con éxito!",
+      "error": "Error al actualizar la contraseña. El enlace puede haber expirado."
+    },
+    "register": {
       "title": "Crear cuenta",
       "subtitle": "Regístrate para comenzar a usar NexTaxi",
       "name": "Nombre completo",
@@ -291,6 +291,7 @@
     "dashboard": "Dashboard",
     "drivers": "Conductores",
     "users": "Usuarios",
+    "trips": "Viajes",
     "invitations": "Invitaciones",
     "logout": "Cerrar sesión",
     "miPerfil": "Mi perfil",
@@ -683,6 +684,14 @@
       "loading": "Calculando ruta...",
       "reset": "Hacer otra solicitud"
     },
+    "confirmCancel": "¿Estás seguro de que quieres cancelar tu solicitud de taxi?",
+    "status": {
+      "searching": "Buscando Taxi...",
+      "searchingSub": "Tu solicitud ha sido enviada. Estamos buscando un conductor disponible cerca de ti.",
+      "accepted": "¡Conductor Asignado!",
+      "driverOnWay": "Un conductor ha aceptado tu solicitud y va en camino.",
+      "cancel": "Cancelar Solicitud"
+    },
     "call": {
       "title": "¿Prefieres llamar?",
       "text": "Atención telefónica 24/7 para reservas inmediatas.",
@@ -731,8 +740,9 @@
       "address": "Avenida Central 123, Arrecife, Lanzarote"
     }
   },
-   "rideForm": {
+  "rideForm": {
     "title": "Detalles del viaje",
+    "subtitle": "Calcula tu ruta y solicita un taxi",
     "currentLocation": "Ubicación actual",
     "currentLocationPlaceholder": "Detectando ubicación...",
     "destination": "Destino (opcional)",
@@ -814,5 +824,14 @@
     "phonePlaceholder": "Tu teléfono",
     "getRoute": "Obtener ruta",
     "loadingRoute": "Cargando ruta..."
+  },
+  "taxiChat": {
+    "title": "Taxi Lanzarote",
+    "subtitle": "Asistente disponible / Assistant available",
+    "bubble": "¿Necesitas un taxi? 🚕 / Need a taxi? 🚕",
+    "placeholder": "Escribe tu pregunta... / Type your question...",
+    "greeting": "¡Hola! 👋 Soy tu asistente de taxi en Lanzarote. ¿En qué puedo ayudarte? / Hi! 👋 I'm your Lanzarote taxi assistant. How can I help?",
+    "error": "Error al conectar. Intenta de nuevo. / Connection error. Try again.",
+    "online": "En línea / Online"
   }
 }

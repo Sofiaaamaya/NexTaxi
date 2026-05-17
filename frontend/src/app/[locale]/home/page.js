@@ -3,6 +3,7 @@ import WhyChooseNexTaxi from '@/components/views/home/HomeCards';
 import WhyChooseUsSection from '@/components/views/home/WhyChooseUsSection';
 import ContactBanner from '@/components/common/cards/ContactBanner';
 import { getTranslations } from 'next-intl/server';
+import TaxiChatbot from '@/components/TaxiChatBot';
 
 export default async function HomePage() {
   const t = await getTranslations('contactBanner');
@@ -20,6 +21,7 @@ export default async function HomePage() {
         buttonBg="bg-white"
         buttonHoverBg="bg-slate-100"
       />
+      <TaxiChatbot />
     </>
   );
 }

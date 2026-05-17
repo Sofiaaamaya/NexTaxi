@@ -12,11 +12,13 @@ export default function LayoutWrapper({ children }) {
   return (
     <>
       <Header />
-      <main className={clsx("w-full flex justify-center", isAdmin && "block")}>
-        <div className={clsx(
-          "w-full transition-all duration-300",
-          isAdmin ? "max-w-none px-0 py-0" : "max-w-6xl px-4 md:px-8 py-10"
-        )}>
+      <main className={clsx('w-full flex justify-center', isAdmin && 'block')}>
+        <div
+          className={clsx(
+            'w-full transition-all duration-300',
+            isAdmin ? 'max-w-none px-0 py-0' : 'max-w-6xl px-4 md:px-8 py-10'
+          )}
+        >
           {children}
         </div>
       </main>

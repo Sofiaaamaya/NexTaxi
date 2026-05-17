@@ -22,7 +22,7 @@ function AcceptInvitationContent() {
   const [form, setForm] = useState({
     nombre: '',
     password: '',
-    password_confirmation: ''
+    password_confirmation: '',
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -39,7 +39,7 @@ function AcceptInvitationContent() {
     const validateToken = async () => {
       const res = await apiFetch('/invitaciones/validar', {
         method: 'POST',
-        body: JSON.stringify({ token })
+        body: JSON.stringify({ token }),
       });
 
       if (res.error) {
@@ -60,12 +60,12 @@ function AcceptInvitationContent() {
 
     const res = await apiFetch('/invitaciones/completar', {
       method: 'POST',
-      body: JSON.stringify({ 
-        token, 
-        nombre: form.nombre, 
-        password: form.password, 
-        password_confirmation: form.password_confirmation 
-      })
+      body: JSON.stringify({
+        token,
+        nombre: form.nombre,
+        password: form.password,
+        password_confirmation: form.password_confirmation,
+      }),
     });
 
     setSubmitting(false);
@@ -89,40 +89,42 @@ function AcceptInvitationContent() {
     }
   };
 
-  if (loading) return <div className="flex justify-center py-20"><Icon name="Loader" className="animate-spin text-primary" size={40} /></div>;
-
-  if (error && !success) return (
-    <div className="max-w-md mx-auto py-20 text-center">
-      <div className="bg-red-50 p-6 rounded-2xl border border-red-100 text-red-600">
-        <Icon name="AlertCircle" size={48} className="mx-auto mb-4" />
-        <Poppins text={error} size="18" weight="medium" />
+  if (loading)
+    return (
+      <div className="flex justify-center py-20">
+        <Icon name="Loader" className="animate-spin text-primary" size={40} />
       </div>
-    </div>
-  );
+    );
 
-  if (success) return (
-    <div className="max-w-md mx-auto py-20 text-center">
-      <div className="bg-green-50 p-6 rounded-2xl border border-green-100 text-green-600">
-        <Icon name="CheckCircle" size={48} className="mx-auto mb-4" />
-        <Poppins text={t('success')} size="18" weight="medium" />
+  if (error && !success)
+    return (
+      <div className="max-w-md mx-auto py-20 text-center">
+        <div className="bg-red-50 p-6 rounded-2xl border border-red-100 text-red-600">
+          <Icon name="AlertCircle" size={48} className="mx-auto mb-4" />
+          <Poppins text={error} size="18" weight="medium" />
+        </div>
       </div>
-    </div>
-  );
+    );
+
+  if (success)
+    return (
+      <div className="max-w-md mx-auto py-20 text-center">
+        <div className="bg-green-50 p-6 rounded-2xl border border-green-100 text-green-600">
+          <Icon name="CheckCircle" size={48} className="mx-auto mb-4" />
+          <Poppins text={t('success')} size="18" weight="medium" />
+        </div>
+      </div>
+    );
 
   if (invitationData?.rol === 'conductor') {
-    return (
-      <DriverRegisterPage 
-        invitationToken={token} 
-        invitationData={invitationData} 
-      />
-    );
+    return <DriverRegisterPage invitationToken={token} invitationData={invitationData} />;
   }
 
   return (
     <div className="max-w-md mx-auto py-12 px-4">
-      <TitleComponent 
-        title={t('title')} 
-        subtitle={t('subtitle', { rol: invitationData?.rol })} 
+      <TitleComponent
+        title={t('title')}
+        subtitle={t('subtitle', { rol: invitationData?.rol })}
         align="center"
       />
 
@@ -136,50 +138,78 @@ function AcceptInvitationContent() {
           )}
 
           <div className="space-y-1.5">
-            <Poppins text={t('nameLabel')} tag="label" size="14" weight="medium" className="text-gray-600 ml-1" />
+            <Poppins
+              text={t('nameLabel')}
+              tag="label"
+              size="14"
+              weight="medium"
+              className="text-gray-600 ml-1"
+            />
             <input
               type="text"
               required
               placeholder="Tu nombre completo"
               value={form.nombre}
-              onChange={(e) => setForm({...form, nombre: e.target.value})}
+              onChange={(e) => setForm({ ...form, nombre: e.target.value })}
               className={`w-full px-4 py-3 bg-gray-50 border rounded-xl outline-none transition-all focus:ring-2 focus:ring-primary/10 ${errors.nombre ? 'border-red-500 bg-red-50' : 'border-gray-100 focus:border-primary'}`}
             />
             {errors.nombre && <p className="text-red-500 text-xs mt-1 ml-1">{errors.nombre[0]}</p>}
           </div>
 
           <div className="space-y-1.5">
-            <Poppins text={t('passwordLabel')} tag="label" size="14" weight="medium" className="text-gray-600 ml-1" />
+            <Poppins
+              text={t('passwordLabel')}
+              tag="label"
+              size="14"
+              weight="medium"
+              className="text-gray-600 ml-1"
+            />
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 placeholder="••••••••"
                 value={form.password}
-                onChange={(e) => setForm({...form, password: e.target.value})}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
                 className={`w-full px-4 py-3 bg-gray-50 border rounded-xl outline-none transition-all focus:ring-2 focus:ring-primary/10 ${errors.password ? 'border-red-500 bg-red-50' : 'border-gray-100 focus:border-primary'}`}
               />
-              <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors"
+              >
                 <Icon name={showPassword ? 'EyeOff' : 'Eye'} size={20} />
               </button>
             </div>
-            {!errors.password && <p className="text-[11px] text-gray-400 ml-1">{t('passwordHint')}</p>}
-            {errors.password && <p className="text-red-500 text-xs mt-1 ml-1">{errors.password[0]}</p>}
+            {!errors.password && (
+              <p className="text-[11px] text-gray-400 ml-1">{t('passwordHint')}</p>
+            )}
+            {errors.password && (
+              <p className="text-red-500 text-xs mt-1 ml-1">{errors.password[0]}</p>
+            )}
           </div>
 
           <div className="space-y-1.5">
-            <Poppins text={t('confirmPasswordLabel')} tag="label" size="14" weight="medium" className="text-gray-600 ml-1" />
+            <Poppins
+              text={t('confirmPasswordLabel')}
+              tag="label"
+              size="14"
+              weight="medium"
+              className="text-gray-600 ml-1"
+            />
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 placeholder="Repite tu contraseña"
                 value={form.password_confirmation}
-                onChange={(e) => setForm({...form, password_confirmation: e.target.value})}
+                onChange={(e) => setForm({ ...form, password_confirmation: e.target.value })}
                 className={`w-full px-4 py-3 bg-gray-50 border rounded-xl outline-none transition-all focus:ring-2 focus:ring-primary/10 ${errors.password_confirmation ? 'border-red-500 bg-red-50' : 'border-gray-100 focus:border-primary'}`}
               />
             </div>
-            {errors.password_confirmation && <p className="text-red-500 text-xs mt-1 ml-1">{errors.password_confirmation[0]}</p>}
+            {errors.password_confirmation && (
+              <p className="text-red-500 text-xs mt-1 ml-1">{errors.password_confirmation[0]}</p>
+            )}
           </div>
 
           <button
@@ -204,7 +234,13 @@ function AcceptInvitationContent() {
 
 export default function AcceptInvitationPage() {
   return (
-    <Suspense fallback={<div className="flex justify-center py-20"><Icon name="Loader" className="animate-spin text-primary" size={40} /></div>}>
+    <Suspense
+      fallback={
+        <div className="flex justify-center py-20">
+          <Icon name="Loader" className="animate-spin text-primary" size={40} />
+        </div>
+      }
+    >
       <AcceptInvitationContent />
     </Suspense>
   );

@@ -52,7 +52,6 @@ export default function Header() {
       `}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4">
-
         <div className="flex items-center gap-2 px-3 py-1.5 bg-white/30 backdrop-blur-md rounded-lg">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-semibold">
             NT
@@ -74,7 +73,8 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/30 backdrop-blur-md rounded-lg">
           {['home', 'reserva', 'contacto', 'nosotros'].map((item) => {
             const linkPath = `/${currentLocale}/${item === 'home' ? 'home' : item}`;
-            const isActive = pathname === linkPath || (item === 'home' && pathname === `/${currentLocale}`);
+            const isActive =
+              pathname === linkPath || (item === 'home' && pathname === `/${currentLocale}`);
 
             return (
               <Link key={item} href={linkPath}>
@@ -85,7 +85,9 @@ export default function Header() {
                   color={isActive ? 'primary' : 'textSecondary'}
                   weight={isActive ? 'semibold' : 'medium'}
                   className={`px-3 py-1 rounded-md transition-all duration-200 ${
-                    isActive ? 'bg-primary/10 text-primary' : 'hover:text-primary hover:bg-primary/5'
+                    isActive
+                      ? 'bg-primary/10 text-primary'
+                      : 'hover:text-primary hover:bg-primary/5'
                   }`}
                 />
               </Link>
@@ -94,7 +96,6 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-3 relative">
-
           <div className="relative hidden sm:block">
             <button
               onClick={() => setOpenLang(!openLang)}
@@ -126,8 +127,17 @@ export default function Header() {
                   <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
                     <Icon name="User" size={18} />
                   </div>
-                  <Poppins text={user.nombre || user.name} tag="span" size="14|16" weight="semibold" />
-                  <Icon name="ChevronDown" size={14} className="text-gray-400 group-hover:text-primary transition-colors" />
+                  <Poppins
+                    text={user.nombre || user.name}
+                    tag="span"
+                    size="14|16"
+                    weight="semibold"
+                  />
+                  <Icon
+                    name="ChevronDown"
+                    size={14}
+                    className="text-gray-400 group-hover:text-primary transition-colors"
+                  />
                 </div>
 
                 {/* DROPDOWN USER */}
@@ -169,7 +179,13 @@ export default function Header() {
 
               <Link href={`/${currentLocale}/register/usuario`}>
                 <button className="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary-light transition">
-                  <Poppins text={t('auth.register')} tag="span" size="14|18" weight="medium" color='white' />
+                  <Poppins
+                    text={t('auth.register')}
+                    tag="span"
+                    size="14|18"
+                    weight="medium"
+                    color="white"
+                  />
                 </button>
               </Link>
             </div>
@@ -191,11 +207,15 @@ export default function Header() {
       {openMenu && (
         <div className="md:hidden bg-white border-t border-border shadow-md animate-fadeIn">
           <div className="flex flex-col p-4 gap-3">
-
             {['home', 'reserva', 'contacto', 'nosotros'].map((item) => {
               const linkPath = `/${currentLocale}/${item === 'home' ? 'home' : item}`;
               return (
-                <Link className="self-center" key={item} href={linkPath} onClick={() => setOpenMenu(false)}>
+                <Link
+                  className="self-center"
+                  key={item}
+                  href={linkPath}
+                  onClick={() => setOpenMenu(false)}
+                >
                   <Poppins
                     text={t(`nav.${item}`)}
                     size="16|20"
@@ -215,21 +235,24 @@ export default function Header() {
                     <Poppins text={user.nombre || user.name} size="16|20" weight="semibold" />
                   </div>
 
-                  <Link href={`/${currentLocale}/${user.rol}/dashboard`} onClick={() => setOpenMenu(false)}>
+                  <Link
+                    href={`/${currentLocale}/${user.rol}/dashboard`}
+                    onClick={() => setOpenMenu(false)}
+                  >
                     <div className="w-full py-3 px-4 mt-2 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
                       <Icon name="LayoutDashboard" size={20} className="text-gray-400" />
                       <Poppins text="Dashboard" size="16" />
                     </div>
                   </Link>
-                    <Link
-                      href={`/${currentLocale}/${user.rol}/mis-viajes`}
-                      onClick={() => setOpenMenu(false)}
-                    >
-                      <div className="w-full py-3 px-4 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
-                        <Icon name="History" size={20} className="text-gray-400" />
-                        <Poppins text={t('nav.misViajes') || 'Mis Viajes'} size="16" />
-                      </div>
-                    </Link>
+                  <Link
+                    href={`/${currentLocale}/${user.rol}/mis-viajes`}
+                    onClick={() => setOpenMenu(false)}
+                  >
+                    <div className="w-full py-3 px-4 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
+                      <Icon name="History" size={20} className="text-gray-400" />
+                      <Poppins text={t('nav.misViajes') || 'Mis Viajes'} size="16" />
+                    </div>
+                  </Link>
                   <button
                     onClick={() => {
                       logout();
@@ -244,13 +267,21 @@ export default function Header() {
                 <>
                   <Link href={`/${currentLocale}/login`} onClick={() => setOpenMenu(false)}>
                     <div className="w-full py-2 text-center rounded-lg bg-white border border-border hover:bg-slate-100 transition mb-1">
-                      <Poppins text={t('auth.login')} size="16|20" color='textPrimary' />
+                      <Poppins text={t('auth.login')} size="16|20" color="textPrimary" />
                     </div>
                   </Link>
 
-                  <Link href={`/${currentLocale}/register/usuario`} onClick={() => setOpenMenu(false)}>
+                  <Link
+                    href={`/${currentLocale}/register/usuario`}
+                    onClick={() => setOpenMenu(false)}
+                  >
                     <div className="w-full py-2 text-center rounded-lg bg-primary text-white hover:bg-primary-light transition">
-                      <Poppins text={t('auth.register')} size="16|20" weight="medium" color='white'/>
+                      <Poppins
+                        text={t('auth.register')}
+                        size="16|20"
+                        weight="medium"
+                        color="white"
+                      />
                     </div>
                   </Link>
                 </>

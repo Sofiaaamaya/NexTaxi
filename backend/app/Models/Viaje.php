@@ -9,6 +9,8 @@ class Viaje extends Model
     protected $table = 'viajes';
     protected $primaryKey = 'id_viaje';
 
+    protected $with = ['solicitud'];
+
     protected $fillable = [
         'id_solicitud','id_conductor','estado',
         'inicio_viaje','fin_viaje',

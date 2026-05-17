@@ -15,7 +15,7 @@ export function middleware(request) {
   // Redirección si el usuario intenta entrar a la raíz sin idioma
   if (url.pathname === '/') {
     const locale = DEFAULT_LOCALE;
-    const token = request.cookies.get('token')?.value; 
+    const token = request.cookies.get('token')?.value;
     // Nota: Middleware no lee sessionStorage, por lo que usaremos cookies para persistencia si fuera necesario.
     // Pero por ahora, priorizamos la redirección básica de idioma.
     url.pathname = `/${locale}/home`;

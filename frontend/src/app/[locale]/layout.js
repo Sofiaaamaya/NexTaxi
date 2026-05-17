@@ -14,7 +14,8 @@ const poppins = Poppins({
 
 export const metadata = {
   title: 'NexTaxi - Tu Servicio de Taxi de Confianza',
-  description: 'NexTaxi ofrece traslados rápidos, seguros y cómodos. Reserva tu viaje en línea y disfruta de la mejor experiencia en transporte.',
+  description:
+    'NexTaxi ofrece traslados rápidos, seguros y cómodos. Reserva tu viaje en línea y disfruta de la mejor experiencia en transporte.',
   keywords: 'taxi, transporte, reserva de taxi, traslados, viajes seguros, NexTaxi',
   authors: [{ name: 'NexTaxi Team' }],
   viewport: 'width=device-width, initial-scale=1',
@@ -44,8 +45,6 @@ export const metadata = {
   },
 };
 
-
-
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
 
@@ -57,24 +56,24 @@ export default async function LocaleLayout({ children, params }) {
   }
 
   return (
-<html lang={locale} suppressHydrationWarning className={poppins.variable}>
-  <head>
-    <script
-      src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
-      async
-    ></script>
-  </head>
+    <html lang={locale} suppressHydrationWarning className={poppins.variable}>
+      <head>
+        <script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
+          async
+        ></script>
+      </head>
 
-  <body className={`${poppins.className} bg-background text-textPrimary antialiased`} suppressHydrationWarning>
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <AuthProvider>
-        <LayoutWrapper>
-          {children}
-        </LayoutWrapper>
-      </AuthProvider>
-    </NextIntlClientProvider>
-  </body>
-</html>
-
+      <body
+        className={`${poppins.className} bg-background text-textPrimary antialiased`}
+        suppressHydrationWarning
+      >
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <AuthProvider>
+            <LayoutWrapper>{children}</LayoutWrapper>
+          </AuthProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

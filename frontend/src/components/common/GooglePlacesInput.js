@@ -33,7 +33,7 @@ export default function GooglePlacesInput({ value, onChange, placeholder, classN
       const autocomplete = new window.google.maps.places.Autocomplete(inputRef.current, {
         types: ['address'],
         fields: ['formatted_address', 'geometry'],
-        componentRestrictions: { country: 'es' }
+        componentRestrictions: { country: 'es' },
       });
       autocomplete.addListener('place_changed', () => {
         const place = autocomplete.getPlace();
@@ -41,7 +41,7 @@ export default function GooglePlacesInput({ value, onChange, placeholder, classN
         onChange({
           address: place.formatted_address,
           lat: place.geometry.location.lat(),
-          lng: place.geometry.location.lng()
+          lng: place.geometry.location.lng(),
         });
       });
     }
@@ -52,7 +52,7 @@ export default function GooglePlacesInput({ value, onChange, placeholder, classN
     <input
       ref={inputRef}
       value={value || ''}
-      onChange={e => onChange({ address: e.target.value, lat: null, lng: null })}
+      onChange={(e) => onChange({ address: e.target.value, lat: null, lng: null })}
       placeholder={placeholder}
       className={className}
       autoComplete="off"

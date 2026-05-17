@@ -28,7 +28,7 @@ export default function HeroSwiperCard({ slides = [] }) {
                 priority={index === 0}
               />
               <div className="absolute inset-0 bg-black/5"></div>
-              
+
               <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
                 <div className="max-w-3xl w-full p-8 md:p-12 bg-primary/5 backdrop-blur-[1px] rounded-[2.5rem] border border-primary/5 shadow-2xl animate-in fade-in zoom-in duration-500">
                   <TitleComponent
@@ -46,7 +46,6 @@ export default function HeroSwiperCard({ slides = [] }) {
                       ${slide.eyebrowColor === 'white' ? 'text-outline-white' : ''}
                     `}
                   />
-
 
                   {(slide.button1 || slide.button2) && (
                     <div className="flex gap-4 mt-8 flex-wrap justify-center">

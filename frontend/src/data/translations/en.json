@@ -291,7 +291,9 @@
     "dashboard": "Dashboard",
     "drivers": "Drivers",
     "users": "Users",
-    "invitations":"Invitations",
+    "trips": "Trips",
+    "invitations": "Invitations",
+
     "logout": "Log Out",
     "miPerfil": "My Profile",
     "misViajes": "My Trips"
@@ -732,11 +734,12 @@
       "address": "122 Market Boulevard, San Francisco, CA 94103"
     }
   },
-   "rideForm": {
+  "rideForm": {
     "title": "Ride details",
+    "subtitle": "Calculate your route and request a taxi",
     "currentLocation": "Current location",
     "currentLocationPlaceholder": "Detecting location...",
-    
+
     "destination": "Destination (optional)",
     "destinationPlaceholder": "Where do you want to go?",
     "vehicleType": "Vehicle type",
@@ -800,8 +803,8 @@
     "destination": "Destination",
     "getRoute": "Get route",
     "loading": "Loading route..."
-    },
-    "dashboard": {
+  },
+  "dashboard": {
     "welcome": "Welcome to NexTaxi",
     "active": "You have an ongoing ride.",
     "noActive": "Request a taxi now or check your previous rides.",
@@ -816,5 +819,14 @@
     "phonePlaceholder": "Your phone",
     "getRoute": "Get route",
     "loadingRoute": "Loading route..."
-    }
-    }
+  },
+  "taxiChat": {
+    "title": "Taxi Lanzarote",
+    "subtitle": "Assistant available",
+    "bubble": "Need a taxi? 🚕",
+    "placeholder": "Type your question...",
+    "greeting": "Hi! 👋 I'm your Lanzarote taxi assistant. How can I help?",
+    "error": "Connection error. Try again.",
+    "online": "Online"
+  }
+}

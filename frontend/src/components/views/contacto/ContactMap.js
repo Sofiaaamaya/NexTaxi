@@ -2,11 +2,18 @@
 
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import Poppins from '@/components/ui/Poppins';
+import {
+  GOOGLE_MAPS_LIBRARIES,
+  GOOGLE_MAPS_ID,
+  GOOGLE_MAPS_VERSION,
+} from '@/lib/constants/googleMaps';
 
 export default function ContactMap({ t }) {
   const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    id: GOOGLE_MAPS_ID,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
+    libraries: GOOGLE_MAPS_LIBRARIES,
+    version: GOOGLE_MAPS_VERSION,
   });
 
   const center = {

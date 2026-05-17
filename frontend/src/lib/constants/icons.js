@@ -46,6 +46,7 @@ import {
   Shield,
   Flag,
   History,
+  MessageCircle,
 } from 'lucide-react';
 
 export const LUCIDE_ICONS = {
@@ -96,4 +97,5 @@ export const LUCIDE_ICONS = {
   Shield,
   Flag,
   History,
+  MessageCircle,
 };

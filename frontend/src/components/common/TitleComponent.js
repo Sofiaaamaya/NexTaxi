@@ -19,8 +19,7 @@ export default function TitleComponent({
   };
 
   const subtitleAlignment = align === 'left' ? 'mx-auto lg:mx-0' : 'mx-auto';
-  const outlineIfWhite = (color) =>
-    color === 'white' ? 'text-outline-white' : '';
+  const outlineIfWhite = (color) => (color === 'white' ? 'text-outline-white' : '');
 
   if (layout === 'grid') {
     return (
@@ -33,9 +32,10 @@ export default function TitleComponent({
               size="14|16"
               color={eyebrowColor}
               weight="medium"
-              className={`${eyebrowAsBadge
-                ? 'uppercase mb-3 inline-block bg-slate-100/30 text-white px-3 py-1 rounded-full'
-                : 'uppercase mb-2'
+              className={`${
+                eyebrowAsBadge
+                  ? 'uppercase mb-3 inline-block bg-slate-100/30 text-white px-3 py-1 rounded-full'
+                  : 'uppercase mb-2'
               } ${outlineIfWhite(eyebrowColor)}`}
             />
           )}
@@ -74,9 +74,10 @@ export default function TitleComponent({
           size="14|16"
           color={eyebrowColor}
           weight="medium"
-          className={`${eyebrowAsBadge
-            ? 'uppercase mb-3 inline-block bg-slate-100/30 text-white px-3 py-1 rounded-full'
-            : 'uppercase mb-2'
+          className={`${
+            eyebrowAsBadge
+              ? 'uppercase mb-3 inline-block bg-slate-100/30 text-white px-3 py-1 rounded-full'
+              : 'uppercase mb-2'
           } ${outlineIfWhite(eyebrowColor)}`}
         />
       )}

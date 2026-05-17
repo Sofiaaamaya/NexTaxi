@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Icon from '../../icons/Icon';
@@ -16,31 +17,36 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
     usuario: {
       label: 'Usuario',
       subtitle: 'User Panel',
-      dashboard: `/${locale}/usuario/dashboard`
+      dashboard: `/${locale}/usuario/dashboard`,
     },
     conductor: {
       label: 'Conductor',
       subtitle: 'Driver Panel',
-      dashboard: `/${locale}/conductor/dashboard`
+      dashboard: `/${locale}/conductor/dashboard`,
     },
     administrador: {
       label: 'Administrador',
       subtitle: 'Admin Panel',
-      dashboard: `/${locale}/admin/dashboard`
+      dashboard: `/${locale}/admin/dashboard`,
     },
     gerente: {
       label: 'Gerente',
       subtitle: 'Manager Panel',
-      dashboard: `/${locale}/gerente/dashboard`
-    }
+      dashboard: `/${locale}/gerente/dashboard`,
+    },
   };
 
-  const currentRole = roleConfig[user?.rol] || roleConfig.usuario;
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentRole =
+    mounted && user?.rol ? roleConfig[user.rol] || roleConfig.usuario : roleConfig.usuario;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-white border-b border-gray-100 px-6 flex justify-between items-center">
       <div className="flex items-center gap-4">
-        
         <button
           onClick={() => setSidebarOpen((prev) => !prev)}
           className="p-2 rounded-xl hover:bg-gray-50 transition-colors"
@@ -59,14 +65,13 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
               text={currentRole.label}
               size="10|10"
               weight="bold"
-              className="text-primary uppercase tracking-[0.2em] hidden lg:block"
+              className={`text-primary uppercase tracking-[0.2em] hidden lg:block ${!mounted ? 'opacity-0' : 'opacity-100'}`}
             />
           </div>
         </Link>
       </div>
 
       <div className="flex items-center gap-4">
-
         <button className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-gray-50 transition relative text-gray-400 hover:text-primary">
           <Icon name="Bell" size={22} />
         </button>
@@ -75,8 +80,14 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
 
         <div className="flex items-center gap-3">
           <div className="hidden sm:block text-right">
-            <Poppins text={user?.nombre || currentRole.label} size="14|14" weight="semibold" />
-            <Poppins text={currentRole.subtitle} size="12|12" color="gray-400" />
+            {mounted ? (
+              <>
+                <Poppins text={user?.nombre || currentRole.label} size="14|14" weight="semibold" />
+                <Poppins text={currentRole.subtitle} size="12|12" color="gray-400" />
+              </>
+            ) : (
+              <div className="w-24 h-8 bg-gray-50 rounded-lg animate-pulse"></div>
+            )}
           </div>
 
           <div className="w-10 h-10 rounded-xl bg-gray-100 overflow-hidden relative border-2 border-white shadow-sm">

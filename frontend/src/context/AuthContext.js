@@ -2,7 +2,13 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect } from 'react';
-import { login as loginFn, register as registerFn, logout as logoutFn, getUser, googleLogin as googleLoginFn } from '@/lib/auth';
+import {
+  login as loginFn,
+  register as registerFn,
+  logout as logoutFn,
+  getUser,
+  googleLogin as googleLoginFn,
+} from '@/lib/auth';
 
 const AuthContext = createContext();
 
@@ -27,7 +33,7 @@ export function AuthProvider({ children }) {
     };
 
     window.addEventListener('storage', handleStorageChange);
-    
+
     // Logout automático opcional al cerrar si se desea ser estricto con sessionStorage
     // sessionStorage ya se borra al cerrar la pestaña, pero podemos forzar el estado
     return () => window.removeEventListener('storage', handleStorageChange);
@@ -40,9 +46,9 @@ export function AuthProvider({ children }) {
         setUser(data.user);
         return { success: true };
       }
-      return { 
-        success: false, 
-        error: data.data?.error || data.data?.message || 'Error al iniciar sesión' 
+      return {
+        success: false,
+        error: data.data?.error || data.data?.message || 'Error al iniciar sesión',
       };
     } catch {
       return { success: false, error: 'Error de conexión' };
@@ -81,9 +87,9 @@ export function AuthProvider({ children }) {
         setUser(data.user);
         return { success: true };
       }
-      return { 
-        success: false, 
-        error: data.data?.error || data.data?.message || 'Error al iniciar sesión con Google' 
+      return {
+        success: false,
+        error: data.data?.error || data.data?.message || 'Error al iniciar sesión con Google',
       };
     } catch {
       return { success: false, error: 'Error de conexión' };

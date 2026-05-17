@@ -7,12 +7,14 @@ import Poppins from '@/components/ui/Poppins';
 import Icon from '@/components/icons/Icon';
 import { apiFetch } from '@/lib/api';
 import clsx from 'clsx';
+import UserTripStatus from './UserTripStatus';
 
 export default function ReservaPage() {
   const t = useTranslations('reserva');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
+  const [isProcessActive, setIsProcessActive] = useState(true);
 
   const [form, setForm] = useState({
     nombre_cliente: '',
@@ -30,8 +32,8 @@ export default function ReservaPage() {
       ...form,
       recogida_lat: 28.963,
       recogida_lng: -13.547,
-      destino_lat: form.destino_direccion ? 28.950 : null,
-      destino_lng: form.destino_direccion ? -13.550 : null,
+      destino_lat: form.destino_direccion ? 28.95 : null,
+      destino_lng: form.destino_direccion ? -13.55 : null,
     };
 
     try {
@@ -41,9 +43,10 @@ export default function ReservaPage() {
       });
 
       if (res.error) {
-        setError(t('form.error'));
+        setError(res.data?.message || t('form.error'));
       } else {
         setSuccess(true);
+        setIsProcessActive(true);
       }
     } catch (err) {
       setError(t('form.error'));
@@ -52,59 +55,63 @@ export default function ReservaPage() {
     }
   };
 
-  const inputClass = "w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary transition-all";
+  const inputClass =
+    'w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary transition-all';
 
   return (
     <div className="max-w-5xl mx-auto py-12 px-4">
-      <TitleComponent 
-        title={t('title')} 
-        subtitle={t('subtitle')} 
-        align="center"
-      />
+      <TitleComponent title={t('title')} subtitle={t('subtitle')} align="center" />
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
         <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50">
-          {success ? (
-            <div className="text-center py-8">
-              <div className="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Icon name="CheckCircle" size={48} />
-              </div>
-              <Poppins text={t('form.success')} size="20" weight="semibold" color="textPrimary" />
-              <button 
-                onClick={() => setSuccess(false)}
-                className="mt-8 font-medium bg-primary hover:bg-primary-light text-white px-4 py-2 rounded-lg transition-colors"
-              >
-                {t('form.reset')}
-              </button>
-            </div>
+          {isProcessActive ? (
+            <UserTripStatus onFinish={() => setIsProcessActive(false)} />
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-1.5">
-                <Poppins text={t('form.name')} tag="label" size="14" weight="medium" className="text-gray-600 ml-1" />
+                <Poppins
+                  text={t('form.name')}
+                  tag="label"
+                  size="14"
+                  weight="medium"
+                  className="text-gray-600 ml-1"
+                />
                 <input
                   type="text"
                   required
                   placeholder={t('form.namePlaceholder')}
                   value={form.nombre_cliente}
-                  onChange={(e) => setForm({...form, nombre_cliente: e.target.value})}
+                  onChange={(e) => setForm({ ...form, nombre_cliente: e.target.value })}
                   className={inputClass}
                 />
               </div>
 
               <div className="space-y-1.5">
-                <Poppins text={t('form.phone')} tag="label" size="14" weight="medium" className="text-gray-600 ml-1" />
+                <Poppins
+                  text={t('form.phone')}
+                  tag="label"
+                  size="14"
+                  weight="medium"
+                  className="text-gray-600 ml-1"
+                />
                 <input
                   type="tel"
                   required
                   placeholder={t('form.phonePlaceholder')}
                   value={form.telefono_cliente}
-                  onChange={(e) => setForm({...form, telefono_cliente: e.target.value})}
+                  onChange={(e) => setForm({ ...form, telefono_cliente: e.target.value })}
                   className={inputClass}
                 />
               </div>
 
               <div className="space-y-1.5">
-                <Poppins text={t('form.pickup')} tag="label" size="14" weight="medium" className="text-gray-600 ml-1" />
+                <Poppins
+                  text={t('form.pickup')}
+                  tag="label"
+                  size="14"
+                  weight="medium"
+                  className="text-gray-600 ml-1"
+                />
                 <div className="relative">
                   <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary">
                     <Icon name="MapPin" size={18} />
@@ -114,14 +121,20 @@ export default function ReservaPage() {
                     required
                     placeholder={t('form.pickupPlaceholder')}
                     value={form.recogida_direccion}
-                    onChange={(e) => setForm({...form, recogida_direccion: e.target.value})}
-                    className={clsx(inputClass, "pl-10")}
+                    onChange={(e) => setForm({ ...form, recogida_direccion: e.target.value })}
+                    className={clsx(inputClass, 'pl-10')}
                   />
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <Poppins text={t('form.destination')} tag="label" size="14" weight="medium" className="text-gray-600 ml-1" />
+                <Poppins
+                  text={t('form.destination')}
+                  tag="label"
+                  size="14"
+                  weight="medium"
+                  className="text-gray-600 ml-1"
+                />
                 <div className="relative">
                   <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                     <Icon name="Navigation" size={18} />
@@ -130,8 +143,8 @@ export default function ReservaPage() {
                     type="text"
                     placeholder={t('form.destinationPlaceholder')}
                     value={form.destino_direccion}
-                    onChange={(e) => setForm({...form, destino_direccion: e.target.value})}
-                    className={clsx(inputClass, "pl-10")}
+                    onChange={(e) => setForm({ ...form, destino_direccion: e.target.value })}
+                    className={clsx(inputClass, 'pl-10')}
                   />
                 </div>
               </div>
@@ -165,12 +178,12 @@ export default function ReservaPage() {
         <div className="space-y-8">
           <div className="bg-primary text-white p-8 rounded-3xl shadow-xl">
             <div className="w-12 h-12 bg-white/20 text-white rounded-xl flex items-center justify-center mb-6">
-              <Icon name="Phone" size={24} color='white'/>
+              <Icon name="Phone" size={24} color="white" />
             </div>
             <Poppins text={t('call.title')} size="22" weight="bold" color="white" />
             <Poppins text={t('call.text')} size="16" className="mt-2 text-slate-300" />
-            
-            <a 
+
+            <a
               href={`tel:${t('call.phone')}`}
               className="mt-8 w-full bg-white text-black py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-slate-100 transition-colors"
             >

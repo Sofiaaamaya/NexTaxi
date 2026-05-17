@@ -44,7 +44,13 @@ export default function DashboardPage() {
   }, [fetchStats]);
 
   const stats = [
-    { key: 'totalDrivers', value: statsData.totalDrivers, icon: 'Car', color: 'text-blue-600', bg: 'bg-blue-50' },
+    {
+      key: 'totalDrivers',
+      value: statsData.totalDrivers,
+      icon: 'Car',
+      color: 'text-blue-600',
+      bg: 'bg-blue-50',
+    },
     {
       key: 'activeDrivers',
       value: statsData.activeDrivers,
@@ -75,12 +81,12 @@ export default function DashboardPage() {
           <Poppins text={t('welcome')} size="24|32" weight="bold" color="textPrimary" />
           <Poppins text={t('title')} size="16|16" weight="medium" color="textSecondary" />
         </div>
-        <button 
+        <button
           onClick={fetchStats}
           disabled={isLoading}
           className={clsx(
-            "p-2 text-gray-400 hover:text-primary transition-colors",
-            isLoading && "cursor-not-allowed opacity-50"
+            'p-2 text-gray-400 hover:text-primary transition-colors',
+            isLoading && 'cursor-not-allowed opacity-50'
           )}
           title="Actualizar estadísticas"
         >

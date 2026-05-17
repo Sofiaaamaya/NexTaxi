@@ -27,9 +27,9 @@ export default function InvitationsPage() {
     setLoading(false);
 
     if (res.error) {
-      setMessage({ 
-        text: res.data?.message || t('error'), 
-        type: 'error' 
+      setMessage({
+        text: res.data?.message || t('error'),
+        type: 'error',
       });
     } else {
       setMessage({ text: t('success'), type: 'success' });
@@ -39,11 +39,7 @@ export default function InvitationsPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <TitleComponent 
-        title={t('title')} 
-        subtitle={t('subtitle')} 
-        align="left"
-      />
+      <TitleComponent title={t('title')} subtitle={t('subtitle')} align="left" />
 
       <div className="mt-8 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -100,9 +96,11 @@ export default function InvitationsPage() {
           </button>
 
           {message.text && (
-            <div className={`p-4 rounded-xl text-sm font-medium flex items-center gap-3 ${
-              message.type === 'success' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'
-            }`}>
+            <div
+              className={`p-4 rounded-xl text-sm font-medium flex items-center gap-3 ${
+                message.type === 'success' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'
+              }`}
+            >
               <Icon name={message.type === 'success' ? 'CheckCircle' : 'AlertCircle'} size={20} />
               {message.text}
             </div>
