@@ -20,3 +20,6 @@ Route::post('/invitaciones/validar', [App\Http\Controllers\Api\Admin\AdminContro
 Route::post('/invitaciones/completar', [App\Http\Controllers\Api\Admin\AdminController::class, 'completarRegistro']);
 Route::post('/contacto', [App\Http\Controllers\Api\ContactoController::class, 'send']);
 
+Route::get('/test', function () {
+    return response()->json(['ok' => true]);
+});
