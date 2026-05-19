@@ -90,7 +90,7 @@ export default function HeaderDashboard({ setSidebarOpen }) {
               src={
                 user?.foto_perfil
                   ? `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/storage/${user.foto_perfil}`
-                  : '/images/imagen_perfil.webp'
+                  : '/images/icono_avatar.webp'
               }
               alt="perfil"
               fill

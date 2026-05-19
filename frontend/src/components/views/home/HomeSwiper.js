@@ -1,9 +1,11 @@
 'use client';
+
 import HeroSwiperCard from '@/components/common/cards/HeroSwiperCard';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function HomeSwiper() {
   const t = useTranslations('HomeSwiper');
+  const locale = useLocale();
 
   const slides = [
     {
@@ -16,8 +18,8 @@ export default function HomeSwiper() {
       titleColor: 'white',
       subtitle: t('slides.0.subtitle'),
       subtitleColor: 'white',
-      button1: { label: t('slides.0.button1'), href: '/reserva' },
-      button2: { label: t('slides.0.button2'), href: '/contacto' },
+      button1: { label: t('slides.0.button1'), href: `/${locale}/reserva` },
+      button2: { label: t('slides.0.button2'), href: `/${locale}/contacto` },
     },
     {
       image: '/images/hervideros_lanzarote.webp',
@@ -35,7 +37,7 @@ export default function HomeSwiper() {
       eyebrowColor: 'white',
       title: t('slides.2.title'),
       titleColor: 'white',
-      button1: { label: t('slides.2.button1'), href: '/reserva' },
+      button1: { label: t('slides.2.button1'), href: `/${locale}/reserva` },
     },
   ];
 

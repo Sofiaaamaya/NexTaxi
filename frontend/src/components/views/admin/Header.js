@@ -62,7 +62,7 @@ export default function Header({ setSidebarOpen }) {
             <Poppins text={t('managementPanel')} size="12|12" color="gray-400" />
           </div>
           <div className="w-10 h-10 rounded-xl bg-gray-100 overflow-hidden relative border-2 border-white shadow-sm">
-            <Image src="/images/imagen_perfil.webp" alt="perfil" fill className="object-cover" />
+            <Image src="/images/icono_avatar.webp" alt="perfil" fill className="object-cover" />
           </div>
         </div>
       </div>
