@@ -26,13 +26,9 @@ const InputWrapper = ({ icon, children, label, isFocused, hasValue, fieldError }
 
         <label
           className={`
-          absolute left-12 top-1/2 -translate-y-1/2 pointer-events-none transition-all duration-200 z-20
-          ${
-            isFloating
-              ? '-translate-y-[2.6rem] left-3 text-xs bg-white px-2 font-medium opacity-100 ' +
-                (fieldError ? 'text-red-500' : 'text-primary')
-              : 'text-gray-400 opacity-100'
-          }
+          absolute left-3 -translate-y-[2.6rem] pointer-events-none transition-all duration-200 z-20
+          text-xs bg-white px-2 font-medium opacity-100
+          ${fieldError ? 'text-red-500' : isFocused ? 'text-primary' : 'text-gray-400'}
         `}
         >
           {label}
