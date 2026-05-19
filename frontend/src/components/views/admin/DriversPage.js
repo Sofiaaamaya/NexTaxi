@@ -34,7 +34,6 @@ export default function DriversPage({ onDataChange }) {
         return;
       }
 
-      // Extracción segura del array
       let rawData = [];
       if (Array.isArray(data)) {
         rawData = data;

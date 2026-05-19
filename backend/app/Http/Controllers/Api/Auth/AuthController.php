@@ -26,7 +26,7 @@ class AuthController extends Controller
         $user = Usuario::where('email', $request->email)->first();
 
         if (!$user) {
-            // Por seguridad, no decimos si el email existe o no
+            // Por seguridad, no decir si el email existe o no
             return response()->json(['msg' => 'Si el correo electrónico existe, se ha enviado un enlace de recuperación.']);
         }
 
@@ -167,7 +167,7 @@ class AuthController extends Controller
             $invitacion->update(['usado' => true]);
         }
 
-        $token = $user->createToken('auth_token')->plainTextToken; // ← $user
+        $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             'msg'   => 'Registro completado con éxito',
@@ -184,7 +184,7 @@ public function login(LoginRequest $req) {
         return response()->json(['error' => 'Credenciales incorrectas'], 401);
     }
 
-    // Revocar tokens anteriores (opcional pero recomendado)
+    // Revocar tokens anteriores (recomendado)
     $user->tokens()->delete();
 
     $token = $user->createToken('auth_token')->plainTextToken;

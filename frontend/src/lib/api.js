@@ -14,11 +14,9 @@ export async function apiFetch(endpoint, options = {}) {
       },
     });
 
-    // Intentamos obtener el JSON. Si no es JSON, capturamos el error.
     const data = await res.json();
 
     if (!res.ok) {
-      // Devolvemos un objeto estructurado con el error y el status
       return { error: true, status: res.status, data };
     }
 

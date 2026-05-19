@@ -163,12 +163,11 @@ export default function RideForm({ role = 'usuario' }) {
 
   return (
     <div className="relative w-full h-[750px] rounded-[2.5rem] shadow-2xl border border-gray-100 bg-gray-50">
-      {/* MAPA — ÚNICO ELEMENTO CON overflow-hidden PARA RESPETAR BORDES REDONDEADOS */}
+      {/* MAPA */}
       <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden">
         <MapComponent isBackground={false} polyline={polyline} markers={markers} />
       </div>
 
-      {/* ESTADO BUSY: TRACKING O ESPERA (BOTTOM) — z-10 para estar bajo el sidebar (z-40) */}
       {isBusy && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-6 z-10 w-full max-w-md px-4 animate-in fade-in slide-in-from-bottom-6 duration-500">
           {activeRide ? (
@@ -216,7 +215,6 @@ export default function RideForm({ role = 'usuario' }) {
         </div>
       )}
 
-      {/* ESTADO IDLE: MENÚ Y PANEL IZQUIERDO (SOLO PARA USUARIOS) — z-10 y z-20 */}
       {!isBusy && role === 'usuario' && (
         <>
           <button

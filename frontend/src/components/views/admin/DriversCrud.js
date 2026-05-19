@@ -67,7 +67,7 @@ export default function DriversCrud({ data = [], refreshData }) {
       email: driver.usuario?.email || '',
       dni: driver.dni || '',
       numero_licencia: driver.numero_licencia || '',
-      password: '', // Password empty on edit unless user wants to change it
+      password: '',
       matricula: driver.vehiculo?.matricula || '',
       marca: driver.vehiculo?.marca || '',
       modelo: driver.vehiculo?.modelo || '',

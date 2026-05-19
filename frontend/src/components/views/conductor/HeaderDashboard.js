@@ -14,7 +14,7 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
   const { user } = useAuth();
 
   const roleConfig = {
-    usuario: {
+    cliente: {
       label: 'Usuario',
       subtitle: 'User Panel',
       dashboard: `/${locale}/usuario/dashboard`,
@@ -24,7 +24,7 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
       subtitle: 'Driver Panel',
       dashboard: `/${locale}/conductor/dashboard`,
     },
-    administrador: {
+    admin: {
       label: 'Administrador',
       subtitle: 'Admin Panel',
       dashboard: `/${locale}/admin/dashboard`,
@@ -42,7 +42,9 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
   }, []);
 
   const currentRole =
-    mounted && user?.rol ? roleConfig[user.rol] || roleConfig.usuario : roleConfig.usuario;
+    mounted && user?.rol ? roleConfig[user.rol] || roleConfig.cliente : roleConfig.cliente;
+
+  if (!mounted) return <div className="h-16 bg-white border-b border-gray-100" />;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-white border-b border-gray-100 px-6 flex justify-between items-center">
@@ -65,7 +67,7 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
               text={currentRole.label}
               size="10|10"
               weight="bold"
-              className={`text-primary uppercase tracking-[0.2em] hidden lg:block ${!mounted ? 'opacity-0' : 'opacity-100'}`}
+              className="text-primary uppercase tracking-[0.2em] hidden lg:block"
             />
           </div>
         </Link>
@@ -80,18 +82,23 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
 
         <div className="flex items-center gap-3">
           <div className="hidden sm:block text-right">
-            {mounted ? (
-              <>
-                <Poppins text={user?.nombre || currentRole.label} size="14|14" weight="semibold" />
-                <Poppins text={currentRole.subtitle} size="12|12" color="gray-400" />
-              </>
-            ) : (
-              <div className="w-24 h-8 bg-gray-50 rounded-lg animate-pulse"></div>
-            )}
+            <Poppins text={user?.nombre || currentRole.label} size="14|14" weight="semibold" />
+            <Poppins text={currentRole.subtitle} size="12|12" color="gray-400" />
           </div>
 
           <div className="w-10 h-10 rounded-xl bg-gray-100 overflow-hidden relative border-2 border-white shadow-sm">
-            <Image src="/images/imagen_perfil.webp" alt="perfil" fill className="object-cover" />
+            <Image
+              src={
+                user?.foto_perfil
+                  ? `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/storage/${user.foto_perfil}`
+                  : '/images/imagen_perfil.webp'
+              }
+              alt="perfil"
+              fill
+              sizes="40px"
+              className="object-cover"
+              unoptimized={!!user?.foto_perfil}
+            />
           </div>
         </div>
       </div>

@@ -151,7 +151,7 @@ export default function RegisterPage() {
                 onBlur={() => setFocusedField(null)}
                 onChange={(e) => {
                   setForm({ ...form, nombre: e.target.value });
-                  if (fieldErrors.nombre) setFieldErrors({ ...fieldErrors, nombre: null }); // Limpia error al escribir
+                  if (fieldErrors.nombre) setFieldErrors({ ...fieldErrors, nombre: null });
                 }}
                 className={inputClass('nombre')}
               />

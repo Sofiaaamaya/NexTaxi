@@ -16,15 +16,17 @@ class ContactoMail extends Mailable
     public $email;
     public $subjectText;
     public $messageText;
+    public $cvPath;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($email, $subjectText, $messageText)
+    public function __construct($email, $subjectText, $messageText, $cvPath = null)
     {
         $this->email = $email;
         $this->subjectText = $subjectText;
         $this->messageText = $messageText;
+        $this->cvPath = $cvPath;
     }
 
     /**
@@ -49,6 +51,10 @@ class ContactoMail extends Mailable
               . "<p><strong>Mensaje:</strong></p>"
               . "<p style='white-space: pre-wrap;'>{$this->messageText}</p>";
 
+        if ($this->cvPath) {
+            $html .= "<p><strong>CV Adjunto:</strong> Sí (ver archivos adjuntos)</p>";
+        }
+
         return new Content(
             htmlString: $html
         );
@@ -61,6 +67,12 @@ class ContactoMail extends Mailable
      */
     public function attachments(): array
     {
+        if ($this->cvPath && \Illuminate\Support\Facades\Storage::disk('local')->exists($this->cvPath)) {
+            return [
+                \Illuminate\Mail\Mailables\Attachment::fromStorage($this->cvPath)
+            ];
+        }
+
         return [];
     }
 }

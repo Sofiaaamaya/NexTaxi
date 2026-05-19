@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const SYSTEM_PROMPT = `Eres un asistente virtual de taxi para la isla de Lanzarote...`; // el mismo de antes
+const SYSTEM_PROMPT = `Eres un asistente virtual de taxi para la isla de Lanzarote...`;
 
 export async function POST(req) {
   const { messages } = await req.json();
@@ -9,7 +9,7 @@ export async function POST(req) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.GROQ_API_KEY}`, // sin NEXT_PUBLIC_
+      Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
     },
     body: JSON.stringify({
       model: 'llama-3.3-70b-versatile',

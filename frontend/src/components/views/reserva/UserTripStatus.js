@@ -14,28 +14,34 @@ export default function UserTripStatus({ onFinish }) {
   const [activeRide, setActiveRide] = useState(null);
 
   const checkStatus = async () => {
-    // Check for active ride
-    const rideRes = await apiFetch('/viajes/activa');
-    if (!rideRes.error && rideRes.id_viaje) {
-      setActiveRide(rideRes);
-      setActiveRequest(null);
-      setLoading(false);
-      return;
-    }
-
-    // If no active ride, check for pending requests
-    const reqRes = await apiFetch('/solicitudes');
-    if (!reqRes.error && Array.isArray(reqRes)) {
-      const pending = reqRes.find((r) => r.estado === 'pendiente');
-      if (pending) {
-        setActiveRequest(pending);
-      } else {
+    try {
+      const rideRes = await apiFetch('/viajes/activa');
+      if (!rideRes.error && rideRes.id_viaje) {
+        setActiveRide(rideRes);
         setActiveRequest(null);
-        if (onFinish) onFinish(); // No active things, go back to form
+        setLoading(false);
+        return;
       }
+
+      const reqRes = await apiFetch('/solicitudes');
+      if (!reqRes.error && Array.isArray(reqRes)) {
+        const pending = reqRes.find((r) => r.estado === 'pendiente');
+        if (pending) {
+          setActiveRequest(pending);
+          setActiveRide(null);
+          setLoading(false);
+          return;
+        }
+      }
+
+      setActiveRide(null);
+      setActiveRequest(null);
+      if (onFinish) onFinish();
+    } catch (err) {
+      if (onFinish) onFinish();
+    } finally {
+      setLoading(false);
     }
-    setActiveRide(null);
-    setLoading(false);
   };
 
   useEffect(() => {

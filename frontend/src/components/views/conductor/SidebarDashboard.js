@@ -21,10 +21,13 @@ export default function SidebarDashboard({ open, setOpen }) {
   const locale = useLocale();
   const router = useRouter();
   const { user, logout } = useAuth();
+  const [mounted, setMounted] = useState(false);
 
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
-  if (!hydrated) return null;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const handleLogout = () => {
     logout();
@@ -32,25 +35,25 @@ export default function SidebarDashboard({ open, setOpen }) {
   };
 
   const menuByRole = {
-    usuario: USUARIO_NAV_ITEMS,
+    cliente: USUARIO_NAV_ITEMS,
     conductor: CONDUCTOR_NAV_ITEMS,
-    administrador: ADMIN_NAV_ITEMS,
+    admin: ADMIN_NAV_ITEMS,
     gerente: GERENTE_NAV_ITEMS,
   };
 
-  const navItems = menuByRole[user?.rol] || menuByRole.usuario;
+  const navItems = menuByRole[user?.rol] || menuByRole.cliente;
 
   const roleLabel = {
-    usuario: 'Usuario',
+    cliente: 'Usuario',
     conductor: 'Conductor',
-    administrador: 'Administrador',
+    admin: 'Administrador',
     gerente: 'Gerente',
   };
 
   const defaultEmail = {
-    usuario: 'usuario@nextaxi.com',
+    cliente: 'usuario@nextaxi.com',
     conductor: 'conductor@nextaxi.com',
-    administrador: 'admin@nextaxi.com',
+    admin: 'admin@nextaxi.com',
     gerente: 'gerente@nextaxi.com',
   };
 
@@ -91,7 +94,18 @@ export default function SidebarDashboard({ open, setOpen }) {
             )}
           >
             <div className="w-10 h-10 rounded-xl bg-gray-100 overflow-hidden relative flex-shrink-0 border-2 border-white shadow-sm">
-              <Image src="/images/imagen_perfil.webp" alt="perfil" fill className="object-cover" />
+              <Image
+                src={
+                  user?.foto_perfil
+                    ? `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/storage/${user.foto_perfil}`
+                    : '/images/imagen_perfil.webp'
+                }
+                alt="perfil"
+                fill
+                sizes="40px"
+                className="object-cover"
+                unoptimized={!!user?.foto_perfil}
+              />
             </div>
 
             {isSidebarExpanded && (

@@ -47,6 +47,8 @@ import {
   Flag,
   History,
   MessageCircle,
+  Camera,
+  Upload,
 } from 'lucide-react';
 
 export const LUCIDE_ICONS = {
@@ -98,4 +100,6 @@ export const LUCIDE_ICONS = {
   Flag,
   History,
   MessageCircle,
+  Camera,
+  Upload,
 };

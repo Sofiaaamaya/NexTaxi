@@ -31,7 +31,6 @@ class RecuperarPasswordMail extends Mailable
     public function content(): Content
     {
         $frontendUrl = env('FRONTEND_URL', 'http://localhost:3000');
-        // Usamos la ruta que crearemos en el frontend
         $url = $frontendUrl . '/reset-password?token=' . $this->token . '&email=' . urlencode($this->email);
 
         $html = "<h1>Recuperación de Contraseña</h1>"

@@ -1,4 +1,3 @@
-// src/lib/auth.js — CORREGIDO
 import { apiFetch } from './api';
 
 export async function login({ email, password }) {
@@ -21,7 +20,6 @@ export async function register(formData) {
     body: JSON.stringify(formData),
   });
 
-  // ✅ ESTO FALTABA — guardar el token tras el registro igual que en login
   if (data.token) {
     sessionStorage.setItem('token', data.token);
     sessionStorage.setItem('user', JSON.stringify(data.user));

@@ -1,4 +1,3 @@
-// src/context/AuthContext.js — CORREGIDO (usa token, no cookies)
 'use client';
 
 import { createContext, useContext, useState, useEffect } from 'react';
@@ -63,7 +62,7 @@ export function AuthProvider({ children }) {
       if (data?.error) {
         return {
           success: false,
-          errors: data.data?.errors, // Aquí están los campos en rojo { email: [...], nombre: [...] }
+          errors: data.data?.errors,
           error: data.data?.error || data.data?.message || 'Error en el servidor',
         };
       }
@@ -102,7 +101,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, googleLogin, logout }}>
+    <AuthContext.Provider value={{ user, setUser, login, register, googleLogin, logout }}>
       {children}
     </AuthContext.Provider>
   );

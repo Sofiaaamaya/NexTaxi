@@ -16,7 +16,6 @@ export default function Header({ sidebarOpen, setSidebarOpen }) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-white border-b border-gray-100 px-6 flex justify-between items-center">
       <div className="flex items-center gap-4">
-        {/* Mobile Menu Toggle - Hidden on small screens as sidebar is fixed compressed */}
         <button
           onClick={() => setSidebarOpen((prev) => !prev)}
           className="p-2 rounded-xl hover:bg-gray-50 transition-colors hidden lg:block"

@@ -27,7 +27,6 @@ export default function DashboardPage() {
           ...prev,
           totalDrivers: data.total_conductores?.toString() || '0',
           activeDrivers: data.conductores_activos?.toString() || '0',
-          // Mantenemos los otros fijos como pidió el usuario o los usamos si vienen
           totalUsers: data.total_usuarios?.toLocaleString() || prev.totalUsers,
           totalTrips: data.total_viajes?.toString() || prev.totalTrips,
         }));
@@ -98,7 +97,6 @@ export default function DashboardPage() {
         </button>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat) => (
           <div

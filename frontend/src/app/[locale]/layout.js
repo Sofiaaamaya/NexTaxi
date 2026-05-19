@@ -12,13 +12,17 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata = {
   title: 'NexTaxi - Tu Servicio de Taxi de Confianza',
   description:
     'NexTaxi ofrece traslados rápidos, seguros y cómodos. Reserva tu viaje en línea y disfruta de la mejor experiencia en transporte.',
   keywords: 'taxi, transporte, reserva de taxi, traslados, viajes seguros, NexTaxi',
   authors: [{ name: 'NexTaxi Team' }],
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   manifest: '/manifest.json',
   openGraph: {

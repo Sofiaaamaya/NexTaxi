@@ -26,7 +26,6 @@ const InputWrapper = ({ icon, children, label, isFocused, hasValue, fieldError }
 
         {children}
 
-        {/* Etiqueta corregida */}
         <label
           className={`
           absolute left-12 top-1/2 -translate-y-1/2 pointer-events-none transition-all duration-200 z-20

@@ -124,7 +124,6 @@ export default function ConductorRideTracking({ rideId, onFinish, compact = fals
         </div>
       </div>
 
-      {/* FORMULARIO FINALIZAR (INLINE EXPANDIBLE HACIA ARRIBA) */}
       {isFinishing && (
         <form
           onSubmit={handleFinalizar}

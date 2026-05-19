@@ -57,7 +57,6 @@ export default function MapComponent({
     setMap(null);
   }, []);
 
-  // Ajustar el mapa para mostrar toda la ruta cuando cambie
   useEffect(() => {
     if (map && decodedPath.length > 0) {
       const bounds = new window.google.maps.LatLngBounds();

@@ -8,7 +8,6 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { apiFetch } from '@/lib/api';
 
-// Definido fuera para evitar pérdida de foco al re-renderizar
 const InputField = ({
   label,
   id,
