@@ -1,7 +1,7 @@
 import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
 import Icon from '@/components/icons/Icon';
-
+import { useLocale } from 'next-intl';
 export default function ContactBanner({
   title,
   description,
@@ -13,7 +13,9 @@ export default function ContactBanner({
   buttonHoverTextColor = '',
   titleColor = '',
   descriptionColor = '',
-}) {
+}) 
+{
+  const locale = useLocale();
   return (
     <section className={`relative z-0 mx-auto my-5 rounded-3xl ${bgColor}`}>
       <div className="flex flex-col items-center text-center px-12 md:px-24 py-16 gap-4">
@@ -28,7 +30,7 @@ export default function ContactBanner({
         />
 
         <Link
-          href="/contacto"
+          href={`/${locale}/contacto`}
           className={`
                         mt-2 rounded-3xl px-10 py-3 border-2 
                         flex items-center gap-2 transition-colors cursor-pointer
