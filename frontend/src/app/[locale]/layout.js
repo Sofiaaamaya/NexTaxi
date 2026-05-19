@@ -21,43 +21,17 @@ export const metadata = {
   title: 'NexTaxi - Tu Servicio de Taxi de Confianza',
   description:
     'NexTaxi ofrece traslados rápidos, seguros y cómodos. Reserva tu viaje en línea y disfruta de la mejor experiencia en transporte.',
-  keywords: 'taxi, transporte, reserva de taxi, traslados, viajes seguros, NexTaxi',
-  authors: [{ name: 'NexTaxi Team' }],
-  robots: 'index, follow',
-  manifest: '/manifest.json',
-  openGraph: {
-    title: 'NexTaxi - Tu Servicio de Taxi de Confianza',
-    description: 'Reserva tu taxi de forma rápida y segura con NexTaxi.',
-    url: 'https://nextaxi.es',
-    siteName: 'NexTaxi',
-    images: [
-      {
-        url: '/images/taxi_banner.webp',
-        width: 1200,
-        height: 630,
-        alt: 'NexTaxi Banner',
-      },
-    ],
-    locale: 'es_ES',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'NexTaxi - Tu Servicio de Taxi de Confianza',
-    description: 'Reserva tu taxi de forma rápida y segura con NexTaxi.',
-    images: ['/images/taxi_banner.webp'],
-  },
 };
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
 
-  let messages;
-  try {
-    messages = (await import(`../../data/translations/${locale}.json`)).default;
-  } catch {
-    notFound();
-  }
+  // CARGA COMPATIBLE CON EDGE RUNTIME
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/locales/${locale}.json`);
+
+  if (!res.ok) notFound();
+
+  const messages = await res.json();
 
   return (
     <html lang={locale} suppressHydrationWarning className={poppins.variable}>
