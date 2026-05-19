@@ -1,0 +1,837 @@
+{
+  "home": {
+    "title": "Bienvenido a NexTaxi",
+    "description": "Tu app de taxis en Lanzarote"
+  },
+  "whyChooseUs": {
+    "eyebrow": "Por qué la isla se mueve con nosotros",
+    "title": "No solo ofrecemos taxis; ofrecemos tranquilidad y eficiencia real",
+    "subtitle": "Nuestra plataforma está diseñada para responder a la movilidad de Lanzarote con rapidez, precisión y un enfoque totalmente local.",
+
+    "items": {
+      "fastDeployment": {
+        "title": "Despliegue Rápido",
+        "description": "Tiempos medios de asignación inferiores a 4 minutos gracias a nuestro algoritmo de proximidad."
+      },
+      "efficiency": {
+        "title": "Eficiencia Máxima",
+        "description": "La asignación inteligente reduce tiempos muertos y optimiza cada desplazamiento del taxi."
+      },
+      "localExperts": {
+        "title": "Expertos Locales",
+        "description": "Conductores que conocen cada zona, acceso, rotonda y punto clave de la isla."
+      },
+      "security": {
+        "title": "Seguridad 24/7",
+        "description": "Supervisión continua, trazabilidad del viaje y soporte disponible en todo momento."
+      }
+    }
+  },
+  "whyChooseNexTaxi": {
+    "title": "¿Por qué elegir NexTaxi?",
+    "subtitle": "Ofrecemos la experiencia de transporte más segura y eficiente en toda Lanzarote.",
+
+    "items": {
+      "availability": {
+        "title": "Disponibilidad 24/7",
+        "description": "Siempre estamos cuando nos necesitas, de día o de noche."
+      },
+      "localExperts": {
+        "title": "Expertos Locales",
+        "description": "Conductores con experiencia y licencia que conocen cada rincón de Lanzarote."
+      },
+      "coverage": {
+        "title": "Cobertura en toda la isla",
+        "description": "Desde el aeropuerto de Arrecife hasta Playa Blanca y más allá."
+      }
+    }
+  },
+  "contactBanner": {
+    "title": "¿Listo para ponerte en contacto con nosotros?",
+    "description": "Nuestro equipo está disponible para ayudarte con reservas, consultas o información adicional.",
+    "contactButton": "Contáctanos"
+  },
+
+  "titleComponent": {
+    "defaultEyebrow": "Sección destacada",
+    "defaultTitle": "Título de ejemplo",
+    "defaultSubtitle": "Este es un texto de ejemplo para el componente TitleComponent."
+  },
+
+  "common": {
+    "learnMore": "Saber más",
+    "contact": "Contacto",
+    "cta": "Empezar ahora",
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "noVehicle": "Sin vehículo",
+    "areYouSure": "¿Estás seguro?",
+    "realTimeMap": "Mapa en tiempo real",
+    "loadingDrivers": "Cargando conductores...",
+    "weeklyActivity": "Actividad semanal",
+    "weeklyChartPlaceholder": "Gráfico semanal aquí",
+    "managementPanel": "Panel de Gestión",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "errorConnection": "No se pudo conectar con el servidor",
+    "errorCritical": "Error crítico al cargar los datos",
+    "retry": "Reintentar conexión",
+    "checkBackend": "Verifica que el servidor backend esté corriendo",
+    "driverPanel": "Panel del Conductor"
+  },
+
+  "auth": {
+    "login": {
+      "title": "Iniciar sesión",
+      "subtitle": "Accede a tu cuenta para continuar",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "button": "Acceder",
+      "noAccount": "¿No tienes cuenta?",
+      "goRegister": "Regístrate",
+      "forgot": "¿Olvidaste tu contraseña?",
+      "orContinue": "o continuar con"
+    },
+    "forgotPassword": {
+      "title": "Recuperar Contraseña",
+      "subtitle": "Introduce tu email y te enviaremos un enlace de recuperación.",
+      "email": "Correo electrónico",
+      "placeholder": "correo@ejemplo.com",
+      "button": "Enviar enlace de recuperación",
+      "backToLogin": "Volver al login",
+      "success": "Si el email existe, se ha enviado un enlace de recuperación.",
+      "error": "Error al enviar el email de recuperación."
+    },
+    "resetPassword": {
+      "title": "Nueva Contraseña",
+      "subtitle": "Elige una contraseña segura para tu cuenta.",
+      "password": "Nueva Contraseña",
+      "confirm": "Confirmar Nueva Contraseña",
+      "button": "Actualizar Contraseña",
+      "backToLogin": "Volver al login",
+      "success": "¡Contraseña actualizada con éxito!",
+      "error": "Error al actualizar la contraseña. El enlace puede haber expirado."
+    },
+    "register": {
+      "title": "Crear cuenta",
+      "subtitle": "Regístrate para comenzar a usar NexTaxi",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "button": "Crear cuenta",
+      "haveAccount": "¿Ya tienes cuenta?",
+      "goLogin": "Inicia sesión",
+      "confirmPassword": "Confirmar contraseña",
+      "orContinue": "o continuar con"
+    },
+    "passwordHint": "Mín. 8 carac., una mayúscula, un número y un símbolo."
+  },
+  "chooseProfile": {
+    "title": "¡Bienvenido!",
+    "subtitle": "Selecciona un perfil para continuar.",
+    "userButtonTitle": "Soy Usuario",
+    "userButtonSubtitle": "Necesito un transporte",
+    "driverButtonTitle": "Soy Trabajador",
+    "driverButtonSubtitle": "Acceso para conductores y supervisores",
+    "newHere": "¿Nuevo en NexTaxi?",
+    "registerLink": "Regístrate como nuevo socio",
+    "legal": "Al continuar, confirmas que has leído y aceptas nuestros Términos y Condiciones y nuestra Política de Privacidad."
+  },
+  "workerLogin": {
+    "title": "Acceso para Trabajadores",
+    "subtitle": "Introduce tus credenciales para acceder al sistema interno.",
+    "email": "Email corporativo",
+    "password": "Contraseña",
+    "forgot": "¿Olvidaste tu contraseña?",
+    "roleTitle": "Perfil de usuario",
+    "driver": "Conductor",
+    "supervisor": "Supervisor",
+    "button": "Entrar como Trabajador",
+    "legal": "© 2026 NexTaxi Canarias. Sistema de Gestión Interna. El acceso no autorizado está estrictamente prohibido."
+  },
+  "HomeSwiper": {
+    "slides": {
+      "0": {
+        "alt": "Paisaje volcánico de Lanzarote al atardecer",
+        "eyebrow": "Servicio de Taxi #1 en Lanzarote",
+        "title": "Vive la Isla con NexTaxi",
+        "subtitle": "Traslados fiables, cómodos y profesionales desde el aeropuerto hasta cada playa escondida.",
+        "button1": "Pedir un Taxi",
+        "button2": "Trabaja con nosotros"
+      },
+      "1": {
+        "alt": "Vistas al océano con acantilados en Lanzarote",
+        "title": "Explora Lanzarote con Facilidad",
+        "subtitle": "Tu socio de transporte de confianza para cada aventura."
+      },
+      "2": {
+        "alt": "Taxi de traslado al aeropuerto en Lanzarote",
+        "eyebrow": "Rápido y Fiable",
+        "title": "Traslados al Aeropuerto 24/7",
+        "button1": "Reservar Ahora"
+      }
+    }
+  },
+  "DriverRegister": {
+    "benefits": {
+      "title": "Únete a la flota NexTaxi",
+      "subtitle": "Convierte tu vehículo en un servicio profesional en Lanzarote.",
+      "items": {
+        "payments": {
+          "title": "Pagos semanales",
+          "desc": "Cobros puntuales directamente en tu cuenta bancaria."
+        },
+        "schedule": {
+          "title": "Horarios flexibles",
+          "desc": "Conduce cuando quieras, adapta NexTaxi a tu vida."
+        },
+        "support": {
+          "title": "Soporte 24/7",
+          "desc": "Equipo de coordinación siempre disponible para ayudarte."
+        }
+      }
+    },
+    "form": {
+      "title": "Registro de Conductor",
+      "stepCounter": "Paso {current} de {total}",
+      "steps": {
+        "1": { "title": "Datos de la cuenta" },
+        "2": { "title": "Datos de la licencia" },
+        "3": { "title": "Datos del vehículo" }
+      },
+      "fields": {
+        "nombre": { "label": "Nombre completo", "placeholder": "Ej. Juan Pérez" },
+        "email": { "label": "Email", "placeholder": "conductor@nextaxi.com" },
+        "password": { "label": "Contraseña", "placeholder": "••••••••" },
+        "telefono": { "label": "Teléfono", "placeholder": "+34 600 000 000" },
+        "dni": { "label": "DNI / NIE", "placeholder": "12345678A" },
+        "numeroLicencia": { "label": "Número de licencia", "placeholder": "LZ-1234-5678" },
+        "licenciaExpira": { "label": "Fecha de expiración" },
+        "matricula": { "label": "Matrícula", "placeholder": "1234-ABC" },
+        "marca": { "label": "Marca", "placeholder": "Toyota" },
+        "modelo": { "label": "Modelo", "placeholder": "Corolla" },
+        "plazas": { "label": "Plazas" },
+        "anho": { "label": "Año" },
+        "tipo": { "label": "Tipo" },
+        "color": { "label": "Color" }
+      },
+      "vehicleTypes": {
+        "normal": "Normal",
+        "adapted": "Adaptado",
+        "premium": "Premium"
+      },
+      "vehicleColors": ["Negro", "Blanco", "Gris", "Azul"],
+      "terms": "Acepto los Términos de servicio y la Política de privacidad.",
+      "buttons": {
+        "back": "Volver",
+        "next": "Siguiente",
+        "submit": "Finalizar Registro"
+      }
+    }
+  },
+  "Header": {
+    "nav": {
+      "home": "Inicio",
+      "reserva": "Pedir viaje",
+      "contacto": "Contacto",
+      "nosotros": "Nosotros",
+      "misViajes": "Mis Viajes"
+    },
+    "aria": {
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú"
+    },
+    "languages": {
+      "es": "Español",
+      "en": "Inglés"
+    },
+    "auth": {
+      "login": "Entrar",
+      "register": "Registrarse",
+      "logout": "Salir"
+    }
+  },
+  "AboutSwiper": {
+    "slides": {
+      "0": {
+        "alt": "Vista del Gran Hotel desde la playa",
+        "eyebrow": "Servicio de Taxi #1 en Lanzarote",
+        "title": "Vive la Isla con NexTaxi",
+        "subtitle": "Traslados fiables, cómodos y profesionales desde el aeropuerto hasta cada playa escondida."
+      }
+    }
+  },
+  "whyChooseAboutUs": {
+    "title": "Por qué elegir NexTaxi",
+    "subtitle": "Combinamos tecnología de vanguardia con la experiencia de los mejores conductores locales para ofrecerte un servicio de transporte sin comparación en toda la isla.",
+    "items": {
+      "speed": {
+        "title": "Rapidez Insuperable",
+        "description": "Llegamos a tu ubicación en tiempo récord gracias a nuestro sistema inteligente de asignación de rutas."
+      },
+      "urbanIntegrity": {
+        "title": "Integridad Urbana",
+        "description": "Comprometidos con la movilidad sostenible y el respeto al entorno único de los paisajes de Lanzarote."
+      },
+      "satisfaction": {
+        "title": "Satisfacción 100%",
+        "description": "Tu comodidad es nuestra prioridad. Vehículos modernos y limpios con atención personalizada en cada viaje."
+      },
+      "coverage": {
+        "title": "Cobertura Total",
+        "description": "Desde el Aeropuerto de Arrecife hasta el rincón más remoto de Playa Blanca o Famara."
+      }
+    }
+  },
+  "sidebar": {
+    "menu": "Menú",
+    "navigation": "Navegación",
+    "subtitle": "Gestiona tu plataforma",
+    "dashboard": "Dashboard",
+    "drivers": "Conductores",
+    "users": "Usuarios",
+    "trips": "Viajes",
+    "invitations": "Invitaciones",
+    "logout": "Cerrar sesión",
+    "miPerfil": "Mi perfil",
+    "misViajes": "Mis viajes"
+  },
+  "adminInvitations": {
+    "title": "Enviar Invitación",
+    "subtitle": "Invita a nuevos miembros a unirse a la plataforma",
+    "emailLabel": "Correo electrónico",
+    "roleLabel": "Rol",
+    "sendButton": "Enviar invitación",
+    "success": "Invitación enviada con éxito",
+    "error": "Error al enviar la invitación",
+    "roles": {
+      "admin": "Administrador",
+      "gerente": "Gerente",
+      "conductor": "Conductor"
+    }
+  },
+  "acceptInvitation": {
+    "title": "Completa tu registro",
+    "subtitle": "Estás a un paso de unirte a NexTaxi como {rol}",
+    "nameLabel": "Nombre completo",
+    "passwordLabel": "Contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "button": "Completar registro",
+    "invalid": "La invitación es inválida o ha expirado.",
+    "success": "¡Cuenta creada con éxito! Redirigiendo...",
+    "error": "Error al completar el registro",
+    "passwordHint": "Mín. 8 carac., una mayúscula, un número y un símbolo."
+  },
+  "adminDashboard": {
+    "title": "Panel de Control",
+    "welcome": "Bienvenido al administrador de NexTaxi",
+    "driversOverview": "Vista General de Conductores",
+    "stats": {
+      "totalDrivers": "Conductores",
+      "activeDrivers": "En servicio",
+      "totalUsers": "Clientes",
+      "totalTrips": "Viajes hoy"
+    }
+  },
+  "drivers": {
+    "eyebrow": "Gestión de conductores",
+    "title": "Conductores",
+    "subtitle": "Administra, edita y supervisa a los conductores del sistema",
+    "managementSubtitle": "Gestión completa de conductores y vehículos",
+    "dashboard": {
+      "title": "Conductores",
+      "add": "Añadir conductor",
+      "photo": "Foto",
+      "name": "Nombre",
+      "email": "Email",
+      "status": "Estado",
+      "actions": "Acciones",
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "page": "Página {page} de {total}",
+      "newName": "Nuevo conductor",
+      "newEmail": "correo@ejemplo.com",
+      "newStatus": "Activo",
+      "editDriver": "Editar Conductor",
+      "newDriver": "Nuevo Conductor",
+      "editSubtitle": "Actualiza los datos del conductor y su vehículo",
+      "newSubtitle": "Completa los campos para dar de alta un nuevo conductor",
+      "saveChanges": "Guardar Cambios",
+      "registerDriver": "Registrar Conductor",
+      "processing": "Procesando...",
+      "deleteConfirmText": "Estás a punto de eliminar a {name}. Esta acción no se puede deshacer.",
+      "deleteYes": "Sí, eliminar",
+      "deleteNo": "Cancelar",
+      "updatedSuccess": "Conductor actualizado con éxito",
+      "createdSuccess": "Conductor creado con éxito",
+      "deletedSuccess": "Conductor eliminado correctamente",
+      "errorOperation": "Error en la operación",
+      "errorConnection": "Error de conexión",
+      "errorDelete": "Error al eliminar el conductor"
+    },
+    "form": {
+      "personalInfo": "Información Personal",
+      "vehicleInfo": "Información del Vehículo",
+      "fullName": "Nombre Completo",
+      "professionalEmail": "Email Profesional",
+      "password": "Contraseña",
+      "dni": "DNI/NIE",
+      "license": "Nº Licencia",
+      "plate": "Matrícula",
+      "brand": "Marca",
+      "model": "Modelo",
+      "color": "Color",
+      "type": "Tipo",
+      "vehicleTypes": {
+        "normal": "Normal",
+        "adapted": "Adaptado",
+        "premium": "Premium"
+      }
+    },
+    "table": {
+      "dniLicense": "DNI / Licencia",
+      "vehicle": "Vehículo"
+    }
+  },
+  "clienteDashboard": {
+    "title": "Panel del Cliente",
+    "welcome": "Bienvenido a tu panel de control, aquí podrás gestionar tus reservas y ver tu historial de viajes."
+  },
+  "team": {
+    "title": "Los Arquitectos del Movimiento",
+    "subtitle": "Conoce al equipo especializado que redefine la movilidad urbana."
+  },
+  "vision": {
+    "title": "Nuestra Visión",
+    "subtitle": "Convertirnos en el tejido conectivo invisible del movimiento metropolitano global, donde cada trayecto sea una transición fluida impulsada por inteligencia predictiva y logística sostenible.",
+    "metric1": {
+      "value": "99.8%",
+      "label": "Fiabilidad de Uptime"
+    },
+    "metric2": {
+      "value": "12ms",
+      "label": "Latencia de Destino"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidad de NexTaxi",
+    "intro": "En NexTaxi nos tomamos muy en serio tu privacidad. Esta política explica cómo recopilamos, usamos y protegemos tus datos cuando utilizas nuestra aplicación y servicios de transporte.",
+    "lastUpdated": "Última actualización: 26 de abril de 2026",
+    "sections": [
+      {
+        "id": "intro",
+        "title": "1. Introducción",
+        "paragraphs": [
+          "Esta Política de Privacidad se aplica a la aplicación móvil, la web y los servicios asociados de NexTaxi (en conjunto, los \"Servicios\"). Al usar NexTaxi, aceptas las prácticas descritas en esta política.",
+          "Si no estás de acuerdo con esta Política de Privacidad, te recomendamos que no utilices nuestros Servicios."
+        ]
+      },
+      {
+        "id": "dataWeCollect",
+        "title": "2. Datos que recopilamos",
+        "paragraphs": [
+          "Recopilamos información para poder ofrecerte un servicio de transporte seguro, fiable y personalizado. Los tipos de datos que podemos recopilar incluyen:",
+          "- Datos de cuenta: nombre, apellidos, correo electrónico, número de teléfono, idioma preferido.",
+          "- Datos de viaje: ubicaciones de recogida y destino, rutas, hora y fecha de los trayectos, historial de viajes.",
+          "- Datos de pago: método de pago, información parcial de tarjeta (gestionada por proveedores de pago externos), importes y recibos.",
+          "- Datos del dispositivo: modelo, sistema operativo, identificadores del dispositivo, dirección IP, versión de la app.",
+          "- Datos de uso: interacciones con la app, clics, pantallas visitadas, preferencias de configuración."
+        ]
+      },
+      {
+        "id": "location",
+        "title": "3. Datos de ubicación",
+        "paragraphs": [
+          "NexTaxi utiliza datos de ubicación para poder asignarte conductores cercanos, calcular rutas y mostrar tiempos estimados de llegada.",
+          "Podemos recopilar tu ubicación precisa mientras la app está en uso y, en algunos casos, en segundo plano, siempre que lo hayas permitido en los ajustes de tu dispositivo.",
+          "Puedes desactivar el acceso a la ubicación desde los ajustes del dispositivo, pero esto puede afectar al funcionamiento de los Servicios."
+        ]
+      },
+      {
+        "id": "howWeUse",
+        "title": "4. Cómo usamos tus datos",
+        "paragraphs": [
+          "Utilizamos tus datos para:",
+          "- Proporcionar y mantener los Servicios, incluyendo la gestión de reservas y viajes.",
+          "- Procesar pagos y enviar facturas y recibos.",
+          "- Mejorar la seguridad de usuarios y conductores, detectar fraude y uso indebido.",
+          "- Ofrecer soporte al cliente y responder a consultas.",
+          "- Analizar el rendimiento del servicio y mejorar la experiencia de usuario.",
+          "- Enviarte notificaciones relacionadas con tus viajes, actualizaciones importantes del servicio y, cuando lo permitas, comunicaciones promocionales."
+        ]
+      },
+      {
+        "id": "legalBasis",
+        "title": "5. Base legal para el tratamiento",
+        "paragraphs": [
+          "Tratamos tus datos personales sobre las siguientes bases legales:",
+          "- Ejecución de un contrato: cuando es necesario para prestarte el servicio de transporte.",
+          "- Interés legítimo: para mejorar la seguridad, prevenir fraude y optimizar nuestros Servicios.",
+          "- Consentimiento: para determinadas funcionalidades, como comunicaciones comerciales o el uso de datos de ubicación en segundo plano.",
+          "- Cumplimiento de obligaciones legales: cuando la ley nos obliga a conservar o compartir cierta información."
+        ]
+      },
+      {
+        "id": "sharing",
+        "title": "6. Cómo compartimos tu información",
+        "paragraphs": [
+          "No vendemos tus datos personales. Podemos compartir tu información únicamente con:",
+          "- Conductores: datos necesarios para completar el viaje (nombre, ubicación de recogida, destino aproximado).",
+          "- Proveedores de pago: para procesar transacciones de forma segura.",
+          "- Proveedores de infraestructura y analítica: que nos ayudan a operar, mantener y mejorar la plataforma.",
+          "- Autoridades competentes: cuando la ley lo requiera o para proteger derechos, seguridad o integridad de usuarios, conductores o NexTaxi."
+        ]
+      },
+      {
+        "id": "security",
+        "title": "7. Seguridad de los datos",
+        "paragraphs": [
+          "Aplicamos medidas técnicas y organizativas razonables para proteger tus datos personales frente a accesos no autorizados, pérdida, uso indebido o divulgación.",
+          "Aun así, ningún sistema es completamente seguro. No podemos garantizar una seguridad absoluta, pero trabajamos continuamente para mejorar nuestras prácticas de protección de datos."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "8. Conservación de los datos",
+        "paragraphs": [
+          "Conservamos tus datos personales durante el tiempo necesario para cumplir con los fines descritos en esta Política de Privacidad, salvo que la ley exija o permita un periodo de conservación más largo.",
+          "Cuando ya no necesitemos tus datos, los eliminaremos o los anonimizaremos de forma segura."
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "9. Tus derechos",
+        "paragraphs": [
+          "Dependiendo de tu jurisdicción, puedes tener derecho a:",
+          "- Acceder a los datos personales que tenemos sobre ti.",
+          "- Solicitar la rectificación de datos inexactos o incompletos.",
+          "- Solicitar la eliminación de tus datos personales, en determinadas circunstancias.",
+          "- Oponerte a ciertos tratamientos o solicitar la limitación del tratamiento.",
+          "- Retirar tu consentimiento cuando el tratamiento se base en él.",
+          "Puedes ejercer estos derechos contactando con nosotros a través de los canales indicados en esta política."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "10. Cookies y tecnologías similares",
+        "paragraphs": [
+          "NexTaxi puede utilizar cookies y tecnologías similares para recordar tus preferencias, entender cómo utilizas la app y mejorar el rendimiento.",
+          "Puedes gestionar tus preferencias de cookies desde los ajustes de tu navegador o dispositivo, aunque algunas funciones pueden verse afectadas."
+        ]
+      },
+      {
+        "id": "children",
+        "title": "11. Menores de edad",
+        "paragraphs": [
+          "Nuestros Servicios no están dirigidos a menores de 18 años. No recopilamos conscientemente datos personales de menores.",
+          "Si descubrimos que hemos recopilado datos de un menor sin el consentimiento adecuado, tomaremos medidas para eliminar dicha información."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "12. Cambios en esta política",
+        "paragraphs": [
+          "Podemos actualizar esta Política de Privacidad de vez en cuando para reflejar cambios en la ley, en nuestros Servicios o en nuestras prácticas de tratamiento de datos.",
+          "Publicaremos la versión actualizada en la app y en la web, indicando la fecha de la última actualización."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "13. Contacto",
+        "paragraphs": [
+          "Si tienes preguntas, dudas o quieres ejercer tus derechos de protección de datos, puedes contactar con NexTaxi en:",
+          "Correo electrónico: privacidad@nextaxi.app",
+          "Indica en el asunto \"Consulta de privacidad\" para poder atenderte más rápido."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Términos y Condiciones de NexTaxi",
+    "intro": "Estos Términos y Condiciones regulan el acceso y uso de la aplicación NexTaxi y sus servicios asociados. Al utilizar la plataforma, aceptas cumplir con estos términos.",
+    "lastUpdated": "Última actualización: 26 de abril de 2026",
+    "sections": [
+      {
+        "id": "acceptance",
+        "title": "1. Aceptación de los Términos",
+        "paragraphs": [
+          "Al registrarte o utilizar NexTaxi, confirmas que has leído, entendido y aceptado estos Términos y Condiciones.",
+          "Si no estás de acuerdo con alguno de los términos, debes dejar de utilizar la plataforma."
+        ]
+      },
+      {
+        "id": "serviceDescription",
+        "title": "2. Descripción del Servicio",
+        "paragraphs": [
+          "NexTaxi es una plataforma que conecta pasajeros con conductores independientes para facilitar servicios de transporte urbano.",
+          "NexTaxi no es una empresa de transporte; los viajes son realizados por conductores autónomos que utilizan la plataforma."
+        ]
+      },
+      {
+        "id": "userAccount",
+        "title": "3. Cuenta de Usuario",
+        "paragraphs": [
+          "Para utilizar NexTaxi debes crear una cuenta proporcionando información veraz y actualizada.",
+          "Eres responsable de mantener la confidencialidad de tus credenciales de acceso.",
+          "Debes tener al menos 18 años para utilizar la plataforma."
+        ]
+      },
+      {
+        "id": "conduct",
+        "title": "4. Conducta del Usuario",
+        "paragraphs": [
+          "Te comprometes a utilizar la plataforma de forma responsable y respetuosa.",
+          "Está prohibido:",
+          "• Usar la app para actividades ilegales.",
+          "• Agredir, acosar o poner en riesgo a conductores o pasajeros.",
+          "• Manipular tarifas, rutas o sistemas de pago.",
+          "• Crear múltiples cuentas sin autorización."
+        ]
+      },
+      {
+        "id": "driverConduct",
+        "title": "5. Conducta de los Conductores",
+        "paragraphs": [
+          "Los conductores deben cumplir con las leyes locales de transporte, mantener su vehículo en condiciones seguras y ofrecer un trato respetuoso.",
+          "NexTaxi puede suspender o desactivar cuentas de conductores que incumplan estos requisitos."
+        ]
+      },
+      {
+        "id": "payments",
+        "title": "6. Pagos y Tarifas",
+        "paragraphs": [
+          "Las tarifas se calculan en función de la distancia, el tiempo y la demanda.",
+          "Los pagos se procesan a través de proveedores externos de forma segura.",
+          "NexTaxi puede aplicar cargos adicionales por cancelaciones tardías o daños al vehículo."
+        ]
+      },
+      {
+        "id": "cancellations",
+        "title": "7. Cancelaciones",
+        "paragraphs": [
+          "Puedes cancelar un viaje antes de que el conductor llegue al punto de recogida.",
+          "Se pueden aplicar cargos por cancelaciones tardías o repetidas.",
+          "Los conductores también pueden cancelar un viaje si el pasajero no se presenta."
+        ]
+      },
+      {
+        "id": "liability",
+        "title": "8. Limitación de Responsabilidad",
+        "paragraphs": [
+          "NexTaxi no garantiza la disponibilidad continua del servicio.",
+          "No somos responsables de retrasos, cancelaciones, accidentes o daños causados por conductores independientes.",
+          "La responsabilidad de NexTaxi se limita al máximo permitido por la ley."
+        ]
+      },
+      {
+        "id": "suspension",
+        "title": "9. Suspensión o Terminación de la Cuenta",
+        "paragraphs": [
+          "NexTaxi puede suspender o cerrar tu cuenta si incumples estos términos o si se detecta actividad sospechosa.",
+          "Puedes solicitar la eliminación de tu cuenta en cualquier momento."
+        ]
+      },
+      {
+        "id": "updates",
+        "title": "10. Modificaciones de los Términos",
+        "paragraphs": [
+          "NexTaxi puede actualizar estos Términos y Condiciones para reflejar cambios en la ley o en el servicio.",
+          "La versión actualizada se publicará en la app y en la web."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "11. Contacto",
+        "paragraphs": [
+          "Si tienes preguntas sobre estos términos, puedes contactarnos en:",
+          "Correo: soporte@nextaxi.app"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "description": "Conectando Lanzarote con servicios de transporte fiables. Seguro, rápido y siempre disponible.",
+    "company": {
+      "title": "EMPRESA",
+      "about": "Sobre Nosotros",
+      "contact": "Contacto"
+    },
+    "legal": {
+      "title": "LEGAL",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    },
+    "copyright": "© 2026 NexTaxi Lanzarote. Todos los derechos reservados."
+  },
+  "reserva": {
+    "title": "Pide tu Taxi Ahora",
+    "subtitle": "Servicio rápido y fiable en Lanzarote sin necesidad de registro",
+    "formTitle": "¿A dónde vamos?",
+    "form": {
+      "pickup": "Punto de recogida",
+      "pickupPlaceholder": "Introduce la dirección de recogida",
+      "destination": "Destino (opcional)",
+      "destinationPlaceholder": "¿A dónde vas?",
+      "name": "Tu nombre",
+      "namePlaceholder": "Ej. Juan Pérez",
+      "phone": "Teléfono de contacto",
+      "phonePlaceholder": "+34 600 000 000",
+      "submit": "Solicitar Taxi Ahora",
+      "success": "¡Solicitud enviada! Un conductor se pondrá en contacto contigo pronto.",
+      "error": "Error al enviar la solicitud. Por favor, inténtalo de nuevo.",
+      "getRoute": "Obtener ruta",
+      "loading": "Calculando ruta...",
+      "reset": "Hacer otra solicitud"
+    },
+    "confirmCancel": "¿Estás seguro de que quieres cancelar tu solicitud de taxi?",
+    "status": {
+      "searching": "Buscando Taxi...",
+      "searchingSub": "Tu solicitud ha sido enviada. Estamos buscando un conductor disponible cerca de ti.",
+      "accepted": "¡Conductor Asignado!",
+      "driverOnWay": "Un conductor ha aceptado tu solicitud y va en camino.",
+      "cancel": "Cancelar Solicitud"
+    },
+    "call": {
+      "title": "¿Prefieres llamar?",
+      "text": "Atención telefónica 24/7 para reservas inmediatas.",
+      "button": "Llamar a NexTaxi",
+      "phone": "+34 600 000 000"
+    },
+    "benefits": {
+      "title": "¿Por qué usar NexTaxi?",
+      "items": {
+        "immediate": "Asignación inmediata",
+        "verified": "Conductores verificados",
+        "available": "Disponible 24/7"
+      }
+    }
+  },
+  "contact": {
+    "title": "Mantengamos la ciudad en movimiento.",
+    "subtitle": "Servicio premium y asistencia precisa. Ya seas pasajero o socio, estamos aquí para ayudarte.",
+    "info": [
+      { "title": "Teléfono de Soporte", "value": "+34 600 000 000" },
+      { "title": "Correo Electrónico", "value": "soporte@nextaxi.com" },
+      { "title": "Oficina Central", "value": "Avenida Central 123, Arrecife, Lanzarote" }
+    ],
+    "driver": {
+      "title": "¿Interesado en conducir?",
+      "text": "Únete a la flota en el futuro. Envíanos tus datos y te notificaremos con información sobre requisitos y potencial de ingresos."
+    },
+    "form": {
+      "title": "Enviar un Mensaje",
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje",
+      "sendAgain": "Enviar otro mensaje",
+      "successTitle": "¡Mensaje Enviado!",
+      "successMessage": "Gracias por contactar con NexTaxi. Hemos recibido tu mensaje correctamente y nuestro equipo de soporte lo revisará en las próximas 24 horas.",
+      "options": {
+        "support": "Soporte Técnico",
+        "driver": "Quiero ser conductor",
+        "other": "Otro asunto"
+      }
+    },
+    "map": {
+      "title": "NexTaxi Hub",
+      "address": "Avenida Central 123, Arrecife, Lanzarote"
+    }
+  },
+  "rideForm": {
+    "title": "Detalles del viaje",
+    "subtitle": "Calcula tu ruta y solicita un taxi",
+    "currentLocation": "Ubicación actual",
+    "currentLocationPlaceholder": "Detectando ubicación...",
+    "destination": "Destino (opcional)",
+    "destinationPlaceholder": "¿A dónde quieres ir?",
+    "vehicleType": "Tipo de vehículo",
+    "estimation": "Estimación",
+    "estimationPlaceholder": "Cálculo no disponible aún",
+    "requestTaxi": "Pedir Taxi",
+    "sentTitle": "Taxi solicitado",
+    "sentSubtitle": "Un conductor está en camino",
+
+    "vehicleOptions": [
+      { "value": "normal", "label": "Normal" },
+      { "value": "grande", "label": "Grande" },
+      { "value": "adaptado", "label": "Adaptado (PMR)" }
+    ]
+  },
+  "tripHistory": {
+    "title": "Mis Viajes",
+    "subtitle": "Historial detallado de tus trayectos con NexTaxi",
+    "noTrips": "No hay viajes registrados",
+    "table": {
+      "date": "Fecha",
+      "route": "Origen / Destino",
+      "status": "Estado",
+      "price": "Precio",
+      "map": "Mapa"
+    },
+    "modal": {
+      "title": "Detalle del Viaje",
+      "distance": "Distancia",
+      "duration": "Duración",
+      "driver": "Conductor",
+      "finalPrice": "Precio Final"
+    },
+    "status": {
+      "finished": "Finalizado",
+      "ongoing": "En curso"
+    }
+  },
+  "tracking": {
+    "loading": "Cargando viaje...",
+    "notFound": "No se encontró el viaje.",
+    "onWay": "Yendo a recogida",
+    "inTrip": "En viaje",
+    "customer": "Cliente",
+    "pickupButton": "Recoger Cliente",
+    "finishButton": "Finalizar Viaje",
+    "prompts": {
+      "destination": "Introduce la dirección de destino:",
+      "price": "Introduce el precio final (€):"
+    }
+  },
+  "userTracking": {
+    "loading": "Cargando seguimiento...",
+    "noActive": "No hay viaje activo.",
+    "enRoute": "En camino a tu destino",
+    "toPickup": "El taxi va a por ti",
+    "estPrice": "Precio Estimado"
+  },
+  "rideRequest": {
+    "origin": "Origen",
+    "destination": "Destino",
+    "getRoute": "Obtener ruta",
+    "loading": "Cargando ruta..."
+  },
+  "dashboard": {
+    "welcome": "Bienvenido a NexTaxi",
+    "active": "Tienes un viaje en curso.",
+    "noActive": "Pide un taxi ahora o consulta tus viajes anteriores.",
+    "loading": "Cargando dashboard...",
+    "origin": "Origen",
+    "destination": "Destino",
+    "pickupPlaceholder": "Dirección de recogida",
+    "destinationPlaceholder": "Dirección de destino",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "phone": "Teléfono",
+    "phonePlaceholder": "Tu teléfono",
+    "getRoute": "Obtener ruta",
+    "loadingRoute": "Cargando ruta..."
+  },
+  "taxiChat": {
+    "title": "Taxi Lanzarote",
+    "subtitle": "Asistente disponible / Assistant available",
+    "bubble": "¿Necesitas un taxi? 🚕 / Need a taxi? 🚕",
+    "placeholder": "Escribe tu pregunta... / Type your question...",
+    "greeting": "¡Hola! 👋 Soy tu asistente de taxi en Lanzarote. ¿En qué puedo ayudarte? / Hi! 👋 I'm your Lanzarote taxi assistant. How can I help?",
+    "error": "Error al conectar. Intenta de nuevo. / Connection error. Try again.",
+    "online": "En línea / Online"
+  }
+}

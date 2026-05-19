@@ -1,55 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Api\UsuarioController;
-use App\Http\Controllers\Api\ConductorController;
-use App\Http\Controllers\Api\VehiculoController;
-use App\Http\Controllers\Api\CooperativaController;
-use App\Http\Controllers\Api\SolicitudTaxiController;
-use App\Http\Controllers\Api\OfertaPendienteController;
-use App\Http\Controllers\Api\ViajeController;
-use App\Http\Controllers\Api\EventoViajeController;
-use App\Http\Controllers\Api\UbicacionConductorController;
-use App\Http\Controllers\Api\UbicacionViajeController;
-use App\Http\Controllers\Api\ChatbotController;
 
-/*
-|--------------------------------------------------------------------------
-| Rutas públicas (sin autenticación)
-|--------------------------------------------------------------------------
-*/
+require __DIR__.'/api/auth.php';
+require __DIR__.'/api/usuarios.php';
+require __DIR__.'/api/conductores.php';
+require __DIR__.'/api/vehiculos.php';
+require __DIR__.'/api/solicitudes.php';
+require __DIR__.'/api/viajes.php';
+require __DIR__.'/api/documentos.php';
+require __DIR__.'/api/admin.php';
 
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+use App\Http\Controllers\GoogleController;
 
-/*
-|--------------------------------------------------------------------------
-| Rutas privadas (requieren token Sanctum)
-|--------------------------------------------------------------------------
-*/
-/*
-Route::middleware('auth:sanctum')->group(function () {
+Route::post('/google/route', [GoogleController::class, 'route']);
+Route::post('/viajes/{id}/guardar-ruta', [GoogleController::class, 'guardarRuta']);
 
-    // Usuario autenticado
-    Route::get('/user', [AuthController::class, 'user']);
+Route::post('/invitaciones/validar', [App\Http\Controllers\Api\Admin\AdminController::class, 'validarInvitacion']);
+Route::post('/invitaciones/completar', [App\Http\Controllers\Api\Admin\AdminController::class, 'completarRegistro']);
+Route::post('/contacto', [App\Http\Controllers\Api\ContactoController::class, 'send']);
 
-    // CRUDs
-    Route::apiResource('usuarios', UsuarioController::class);
- 
-    Route::apiResource('conductores', ConductorController::class);
-    Route::apiResource('vehiculos', VehiculoController::class);
-    Route::apiResource('cooperativas', CooperativaController::class);
-
-    Route::apiResource('solicitudes', SolicitudTaxiController::class);
-    Route::apiResource('ofertas', OfertaPendienteController::class);
-    Route::apiResource('viajes', ViajeController::class);
-
-    Route::apiResource('eventos', EventoViajeController::class);
-
-    Route::apiResource('ubicaciones-conductor', UbicacionConductorController::class);
-    Route::apiResource('ubicaciones-viaje', UbicacionViajeController::class);
-
-    // Chatbot
-    Route::post('chatbot', [ChatbotController::class, 'ask']);
-});*/
+Route::get('/test', function () {
+    return response()->json(['ok' => true]);
+});

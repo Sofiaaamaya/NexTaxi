@@ -1,0 +1,13 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Admin\AdminController;
+
+Route::prefix('admin')->middleware(['auth:sanctum','isAdmin'])->group(function () {
+
+    Route::get('/usuarios', [AdminController::class, 'usuarios']);
+    Route::get('/stats', [AdminController::class, 'stats']);
+    Route::get('/conductores', [AdminController::class, 'conductores']);
+    Route::post('/invitar', [AdminController::class, 'invitar']);
+
+});

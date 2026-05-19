@@ -7,8 +7,27 @@
 @tailwind utilities;
 
 :root {
+  --color-primary: 30 58 138;
+  --color-primary-light: 43 82 195;
+  --color-primary-dark: 23 37 84;
+
+  --color-background: 254 254 250;
+  --color-surface: 255 255 255;
+
+  --color-text-primary: 17 24 39;
+  --color-text-secondary: 107 114 128;
+
+  --color-border: 229 231 235;
+
+  --color-success: 25 135 84;
+  --color-warning: 255 193 7;
+  --color-danger: 220 53 69;
+}
+
+@theme inline {
   --color-primary: #1e3a8a;
   --color-primary-light: #2b52c3;
+  --color-primary-dark: #172554;
 
   --color-background: #fefefa;
   --color-surface: #ffffff;
@@ -16,54 +35,9 @@
   --color-text-primary: #111827;
   --color-text-secondary: #6b7280;
 
-  --color-success: #059669;
-  --color-warning: #d97706;
-  --color-danger: #dc2626;
-
   --color-border: #e5e7eb;
 }
-@theme inline {
-  --color-primary-light: var(--primary-light);
-  --color-primary-light-hover: var(--primary-light-hover);
-  --color-primary-light-active: var(--primary-light-active);
 
-  --color-primary-normal: var(--primary-normal);
-  --color-primary-normal-hover: var(--primary-normal-hover);
-  --color-primary-normal-active: var(--primary-normal-active);
-
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-dark-hover: var(--primary-dark-hover);
-  --color-primary-dark-active: var(--primary-dark-active);
-
-  --color-primary-darker: var(--primary-darker);
-
-  --color-error-light: var(--error-light);
-  --color-error-normal: var(--error-normal);
-  --color-error-dark: var(--error-dark);
-
-  --color-success-light: var(--success-light);
-  --color-success-normal: var(--success-normal);
-  --color-success-dark: var(--success-dark);
-
-  --color-warning-light: var(--warning-light);
-  --color-warning-normal: var(--warning-normal);
-  --color-warning-dark: var(--warning-dark);
-
-  --color-neutrals-light: var(--neutrals-light);
-  --color-neutrals-normal: var(--neutrals-normal);
-  --color-neutrals-dark: var(--neutrals-dark);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-
-  --color-primary-light: var(--primary-light);
-  --color-primary-normal: var(--primary-normal);
-  --color-primary-dark: var(--primary-dark);
-
-  --color-neutrals-light: var(--neutrals-light);
-  --color-neutrals-normal: var(--neutrals-normal);
-  --color-neutrals-dark: var(--neutrals-dark);
-}
 * {
   margin: 0;
   padding: 0;
@@ -148,9 +122,8 @@ p {
   background: #ffffff;
 }
 
-/* Color del bullet activo */
 .swiper-pagination-bullet-active {
-  background: #ffffff; /* color del bullet activo */
+  background: #ffffff;
 }
 
 @keyframes fadeIn {
@@ -166,4 +139,47 @@ p {
 
 .animate-fadeIn {
   animation: fadeIn 0.15s ease-out;
+}
+.input {
+  @apply w-full border border-gray-300 rounded-xl px-4 py-3 text-base outline-none transition-all bg-white placeholder-transparent;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.input:focus {
+  @apply border-primary shadow-sm;
+}
+
+.floating-label {
+  @apply absolute left-4 top-3 text-gray-500 text-sm transition-all pointer-events-none bg-white px-1;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.peer:focus ~ .floating-label,
+.peer:not(:placeholder-shown) ~ .floating-label {
+  @apply -top-2 left-3 text-xs text-primary;
+}
+
+.btn-primary {
+  @apply bg-primary text-white font-medium rounded-xl transition-all hover:bg-primary-light active:scale-[0.98];
+  font-family: var(--font-poppins), sans-serif;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.text-outline-white {
+  text-shadow:
+    0 0 3px rgba(17, 24, 39, 2),
+    0 0 6px rgba(17, 24, 39, 2),
+    0 0 10px rgba(17, 24, 39, 2.5);
 }

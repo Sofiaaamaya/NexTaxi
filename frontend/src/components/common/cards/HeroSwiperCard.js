@@ -5,10 +5,11 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import TitleComponent from '@/components/common/TitleComponent';
 import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HeroSwiperCard({ slides = [] }) {
   return (
-    <div className="relative w-full h-[450px] md:h-[550px] rounded-2xl overflow-hidden shadow-lg">
+    <div className="relative w-full h-[450px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl">
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
@@ -19,20 +20,17 @@ export default function HeroSwiperCard({ slides = [] }) {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
-              {/* Background image */}
-              <img
+              <Image
                 src={slide.image}
                 alt={slide.alt || `Slide ${index + 1}`}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority={index === 0}
               />
+              <div className="absolute inset-0 bg-black/5"></div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/20"></div>
-
-              {/* Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
-                {/* TitleComponent */}
-                <div className="max-w-3xl">
+                <div className="max-w-3xl w-full p-8 md:p-12 bg-primary/5 backdrop-blur-[1px] rounded-[2.5rem] border border-primary/5 shadow-2xl animate-in fade-in zoom-in duration-500">
                   <TitleComponent
                     eyebrow={slide.eyebrow}
                     title={slide.title}
@@ -42,41 +40,45 @@ export default function HeroSwiperCard({ slides = [] }) {
                     titleColor={slide.titleColor || 'white'}
                     subtitleColor={slide.subtitleColor || 'white'}
                     eyebrowAsBadge={slide.eyebrowAsBadge || false}
+                    className={`
+                      ${slide.titleColor === 'white' ? 'text-outline-white' : ''}
+                      ${slide.subtitleColor === 'white' ? 'text-outline-white' : ''}
+                      ${slide.eyebrowColor === 'white' ? 'text-outline-white' : ''}
+                    `}
                   />
+
+                  {(slide.button1 || slide.button2) && (
+                    <div className="flex gap-4 mt-8 flex-wrap justify-center">
+                      {slide.button1 && (
+                        <Link href={slide.button1.href || '#'}>
+                          <button className="px-8 py-3.5 rounded-2xl bg-primary text-white hover:bg-primary-light transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+                            <Poppins
+                              text={slide.button1.label}
+                              tag="span"
+                              size="16|20"
+                              weight="semibold"
+                              color="white"
+                            />
+                          </button>
+                        </Link>
+                      )}
+
+                      {slide.button2 && (
+                        <Link href={slide.button2.href || '#'}>
+                          <button className="px-8 py-3.5 rounded-2xl bg-white/90 text-text-primary backdrop-blur-sm border border-white/40 hover:bg-white transition-all hover:scale-105 active:scale-95 shadow-lg">
+                            <Poppins
+                              text={slide.button2.label}
+                              tag="span"
+                              size="16|20"
+                              weight="semibold"
+                              color="textPrimary"
+                            />
+                          </button>
+                        </Link>
+                      )}
+                    </div>
+                  )}
                 </div>
-
-                {/* Buttons */}
-                {(slide.button1 || slide.button2) && (
-                  <div className="flex gap-4 mt-4 flex-wrap justify-center">
-                    {slide.button1 && (
-                      <Link href={slide.button1.href || '#'}>
-                        <button className="px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary-light transition">
-                          <Poppins
-                            text={slide.button1.label}
-                            tag="span"
-                            size="16|20"
-                            weight="medium"
-                            color="white"
-                          />
-                        </button>
-                      </Link>
-                    )}
-
-                    {slide.button2 && (
-                      <Link href={slide.button2.href || '#'}>
-                        <button className="px-6 py-3 rounded-lg bg-white text-text-primary border border-white/40 hover:bg-white/90 transition">
-                          <Poppins
-                            text={slide.button2.label}
-                            tag="span"
-                            size="16|20"
-                            weight="medium"
-                            color="textPrimary"
-                          />
-                        </button>
-                      </Link>
-                    )}
-                  </div>
-                )}
               </div>
             </div>
           </SwiperSlide>

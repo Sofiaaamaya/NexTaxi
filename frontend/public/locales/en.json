@@ -1,0 +1,832 @@
+{
+  "home": {
+    "title": "Welcome to NexTaxi",
+    "description": "Your taxi app in Lanzarote"
+  },
+  "whyChooseUs": {
+    "eyebrow": "Why the island moves with us",
+    "title": "We don’t just offer taxis; we offer real peace of mind and efficiency",
+    "subtitle": "Our platform is designed to respond to Lanzarote’s mobility needs with speed, accuracy, and a fully local approach.",
+
+    "items": {
+      "fastDeployment": {
+        "title": "Fast Deployment",
+        "description": "Average assignment times under 4 minutes thanks to our proximity-based algorithm."
+      },
+      "efficiency": {
+        "title": "Maximum Efficiency",
+        "description": "Smart assignment reduces idle time and optimizes every taxi journey."
+      },
+      "localExperts": {
+        "title": "Local Experts",
+        "description": "Drivers who know every area, access point, roundabout, and key location on the island."
+      },
+      "security": {
+        "title": "24/7 Security",
+        "description": "Continuous monitoring, trip traceability, and support available at all times."
+      }
+    }
+  },
+  "whyChooseNexTaxi": {
+    "title": "Why Choose NexTaxi?",
+    "subtitle": "We provide the safest and most efficient transport experience across Lanzarote.",
+
+    "items": {
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Always there when you need us, day or night."
+      },
+      "localExperts": {
+        "title": "Local Experts",
+        "description": "Experienced, licensed drivers who know every corner of Lanzarote."
+      },
+      "coverage": {
+        "title": "Island-Wide Coverage",
+        "description": "From Arrecife Airport to Playa Blanca and beyond."
+      }
+    }
+  },
+
+  "contactBanner": {
+    "title": "Ready to get in touch with us?",
+    "description": "Our team is available to help you with bookings, questions, or additional information.",
+    "contactButton": "Contact us"
+  },
+
+  "titleComponent": {
+    "defaultEyebrow": "Featured section",
+    "defaultTitle": "Sample title",
+    "defaultSubtitle": "This is a sample text for the TitleComponent."
+  },
+
+  "common": {
+    "learnMore": "Learn more",
+    "contact": "Contact",
+    "cta": "Get started now",
+    "loading": "Loading...",
+    "error": "An error has occurred",
+    "noVehicle": "No vehicle",
+    "areYouSure": "Are you sure?",
+    "realTimeMap": "Real-time map",
+    "loadingDrivers": "Loading drivers...",
+    "weeklyActivity": "Weekly activity",
+    "weeklyChartPlaceholder": "Weekly chart here",
+    "managementPanel": "Management Panel",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "errorConnection": "Could not connect to server",
+    "errorCritical": "Critical error loading data",
+    "retry": "Retry connection",
+    "checkBackend": "Check that the backend server is running",
+    "driverPanel": "Driver Panel"
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "subtitle": "Access your account to continue",
+      "email": "Email address",
+      "password": "Password",
+      "button": "Log in",
+      "noAccount": "Don't have an account?",
+      "goRegister": "Sign up",
+      "forgot": "Forgot your password?",
+      "orContinue": "or continue with"
+    },
+    "forgotPassword": {
+      "title": "Recover Password",
+      "subtitle": "Enter your email and we'll send you a recovery link.",
+      "email": "Email address",
+      "placeholder": "email@example.com",
+      "button": "Send recovery link",
+      "backToLogin": "Back to login",
+      "success": "If the email exists, a recovery link has been sent.",
+      "error": "An error occurred while sending the email."
+    },
+    "resetPassword": {
+      "title": "New Password",
+      "subtitle": "Choose a secure password for your account.",
+      "password": "New Password",
+      "confirm": "Confirm New Password",
+      "button": "Update Password",
+      "backToLogin": "Back to login",
+      "success": "Password updated successfully!",
+      "error": "Error updating password. The link may have expired."
+    },
+    "register": {
+      "title": "Create account",
+      "subtitle": "Sign up to start using NexTaxi",
+      "name": "Full name",
+      "email": "Email address",
+      "password": "Password",
+      "button": "Create account",
+      "haveAccount": "Already have an account?",
+      "goLogin": "Log in",
+      "confirmPassword": "Confirm password",
+      "orContinue": "or continue with"
+    },
+    "passwordHint": "Min. 8 chars, one uppercase, one number and one symbol."
+  },
+  "chooseProfile": {
+    "title": "Welcome!",
+    "subtitle": "Select your profile to continue.",
+    "userButtonTitle": "I am a User",
+    "userButtonSubtitle": "I need fast transportation",
+    "driverButtonTitle": "I am a Driver",
+    "driverButtonSubtitle": "Manage my services",
+    "newHere": "New to NexTaxi?",
+    "registerLink": "Register as a new partner",
+    "legal": "By continuing, you confirm that you have read and accept our Terms & Conditions and Privacy Policy."
+  },
+  "workerLogin": {
+    "title": "Worker Access",
+    "subtitle": "Enter your credentials to access the internal system.",
+    "email": "Corporate email",
+    "password": "Password",
+    "forgot": "Forgot your password?",
+    "roleTitle": "User profile",
+    "driver": "Driver",
+    "supervisor": "Supervisor",
+    "button": "Log in as Worker",
+    "legal": "© 2026 NexTaxi Canarias. Internal Management System. Unauthorized access is strictly prohibited."
+  },
+  "HomeSwiper": {
+    "slides": {
+      "0": {
+        "alt": "Volcanic landscape of Lanzarote at sunset",
+        "eyebrow": "#1 Taxi Service in Lanzarote",
+        "title": "Experience the Island with NexTaxi",
+        "subtitle": "Reliable, comfortable, and professional transfers from the airport to every hidden beach.",
+        "button1": "Request a Taxi",
+        "button2": "Work with us"
+      },
+      "1": {
+        "alt": "Ocean view with cliffs in Lanzarote",
+        "title": "Explore Lanzarote with Ease",
+        "subtitle": "Your trusted transport partner for every adventure."
+      },
+      "2": {
+        "alt": "Airport transfer taxi in Lanzarote",
+        "eyebrow": "Fast & Reliable",
+        "title": "Airport Transfers 24/7",
+        "button1": "Book Now"
+      }
+    }
+  },
+  "DriverRegister": {
+    "benefits": {
+      "title": "Join the NexTaxi Fleet",
+      "subtitle": "Turn your vehicle into a professional service in Lanzarote.",
+      "items": {
+        "payments": {
+          "title": "Weekly payments",
+          "desc": "Timely payments directly to your bank account."
+        },
+        "schedule": {
+          "title": "Flexible hours",
+          "desc": "Drive when you want, adapt NexTaxi to your lifestyle."
+        },
+        "support": {
+          "title": "24/7 Support",
+          "desc": "Coordination team always available to help you."
+        }
+      }
+    },
+    "form": {
+      "title": "Driver Registration",
+      "stepCounter": "Step {current} of {total}",
+      "steps": {
+        "1": { "title": "Account details" },
+        "2": { "title": "License details" },
+        "3": { "title": "Vehicle details" }
+      },
+      "fields": {
+        "nombre": { "label": "Full Name", "placeholder": "e.g. John Doe" },
+        "email": { "label": "Email", "placeholder": "driver@nextaxi.com" },
+        "password": { "label": "Password", "placeholder": "••••••••" },
+        "telefono": { "label": "Phone", "placeholder": "+34 600 000 000" },
+        "dni": { "label": "ID / Passport", "placeholder": "12345678A" },
+        "numeroLicencia": { "label": "License Number", "placeholder": "LZ-1234-5678" },
+        "licenciaExpira": { "label": "Expiration Date" },
+        "matricula": { "label": "License Plate", "placeholder": "1234-ABC" },
+        "marca": { "label": "Make", "placeholder": "Toyota" },
+        "modelo": { "label": "Model", "placeholder": "Corolla" },
+        "plazas": { "label": "Seats" },
+        "anho": { "label": "Year" },
+        "tipo": { "label": "Type" },
+        "color": { "label": "Color" }
+      },
+      "vehicleTypes": {
+        "normal": "Normal",
+        "adapted": "Adapted",
+        "premium": "Premium"
+      },
+      "vehicleColors": ["Black", "White", "Grey", "Blue"],
+      "terms": "I accept the Terms of Service and Privacy Policy.",
+      "buttons": {
+        "back": "Back",
+        "next": "Next",
+        "submit": "Complete Registration"
+      }
+    }
+  },
+  "Header": {
+    "nav": {
+      "home": "Home",
+      "reserva": "Book trip",
+      "contacto": "Contact",
+      "nosotros": "About us",
+      "misViajes": "My Trips"
+    },
+    "aria": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    },
+    "languages": {
+      "es": "Spanish",
+      "en": "English"
+    },
+    "auth": {
+      "login": "Login",
+      "register": "Register",
+      "logout": "Logout"
+    }
+  },
+  "AboutSwiper": {
+    "slides": {
+      "0": {
+        "alt": "Gran Hotel View from the Beach",
+        "eyebrow": "#1 Taxi Service in Lanzarote",
+        "title": "Experience the Island with NexTaxi",
+        "subtitle": "Reliable, comfortable, and professional transfers from the airport to every hidden beach."
+      }
+    }
+  },
+  "whyChooseAboutUs": {
+    "title": "Why Choose NexTaxi",
+    "subtitle": "We combine cutting-edge technology with the expertise of the best local drivers to offer you an unparalleled transport service across the island.",
+    "items": {
+      "speed": {
+        "title": "Unmatched Speed",
+        "description": "We reach your location in record time thanks to our intelligent route assignment system."
+      },
+      "urbanIntegrity": {
+        "title": "Urban Integrity",
+        "description": "Committed to sustainable mobility and respect for the unique environment of Lanzarote's landscapes."
+      },
+      "satisfaction": {
+        "title": "100% Satisfaction",
+        "description": "Your comfort is our priority. Modern, clean vehicles with personalized attention on every trip."
+      },
+      "coverage": {
+        "title": "Total Coverage",
+        "description": "From Arrecife Airport to the most remote corners of Playa Blanca or Famara."
+      }
+    }
+  },
+  "sidebar": {
+    "menu": "Menu",
+    "navigation": "Navigation",
+    "subtitle": "Manage your platform",
+    "dashboard": "Dashboard",
+    "drivers": "Drivers",
+    "users": "Users",
+    "trips": "Trips",
+    "invitations": "Invitations",
+
+    "logout": "Log Out",
+    "miPerfil": "My Profile",
+    "misViajes": "My Trips"
+  },
+  "adminInvitations": {
+    "title": "Send Invitation",
+    "subtitle": "Invite new members to join the platform",
+    "emailLabel": "Email address",
+    "roleLabel": "Role",
+    "sendButton": "Send invitation",
+    "success": "Invitation sent successfully",
+    "error": "Error sending invitation",
+    "roles": {
+      "admin": "Administrator",
+      "gerente": "Manager",
+      "conductor": "Driver"
+    }
+  },
+  "acceptInvitation": {
+    "title": "Complete your registration",
+    "subtitle": "You are one step away from joining NexTaxi as {rol}",
+    "nameLabel": "Full name",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm password",
+    "button": "Complete registration",
+    "invalid": "The invitation is invalid or has expired.",
+    "success": "Account created successfully! Redirecting...",
+    "error": "Error completing registration",
+    "passwordHint": "Min. 8 chars, one uppercase, one number and one symbol."
+  },
+  "adminDashboard": {
+    "title": "Control Panel",
+    "welcome": "Welcome to NexTaxi Admin",
+    "driversOverview": "Drivers Overview",
+    "stats": {
+      "totalDrivers": "Drivers",
+      "activeDrivers": "On Duty",
+      "totalUsers": "Clients",
+      "totalTrips": "Trips today"
+    }
+  },
+  "drivers": {
+    "eyebrow": "Driver Management",
+    "title": "Drivers",
+    "subtitle": "Manage, edit and supervise system drivers",
+    "managementSubtitle": "Complete management of drivers and vehicles",
+    "dashboard": {
+      "title": "Drivers",
+      "add": "Add driver",
+      "photo": "Photo",
+      "name": "Name",
+      "email": "Email",
+      "status": "Status",
+      "actions": "Actions",
+      "prev": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {total}",
+      "newName": "New driver",
+      "newEmail": "email@example.com",
+      "newStatus": "Active",
+      "editDriver": "Edit Driver",
+      "newDriver": "New Driver",
+      "editSubtitle": "Update driver and vehicle details",
+      "newSubtitle": "Complete the fields to register a new driver",
+      "saveChanges": "Save Changes",
+      "registerDriver": "Register Driver",
+      "processing": "Processing...",
+      "deleteConfirmText": "You are about to delete {name}. This action cannot be undone.",
+      "deleteYes": "Yes, delete",
+      "deleteNo": "Cancel",
+      "updatedSuccess": "Driver updated successfully",
+      "createdSuccess": "Driver created successfully",
+      "deletedSuccess": "Driver deleted successfully",
+      "errorOperation": "Error in operation",
+      "errorConnection": "Connection error",
+      "errorDelete": "Error deleting driver"
+    },
+    "form": {
+      "personalInfo": "Personal Information",
+      "vehicleInfo": "Vehicle Information",
+      "fullName": "Full Name",
+      "professionalEmail": "Professional Email",
+      "password": "Password",
+      "dni": "ID/Passport",
+      "license": "License No.",
+      "plate": "License Plate",
+      "brand": "Make",
+      "model": "Model",
+      "color": "Color",
+      "type": "Type",
+      "vehicleTypes": {
+        "normal": "Normal",
+        "adapted": "Adapted",
+        "premium": "Premium"
+      }
+    },
+    "table": {
+      "dniLicense": "ID / License",
+      "vehicle": "Vehicle"
+    }
+  },
+  "clienteDashboard": {
+    "title": "Client Dashboard",
+    "welcome": "Welcome to your control panel, here you can manage your bookings and view your trip history."
+  },
+  "team": {
+    "title": "The Architects of Movement",
+    "subtitle": "Get to know the specialized team that redefines urban mobility."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "subtitle": "To become the invisible connective tissue of global metropolitan movement, where every trip is a seamless transition powered by predictive intelligence and sustainable logistics.",
+    "metric1": {
+      "value": "99.8%",
+      "label": "Uptime Reliability"
+    },
+    "metric2": {
+      "value": "12ms",
+      "label": "Destination Latency"
+    }
+  },
+
+  "privacy": {
+    "title": "NexTaxi Privacy Policy",
+    "intro": "At NexTaxi, we take your privacy seriously. This policy explains how we collect, use, and protect your data when you use our app and transportation services.",
+    "lastUpdated": "Last updated: April 26, 2026",
+    "sections": [
+      {
+        "id": "intro",
+        "title": "1. Introduction",
+        "paragraphs": [
+          "This Privacy Policy applies to the NexTaxi mobile application, website, and related services (collectively, the \"Services\"). By using NexTaxi, you agree to the practices described in this policy.",
+          "If you do not agree with this Privacy Policy, we recommend that you stop using our Services."
+        ]
+      },
+      {
+        "id": "dataWeCollect",
+        "title": "2. Data We Collect",
+        "paragraphs": [
+          "We collect information to provide you with a safe, reliable, and personalized transportation service. The types of data we may collect include:",
+          "- Account data: first name, last name, email address, phone number, preferred language.",
+          "- Trip data: pickup and drop-off locations, routes, trip dates and times, trip history.",
+          "- Payment data: payment method, partial card information (handled by external payment providers), amounts and receipts.",
+          "- Device data: device model, operating system, device identifiers, IP address, app version.",
+          "- Usage data: interactions with the app, clicks, visited screens, configuration preferences."
+        ]
+      },
+      {
+        "id": "location",
+        "title": "3. Location Data",
+        "paragraphs": [
+          "NexTaxi uses location data to match you with nearby drivers, calculate routes, and display estimated arrival times.",
+          "We may collect your precise location while the app is in use and, in some cases, in the background, as long as you have allowed it in your device settings.",
+          "You can disable location access from your device settings, but this may affect the functionality of the Services."
+        ]
+      },
+      {
+        "id": "howWeUse",
+        "title": "4. How We Use Your Data",
+        "paragraphs": [
+          "We use your data to:",
+          "- Provide and maintain the Services, including managing bookings and trips.",
+          "- Process payments and send invoices and receipts.",
+          "- Enhance user and driver safety, detect fraud, and prevent misuse.",
+          "- Provide customer support and respond to inquiries.",
+          "- Analyze service performance and improve the user experience.",
+          "- Send you trip-related notifications, important service updates, and, where permitted, promotional communications."
+        ]
+      },
+      {
+        "id": "legalBasis",
+        "title": "5. Legal Basis for Processing",
+        "paragraphs": [
+          "We process your personal data on the following legal bases:",
+          "- Performance of a contract: when it is necessary to provide you with the transportation service.",
+          "- Legitimate interest: to improve safety, prevent fraud, and optimize our Services.",
+          "- Consent: for certain features, such as marketing communications or background location usage.",
+          "- Legal obligations: when we are required by law to retain or share certain information."
+        ]
+      },
+      {
+        "id": "sharing",
+        "title": "6. How We Share Your Information",
+        "paragraphs": [
+          "We do not sell your personal data. We may share your information only with:",
+          "- Drivers: data necessary to complete the trip (name, pickup location, approximate destination).",
+          "- Payment providers: to securely process transactions.",
+          "- Infrastructure and analytics providers: who help us operate, maintain, and improve the platform.",
+          "- Competent authorities: when required by law or to protect the rights, safety, or integrity of users, drivers, or NexTaxi."
+        ]
+      },
+      {
+        "id": "security",
+        "title": "7. Data Security",
+        "paragraphs": [
+          "We implement reasonable technical and organizational measures to protect your personal data against unauthorized access, loss, misuse, or disclosure.",
+          "However, no system is completely secure. While we strive to protect your information, we cannot guarantee absolute security."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "8. Data Retention",
+        "paragraphs": [
+          "We retain your personal data for as long as necessary to fulfill the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law.",
+          "When we no longer need your data, we will delete or anonymize it in a secure manner."
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "9. Your Rights",
+        "paragraphs": [
+          "Depending on your jurisdiction, you may have the right to:",
+          "- Access the personal data we hold about you.",
+          "- Request correction of inaccurate or incomplete data.",
+          "- Request deletion of your personal data in certain circumstances.",
+          "- Object to certain processing or request restriction of processing.",
+          "- Withdraw your consent where processing is based on consent.",
+          "You can exercise these rights by contacting us through the channels indicated in this policy."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "10. Cookies and Similar Technologies",
+        "paragraphs": [
+          "NexTaxi may use cookies and similar technologies to remember your preferences, understand how you use the app, and improve performance.",
+          "You can manage your cookie preferences from your browser or device settings, although some features may be affected."
+        ]
+      },
+      {
+        "id": "children",
+        "title": "11. Children",
+        "paragraphs": [
+          "Our Services are not directed to individuals under the age of 18. We do not knowingly collect personal data from children.",
+          "If we become aware that we have collected data from a child without appropriate consent, we will take steps to delete such information."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "12. Changes to This Policy",
+        "paragraphs": [
+          "We may update this Privacy Policy from time to time to reflect changes in law, our Services, or our data practices.",
+          "We will post the updated version in the app and on the website, indicating the date of the latest update."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "13. Contact Us",
+        "paragraphs": [
+          "If you have questions, concerns, or wish to exercise your data protection rights, you can contact NexTaxi at:",
+          "Email: privacy@nextaxi.app",
+          "Please include \"Privacy Inquiry\" in the subject line so we can respond more quickly."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "NexTaxi Terms of Service",
+    "intro": "These Terms of Service govern your access to and use of the NexTaxi application and related services. By using the platform, you agree to these terms.",
+    "lastUpdated": "Last updated: April 26, 2026",
+    "sections": [
+      {
+        "id": "acceptance",
+        "title": "1. Acceptance of Terms",
+        "paragraphs": [
+          "By registering or using NexTaxi, you confirm that you have read, understood, and agreed to these Terms of Service.",
+          "If you do not agree with any part of these terms, you must stop using the platform."
+        ]
+      },
+      {
+        "id": "serviceDescription",
+        "title": "2. Service Description",
+        "paragraphs": [
+          "NexTaxi is a platform that connects passengers with independent drivers to facilitate urban transportation services.",
+          "NexTaxi is not a transportation company; trips are performed by independent drivers using the platform."
+        ]
+      },
+      {
+        "id": "userAccount",
+        "title": "3. User Account",
+        "paragraphs": [
+          "To use NexTaxi, you must create an account with accurate and up-to-date information.",
+          "You are responsible for maintaining the confidentiality of your login credentials.",
+          "You must be at least 18 years old to use the platform."
+        ]
+      },
+      {
+        "id": "conduct",
+        "title": "4. User Conduct",
+        "paragraphs": [
+          "You agree to use the platform responsibly and respectfully.",
+          "You may not:",
+          "• Use the app for illegal activities.",
+          "• Harass, threaten, or endanger drivers or passengers.",
+          "• Manipulate fares, routes, or payment systems.",
+          "• Create multiple accounts without authorization."
+        ]
+      },
+      {
+        "id": "driverConduct",
+        "title": "5. Driver Conduct",
+        "paragraphs": [
+          "Drivers must comply with local transportation laws, maintain their vehicles in safe condition, and treat passengers respectfully.",
+          "NexTaxi may suspend or deactivate drivers who violate these requirements."
+        ]
+      },
+      {
+        "id": "payments",
+        "title": "6. Payments and Fees",
+        "paragraphs": [
+          "Fares are calculated based on distance, time, and demand.",
+          "Payments are processed securely through external providers.",
+          "NexTaxi may apply additional charges for late cancellations or vehicle damage."
+        ]
+      },
+      {
+        "id": "cancellations",
+        "title": "7. Cancellations",
+        "paragraphs": [
+          "You may cancel a trip before the driver arrives at the pickup location.",
+          "Late or repeated cancellations may incur additional fees.",
+          "Drivers may also cancel a trip if the passenger does not show up."
+        ]
+      },
+      {
+        "id": "liability",
+        "title": "8. Limitation of Liability",
+        "paragraphs": [
+          "NexTaxi does not guarantee continuous availability of the service.",
+          "We are not responsible for delays, cancellations, accidents, or damages caused by independent drivers.",
+          "NexTaxi’s liability is limited to the maximum extent permitted by law."
+        ]
+      },
+      {
+        "id": "suspension",
+        "title": "9. Account Suspension or Termination",
+        "paragraphs": [
+          "NexTaxi may suspend or terminate your account if you violate these terms or if suspicious activity is detected.",
+          "You may request account deletion at any time."
+        ]
+      },
+      {
+        "id": "updates",
+        "title": "10. Updates to the Terms",
+        "paragraphs": [
+          "NexTaxi may update these Terms of Service to reflect legal or service changes.",
+          "The updated version will be published in the app and on the website."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "11. Contact Us",
+        "paragraphs": [
+          "If you have questions about these terms, you can contact us at:",
+          "Email: support@nextaxi.app"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "description": "Connecting Lanzarote with reliable transport services. Safe, fast, and always available.",
+    "company": {
+      "title": "COMPANY",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "legal": {
+      "title": "LEGAL",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© 2026 NexTaxi Lanzarote. All rights reserved."
+  },
+  "reserva": {
+    "title": "Request Your Taxi Now",
+    "subtitle": "Fast and reliable service in Lanzarote without registration",
+    "formTitle": "Where are we going?",
+    "form": {
+      "pickup": "Pickup Location",
+      "pickupPlaceholder": "Enter pickup address",
+      "destination": "Destination (optional)",
+      "destinationPlaceholder": "Where are you going?",
+      "name": "Your Name",
+      "namePlaceholder": "e.g. John Doe",
+      "phone": "Contact Phone",
+      "phonePlaceholder": "+34 600 000 000",
+      "submit": "Request Taxi Now",
+      "success": "Request sent! A driver will contact you soon.",
+      "error": "Error sending request. Please try again.",
+      "getRoute": "Get Route",
+      "loading": "Calculating route...",
+      "reset": "Request another"
+    },
+    "call": {
+      "title": "Prefer to call?",
+      "text": "24/7 phone support for immediate bookings.",
+      "button": "Call NexTaxi",
+      "phone": "+34 600 000 000"
+    },
+    "benefits": {
+      "title": "Why use NexTaxi?",
+      "items": {
+        "immediate": "Immediate assignment",
+        "verified": "Verified drivers",
+        "available": "Available 24/7"
+      }
+    }
+  },
+  "contact": {
+    "title": "Let’s keep the city moving.",
+    "subtitle": "Precision dispatch and premium service. Whether you're a passenger or a partner, we're here to assist.",
+    "info": [
+      { "title": "Support Phone", "value": "+1 (800) 555-1234" },
+      { "title": "Email Us", "value": "support@nextaxi.com" },
+      { "title": "Headquarters", "value": "122 Market Boulevard, San Francisco, CA 94103" }
+    ],
+    "driver": {
+      "title": "Interested in driving?",
+      "text": "Join the fleet in the future. Send us your details and we’ll notify you with requirements and earning potential."
+    },
+    "form": {
+      "title": "Send a Message",
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sendAgain": "Send another message",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for contacting NexTaxi. We have received your message correctly and our support team will review it within the next 24 hours.",
+      "options": {
+        "support": "Technical Support",
+        "driver": "I want to be a driver",
+        "other": "Other matter"
+      }
+    },
+    "map": {
+      "title": "NexTaxi Hub",
+      "address": "122 Market Boulevard, San Francisco, CA 94103"
+    }
+  },
+  "rideForm": {
+    "title": "Ride details",
+    "subtitle": "Calculate your route and request a taxi",
+    "currentLocation": "Current location",
+    "currentLocationPlaceholder": "Detecting location...",
+
+    "destination": "Destination (optional)",
+    "destinationPlaceholder": "Where do you want to go?",
+    "vehicleType": "Vehicle type",
+    "estimation": "Estimation",
+    "estimationPlaceholder": "Estimation not available yet",
+    "requestTaxi": "Request Taxi",
+    "sentTitle": "Taxi requested",
+    "sentSubtitle": "A driver is on the way",
+
+    "vehicleOptions": [
+      { "value": "normal", "label": "Standard" },
+      { "value": "grande", "label": "Large" },
+      { "value": "adaptado", "label": "Accessible (PMR)" }
+    ]
+  },
+  "tripHistory": {
+    "title": "My Trips",
+    "subtitle": "Detailed history of your journeys with NexTaxi",
+    "noTrips": "No trips recorded",
+    "table": {
+      "date": "Date",
+      "route": "Origin / Destination",
+      "status": "Status",
+      "price": "Price",
+      "map": "Map"
+    },
+    "modal": {
+      "title": "Trip Details",
+      "distance": "Distance",
+      "duration": "Duration",
+      "driver": "Driver",
+      "finalPrice": "Final Price"
+    },
+    "status": {
+      "finished": "Finished",
+      "ongoing": "In progress"
+    }
+  },
+  "tracking": {
+    "loading": "Loading trip...",
+    "notFound": "Trip not found.",
+    "onWay": "Heading to pickup",
+    "inTrip": "On trip",
+    "customer": "Customer",
+    "pickupButton": "Pick up Customer",
+    "finishButton": "Finish Trip",
+    "prompts": {
+      "destination": "Enter destination address:",
+      "price": "Enter final price (€):"
+    }
+  },
+  "userTracking": {
+    "loading": "Loading tracking...",
+    "noActive": "No active trip.",
+    "enRoute": "On the way to your destination",
+    "toPickup": "The taxi is coming for you",
+    "estPrice": "Estimated Price"
+  },
+  "rideRequest": {
+    "origin": "Origin",
+    "destination": "Destination",
+    "getRoute": "Get route",
+    "loading": "Loading route..."
+  },
+  "dashboard": {
+    "welcome": "Welcome to NexTaxi",
+    "active": "You have an ongoing ride.",
+    "noActive": "Request a taxi now or check your previous rides.",
+    "loading": "Loading dashboard...",
+    "origin": "Origin",
+    "destination": "Destination",
+    "pickupPlaceholder": "Pickup address",
+    "destinationPlaceholder": "Destination address",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone",
+    "getRoute": "Get route",
+    "loadingRoute": "Loading route..."
+  },
+  "taxiChat": {
+    "title": "Taxi Lanzarote",
+    "subtitle": "Assistant available",
+    "bubble": "Need a taxi? 🚕",
+    "placeholder": "Type your question...",
+    "greeting": "Hi! 👋 I'm your Lanzarote taxi assistant. How can I help?",
+    "error": "Connection error. Try again.",
+    "online": "Online"
+  }
+}
