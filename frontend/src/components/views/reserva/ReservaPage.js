@@ -12,7 +12,6 @@ import UserTripStatus from './UserTripStatus';
 export default function ReservaPage() {
   const t = useTranslations('reserva');
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
   const [isProcessActive, setIsProcessActive] = useState(true);
 
@@ -45,10 +44,9 @@ export default function ReservaPage() {
       if (res.error) {
         setError(res.data?.message || t('form.error'));
       } else {
-        setSuccess(true);
         setIsProcessActive(true);
       }
-    } catch (err) {
+    } catch {
       setError(t('form.error'));
     } finally {
       setLoading(false);

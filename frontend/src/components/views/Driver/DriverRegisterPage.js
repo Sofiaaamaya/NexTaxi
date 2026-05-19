@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Poppins from '@/components/ui/Poppins';
 import TitleComponent from '@/components/common/TitleComponent';
 import Icon from '@/components/icons/Icon';
@@ -95,22 +95,12 @@ export default function DriverRegisterPage({ invitationToken = null, invitationD
     aceptaTerminos: false,
   });
 
-  const [passwordCriteria, setPasswordCriteria] = useState({
-    length: false,
-    upper: false,
-    number: false,
-    special: false,
-  });
-
-  useEffect(() => {
-    const pass = form.password;
-    setPasswordCriteria({
-      length: pass.length >= 8,
-      upper: /[A-Z]/.test(pass),
-      number: /[0-9]/.test(pass),
-      special: /[@$!%*?&_]/.test(pass),
-    });
-  }, [form.password]);
+  const passwordCriteria = {
+    length: form.password.length >= 8,
+    upper: /[A-Z]/.test(form.password),
+    number: /[0-9]/.test(form.password),
+    special: /[@$!%*?&_]/.test(form.password),
+  };
 
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));

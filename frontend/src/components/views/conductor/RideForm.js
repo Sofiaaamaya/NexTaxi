@@ -11,11 +11,9 @@ import MapComponent from '@/components/common/MapComponent';
 import { useGoogleRoute } from '@/hooks/useGoogleRoute';
 import UsuarioRideTracking from '../UsuarioRideTracking';
 import ConductorRideTracking from './ConductorRideTracking';
-import { useLayout } from '@/context/LayoutContext';
 
 export default function RideForm({ role = 'usuario' }) {
   const t = useTranslations('rideForm');
-  const { sidebarOpen } = useLayout();
 
   const [loading, setLoading] = useState(true);
   const [activeRide, setActiveRide] = useState(null);
@@ -43,9 +41,21 @@ export default function RideForm({ role = 'usuario' }) {
     fetchRoute,
   } = useGoogleRoute(form.pickup, form.destination);
 
-  useEffect(() => {
-    checkActiveRide();
+  const checkActiveRide = useCallback(async () => {
+    const res = await apiFetch('/viajes/activa');
+    if (!res.error && res.active !== false && res.id_viaje) {
+      setActiveRide(res);
+      setWaitingForDriver(false);
+    } else {
+      setActiveRide(null);
+    }
+    setLoading(false);
   }, []);
+
+  useEffect(() => {
+    const id = setTimeout(() => checkActiveRide(), 0);
+    return () => clearTimeout(id);
+  }, [checkActiveRide]);
 
   // AUTO-FETCH RUTA cuando cambian los campos
   useEffect(() => {
@@ -65,18 +75,7 @@ export default function RideForm({ role = 'usuario' }) {
       }, 3000);
     }
     return () => clearInterval(interval);
-  }, [waitingForDriver, activeRide]);
-
-  const checkActiveRide = async () => {
-    const res = await apiFetch('/viajes/activa');
-    if (!res.error && res.active !== false && res.id_viaje) {
-      setActiveRide(res);
-      setWaitingForDriver(false);
-    } else {
-      setActiveRide(null);
-    }
-    setLoading(false);
-  };
+  }, [waitingForDriver, activeRide, checkActiveRide]);
 
   const handleToggle = () => {
     setOpen(!open);

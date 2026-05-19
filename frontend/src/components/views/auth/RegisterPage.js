@@ -10,9 +10,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import Icon from '@/components/icons/Icon';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 
-const InputWrapper = ({ icon, children, label, isFocused, hasValue, fieldError }) => {
-  const isFloating = isFocused || hasValue;
-
+const InputWrapper = ({ icon, children, label, isFocused, fieldError }) => {
   return (
     <div className="relative w-full">
       <div className="relative">

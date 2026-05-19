@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import TitleComponent from '@/components/common/TitleComponent';
 import DriversWeeklyChart from './DriversWeeklyChart';
@@ -17,11 +17,7 @@ export default function DriversPage({ onDataChange }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchDrivers();
-  }, []);
-
-  const fetchDrivers = async () => {
+  const fetchDrivers = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -50,7 +46,11 @@ export default function DriversPage({ onDataChange }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [onDataChange, tCommon]);
+
+  useEffect(() => {
+    fetchDrivers();
+  }, [fetchDrivers]);
 
   return (
     <div className="p-6 space-y-10">

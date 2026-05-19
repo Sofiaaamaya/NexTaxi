@@ -6,9 +6,8 @@ import Icon from '../../icons/Icon';
 import Poppins from '../../ui/Poppins';
 import Image from 'next/image';
 import { useAuth } from '@/context/AuthContext';
-import clsx from 'clsx';
 
-export default function Header({ sidebarOpen, setSidebarOpen }) {
+export default function Header({ setSidebarOpen }) {
   const t = useTranslations('common');
   const locale = useLocale();
   const { user } = useAuth();

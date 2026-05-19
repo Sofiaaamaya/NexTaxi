@@ -53,7 +53,7 @@ export default function MapComponent({
     [onMapLoad]
   );
 
-  const onUnmount = useCallback(function callback(mapInstance) {
+  const onUnmount = useCallback(function callback() {
     setMap(null);
   }, []);
 

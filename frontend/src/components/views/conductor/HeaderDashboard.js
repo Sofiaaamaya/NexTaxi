@@ -1,15 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import Icon from '../../icons/Icon';
 import Poppins from '../../ui/Poppins';
 import Image from 'next/image';
 import { useAuth } from '@/context/AuthContext';
 
-export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
-  const t = useTranslations('common');
+export default function HeaderDashboard({ setSidebarOpen }) {
   const locale = useLocale();
   const { user } = useAuth();
 
@@ -38,7 +37,7 @@ export default function HeaderDashboard({ sidebarOpen, setSidebarOpen }) {
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 0);
   }, []);
 
   const currentRole =

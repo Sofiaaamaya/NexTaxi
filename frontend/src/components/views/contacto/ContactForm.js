@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Poppins from '@/components/ui/Poppins';
 import Icon from '@/components/icons/Icon';
 import clsx from 'clsx';
-import { apiFetch } from '@/lib/api';
 
 const InputWrapper = ({ icon, children, label, isFocused, hasValue, isTextarea = false }) => {
   const isFloating = isFocused || hasValue;
@@ -88,7 +87,7 @@ export default function ContactForm({ t }) {
       } else {
         setIsSent(true);
       }
-    } catch (err) {
+    } catch {
       setErrorMessage('Error de conexión');
     } finally {
       setIsSubmitting(false);

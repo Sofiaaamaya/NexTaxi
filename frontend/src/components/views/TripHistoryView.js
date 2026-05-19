@@ -8,8 +8,11 @@ import Icon from '@/components/icons/Icon';
 import MapComponent from '@/components/common/MapComponent';
 import FinishTripModal from './conductor/FinishTripModal';
 
+import { useRouter } from 'next/navigation';
+
 export default function TripHistoryView({ rol }) {
   const t = useTranslations('tripHistory');
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('historial');
   const [trips, setTrips] = useState([]);
   const [pendientes, setPendientes] = useState([]);
@@ -18,18 +21,19 @@ export default function TripHistoryView({ rol }) {
   const [selectedTrip, setSelectedTrip] = useState(null);
   const [finishingTrip, setFinishingTrip] = useState(null);
 
-  const fetchTrips = async () => {
+  const fetchTrips = useCallback(async () => {
     setLoading(true);
     const res = await apiFetch('/viajes/');
     if (!res.error) {
       setTrips(res);
     }
     setLoading(false);
-  };
+  }, []);
 
   useEffect(() => {
-    fetchTrips();
-  }, []);
+    const id = setTimeout(() => fetchTrips(), 0);
+    return () => clearTimeout(id);
+  }, [fetchTrips]);
 
   const [actionError, setActionError] = useState(null);
 
@@ -58,7 +62,7 @@ export default function TripHistoryView({ rol }) {
     setActionError(null);
     const res = await apiFetch(`/viajes/${id_solicitud}/aceptar`, { method: 'POST' });
     if (!res.error) {
-      window.location.href = window.location.pathname.replace('/mis-viajes', '/dashboard');
+      router.push(window.location.pathname.replace('/mis-viajes', '/dashboard'));
     } else {
       setActionError(res.message || 'Error al aceptar el viaje');
     }

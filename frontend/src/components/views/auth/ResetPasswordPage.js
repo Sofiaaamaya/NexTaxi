@@ -5,13 +5,10 @@ import TitleComponent from '@/components/common/TitleComponent';
 import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Icon from '@/components/icons/Icon';
 import { apiFetch } from '@/lib/api';
-
-const InputWrapper = ({ icon, children, label, isFocused, hasValue, fieldError }) => {
-  const isFloating = isFocused || hasValue;
-
+const InputWrapper = ({ icon, children, label, isFocused, fieldError }) => {
   return (
     <div className="relative w-full">
       <div className="relative">
@@ -46,7 +43,6 @@ const InputWrapper = ({ icon, children, label, isFocused, hasValue, fieldError }
 
 export default function ResetPasswordPage() {
   const t = useTranslations('auth.resetPassword');
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentLocale = pathname.split('/')[1] || 'es';
@@ -94,14 +90,14 @@ export default function ResetPasswordPage() {
       } else {
         setSuccess(true);
       }
-    } catch (err) {
+    } catch {
       setError(t('error'));
     } finally {
       setLoading(false);
     }
   };
 
-  const inputClass = (field) => `
+  const inputClass = () => `
     w-full pl-12 pr-4 py-3.5 rounded-xl outline-none transition-all border-2
     ${
       error
@@ -149,7 +145,7 @@ export default function ResetPasswordPage() {
                 onFocus={() => setFocusedField('password')}
                 onBlur={() => setFocusedField(null)}
                 onChange={(e) => setPassword(e.target.value)}
-                className={inputClass('password')}
+                className={inputClass()}
               />
               <button
                 type="button"
@@ -173,7 +169,7 @@ export default function ResetPasswordPage() {
                 onFocus={() => setFocusedField('confirm')}
                 onBlur={() => setFocusedField(null)}
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
-                className={inputClass('confirm')}
+                className={inputClass()}
               />
             </InputWrapper>
 

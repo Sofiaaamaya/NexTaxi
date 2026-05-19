@@ -30,13 +30,13 @@ function AcceptInvitationContent() {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    if (!token) {
-      setError(t('invalid'));
-      setLoading(false);
-      return;
-    }
-
     const validateToken = async () => {
+      if (!token) {
+        setError(t('invalid'));
+        setLoading(false);
+        return;
+      }
+
       const res = await apiFetch('/invitaciones/validar', {
         method: 'POST',
         body: JSON.stringify({ token }),

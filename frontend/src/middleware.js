@@ -14,17 +14,15 @@ export function middleware(request) {
 
   // Redirección si el usuario intenta entrar a la raíz sin idioma
   if (url.pathname === '/') {
-    const locale = DEFAULT_LOCALE;
-    const token = request.cookies.get('token')?.value;
-    url.pathname = `/${locale}/home`;
+    url.pathname = `/${DEFAULT_LOCALE}/home`;
     return NextResponse.redirect(url);
   }
 
   // Protección de rutas y redirección por rol
-  const pathname = url.pathname;
-  const segments = pathname.split('/');
-  const locale = segments[1];
-  const role = segments[2];
+  // const pathname = url.pathname;
+  // const segments = pathname.split('/');
+  // const locale = segments[1];
+  // const role = segments[2];
 
   const localeMatch = url.pathname.match(/^\/(\w{2})(?:\/?$)/);
   if (localeMatch && LOCALES.includes(localeMatch[1])) {

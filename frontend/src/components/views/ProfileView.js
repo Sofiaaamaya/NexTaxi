@@ -29,7 +29,7 @@ export default function ProfileView() {
   const fileInputRef = useRef(null);
 
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 0);
   }, []);
 
   if (!mounted || !user) return null;
@@ -72,7 +72,7 @@ export default function ProfileView() {
       } else {
         setError(data.message || 'Error al actualizar la foto');
       }
-    } catch (err) {
+    } catch {
       setError('Error de conexión al subir la imagen');
     } finally {
       setLoading(false);
@@ -95,7 +95,7 @@ export default function ProfileView() {
       } else {
         setError(res.data?.error || res.data?.message || 'Error al solicitar cambio de contraseña');
       }
-    } catch (err) {
+    } catch {
       setError('Error de conexión');
     } finally {
       setPassLoading(false);

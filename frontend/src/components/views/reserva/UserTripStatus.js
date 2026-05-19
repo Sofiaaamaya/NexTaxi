@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { apiFetch } from '@/lib/api';
 import Poppins from '@/components/ui/Poppins';
 import Icon from '@/components/icons/Icon';
@@ -13,7 +13,7 @@ export default function UserTripStatus({ onFinish }) {
   const [activeRequest, setActiveRequest] = useState(null);
   const [activeRide, setActiveRide] = useState(null);
 
-  const checkStatus = async () => {
+  const checkStatus = useCallback(async () => {
     try {
       const rideRes = await apiFetch('/viajes/activa');
       if (!rideRes.error && rideRes.id_viaje) {
@@ -37,18 +37,18 @@ export default function UserTripStatus({ onFinish }) {
       setActiveRide(null);
       setActiveRequest(null);
       if (onFinish) onFinish();
-    } catch (err) {
+    } catch {
       if (onFinish) onFinish();
     } finally {
       setLoading(false);
     }
-  };
+  }, [onFinish]);
 
   useEffect(() => {
     checkStatus();
     const interval = setInterval(checkStatus, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [checkStatus]);
 
   const handleCancel = async () => {
     if (!activeRequest) return;

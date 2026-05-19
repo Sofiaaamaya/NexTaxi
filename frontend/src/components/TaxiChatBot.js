@@ -6,19 +6,6 @@ import { useTranslations } from 'next-intl';
 import Poppins from '@/components/ui/Poppins';
 import Icon from '@/components/icons/Icon';
 
-const GROQ_API_KEY = process.env.NEXT_PUBLIC_GROQ_API_KEY;
-
-const SYSTEM_PROMPT = `Eres un asistente virtual de taxi para la isla de Lanzarote (Islas Canarias, España).
-Tu único propósito es resolver dudas concretas sobre el servicio de taxi en Lanzarote: tarifas, zonas, aeropuerto, playas, municipios, horarios, tipos de vehículo, reservas y suplementos.
-Detecta automáticamente el idioma del usuario y responde siempre en ese mismo idioma.
-Sé muy breve y directo: máximo 3 frases por respuesta. Sin listas largas.
-Si te preguntan algo ajeno al taxi en Lanzarote, redirige amablemente a tu función principal.
-Datos clave:
-- Aeropuerto: César Manrique, Arrecife. Suplemento aeropuerto aplicable.
-- Destinos frecuentes: Puerto del Carmen, Costa Teguise, Playa Blanca, Puerto Calero, Arrecife centro, La Santa, Yaiza, Haría.
-- Tarifas reguladas por el Cabildo de Lanzarote.
-- Suplementos: nocturno (22h–6h), festivos, maletas grandes.
-- Reservas por teléfono, app o paradas oficiales.`;
 async function askGroq(messages) {
   const res = await fetch('/api/chat', {
     method: 'POST',
@@ -52,7 +39,7 @@ export default function TaxiChatbot() {
     if (open && messages === null) {
       setMessages([{ role: 'assistant', content: t('greeting') }]);
     }
-  }, [open]);
+  }, [open, messages, t]);
 
   useEffect(() => {
     if (open) setBubbleVisible(false);

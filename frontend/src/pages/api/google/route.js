@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     });
     const data = await backendRes.json();
     res.status(backendRes.status).json(data);
-  } catch (e) {
+  } catch {
     res.status(500).json({ error: 'Error en el proxy de ruta' });
   }
 }

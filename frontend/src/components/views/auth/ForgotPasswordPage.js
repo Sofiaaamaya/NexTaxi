@@ -5,13 +5,11 @@ import TitleComponent from '@/components/common/TitleComponent';
 import Poppins from '@/components/ui/Poppins';
 import Link from 'next/link';
 import { useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import Icon from '@/components/icons/Icon';
 import { apiFetch } from '@/lib/api';
 
-const InputWrapper = ({ icon, children, label, isFocused, hasValue, fieldError }) => {
-  const isFloating = isFocused || hasValue;
-
+const InputWrapper = ({ icon, children, label, isFocused, fieldError }) => {
   return (
     <div className="relative w-full">
       <div className="relative">
@@ -46,10 +44,8 @@ const InputWrapper = ({ icon, children, label, isFocused, hasValue, fieldError }
 
 export default function ForgotPasswordPage() {
   const t = useTranslations('auth.forgotPassword');
-  const router = useRouter();
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1] || 'es';
-
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -72,7 +68,7 @@ export default function ForgotPasswordPage() {
       } else {
         setSuccess(true);
       }
-    } catch (err) {
+    } catch {
       setError(t('error'));
     } finally {
       setLoading(false);
