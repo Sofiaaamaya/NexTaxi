@@ -19,22 +19,15 @@ export default async function LocaleLayout({ children, params }) {
 
   let messages = {};
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-
   try {
-    const res = await fetch(
-      `${baseUrl}/locales/${locale}.json`,
-      { cache: 'no-store' }
-    );
-
+    const res = await fetch(`/locales/${locale}.json`, { cache: 'no-store' });
     if (res.ok) {
       messages = await res.json();
     } else {
-      console.error(`No se pudo cargar ${baseUrl}/locales/${locale}.json`);
+      console.error(`No se pudo cargar /locales/${locale}.json`);
     }
   } catch (err) {
-    console.error('Error cargando traducciones:', err);
+    console.error("Error cargando traducciones:", err);
   }
 
   return (
