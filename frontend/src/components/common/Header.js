@@ -29,7 +29,8 @@ export default function Header() {
   if (
     pathname.includes('/admin') ||
     pathname.includes('/gerente') ||
-    pathname.includes('/conductor')
+    pathname.includes('/conductor') ||
+    pathname.includes('/usuario')
   ) {
     return null;
   }
