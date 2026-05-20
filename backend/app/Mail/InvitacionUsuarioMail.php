@@ -31,12 +31,16 @@ class InvitacionUsuarioMail extends Mailable
     public function content(): Content
     {
         $frontendUrl = env('FRONTEND_URL', 'http://localhost:3000');
-        $url = $frontendUrl . '/invitacion/aceptar?token=' . $this->token;
+        // Asegurar que no hay doble barra si la URL ya termina en /
+        $baseUrl = rtrim($frontendUrl, '/');
+        $url = $baseUrl . '/es/invitacion/aceptar?token=' . $this->token;
 
         $html = "<h1>¡Hola!</h1>"
               . "<p>Has sido invitado a unirte a NexTaxi como <strong>{$this->rol}</strong>.</p>"
               . "<p>Para comenzar, haz clic en el siguiente enlace:</p>"
-              . "<p><a href='{$url}' style='display:inline-block;background:#007bff;color:white;padding:10px 20px;text-decoration:none;border-radius:5px;'>Aceptar Invitación</a></p>"
+              . "<p><a href='{$url}' style='display:inline-block;background:#FACC15;color:black;padding:12px 24px;text-decoration:none;border-radius:12px;font-weight:bold;'>Aceptar Invitación</a></p>"
+              . "<p>Si el botón no funciona, copia y pega este enlace en tu navegador:</p>"
+              . "<p>{$url}</p>"
               . "<p>Esta invitación expirará en 48 horas.</p>";
 
         return new Content(
