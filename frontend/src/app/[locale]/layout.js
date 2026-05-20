@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
+import { notFound } from 'next/navigation';
 import '@/styles/global.css';
 import { AuthProvider } from '@/context/AuthContext';
 import LayoutWrapper from '@/components/common/LayoutWrapper';
@@ -13,6 +14,7 @@ export const metadata = {
   description:
     'NexTaxi ofrece traslados rápidos, seguros y cómodos. Reserva tu viaje en línea y disfruta de la mejor experiencia en transporte.',
 };
+
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = params;
@@ -31,8 +33,8 @@ export default async function LocaleLayout({ children, params }) {
   }
 
   return (
-    <html lang={locale}>
-      <body>
+    <html lang={locale} className={poppins.variable}>
+      <body className={poppins.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
             <LayoutWrapper>{children}</LayoutWrapper>
