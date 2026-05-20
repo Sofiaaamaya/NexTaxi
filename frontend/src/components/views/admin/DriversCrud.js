@@ -235,7 +235,7 @@ export default function DriversCrud({ data = [], refreshData }) {
                 <td className="p-4">
                   <div className="w-12 h-12 rounded-2xl bg-gray-100 overflow-hidden relative border-2 border-white shadow-sm">
                     <Image
-                      src="/images/imagen_perfil.webp"
+                      src="/images/icono_avatar.webp"
                       alt="perfil"
                       fill
                       className="object-cover"

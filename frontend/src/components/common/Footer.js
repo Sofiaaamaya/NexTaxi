@@ -4,16 +4,19 @@ import Link from 'next/link';
 import Poppins from '../ui/Poppins';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 export default function Footer() {
   const t = useTranslations('footer');
   const pathname = usePathname();
+  const locale = useLocale();
 
   if (pathname.includes('/admin')) return null;
 
   return (
     <footer className="bg-surface border-t border-border py-16 md:px-6 mt-20">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-center">
+        
         {/* LOGO + DESCRIPTION */}
         <div>
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -45,7 +48,7 @@ export default function Footer() {
 
           <ul className="space-y-2">
             <li>
-              <Link href="/nosotros" className="inline-block">
+              <Link href={`/${locale}/nosotros`} className="inline-block">
                 <Poppins
                   text={t('company.about')}
                   size="14|16"
@@ -55,7 +58,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/contacto" className="inline-block">
+              <Link href={`/${locale}/contacto`} className="inline-block">
                 <Poppins
                   text={t('company.contact')}
                   size="14|16"
@@ -80,7 +83,7 @@ export default function Footer() {
 
           <ul className="space-y-2">
             <li>
-              <Link href="/politica-privacidad" className="inline-block">
+              <Link href={`/${locale}/politica-privacidad`} className="inline-block">
                 <Poppins
                   text={t('legal.privacy')}
                   size="14|16"
@@ -90,7 +93,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/terminos-servicio" className="inline-block">
+              <Link href={`/${locale}/terminos-servicio`} className="inline-block">
                 <Poppins
                   text={t('legal.terms')}
                   size="14|16"
