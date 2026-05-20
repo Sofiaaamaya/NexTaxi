@@ -16,26 +16,28 @@ class SolicitudTaxiController extends Controller
             ->where('fecha_solicitud', '<', now()->subMinutes(20))
             ->update(['estado' => 'cancelada']);
 
-        // Verificar si ya tiene una solicitud pendiente (RECIENTE)
-        $tienePendiente = SolicitudTaxi::where('id_cliente', $user_id)
-            ->where('estado', 'pendiente')
-            ->exists();
+        // Verificar si ya tiene una solicitud pendiente (RECIENTE) - SOLO PARA LOGUEADOS
+        if ($user_id) {
+            $tienePendiente = SolicitudTaxi::where('id_cliente', $user_id)
+                ->where('estado', 'pendiente')
+                ->exists();
 
-        if ($tienePendiente) {
-            return response()->json(['message' => 'Ya tienes una solicitud de taxi pendiente activa.'], 400);
-        }
+            if ($tienePendiente) {
+                return response()->json(['message' => 'Ya tienes una solicitud de taxi pendiente activa.'], 400);
+            }
 
-        // Verificar si ya tiene un viaje activo
-        $tieneViajeActivo = \App\Models\Viaje::whereHas('solicitud', function($q) use ($user_id) {
-            $q->where('id_cliente', $user_id);
-        })->whereIn('estado', ['asignado', 'en_camino', 'recogido'])->exists();
+            // Verificar si ya tiene un viaje activo
+            $tieneViajeActivo = \App\Models\Viaje::whereHas('solicitud', function($q) use ($user_id) {
+                $q->where('id_cliente', $user_id);
+            })->whereIn('estado', ['asignado', 'en_camino', 'recogido'])->exists();
 
-        if ($tieneViajeActivo) {
-            return response()->json(['message' => 'Ya tienes un viaje en curso.'], 400);
+            if ($tieneViajeActivo) {
+                return response()->json(['message' => 'Ya tienes un viaje en curso.'], 400);
+            }
         }
 
         $data = $req->validated();
-        $data['id_cliente'] = $user_id;
+        $data['id_cliente'] = $user_id; // null si es invitado
         $data['fecha_solicitud'] = now();
         $data['estado'] = 'pendiente';
         
@@ -44,11 +46,16 @@ class SolicitudTaxiController extends Controller
 
     public function cancelar($id) {
         $solicitud = SolicitudTaxi::findOrFail($id);
+        $user_id = auth('sanctum')->id();
         
-        // Solo puede cancelar el dueño de la solicitud
-        if ($solicitud->id_cliente !== auth()->id()) {
+        // Si la solicitud tiene cliente, verificar que sea el mismo
+        if ($solicitud->id_cliente && $solicitud->id_cliente !== $user_id) {
             return response()->json(['message' => 'No tienes permiso para cancelar esta solicitud.'], 403);
         }
+
+        // Si es una solicitud de invitado (id_cliente null), permitir cancelar 
+        // por ahora (en producción se podría usar session_id o token temporal)
+        // Pero si el usuario está logueado y no es el dueño, se bloqueó arriba.
 
         if ($solicitud->estado !== 'pendiente') {
             return response()->json(['message' => 'No se puede cancelar una solicitud que ya ha sido aceptada o cancelada.'], 400);

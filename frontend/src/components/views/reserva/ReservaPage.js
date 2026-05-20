@@ -8,18 +8,23 @@ import Icon from '@/components/icons/Icon';
 import { apiFetch } from '@/lib/api';
 import clsx from 'clsx';
 import UserTripStatus from './UserTripStatus';
+import GooglePlacesInput from '@/components/common/GooglePlacesInput';
 
 export default function ReservaPage() {
   const t = useTranslations('reserva');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isProcessActive, setIsProcessActive] = useState(true);
+  const [isProcessActive, setIsProcessActive] = useState(false);
 
   const [form, setForm] = useState({
     nombre_cliente: '',
     telefono_cliente: '',
     recogida_direccion: '',
+    recogida_lat: null,
+    recogida_lng: null,
     destino_direccion: '',
+    destino_lat: null,
+    destino_lng: null,
   });
 
   const handleSubmit = async (e) => {
@@ -27,12 +32,21 @@ export default function ReservaPage() {
     setLoading(true);
     setError(null);
 
+    if (!form.recogida_lat || !form.recogida_lng) {
+      setError('Por favor, selecciona una dirección de recogida válida.');
+      setLoading(false);
+      return;
+    }
+
     const payload = {
-      ...form,
-      recogida_lat: 28.963,
-      recogida_lng: -13.547,
-      destino_lat: form.destino_direccion ? 28.95 : null,
-      destino_lng: form.destino_direccion ? -13.55 : null,
+      nombre_cliente: form.nombre_cliente,
+      telefono_cliente: form.telefono_cliente,
+      recogida_direccion: form.recogida_direccion,
+      recogida_lat: form.recogida_lat,
+      recogida_lng: form.recogida_lng,
+      destino_direccion: form.destino_direccion,
+      destino_lat: form.destino_lat,
+      destino_lng: form.destino_lng,
     };
 
     try {
@@ -44,6 +58,8 @@ export default function ReservaPage() {
       if (res.error) {
         setError(res.data?.message || t('form.error'));
       } else {
+        // Guardar ID en localStorage para persistencia básica del invitado
+        localStorage.setItem('guest_ride_id', res.id_solicitud);
         setIsProcessActive(true);
       }
     } catch {
@@ -111,15 +127,20 @@ export default function ReservaPage() {
                   className="text-gray-600 ml-1"
                 />
                 <div className="relative">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary z-10">
                     <Icon name="MapPin" size={18} />
                   </div>
-                  <input
-                    type="text"
-                    required
+                  <GooglePlacesInput
                     placeholder={t('form.pickupPlaceholder')}
                     value={form.recogida_direccion}
-                    onChange={(e) => setForm({ ...form, recogida_direccion: e.target.value })}
+                    onChange={(place) =>
+                      setForm((prev) => ({
+                        ...prev,
+                        recogida_direccion: place.address,
+                        recogida_lat: place.lat,
+                        recogida_lng: place.lng,
+                      }))
+                    }
                     className={clsx(inputClass, 'pl-10')}
                   />
                 </div>
@@ -134,14 +155,20 @@ export default function ReservaPage() {
                   className="text-gray-600 ml-1"
                 />
                 <div className="relative">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 z-10">
                     <Icon name="Navigation" size={18} />
                   </div>
-                  <input
-                    type="text"
+                  <GooglePlacesInput
                     placeholder={t('form.destinationPlaceholder')}
                     value={form.destino_direccion}
-                    onChange={(e) => setForm({ ...form, destino_direccion: e.target.value })}
+                    onChange={(place) =>
+                      setForm((prev) => ({
+                        ...prev,
+                        destino_direccion: place.address,
+                        destino_lat: place.lat,
+                        destino_lng: place.lng,
+                      }))
+                    }
                     className={clsx(inputClass, 'pl-10')}
                   />
                 </div>

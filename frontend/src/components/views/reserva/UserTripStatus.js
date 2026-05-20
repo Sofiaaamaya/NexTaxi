@@ -15,6 +15,7 @@ export default function UserTripStatus({ onFinish }) {
 
   const checkStatus = useCallback(async () => {
     try {
+      // 1. Intentar por API normal (si está logueado)
       const rideRes = await apiFetch('/viajes/activa');
       if (!rideRes.error && rideRes.id_viaje) {
         setActiveRide(rideRes);
@@ -34,6 +35,19 @@ export default function UserTripStatus({ onFinish }) {
         }
       }
 
+      // 2. Si falló (ej: 401 por ser invitado) o no hay nada, intentar por ID guardado localmente
+      const guestRideId = localStorage.getItem('guest_ride_id');
+      if (guestRideId) {
+        // Obtenemos la solicitud específica (si el endpoint lo permite)
+        // Como no tenemos /solicitudes/{id}, usamos un truco: si está en localStorage, 
+        // asumimos que sigue pendiente hasta que recibamos un error o el conductor la acepte.
+        // Pero para seguimiento real de invitado, necesitamos que el backend permita GET /solicitudes/{id} a invitados.
+        
+        // Intentamos ver si hay un viaje activo para esa solicitud específica
+        // NOTA: Esto requiere que el backend permita consultar el estado de un viaje por ID de solicitud sin auth
+        // Por ahora, simulamos o dejamos que falle si no hay auth.
+      }
+
       setActiveRide(null);
       setActiveRequest(null);
       if (onFinish) onFinish();
@@ -51,14 +65,16 @@ export default function UserTripStatus({ onFinish }) {
   }, [checkStatus]);
 
   const handleCancel = async () => {
-    if (!activeRequest) return;
+    const idToCancel = activeRequest?.id_solicitud || localStorage.getItem('guest_ride_id');
+    if (!idToCancel) return;
     if (!confirm(t('confirmCancel'))) return;
 
-    const res = await apiFetch(`/solicitudes/${activeRequest.id_solicitud}/cancelar`, {
+    const res = await apiFetch(`/solicitudes/${idToCancel}/cancelar`, {
       method: 'POST',
     });
 
     if (!res.error) {
+      localStorage.removeItem('guest_ride_id');
       setActiveRequest(null);
       if (onFinish) onFinish();
     } else {

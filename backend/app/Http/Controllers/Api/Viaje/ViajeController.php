@@ -11,7 +11,11 @@ use Illuminate\Http\Request;
 class ViajeController extends Controller
 {
     public function index() {
-        $user = auth()->user();
+        $user = auth('sanctum')->user();
+        if (!$user) {
+            return response()->json(['message' => 'No autorizado'], 401);
+        }
+
         $query = Viaje::with(['conductor.usuario', 'conductor.vehiculo', 'solicitud', 'ubicaciones'])
             ->orderBy('created_at', 'desc');
 
@@ -26,17 +30,26 @@ class ViajeController extends Controller
         return $query->get();
     }
 
-    public function activa() {
-        $user = auth()->user();
+    public function activa(Request $request) {
+        $user = auth('sanctum')->user();
         $query = Viaje::with(['conductor.usuario', 'conductor.vehiculo', 'solicitud', 'ubicaciones'])
             ->whereIn('estado', ['asignado', 'en_camino', 'recogido']);
 
-        if ($user->rol === 'conductor') {
-            $query->where('id_conductor', $user->conductor->id_conductor);
-        } elseif ($user->rol === 'cliente') {
-            $query->whereHas('solicitud', function($q) use ($user) {
-                $q->where('id_cliente', $user->id_usuario);
-            });
+        if ($user) {
+            if ($user->rol === 'conductor') {
+                $query->where('id_conductor', $user->conductor->id_conductor);
+            } elseif ($user->rol === 'cliente') {
+                $query->whereHas('solicitud', function($q) use ($user) {
+                    $q->where('id_cliente', $user->id_usuario);
+                });
+            }
+        } else {
+            // Para invitados, buscamos por el ID de solicitud que tengan guardado (pasado por query o header)
+            $guestRideId = $request->header('X-Guest-Ride-ID') ?: $request->query('guest_ride_id');
+            if (!$guestRideId) {
+                return response()->json(['message' => 'No hay viajes activos', 'active' => false], 200);
+            }
+            $query->where('id_solicitud', $guestRideId);
         }
 
         $viaje = $query->first();
