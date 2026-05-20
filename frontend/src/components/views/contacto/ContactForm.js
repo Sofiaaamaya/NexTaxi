@@ -26,7 +26,7 @@ const InputWrapper = ({ icon, children, label, isFocused, hasValue, isTextarea =
         ${isTextarea ? 'top-5' : 'top-1/2 -translate-y-1/2'}
         ${
           isFloating
-            ? '!-translate-y-[2.6rem] left-3 text-xs text-primary bg-white px-2 font-semibold'
+            ? '!-top-2.5 left-3 text-xs text-primary bg-white px-2 font-semibold'
             : 'text-gray-400'
         }
       `}

@@ -26,10 +26,10 @@ const InputWrapper = ({ icon, children, label, isFocused, fieldError }) => {
 
         <label
           className={`
-          absolute left-3 -translate-y-[2.6rem] pointer-events-none transition-all duration-200 z-20
-          text-xs bg-white px-2 font-medium opacity-100
-          ${fieldError ? 'text-red-500' : isFocused ? 'text-primary' : 'text-gray-400'}
-        `}
+            absolute left-3 -top-2.5 pointer-events-none transition-all duration-200 z-20
+            text-xs bg-white px-2 font-medium
+            ${fieldError ? 'text-red-500' : isFocused ? 'text-primary' : 'text-gray-400'}
+          `}
         >
           {label}
         </label>
