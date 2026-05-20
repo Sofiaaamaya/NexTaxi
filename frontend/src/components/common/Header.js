@@ -19,21 +19,23 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+useEffect(() => {
+  setMounted(true);
+  const handleScroll = () => setIsScrolled(window.scrollY > 50);
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
-  if (
-    pathname.includes('/admin') ||
-    pathname.includes('/gerente') ||
-    pathname.includes('/conductor') ||
-    pathname.includes('/usuario')
-  ) {
-    return null;
-  }
+if (!mounted) return null;
 
+if (
+  pathname.includes('/admin') ||
+  pathname.includes('/gerente') ||
+  pathname.includes('/conductor') ||
+  pathname.includes('/usuario')
+) {
+  return null;
+}
   const segments = pathname.split('/').filter(Boolean);
   const currentLocale = segments[0] || 'es';
   const restPath = '/' + segments.slice(1).join('/');
@@ -120,7 +122,7 @@ export default function Header() {
             )}
           </div>
 
-          {mounted && user ? (
+          {user ? (
             <div className="hidden md:flex items-center gap-2">
               <div className="relative group">
                 <div className="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-gray-50 border border-border cursor-pointer hover:bg-gray-100 transition-all">
@@ -226,7 +228,7 @@ export default function Header() {
             })}
 
             <div className="border-t border-border pt-3 mt-2">
-              {mounted && user ? (
+              {user ? (
                 <>
                   <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-gray-50 border border-border">
                     <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
