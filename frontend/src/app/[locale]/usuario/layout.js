@@ -8,13 +8,17 @@ import clsx from 'clsx';
 
 export default function UsuarioLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setSidebarOpen(window.innerWidth >= 1024);
     handleResize();
     window.addEventListener('resize', handleResize);
+    setMounted(true);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <LayoutContext.Provider value={{ sidebarOpen, setSidebarOpen }}>
@@ -26,9 +30,7 @@ export default function UsuarioLayout({ children }) {
 
           <main
             className={clsx(
-              'flex-1 transition-all duration-300 relative overflow-hidden',
-
-              sidebarOpen ? 'ml-0' : 'ml-0'
+              'flex-1 transition-all duration-300 p-6 overflow-auto'
             )}
           >
             {children}

@@ -14,33 +14,27 @@ import {
   GERENTE_NAV_ITEMS,
 } from '@/lib/constants/adminNav';
 import { useAuth } from '@/context/AuthContext';
-import { useEffect, useState } from 'react';
 
 export default function SidebarDashboard({ open, setOpen }) {
   const t = useTranslations('sidebar');
   const locale = useLocale();
   const router = useRouter();
   const { user, logout } = useAuth();
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => setMounted(true), 0);
-  }, []);
 
-  if (!mounted) return null;
 
   const handleLogout = () => {
     logout();
     router.push(`/${locale}/home`);
   };
 
-  const menuByRole = {
-    cliente: USUARIO_NAV_ITEMS,
-    conductor: CONDUCTOR_NAV_ITEMS,
-    admin: ADMIN_NAV_ITEMS,
-    gerente: GERENTE_NAV_ITEMS,
-  };
-
+const menuByRole = {
+  cliente: USUARIO_NAV_ITEMS,
+  usuario: USUARIO_NAV_ITEMS,
+  conductor: CONDUCTOR_NAV_ITEMS,
+  admin: ADMIN_NAV_ITEMS,
+  gerente: GERENTE_NAV_ITEMS,
+};
   const navItems = menuByRole[user?.rol] || menuByRole.cliente;
 
   const roleLabel = {
