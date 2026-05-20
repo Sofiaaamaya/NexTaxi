@@ -75,7 +75,7 @@ export default function RegisterPage() {
 
     if (res.success) {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      const rolePath = user?.rol === 'usuario' || user?.rol === 'cliente' ? 'usuario' : user?.rol;
+      const rolePath = user?.rol;
       router.push(`/${currentLocale}/${rolePath}/dashboard`);
     } else {
       setGeneralError(res.error || 'Error al registrarse con Google');
@@ -93,7 +93,7 @@ export default function RegisterPage() {
 
     if (res.success) {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      const rolePath = user?.rol === 'usuario' || user?.rol === 'cliente' ? 'usuario' : user?.rol;
+      const rolePath = user?.rol;
       router.push(`/${currentLocale}/${rolePath}/dashboard`);
     } else {
       if (res.errors) {
