@@ -29,10 +29,6 @@ export default async function LocaleLayout({ children, params }) {
   // CARGA COMPATIBLE CON EDGE RUNTIME
   const res = await fetch(`/locales/${locale}.json`, { cache: 'no-store' });
 
-  if (!res.ok) {
-    console.error("No se pudo cargar el archivo de traducciones");
-    return <html><body>Error cargando traducciones</body></html>;
-  }
 
 
   const messages = await res.json();
