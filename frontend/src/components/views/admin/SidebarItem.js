@@ -5,14 +5,18 @@ import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import Icon from '../../icons/Icon';
 import Poppins from '../../ui/Poppins';
+import { useLocale } from 'next-intl';
 
 export default function SidebarItem({ icon, label, path, open }) {
   const pathname = usePathname();
-  const isActive = pathname === path || pathname.startsWith(`${path}/`);
+  const locale = useLocale();
+  const fullPath = `/${locale}${path.startsWith('/') ? path : `/${path}`}`;
+  const isActive =
+    pathname === fullPath || pathname.startsWith(`${fullPath}/`);
 
   return (
     <Link
-      href={path}
+      href={fullPath}
       className={clsx(
         'flex items-center gap-3 px-3 py-2 my-1 rounded-lg transition-all duration-200',
         isActive ? 'bg-primary text-white shadow-sm' : 'text-gray-600 hover:bg-gray-100'
