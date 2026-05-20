@@ -68,12 +68,13 @@ export default function SidebarDashboard({ open, setOpen }) {
         />
       )}
 
-      <aside
-        className={clsx(
-          'fixed left-0 top-16 bottom-0 z-40 transition-all duration-300 flex flex-col border-r border-gray-100 bg-white shadow-xl shadow-gray-200/50',
-          open ? 'w-64 translate-x-0' : '-translate-x-full lg:translate-x-0 lg:w-20'
-        )}
-      >
+<aside
+  className={clsx(
+    'fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 flex flex-col border-r border-gray-100 bg-white shadow-xl shadow-gray-200/50',
+    open ? 'w-64 translate-x-0' : '-translate-x-full lg:translate-x-0 lg:w-20'
+  )}
+>
+
         <nav className="flex-1 flex flex-col gap-1.5 px-3 py-6 overflow-y-auto custom-scrollbar">
           {navItems.map((item) => (
             <SidebarItem

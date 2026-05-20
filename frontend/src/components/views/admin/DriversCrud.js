@@ -137,7 +137,8 @@ export default function DriversCrud({ data = [], refreshData }) {
   };
 
   return (
-    <div className="p-6 rounded-2xl shadow-md border bg-white relative">
+    <div className="p-6 rounded-2xl shadow-md border bg-white relative max-w-none w-full">
+
       {/* STATUS MESSAGE */}
       {statusMessage && (
         <div
@@ -174,8 +175,10 @@ export default function DriversCrud({ data = [], refreshData }) {
       </div>
 
       {/* TABLE */}
-      <div className="overflow-x-auto rounded-xl border border-gray-100">
-        <table className="w-full text-left">
+<div className="relative -mx-6">
+  <div className="overflow-x-auto rounded-xl border border-gray-100 w-full max-w-none px-6">
+    <table className="min-w-full text-left">
+
           <thead>
             <tr className="bg-gray-50/50 border-b border-gray-100">
               <th className="p-4">
@@ -310,6 +313,7 @@ export default function DriversCrud({ data = [], refreshData }) {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
 
       {/* PAGINACIÓN */}

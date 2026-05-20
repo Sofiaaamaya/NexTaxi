@@ -24,15 +24,17 @@ export default function UsuarioLayout({ children }) {
         <div className="flex flex-1 pt-16">
           <SidebarDashboard open={sidebarOpen} setOpen={setSidebarOpen} />
 
-          <main
-            className={clsx(
-              'flex-1 transition-all duration-300 relative overflow-hidden',
+<main
+  className={clsx(
+    'flex-1 transition-all duration-300 relative px-6 py-8 pt-16',
+    sidebarOpen ? 'lg:pl-20' : 'pl-0'
+  )}
+>
+  {children}
+</main>
 
-              sidebarOpen ? 'ml-0' : 'ml-0'
-            )}
-          >
-            {children}
-          </main>
+
+
         </div>
       </div>
     </LayoutContext.Provider>

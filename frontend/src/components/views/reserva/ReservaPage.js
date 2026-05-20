@@ -59,7 +59,7 @@ export default function ReservaPage() {
     'w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary transition-all';
 
   return (
-    <div className="max-w-5xl mx-auto py-12 px-4">
+    <div className="max-w-7xl mx-auto py-12 px-4">
       <TitleComponent title={t('title')} subtitle={t('subtitle')} align="center" />
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">

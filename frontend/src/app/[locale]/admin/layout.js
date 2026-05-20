@@ -24,14 +24,18 @@ export default function AdminLayout({ children }) {
         <div className="flex flex-1 pt-16">
           <SidebarDashboard open={sidebarOpen} setOpen={setSidebarOpen} />
 
-          <main
-            className={clsx(
-              'flex-1 p-4 md:p-6 transition-all duration-300 relative overflow-hidden',
-              sidebarOpen ? ' ml-0' : ' ml-0'
-            )}
-          >
+        <main
+          className={clsx(
+            'flex-1 transition-all duration-300 relative overflow-hidden px-6 py-8',
+            sidebarOpen ? 'lg:pl-64' : 'pl-0'
+          )}
+        >
+          <div className="w-full max-w-none">
             {children}
-          </main>
+          </div>
+        </main>
+
+
         </div>
       </div>
     </LayoutContext.Provider>

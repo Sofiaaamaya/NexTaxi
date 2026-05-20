@@ -24,14 +24,18 @@ export default function GerenteLayout({ children }) {
         <div className="flex flex-1 pt-16">
           <SidebarDashboard open={sidebarOpen} setOpen={setSidebarOpen} />
 
-          <main
-            className={clsx(
-              'flex-1 p-4 md:p-6 transition-all duration-300 relative overflow-hidden',
-              sidebarOpen ? 'ml-0' : 'ml-0'
-            )}
-          >
-            {children}
-          </main>
+<main
+  className={clsx(
+    'flex-1 transition-all duration-300 relative overflow-hidden px-6 py-8',
+    sidebarOpen ? 'lg:pl-20' : 'pl-0'
+  )}
+>
+  <div className="w-full max-w-none">
+    {children}
+  </div>
+</main>
+
+
         </div>
       </div>
     </LayoutContext.Provider>
