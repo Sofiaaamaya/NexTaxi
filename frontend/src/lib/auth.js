@@ -43,15 +43,18 @@ export async function googleLogin(token) {
 }
 
 export function logout() {
+  if (typeof window === 'undefined') return;
   sessionStorage.removeItem('token');
   sessionStorage.removeItem('user');
 }
 
 export function getUser() {
+  if (typeof window === 'undefined') return null;
   const user = sessionStorage.getItem('user');
   return user ? JSON.parse(user) : null;
 }
 
 export function isAuthenticated() {
+  if (typeof window === 'undefined') return false;
   return !!sessionStorage.getItem('token');
 }
