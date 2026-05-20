@@ -12,7 +12,7 @@ class Viaje extends Model
     protected $with = ['solicitud'];
 
     protected $fillable = [
-        'id_solicitud','id_conductor','estado',
+        'id_solicitud','id_conductor','id_asignado_por','estado',
         'inicio_viaje','fin_viaje',
         'precio_estimado','precio_final',
         'distancia','duracion','polyline','pasos','coordenadas'

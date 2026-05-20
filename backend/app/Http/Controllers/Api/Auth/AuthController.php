@@ -116,6 +116,13 @@ class AuthController extends Controller
             // Revocar tokens anteriores
             $user->tokens()->delete();
 
+            // Vincular solicitudes previas por teléfono si el usuario ya lo tiene
+            if ($user->telefono) {
+                \App\Models\SolicitudTaxi::where('telefono_cliente', $user->telefono)
+                    ->whereNull('id_cliente')
+                    ->update(['id_cliente' => $user->id_usuario]);
+            }
+
             $token = $user->createToken('auth_token')->plainTextToken;
 
             return response()->json([
@@ -167,6 +174,13 @@ class AuthController extends Controller
             $invitacion->update(['usado' => true]);
         }
 
+        // Vincular solicitudes de invitado previas por teléfono
+        if ($user->telefono) {
+            \App\Models\SolicitudTaxi::where('telefono_cliente', $user->telefono)
+                ->whereNull('id_cliente')
+                ->update(['id_cliente' => $user->id_usuario]);
+        }
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
@@ -186,6 +200,13 @@ public function login(LoginRequest $req) {
 
     // Revocar tokens anteriores (recomendado)
     $user->tokens()->delete();
+
+    // Vincular solicitudes de invitado previas por teléfono
+    if ($user->telefono) {
+        \App\Models\SolicitudTaxi::where('telefono_cliente', $user->telefono)
+            ->whereNull('id_cliente')
+            ->update(['id_cliente' => $user->id_usuario]);
+    }
 
     $token = $user->createToken('auth_token')->plainTextToken;
 

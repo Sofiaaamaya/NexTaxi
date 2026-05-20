@@ -25,7 +25,7 @@ export default function TripHistoryView({ rol }) {
 
   const fetchTrips = useCallback(async () => {
     setLoading(true);
-    const res = await apiFetch('/viajes/');
+    const res = await apiFetch('/viajes');
     if (!res.error) {
       setTrips(res);
     }

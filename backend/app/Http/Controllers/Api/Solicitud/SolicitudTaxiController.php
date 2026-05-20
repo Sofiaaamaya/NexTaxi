@@ -11,12 +11,20 @@ class SolicitudTaxiController extends Controller
     public function store(StoreSolicitudRequest $req) {
         $user_id = auth('sanctum')->id();
 
+        // Si no está logueado, intentar vincular por teléfono si el usuario ya existe
+        if (!$user_id && $req->telefono_cliente) {
+            $userByPhone = \App\Models\Usuario::where('telefono', $req->telefono_cliente)->first();
+            if ($userByPhone) {
+                $user_id = $userByPhone->id_usuario;
+            }
+        }
+
         // Auto-cancelar solicitudes viejas (> 20 min) antes de verificar
         SolicitudTaxi::where('estado', 'pendiente')
             ->where('fecha_solicitud', '<', now()->subMinutes(20))
             ->update(['estado' => 'cancelada']);
 
-        // Verificar si ya tiene una solicitud pendiente (RECIENTE) - SOLO PARA LOGUEADOS
+        // Verificar si ya tiene una solicitud pendiente (RECIENTE) - SOLO PARA LOGUEADOS O VINCULADOS
         if ($user_id) {
             $tienePendiente = SolicitudTaxi::where('id_cliente', $user_id)
                 ->where('estado', 'pendiente')
@@ -37,7 +45,7 @@ class SolicitudTaxiController extends Controller
         }
 
         $data = $req->validated();
-        $data['id_cliente'] = $user_id; // null si es invitado
+        $data['id_cliente'] = $user_id; // null si es invitado y no hay coincidencia de teléfono
         $data['fecha_solicitud'] = now();
         $data['estado'] = 'pendiente';
         

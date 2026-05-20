@@ -67,6 +67,11 @@ class ViajeController extends Controller
 
     public function aceptar($id) {
         $solicitud = SolicitudTaxi::findOrFail($id);
+        $user = auth('sanctum')->user();
+
+        if (!$user || $user->rol !== 'conductor') {
+            return response()->json(['message' => 'Solo los conductores pueden aceptar viajes'], 403);
+        }
 
         if ($solicitud->estado !== 'pendiente') {
             return response()->json(['message' => 'La solicitud ya no está disponible'], 400);
@@ -74,7 +79,7 @@ class ViajeController extends Controller
 
         $viaje = Viaje::create([
             'id_solicitud' => $id,
-            'id_conductor' => auth()->user()->conductor->id_conductor,
+            'id_conductor' => $user->conductor->id_conductor,
             'estado' => 'en_camino'
         ]);
 

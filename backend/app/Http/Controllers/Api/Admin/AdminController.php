@@ -109,6 +109,13 @@ class AdminController extends Controller
             'telefono' => $request->telefono,
         ]);
 
+        // Vincular solicitudes de invitado previas por teléfono
+        if ($usuario->telefono) {
+            \App\Models\SolicitudTaxi::where('telefono_cliente', $usuario->telefono)
+                ->whereNull('id_cliente')
+                ->update(['id_cliente' => $usuario->id_usuario]);
+        }
+
         if ($invitacion->rol === 'conductor') {
             $vehiculo = \App\Models\Vehiculo::create([
                 'matricula' => $request->matricula,
