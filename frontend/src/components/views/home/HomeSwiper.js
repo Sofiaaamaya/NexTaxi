@@ -9,7 +9,7 @@ export default function HomeSwiper() {
 
   const slides = [
     {
-      image: '/images/puente_bolas_arrecife.webp',
+      image: '/images/playa_papagayo.webp',
       alt: t('slides.0.alt'),
       eyebrow: t('slides.0.eyebrow'),
       eyebrowAsBadge: true,
