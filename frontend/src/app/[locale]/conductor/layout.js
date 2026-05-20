@@ -30,7 +30,8 @@ export default function ConductorLayout({ children }) {
 
           <main
             className={clsx(
-              'flex-1 transition-all duration-300 p-6 overflow-auto'
+              'flex-1 transition-all duration-300 p-6 overflow-auto',
+              sidebarOpen ? 'lg:ml-64' : 'lg:ml-20'
             )}
           >
             {children}
