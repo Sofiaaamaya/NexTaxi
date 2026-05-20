@@ -8,7 +8,7 @@ export default function AboutSwiper() {
 
   const slides = [
     {
-      image: '/images/about_granHotel.webp',
+      image: '/images/gran_hotel.webp',
       alt: t('slides.0.alt'),
       eyebrow: t('slides.0.eyebrow'),
       eyebrowAsBadge: true,

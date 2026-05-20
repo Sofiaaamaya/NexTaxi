@@ -8,7 +8,7 @@
   "theme_color": "#1e3a8a",
   "icons": [
     {
-      "src": "/images/taxi_banner.webp",
+      "src": "/images/taxi_conductor.webp",
       "sizes": "192x192",
       "type": "image/webp"
     }

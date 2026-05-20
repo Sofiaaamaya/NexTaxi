@@ -19,7 +19,7 @@ export default function TeamSection() {
     {
       name: 'Elena Rodriguez',
       role: 'Head of Product Design',
-      image: '/images/empresaria_4.webp',
+      image: '/images/empresaria_8.webp',
     },
     {
       name: 'Marcus Thorne',
