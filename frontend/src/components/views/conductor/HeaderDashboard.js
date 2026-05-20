@@ -7,13 +7,14 @@ import Icon from '../../icons/Icon';
 import Poppins from '../../ui/Poppins';
 import Image from 'next/image';
 import { useAuth } from '@/context/AuthContext';
+import { getRolePath } from '@/lib/auth';
 
 export default function HeaderDashboard({ setSidebarOpen }) {
   const locale = useLocale();
   const { user } = useAuth();
 
   const roleConfig = {
-    cliente: {
+    usuario: {
       label: 'Usuario',
       subtitle: 'User Panel',
       dashboard: `/${locale}/usuario/dashboard`,
@@ -41,7 +42,9 @@ export default function HeaderDashboard({ setSidebarOpen }) {
   }, []);
 
   const currentRole =
-    mounted && user?.rol ? roleConfig[user.rol] || roleConfig.cliente : roleConfig.cliente;
+    mounted && user?.rol
+      ? roleConfig[getRolePath(user.rol)] || roleConfig.usuario
+      : roleConfig.usuario;
 
   if (!mounted) return <div className="h-16 bg-white border-b border-gray-100" />;
 

@@ -14,6 +14,7 @@ import {
   GERENTE_NAV_ITEMS,
 } from '@/lib/constants/adminNav';
 import { useAuth } from '@/context/AuthContext';
+import { getRolePath } from '@/lib/auth';
 
 export default function SidebarDashboard({ open, setOpen }) {
   const t = useTranslations('sidebar');
@@ -21,31 +22,30 @@ export default function SidebarDashboard({ open, setOpen }) {
   const router = useRouter();
   const { user, logout } = useAuth();
 
-
-
   const handleLogout = () => {
     logout();
     router.push(`/${locale}/home`);
   };
 
-const menuByRole = {
-  cliente: USUARIO_NAV_ITEMS,
-  usuario: USUARIO_NAV_ITEMS,
-  conductor: CONDUCTOR_NAV_ITEMS,
-  admin: ADMIN_NAV_ITEMS,
-  gerente: GERENTE_NAV_ITEMS,
-};
-  const navItems = menuByRole[user?.rol] || menuByRole.cliente;
+  const menuByRole = {
+    usuario: USUARIO_NAV_ITEMS,
+    conductor: CONDUCTOR_NAV_ITEMS,
+    admin: ADMIN_NAV_ITEMS,
+    gerente: GERENTE_NAV_ITEMS,
+  };
+
+  const currentRolePath = user?.rol ? getRolePath(user.rol) : 'usuario';
+  const navItems = menuByRole[currentRolePath] || menuByRole.usuario;
 
   const roleLabel = {
-    cliente: 'Usuario',
+    usuario: 'Usuario',
     conductor: 'Conductor',
     admin: 'Administrador',
     gerente: 'Gerente',
   };
 
   const defaultEmail = {
-    cliente: 'usuario@nextaxi.com',
+    usuario: 'usuario@nextaxi.com',
     conductor: 'conductor@nextaxi.com',
     admin: 'admin@nextaxi.com',
     gerente: 'gerente@nextaxi.com',
@@ -74,7 +74,7 @@ const menuByRole = {
               key={item.key}
               icon={item.icon}
               label={t(item.key)}
-              path={`/${locale}${item.path}`}
+              path={item.path}
               open={isSidebarExpanded}
             />
           ))}
@@ -105,13 +105,13 @@ const menuByRole = {
             {isSidebarExpanded && (
               <div className="flex flex-1 min-w-0 flex-col">
                 <Poppins
-                  text={user?.nombre || roleLabel[user?.rol]}
+                  text={user?.nombre || roleLabel[currentRolePath]}
                   size="13|14"
                   weight="bold"
                   className="truncate"
                 />
                 <Poppins
-                  text={user?.email || defaultEmail[user?.rol]}
+                  text={user?.email || defaultEmail[currentRolePath]}
                   size="11|12"
                   color="gray-400"
                   className="truncate"
