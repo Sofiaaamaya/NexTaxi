@@ -10,7 +10,10 @@ import { useLocale } from 'next-intl';
 export default function SidebarItem({ icon, label, path, open }) {
   const pathname = usePathname();
   const locale = useLocale();
+
   const fullPath = `/${locale}${path.startsWith('/') ? path : `/${path}`}`;
+
+
   const isActive =
     pathname === fullPath || pathname.startsWith(`${fullPath}/`);
 
