@@ -182,7 +182,7 @@ export default function ProfileView() {
                   <Poppins text="Gestiona el acceso a tu cuenta" size="14" color="textSecondary" />
                 </div>
 
-                <div className="flex items-center justify-between bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-gray-50 p-6 rounded-2xl border border-gray-100">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm">
                       <Icon name="Lock" size={24} />
