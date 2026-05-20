@@ -22,25 +22,25 @@ class AuthController extends Controller
     public function forgotPassword(Request $request)
     {
         $request->validate(['email' => 'required|email']);
+        $email = strtolower($request->email);
 
-        $user = Usuario::where('email', $request->email)->first();
+        $user = Usuario::where('email', $email)->first();
 
         if (!$user) {
-            // Por seguridad, no decir si el email existe o no
             return response()->json(['msg' => 'Si el correo electrónico existe, se ha enviado un enlace de recuperación.']);
         }
 
         $token = Str::random(60);
 
         DB::table('password_reset_tokens')->updateOrInsert(
-            ['email' => $request->email],
+            ['email' => $email],
             [
                 'token' => Hash::make($token),
                 'created_at' => Carbon::now()
             ]
         );
 
-        Mail::to($request->email)->send(new RecuperarPasswordMail($token, $request->email));
+        Mail::to($email)->send(new RecuperarPasswordMail($token, $email));
 
         return response()->json(['msg' => 'Si el correo electrónico existe, se ha enviado un enlace de recuperación.']);
     }
@@ -53,7 +53,8 @@ class AuthController extends Controller
             'password' => 'required|min:8|confirmed',
         ]);
 
-        $reset = DB::table('password_reset_tokens')->where('email', $request->email)->first();
+        $email = strtolower($request->email);
+        $reset = DB::table('password_reset_tokens')->where('email', $email)->first();
 
         if (!$reset || !Hash::check($request->token, $reset->token)) {
             return response()->json(['error' => 'Token inválido o expirado'], 400);
@@ -61,18 +62,18 @@ class AuthController extends Controller
 
         // Verificar expiración (1 hora)
         if (Carbon::parse($reset->created_at)->addMinutes(60)->isPast()) {
-            DB::table('password_reset_tokens')->where('email', $request->email)->delete();
+            DB::table('password_reset_tokens')->where('email', $email)->delete();
             return response()->json(['error' => 'El enlace ha expirado'], 400);
         }
 
-        $user = Usuario::where('email', $request->email)->first();
+        $user = Usuario::where('email', $email)->first();
         if (!$user) {
             return response()->json(['error' => 'Usuario no encontrado'], 404);
         }
 
         $user->update(['password' => Hash::make($request->password)]);
 
-        DB::table('password_reset_tokens')->where('email', $request->email)->delete();
+        DB::table('password_reset_tokens')->where('email', $email)->delete();
 
         return response()->json(['msg' => 'Contraseña actualizada con éxito']);
     }
@@ -95,7 +96,10 @@ class AuthController extends Controller
             $payload = $client->verifyIdToken($request->token);
 
             if (!$payload) {
-                return response()->json(['error' => 'Token de Google inválido o expirado'], 401);
+                return response()->json([
+                    'error' => 'Token de Google inválido o expirado',
+                    'details' => 'El token enviado por el frontend no pudo ser verificado por Google. Revisa que el CLIENT_ID sea idéntico en frontend y backend.'
+                ], 401);
             }
 
             $email = $payload['email'];

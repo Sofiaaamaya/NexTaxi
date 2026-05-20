@@ -31,12 +31,16 @@ class RecuperarPasswordMail extends Mailable
     public function content(): Content
     {
         $frontendUrl = env('FRONTEND_URL', 'http://localhost:3000');
-        $url = $frontendUrl . '/reset-password?token=' . $this->token . '&email=' . urlencode($this->email);
+        $baseUrl = rtrim($frontendUrl, '/');
+        // Incluir el prefijo /es/ para evitar redirecciones que pierdan los params
+        $url = $baseUrl . '/es/reset-password?token=' . $this->token . '&email=' . urlencode($this->email);
 
         $html = "<h1>Recuperación de Contraseña</h1>"
               . "<p>Has solicitado restablecer tu contraseña en NexTaxi.</p>"
               . "<p>Haz clic en el siguiente enlace para elegir una nueva contraseña:</p>"
-              . "<p><a href='{$url}' style='display:inline-block;background:#1e3a8a;color:white;padding:12px 24px;text-decoration:none;border-radius:8px;font-weight:bold;'>Restablecer Contraseña</a></p>"
+              . "<p><a href='{$url}' style='display:inline-block;background:#FACC15;color:black;padding:12px 24px;text-decoration:none;border-radius:12px;font-weight:bold;'>Restablecer Contraseña</a></p>"
+              . "<p>Si el botón no funciona, copia y pega este enlace en tu navegador:</p>"
+              . "<p>{$url}</p>"
               . "<p>Si no solicitaste este cambio, puedes ignorar este correo.</p>"
               . "<p>Este enlace expirará en 60 minutos.</p>";
 
