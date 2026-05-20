@@ -3,16 +3,19 @@
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { apiFetch } from '@/lib/api';
 import Poppins from '@/components/ui/Poppins';
 import TitleComponent from '@/components/common/TitleComponent';
 import Icon from '@/components/icons/Icon';
 import DriverRegisterPage from '@/components/views/Driver/DriverRegisterPage';
+import { getRolePath } from '@/lib/auth';
 
 function AcceptInvitationContent() {
   const t = useTranslations('acceptInvitation');
   const searchParams = useSearchParams();
   const router = useRouter();
+  const locale = useLocale();
   const token = searchParams.get('token');
 
   const [invitationData, setInvitationData] = useState(null);
@@ -80,11 +83,8 @@ function AcceptInvitationContent() {
 
       // Redirigir según rol después de 2 segundos
       setTimeout(() => {
-        const rol = res.user.rol;
-        if (rol === 'admin') router.push('/admin/dashboard');
-        else if (rol === 'gerente') router.push('/gerente/dashboard');
-        else if (rol === 'conductor') router.push('/conductor/dashboard');
-        else router.push('/usuario/dashboard');
+        const rolePath = getRolePath(res.user.rol);
+        router.push(`/${locale}/${rolePath}/dashboard`);
       }, 2000);
     }
   };

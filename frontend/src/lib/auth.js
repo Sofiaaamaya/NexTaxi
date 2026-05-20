@@ -48,6 +48,16 @@ export function logout() {
   sessionStorage.removeItem('user');
 }
 
+export function getRolePath(role) {
+  const mapping = {
+    cliente: 'usuario',
+    conductor: 'conductor',
+    admin: 'admin',
+    gerente: 'gerente',
+  };
+  return mapping[role] || role;
+}
+
 export function getUser() {
   if (typeof window === 'undefined') return null;
   const user = sessionStorage.getItem('user');

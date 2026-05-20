@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import Icon from '@/components/icons/Icon';
+import { getRolePath } from '@/lib/auth';
 
 const InputWrapper = ({ icon, children, label, isFocused, fieldError }) => {
   return (
@@ -68,7 +69,7 @@ export default function LoginPage() {
 
     if (res.success) {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      const rolePath = user?.rol;
+      const rolePath = getRolePath(user?.rol);
       router.push(`/${currentLocale}/${rolePath}/dashboard`);
     } else {
       setGeneralError(res.error || 'Error al iniciar sesión con Google');
@@ -86,7 +87,7 @@ export default function LoginPage() {
 
     if (res.success) {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      const rolePath = user?.rol;
+      const rolePath = getRolePath(user?.rol);
       router.push(`/${currentLocale}/${rolePath}/dashboard`);
     } else {
       if (res.data?.errors) {

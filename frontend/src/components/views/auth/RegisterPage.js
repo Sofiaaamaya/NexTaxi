@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Icon from '@/components/icons/Icon';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+import { getRolePath } from '@/lib/auth';
 
 const InputWrapper = ({ icon, children, label, isFocused, fieldError }) => {
   return (
@@ -75,7 +76,7 @@ export default function RegisterPage() {
 
     if (res.success) {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      const rolePath = user?.rol;
+      const rolePath = getRolePath(user?.rol);
       router.push(`/${currentLocale}/${rolePath}/dashboard`);
     } else {
       setGeneralError(res.error || 'Error al registrarse con Google');
@@ -93,7 +94,7 @@ export default function RegisterPage() {
 
     if (res.success) {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      const rolePath = user?.rol;
+      const rolePath = getRolePath(user?.rol);
       router.push(`/${currentLocale}/${rolePath}/dashboard`);
     } else {
       if (res.errors) {

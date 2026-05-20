@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Poppins from '@/components/ui/Poppins';
 import TitleComponent from '@/components/common/TitleComponent';
 import Icon from '@/components/icons/Icon';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { apiFetch } from '@/lib/api';
 
@@ -62,6 +62,7 @@ export default function DriverRegisterPage({ invitationToken = null, invitationD
   const [step, setStep] = useState(1);
   const t = useTranslations('DriverRegister');
   const router = useRouter();
+  const locale = useLocale();
 
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
@@ -181,7 +182,7 @@ export default function DriverRegisterPage({ invitationToken = null, invitationD
         setSuccessMessage('¡Registro completado con éxito!');
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('user', JSON.stringify(res.user));
-        setTimeout(() => router.push('/conductor/dashboard'), 1500);
+        setTimeout(() => router.push(`/${locale}/conductor/dashboard`), 1500);
       }
     }
   };

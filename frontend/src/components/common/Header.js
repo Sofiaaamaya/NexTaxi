@@ -7,6 +7,7 @@ import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/icons/Icon';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
+import { getRolePath } from '@/lib/auth';
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -144,13 +145,13 @@ if (
 
                 {/* DROPDOWN USER */}
                 <div className="absolute right-0 mt-1 w-48 bg-white border border-border rounded-xl shadow-xl py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0">
-                  <Link href={`/${currentLocale}/${user.rol}/dashboard`}>
+                  <Link href={`/${currentLocale}/${getRolePath(user.rol)}/dashboard`}>
                     <div className="px-4 py-2 hover:bg-gray-50 flex items-center gap-2 transition-colors">
                       <Icon name="LayoutDashboard" size={16} className="text-gray-400" />
                       <Poppins text="Dashboard" size="14" />
                     </div>
                   </Link>
-                  <Link href={`/${currentLocale}/${user.rol}/mis-viajes`}>
+                  <Link href={`/${currentLocale}/${getRolePath(user.rol)}/mis-viajes`}>
                     <div className="px-4 py-2 hover:bg-gray-50 flex items-center gap-2 transition-colors">
                       <Icon name="History" size={16} className="text-gray-400" />
                       <Poppins text={t('nav.misViajes') || 'Mis Viajes'} size="14" />
@@ -238,7 +239,7 @@ if (
                   </div>
 
                   <Link
-                    href={`/${currentLocale}/${user.rol}/dashboard`}
+                    href={`/${currentLocale}/${getRolePath(user.rol)}/dashboard`}
                     onClick={() => setOpenMenu(false)}
                   >
                     <div className="w-full py-3 px-4 mt-2 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
@@ -247,7 +248,7 @@ if (
                     </div>
                   </Link>
                   <Link
-                    href={`/${currentLocale}/${user.rol}/mis-viajes`}
+                    href={`/${currentLocale}/${getRolePath(user.rol)}/mis-viajes`}
                     onClick={() => setOpenMenu(false)}
                   >
                     <div className="w-full py-3 px-4 flex items-center gap-3 hover:bg-gray-50 rounded-xl transition">
